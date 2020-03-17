@@ -1,3 +1,47 @@
-h1 {
-    color:blue;
+.site-header{
+    padding: 30px 0 0;
+    position: absolute;
+    width: 100%;
+    top: 0; 
+    .site-branding{
+        img{
+            width: 100%;
+        }
+    }
+    .site-nav{
+        .nav{
+            li{
+                display: inline-block;
+                padding: 0 20px;
+                a{
+                    font:{
+                        size: 20px;
+                        family: $primary-font;
+                        weight: 600; 
+                    }
+                    color: $primary-color;
+                }
+            }
+        }
+        .request-a-quote{
+            a{
+                display: inline-block;
+                background-color: #1e2129;
+                color: $white;
+                font:{
+                    family: $primary-font;
+                    size: 16px;
+                    weight: bold;
+                }
+                text-transform: uppercase;
+                padding: 11px 18px;
+                border-radius: 2px;
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
 }
+
+  

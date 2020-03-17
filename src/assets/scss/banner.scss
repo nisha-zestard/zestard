@@ -1,0 +1,27 @@
+.page-banner{
+    background: -webkit-linear-gradient( -47deg, rgb(3,22,142) 0%, rgb(7,132,165) 100%);
+    padding: 150px 0 50px;
+    .banner-content{
+        h1{
+            font:{
+                size: 55px;
+                family: $primary-font;
+                weight: 800;
+            }
+            color: $white;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            span{
+                color: #96d21f;
+            }
+        }
+        p{
+            color: #cfdefb;
+            font:{
+                family: $primary-font;
+                size: 24px;
+            }
+            line-height: 34px;
+        }
+    }
+}
