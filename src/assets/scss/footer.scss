@@ -1,0 +1,46 @@
+.footer-contactus{
+    background-image: url('../images/footer-contact-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    .footer-contactus-inner{
+        position: relative;
+        padding: 50px 0;
+        .contcta-image{
+            position: absolute;
+            top: 40px;
+            left: 0;
+        }
+        .content{
+            h2{
+                @include heading;
+                color: $white;
+                margin-bottom: 30px;
+            }
+            p{
+                font-size: 18px;
+                line-height: 28px;
+                color: $white;
+                margin-bottom: 40px;
+            }
+            .start-pro-btn{
+                display: inline-block;
+                background-color: $white;
+                border-radius: 5px;
+                font-size: 18px;
+                font-family: $primary-font;
+                font-weight: 600;
+                color: $primary-color;
+                text-transform: uppercase;
+                padding: 18px 26px;
+                transition: $transition;
+                &:hover{
+                    text-decoration: none;
+                    background-color: $primary-color;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+

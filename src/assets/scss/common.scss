@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap');
+/*==========Variables==========*/
+$primary-font: 'Lato', sans-serif;
+$secondary-font: 'Open Sans', sans-serif;
+
+$primary-color: #00104b;
+$primary-light: #667093;
+$black: #000;
+$white: #ffffff;
+$dark-gray: #333;
+$light-gray: #666;
+$bg-color: #1c9fa5;
+$transition: all 0.5s ease;
+body{
+    font-size: 16px;
+    line-height: 24px;
+    color: $primary-light;
+    font-family: $secondary-font;
+}
+@mixin heading{
+    font-size: 36px;
+    line-height: 42px;
+    color: $primary-color;
+    font-family: $primary-font;
+    font-weight: 700;
+}
+@mixin sub-heading($font-size){
+	font:{
+        size: $font-size;
+        family: $primary-font;
+        weight: 700;
+    }
+    color: $primary-color;
+}
+@mixin link($color){
+    font:{
+        size: 18px;
+        family: $primary-font;
+        weight: bold;
+    }
+    color: $color;
+}
+@media screen and (min-width: 1310px){
+    .container{
+        max-width: 1310px;
+    }
+}
+@keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}
