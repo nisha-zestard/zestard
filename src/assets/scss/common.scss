@@ -18,12 +18,23 @@ body{
     color: $primary-light;
     font-family: $secondary-font;
 }
+img{
+    margin: 0;
+}
 @mixin heading{
     font-size: 36px;
     line-height: 42px;
     color: $primary-color;
     font-family: $primary-font;
     font-weight: 700;
+    @media #{$tablet-screen}{
+        font-size: 32px;
+        line-height: 35px;
+    }
+    @media #{$small-screen}{
+        font-size: 28px;
+        line-height: 35px;
+    }
 }
 @mixin sub-heading($font-size){
 	font:{
@@ -54,3 +65,11 @@ body{
             -webkit-transform: rotate(359deg);
     }
 }
+
+/*=============Responsive Media Query Variables==================*/
+$extra-large-screen: "screen and (min-width: 1300px)";
+$medium-screen : "screen and (max-width: 1199px)";
+$tablet-screen : "screen and (max-width: 991px)";
+$small-screen : "screen and (max-width: 767px)";
+$mobile-screen : "screen and (max-width: 575px)";
+$xs-mobile-screen : "screen and (max-width: 420px)";

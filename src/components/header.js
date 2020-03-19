@@ -2,13 +2,15 @@
 import PropTypes from "prop-types"
 import React from "react"
 
+import Logo from "../assets/images/Logo.png"
+
 const Header = ({ siteTitle }) => (
   <header className="site-header">    
       <div className="container">
         <div className="row">
           <div className="col-md-3">
             <div className="site-branding">
-              
+              <img src={Logo} alt="Site Logo Image" />
             </div>
           </div>
           <div className="col-md-9">

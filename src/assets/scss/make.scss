@@ -1,7 +1,16 @@
 .make-services{
     padding: 150px 0;
+    @media #{$medium-screen}{
+        padding: 60px 0;
+    }
+    @media #{$mobile-screen}{
+        padding: 30px 0;
+    }
     .services-top{
         margin-bottom: 70px;
+        @media #{$small-screen}{
+            margin-bottom: 30px;
+        }
         .title{
             span{
                 font:{
@@ -11,16 +20,38 @@
                 }
                 color: $primary-light;
                 text-transform: uppercase;
+                @media #{$mobile-screen}{
+                    font-size: 18px;
+                }
             }
             h2{
                 @include heading;
             }
         }
-        .content{
-            p{
-                font-size: 18px;
-                line-height: 34px;
-                margin: 0;
+        .right-wrap{
+            position: relative;
+            padding: 15px 30px;
+            @media #{$tablet-screen}{
+                padding: 0 15px;
+            }
+            &:before{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 4px;
+                height: 100%;
+                background: linear-gradient( -47deg, rgb(13,204,255) 0%, rgb(71,96,255) 100%);
+                @media #{$tablet-screen}{
+                    display: none;
+                }
+            }
+            .content{
+                p{
+                    font-size: 18px;
+                    line-height: 34px;
+                    margin: 0;
+                }
             }
         }
     }
@@ -31,6 +62,9 @@
             box-shadow: 0px 0px 49px 0px rgba(189, 189, 189, 0.4);
             border-radius: 0 0 50px 0;
             transition: background 0.5s ease-in 0s;
+            @media #{$medium-screen}{
+                margin-bottom: 30px;
+            }
             .service-icon{
                 position: relative;
                 margin-bottom: 25px;
@@ -85,10 +119,19 @@
 }
 .technology{
     padding-bottom: 80px;
+    @media #{$medium-screen}{
+        padding-bottom: 50px;
+    }
+    @media #{$mobile-screen}{
+        padding-bottom: 30px;
+    }
     .title{
         margin-bottom: 70px;
         h2{
             @include heading;
+        }
+        @media #{$small-screen}{
+            margin-bottom: 40px;
         }
     }
     .technology-list{
@@ -96,6 +139,9 @@
             display: flex;
             flex-wrap: wrap;
             margin-bottom: 80px;
+            @media #{$medium-screen}{
+                margin-bottom: 40px;
+            }
             .icon-wrap{
                 width: 80px;
                 height: 80px;
@@ -105,8 +151,23 @@
                 justify-content: center;
                 align-items: center;
                 margin-right: 25px;
+                @media #{$medium-screen}{
+                    width: 65px;
+                    height: 65px;
+                }
+                @media #{$mobile-screen}{
+                    width: 55px;
+                    height: 55px;
+                    margin-right: 15px;
+                }
                 img{
                     margin: 0;
+                    @media #{$medium-screen}{
+                        width: 32px;
+                    }
+                    @media #{$mobile-screen}{
+                        width: 28px;
+                    }
                 }
             }
             .content-wrap{
@@ -118,16 +179,31 @@
                 a{
                     @include link($primary-color);
                 }
+                @media #{$mobile-screen}{
+                    width: calc(100% - 70px);
+                }
             }
         }
     }
 }
 .our-credientials{
     padding-bottom: 140px;
+    background-image: url('../images/credientials-background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    @media #{$tablet-screen}{
+        padding-bottom: 60px;
+    }
+    @media #{$mobile-screen}{
+        padding-bottom: 30px;
+    }
     .title{
         margin-bottom: 70px;
         h2{
             @include heading;
+        }
+        @media #{$small-screen}{
+            margin-bottom: 40px;
         }
     }
     .credientials-wrap{
@@ -136,6 +212,12 @@
             display: inline-block;
             .main-image{
                 animation: rotation 20s infinite;
+                @media #{$tablet-screen}{
+                    max-width: 580px;
+                }
+                @media #{$small-screen}{
+                    display: none;
+                }
             }
             .center-image{
                 position: absolute;
@@ -144,6 +226,15 @@
                 transform: translate(-50%, -50%);
                 -webkit-transform: translate(-50%, -50%);
                 -moz-transform: translate(-50%, -50%);
+                @media #{$small-screen}{
+                    position: inherit;
+                    transform: inherit;
+                    top: inherit;
+                    left: inherit;
+                    display: block;
+                    margin: 0 auto;
+                    padding-bottom: 20px;
+                }
             }
             .creadi_wrap{
                 border-radius: 10px;
@@ -155,21 +246,44 @@
                 height: 133px;
                 line-height: 133px;
                 z-index: 9999;
+                @media #{$small-screen}{
+                    position: inherit;
+                    margin: 15px;
+                }
                 &.shopify{
                     left: 0;
                     top: 30px;
+                    @media #{$small-screen}{
+                        left: inherit;
+                        top: inherit;
+                    }
                 }
                 &.magento{
                     right: 30px;
                     top: 0;
+                    @media #{$small-screen}{
+                        right: inherit;
+                        top: inherit;
+                    }
                 }
                 &.contributor{
                     bottom: 108px;
                     left: -40px;
+                    @media #{$small-screen}{
+                        left: inherit;
+                        bottom: inherit;
+                    }
                 }
                 &.aurthorized{
                     right: -80px;
                     bottom: 195px;
+                    @media #{$tablet-screen}{
+                        right: -35px;
+                    }
+                    @media #{$small-screen}{
+                        right: inherit;
+                        bottom: inherit;
+                    }
                 }
                 &.wp-engin{
                     width: 200px;
@@ -177,9 +291,92 @@
                     line-height: 95px;
                     bottom: -35px;
                     left: 275px;
+                    @media #{$small-screen}{
+                        left: inherit;
+                        bottom: inherit;
+                    }
                 }
                 img{
                     margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+.recent-work{
+    padding-bottom: 150px;
+    @media #{$tablet-screen}{
+        padding-bottom: 60px;
+    }
+    .title{
+        margin-bottom: 40px;
+        h2{
+            @include heading;
+            margin-bottom: 30px;
+        }
+        p{
+            margin: 0 150px; 
+            @media #{$medium-screen}{
+                margin: 0;
+            }
+        }
+    }
+    .portfolio-list{
+        .portfolio-wrap{
+            @media #{$small-screen}{
+                margin-bottom: 30px;
+            }
+            .portfolio-image{
+                position: relative;
+                @media #{$tablet-screen}{
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        background-color: rgba(0, 16, 75, 0.51);
+                    }
+                }
+                img{
+                    max-width: 100%;
+                }
+            }
+            .portfolio-content{
+                position: absolute;
+                top: 60px;
+                left: 70px;
+                padding-right: 100px;
+                @media #{$medium-screen}{
+                    top: 30px;
+                    left: 30px;
+                    padding-right: 15px;
+                }
+                .sub-title{
+                    font:{
+                        size: 20px;
+                        family: $primary-font;
+                        weight: 500;
+                    }
+                    color: $white;
+                    display: inline-block;
+                    margin-bottom: 10px;
+                }
+                .portfolio-title{
+                    @include heading;
+                    color: $white;
+                    margin-bottom: 15px;
+                }
+                p{
+                    color: $white;
+                    margin-bottom: 45px;
+                    @media #{$tablet-screen}{
+                        margin-bottom: 20px;
+                    }
+                }
+                .portfolio-link{
+                    @include link($white);
                 }
             }
         }
