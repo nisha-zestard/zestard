@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import Bannerimage from "../assets/images/Top_Banner.png"
 import Techicon from "../assets/images/Magento.png"
 import Credentialsimage from "../assets/images/credientials-bg.png"
 import Zectopus from "../assets/images/zectopus.png"
@@ -13,24 +14,26 @@ import Contributor from "../assets/images/Contributor-Technology_Partner-stacked
 import Aurthorized from "../assets/images/authorized.png"
 import Wpengin from "../assets/images/wpe_social.png"
 import Mascot from "../assets/images/Mascot.png"
+import Portfolioone from "../assets/images/portfolio-01.jpg"
+import Portfoliotwo from "../assets/images/portfolio-02.jpg"
 
 const SecondPage = () => (
   <Layout>
     <SEO title="Page two" />
 
     <section>
-	<div className="page-banner">
+	<div className="page-banner make">
 		<div className="container">
 			<div className="row">
-				<div className="col-md-7 d-flex align-items-center">
+				<div className="col-md-6 d-flex align-items-center">
 					<div className="banner-content">
 						<h1>WE <span>Make</span> WEBSITES THAT DELIVERS RESULTS</h1>
 						<p>Lorem Ipsum is simply dummy printing and typesetting industry. Lorem Ipsum is simply. </p>
 					</div>
 				</div>
-				<div className="col-md-5">
+				<div className="col-md-6">
 					<div className="banner-image">
-						{/* <img src="assets/images/Top_Banner.png"></img> */}
+						<img src={Bannerimage} />
 					</div>
 				</div>
 			</div>
@@ -39,23 +42,23 @@ const SecondPage = () => (
 </section>
 <section>
 	<div className="make-services">
-		<div className="container">
+		<div className="container"> 
 			<div className="services-top">
-				<div className="row">
-					<div className="col-md-3">
+				<div className="row align-items-center">
+					<div className="col-lg-3">
 						<div className="title">
 							<span>About</span>
 							<h2>Our Services</h2>
 						</div>
 					</div>
-					<div className="col-md-9">
+					<div className="col-lg-9 right-wrap">
 						<div className="content">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac tortor sapien. Fusce sagittis hendrerit odio, vel condimentum purus feugiat quis. Nunc hendrerit urna vitae nunc aliquam, id tempus orci interdum. Nullam convallis tincidunt quam. Duis eget vulputate tortor, eget.</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div className="services-list">
+			<div className="services-list"> 
 				<div className="row">
 					<div className="col-lg-3 col-md-6">
 						<div className="card service-wrap">
@@ -224,6 +227,46 @@ const SecondPage = () => (
       </div>
     </div>
   </div>
+</section>
+<section>
+	<div className="recent-work">
+		<div className="container">
+			<div className="title text-center">
+				<h2>Our Recent Work</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+			</div>
+			<div className="portfolio-list">
+				<div className="row">
+					<div className="col-md-6">
+						<div className="portfolio-wrap">
+							<div className="portfolio-image">
+								<img src={Portfolioone} />
+							</div>
+							<div className="portfolio-content">
+								<span className="sub-title">Web Platform</span>
+								<h2 className="portfolio-title">JadeBlue Fashion</h2>
+								<p>JadeBlue is India's Premier Fashion Store for Men.</p>
+								<a href="#" className="portfolio-link">Read more</a>
+							</div>
+						</div>
+					</div>
+					<div className="col-md-6">
+						<div className="portfolio-wrap">
+							<div className="portfolio-image">
+								<img src={Portfoliotwo} />
+							</div>
+							<div className="portfolio-content">
+								<span className="sub-title">Web Platform</span>
+								<h2 className="portfolio-title">Purvidoshi</h2>
+								<p>Purvi Doshi, an international designer, started her line back in 1992 with a passion for fashion.</p>
+								<a href="#" className="portfolio-link">Read more</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 <section>
   <div className="footer-contactus text-center">

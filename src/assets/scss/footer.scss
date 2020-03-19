@@ -9,18 +9,33 @@
             position: absolute;
             top: 40px;
             left: 0;
+            @media #{$tablet-screen}{
+                position: inherit;
+                top: inherit;
+                left: inherit;
+                img{
+                    max-width: 200px;
+                }
+            }
         }
         .content{
             h2{
                 @include heading;
                 color: $white;
                 margin-bottom: 30px;
+                @media #{$tablet-screen}{
+                    font-size: 30px;
+                    margin-bottom: 15px;
+                }
             }
             p{
                 font-size: 18px;
                 line-height: 28px;
                 color: $white;
                 margin-bottom: 40px;
+                @media #{$tablet-screen}{
+                    margin-bottom: 15px;
+                }
             }
             .start-pro-btn{
                 display: inline-block;
@@ -37,6 +52,10 @@
                     text-decoration: none;
                     background-color: $primary-color;
                     color: $white;
+                }
+                @media #{$tablet-screen}{
+                    padding: 12px 15px;
+                    font-size: 15px;
                 }
             }
         }

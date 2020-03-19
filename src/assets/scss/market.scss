@@ -1,0 +1,156 @@
+.what-we-offer{
+    padding: 85px 0;
+    @media #{$tablet-screen}{
+        padding: 60px 0;
+    }
+    @media #{$small-screen}{
+        padding: 30px 0;
+    }
+    .top-content{
+        .title{
+            h2{
+                @include heading;
+                margin-bottom: 35px;
+                @media #{$small-screen}{
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        .text{
+            margin-bottom: 50px;
+            @media #{$small-screen}{
+                margin-bottom: 0;
+            }
+            p{
+                font-size: 18px;
+                line-height: 28px;
+                margin: 0;
+            }
+        }
+    }
+    .market-services-list{
+        .m-ser-wrap{
+            .m-ser-wrap-inner{
+                padding: 45px;
+                text-align: center;
+                border-radius: 4px;
+                box-shadow: 0px 0px 40px 10px rgba(155, 155, 155, 0.16);
+                margin-bottom: 35px;
+                height: calc(100% - 35px);
+                .m-ser-icon{
+                    width: 65px;
+                    height: 65px;
+                    line-height: 65px;
+                    text-align: center;
+                    border-radius: 100%;
+                    background: -webkit-linear-gradient( -47deg, rgb(0,39,87) 40%, rgb(55,213,214) 100%);
+                    background: moz-linear-gradient( -47deg, rgb(0,39,87) 40%, rgb(55,213,214) 100%);
+                    background: -webkit-linear-gradient( -47deg, rgb(0,39,87) 40%, rgb(55,213,214) 100%);
+                    margin: 0 auto 30px;
+                    transition: $transition;
+                    .ser-icon-hover{
+                        display: none;
+                        transition: $transition;
+                    }
+                }
+                .m-ser-title{
+                    font:{
+                        size: 22px;
+                        family: $primary-font;
+                        weight: 500;
+                    }
+                    color: $dark-gray;
+                    margin-bottom: 30px;
+                }
+                .m-ser-text{
+                    margin: 0;
+                }
+                &:hover{
+                    .m-ser-icon{
+                        background: transparent;
+                        box-shadow: 0px 0px 26.35px 4.65px rgba(0, 0, 0, 0.2);
+                        transform: rotateY(360deg);
+                        .ser-icon{
+                            display: none;
+                            transition: $transition;
+                        }
+                        .ser-icon-hover{
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+            &:first-child{
+                .m-ser-wrap-inner{
+                    box-shadow: none;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: center;
+                    text-align: left;
+                    @media #{$small-screen}{
+                        padding: 30px 0 0;
+                    }
+                    .service-main-title{
+                        @include heading;
+                        margin-bottom: 30px;
+                    }
+                    p{
+                        margin: 0
+                    }
+                }
+            }
+        }
+    }
+}
+.links-earned{
+    padding: 85px 0;
+    margin-bottom: 100px;
+    background: -webkit-linear-gradient( -47deg, rgb(55,213,214) 0%, rgb(0,39,87) 100%);
+    background: -moz-linear-gradient( -47deg, rgb(55,213,214) 0%, rgb(0,39,87) 100%);
+    background: linear-gradient( -47deg, rgb(55,213,214) 0%, rgb(0,39,87) 100%);
+    @media #{$tablet-screen}{
+        padding: 60px 0;
+        margin-bottom: 60px;
+    }
+    @media #{$small-screen}{
+        padding: 30px 0;
+        margin-bottom: 30px;
+    }
+    .title{
+        h2{
+            @include heading;
+            color: $white;
+            margin-bottom: 30px;
+        }
+    }
+    .links-earned-list{
+        margin: 0 -10px;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        li{
+            width: 20%;
+            padding: 0 10px;
+            @media #{$tablet-screen}{
+                width: 33.33333%;
+            }
+            @media #{$mobile-screen}{
+                width: 50%;
+            }
+            .links-earned-wrap{
+                background: $white;
+                border-radius: 5px;
+                text-align: center;
+                padding: 26px 0;
+                @media #{$mobile-screen}{
+                    padding: 10px 0;
+                }
+                img{
+                    @media #{$tablet-screen}{
+                        max-width: 90%;
+                    }
+                }
+            }
+        }
+    }
+}
