@@ -1,16 +1,39 @@
 // import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { useStaticQuery, Link, graphql } from "gatsby";
 
 import Logo from "../assets/images/Logo.png"
 
-const Header = ({ siteTitle }) => (
-  <header className="site-header">    
+const Header = () => {
+
+  const data = useStaticQuery(
+    graphql`
+    {
+      allWordpressAcfOptions {
+        edges {
+          node {
+            options {
+              site_logo {
+                source_url
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
+  console.log(acfoptions);
+
+  return(
+    <header className="site-header">    
       <div className="container">
         <div className="row">
           <div className="col-md-3">
             <div className="site-branding">
-              <img src={Logo} alt="Site Logo Image" />
+              <img src={acfoptions.site_logo.source_url} alt="Site Logo" />
             </div>
           </div>
           <div className="col-md-9">
@@ -30,7 +53,8 @@ const Header = ({ siteTitle }) => (
         </div>
       </div>  
   </header>
-)
+  )  
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

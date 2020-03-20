@@ -35,7 +35,7 @@ const SecondPage = () => (
 				</div>
 				<div className="col-md-6">
 					<div className="banner-image">
-						<img src={Bannerimage} />
+						<img src={Bannerimage} alt=""/>
 					</div>
 				</div>
 			</div>
@@ -70,8 +70,8 @@ const SecondPage = () => (
 					<div className="col-md-6 col-lg-4 m-ser-wrap">
 						<div className="m-ser-wrap-inner">
 							<div className="m-ser-icon">
-								<img src={Serviceicon} className="ser-icon"/>
-								<img src={Serviceiconhover} className="ser-icon-hover"/>
+								<img src={Serviceicon} className="ser-icon" alt=""/>
+								<img src={Serviceiconhover} className="ser-icon-hover" alt=""/>
 							</div>
 							<h2 class="m-ser-title">Pay Per Click</h2>
 							<p className="m-ser-text">A red flare silhouetted the
@@ -82,8 +82,8 @@ const SecondPage = () => (
 					<div className="col-md-6 col-lg-4 m-ser-wrap">
 						<div className="m-ser-wrap-inner">
 							<div className="m-ser-icon">
-								<img src={Serviceicon} className="ser-icon"/>
-								<img src={Serviceiconhover} className="ser-icon-hover"/>
+								<img src={Serviceicon} className="ser-icon" alt=""/>
+								<img src={Serviceiconhover} className="ser-icon-hover" alt=""/>
 							</div>
 							<h2 class="m-ser-title">Pay Per Click</h2>
 							<p className="m-ser-text">A red flare silhouetted the
@@ -94,8 +94,8 @@ const SecondPage = () => (
 					<div className="col-md-6 col-lg-4 m-ser-wrap">
 						<div className="m-ser-wrap-inner">
 							<div className="m-ser-icon">
-								<img src={Serviceicon} className="ser-icon"/>
-								<img src={Serviceiconhover} className="ser-icon-hover"/>
+								<img src={Serviceicon} className="ser-icon" alt=""/>
+								<img src={Serviceiconhover} className="ser-icon-hover" alt=""/>
 							</div>
 							<h2 class="m-ser-title">Pay Per Click</h2>
 							<p className="m-ser-text">A red flare silhouetted the
@@ -106,8 +106,8 @@ const SecondPage = () => (
 					<div className="col-md-6 col-lg-4 m-ser-wrap">
 						<div className="m-ser-wrap-inner">
 							<div className="m-ser-icon">
-								<img src={Serviceicon} className="ser-icon"/>
-								<img src={Serviceiconhover} className="ser-icon-hover"/>
+								<img src={Serviceicon} className="ser-icon" alt=""/>
+								<img src={Serviceiconhover} className="ser-icon-hover" alt=""/>
 							</div>
 							<h2 class="m-ser-title">Pay Per Click</h2>
 							<p className="m-ser-text">A red flare silhouetted the
@@ -118,8 +118,8 @@ const SecondPage = () => (
 					<div className="col-md-6 col-lg-4 m-ser-wrap">
 						<div className="m-ser-wrap-inner">
 							<div className="m-ser-icon">
-								<img src={Serviceicon} className="ser-icon"/>
-								<img src={Serviceiconhover} className="ser-icon-hover"/>
+								<img src={Serviceicon} className="ser-icon" alt=""/>
+								<img src={Serviceiconhover} className="ser-icon-hover" alt=""/>
 							</div>
 							<h2 class="m-ser-title">Pay Per Click</h2>
 							<p className="m-ser-text">A red flare silhouetted the

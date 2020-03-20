@@ -33,7 +33,7 @@ const SecondPage = () => (
 				</div>
 				<div className="col-md-6">
 					<div className="banner-image">
-						<img src={Bannerimage} />
+						<img src={Bannerimage}  alt=""/>
 					</div>
 				</div>
 			</div>
@@ -124,7 +124,7 @@ const SecondPage = () => (
 					<div className="col-md-6">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
-                <img src={Techicon} />
+                				<img src={Techicon}  alt=""/>
 							</div>
 							<div className="content-wrap">
 								<h3>Magento</h3>
@@ -136,7 +136,7 @@ const SecondPage = () => (
 					<div className="col-md-6">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
-                <img src={Techicon} />
+                				<img src={Techicon}  alt=""/>
 							</div>
 							<div className="content-wrap">
 								<h3>Shopify</h3>
@@ -148,7 +148,7 @@ const SecondPage = () => (
 					<div className="col-md-6">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
-                <img src={Techicon} />
+                				<img src={Techicon} alt=""/>
 							</div>
 							<div className="content-wrap">
 								<h3>Angular</h3>
