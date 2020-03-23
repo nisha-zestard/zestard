@@ -1,27 +1,27 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "./../../components/layout"
+import SEO from "./../../components/seo"
 
-import Bannerimage from "../assets/images/Top-Banner.png"
-import Credentialsimage from "../assets/images/credientials-bg.png"
-import Zectopus from "../assets/images/zectopus.png"
-import Shopify from "../assets/images/shopify-experts.png"
-import Magento from "../assets/images/magento-certification-logo.png"
-import Contributor from "../assets/images/Contributor-Technology_Partner-stacked.png"
-import Aurthorized from "../assets/images/authorized.png"
-import Wpengin from "../assets/images/wpe_social.png"
-import Mascot from "../assets/images/Mascot.png"
-import Portfolioone from "../assets/images/portfolio-01.jpg"
-import Portfoliotwo from "../assets/images/portfolio-02.jpg"
-import Serviceicon from "../assets/images/m-service-icon.png"
-import Serviceiconhover from "../assets/images/m-service-icon-hover.png"
-import Earnedlink from "../assets/images/Search-Engin-Land.png"
+import Bannerimage from "./../../assets/images/Top-Banner.png"
+import Credentialsimage from "./../../assets/images/credientials-bg.png"
+import Zectopus from "./../../assets/images/zectopus.png"
+import Shopify from "./../../assets/images/shopify-experts.png"
+import Magento from "./../../assets/images/magento-certification-logo.png"
+import Contributor from "./../../assets/images/Contributor-Technology_Partner-stacked.png"
+import Aurthorized from "./../../assets/images/authorized.png"
+import Wpengin from "./../../assets/images/wpe_social.png"
+import Mascot from "./../../assets/images/Mascot.png"
+import Portfolioone from "./../../assets/images/portfolio-01.jpg"
+import Portfoliotwo from "./../../assets/images/portfolio-02.jpg"
+import Serviceicon from "./../../assets/images/m-service-icon.png"
+import Serviceiconhover from "./../../assets/images/m-service-icon-hover.png"
+import Earnedlink from "./../../assets/images/Search-Engin-Land.png"
 
 const SecondPage = () => (
   <Layout>
-    <SEO title="Zestard Market" />
+    <SEO title="Page two" />
 
     <section>
 	<div className="page-banner market">
