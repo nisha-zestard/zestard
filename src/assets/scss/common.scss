@@ -6,6 +6,7 @@ $secondary-font: 'Open Sans', sans-serif;
 
 $primary-color: #00104b;
 $primary-light: #667093;
+$secondary-color: #2a0845;
 $black: #000;
 $white: #ffffff;
 $dark-gray: #333;
@@ -51,6 +52,22 @@ img{
         weight: bold;
     }
     color: $color;
+}
+@mixin theme-btn($bgcolor: $black, $font-size: 17px, $padding: 14px 26px, $border-radius: 2px,){
+    background-color: $bgcolor;
+    border-radius: $border-radius;
+    color: $white;
+    font-size: $font-size;
+    font-family: $primary-font;
+    padding: $padding;
+    font-weight: 600;
+    box-shadow: none;
+    display: inline-block;
+    transition: $transition;
+    &:hover{
+        text-decoration: none;
+        background-color: $primary-color;
+    }
 }
 @media screen and (min-width: 1310px){
     .container{

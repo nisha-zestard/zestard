@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import Bannerimage from "../assets/images/Top-Banner.png"
+import Bannerimage from "../assets/images/top-Banner-maintain.png"
 import Credentialsimage from "../assets/images/credientials-bg.png"
 import Zectopus from "../assets/images/zectopus.png"
 import Shopify from "../assets/images/shopify-experts.png"
@@ -15,27 +15,26 @@ import Wpengin from "../assets/images/wpe_social.png"
 import Mascot from "../assets/images/Mascot.png"
 import Portfolioone from "../assets/images/portfolio-01.jpg"
 import Portfoliotwo from "../assets/images/portfolio-02.jpg"
-import Serviceicon from "../assets/images/m-service-icon.png"
-import Serviceiconhover from "../assets/images/m-service-icon-hover.png"
-import Earnedlink from "../assets/images/Search-Engin-Land.png"
+import Wordpressmaintenance from "../assets/images/Wordpress-Maintenance.png"
+
 
 const SecondPage = () => (
   <Layout>
-    <SEO title="Zestard Market" />
+    <SEO title="Zestard Maintain" />
 
     <section>
-	<div className="page-banner market">
+	<div className="page-banner maintain">
 		<div className="container">
 			<div className="row">
 				<div className="col-md-6 d-flex align-items-center">
 					<div className="banner-content">
-						<h1>WE <span>Market</span> WEBSITES THAT DELIVERS RESULTS</h1>
+						<h1>WE <span>Maintain</span> WEBSITES THAT DELIVERS RESULTS</h1>
 						<p>Lorem Ipsum is simply dummy printing and typesetting industry. Lorem Ipsum is simply. </p>
 					</div>
 				</div>
 				<div className="col-md-6">
 					<div className="banner-image">
-						<img src={Bannerimage} alt=""/>
+						<img src={Bannerimage} />
 					</div>
 				</div>
 			</div>
@@ -43,88 +42,70 @@ const SecondPage = () => (
 	</div>
 </section>
 <section>
-	<div className="what-we-offer">
+	<div className="make-intro-section text-center">
 		<div className="container">
-			<div className="top-content">
-				<div className="title text-center">
-					<h2>What We Offer</h2>
-				</div>
-				<div className="text">
-					<p>Our website developers provide expert web application development and web design services to our clients. Appnovation offers a variety of website design and 
-					development services, from creating mobile web development solutions and responsive website designs, to building custom e-commerce and intranet experiences using 
-					the latest and proven web technologies. With up to 85% of consumers visiting company's or service provider's website before making a purchase, 
-					more and more consumers make decisions based on their online experience: the appearance, usability and accessibility of your website is more important than ever, 
-					especially in an increasingly competitive market. </p>
-				</div>
+			<div className="title">
+				<span>Features</span>
+				<h2>What We Can Do</h2>
 			</div>
-			<div className="market-services-list">
+			<div className="content">
+				<p>Keeping a website well maintained and attractive is important to companies big and small in order to engage and retain customers. It’s easy for businesses, 
+				especially startups, to cut corners and let a few tasks slide. Website maintenance can easily become one of those things as it doesn’t always present immediate 
+				issues. However, just like your health can fall apart if you go too long without a regular check up, so can the health of your website.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+	<div className="maintain-services">
+		<div className="container">
+			<div className="maintain-service-wrap odd">
 				<div className="row">
-					<div className="col-md-6 col-lg-4 m-ser-wrap">
-						<div className="m-ser-wrap-inner">
-							<h2 className="service-main-title">Our Services</h2>
-							<p>A red flare silhouetted the jagged edge
-							of a wing.A red flare silhouetted the
-							jagged edge of a wing.</p>
+					<div className="col-md-6 maintain-service-content">
+						<div className="ser-contain">
+							<h2 className="service-title">Wordpress Maintenance Services</h2>
+							<p className="service-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 
+							1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five </p>
+							<a href="#" className="service-link">Get Started</a>
 						</div>
 					</div>
-					<div className="col-md-6 col-lg-4 m-ser-wrap">
-						<div className="m-ser-wrap-inner">
-							<div className="m-ser-icon">
-								<img src={Serviceicon} className="ser-icon" alt=""/>
-								<img src={Serviceiconhover} className="ser-icon-hover" alt=""/>
-							</div>
-							<h2 class="m-ser-title">Pay Per Click</h2>
-							<p className="m-ser-text">A red flare silhouetted the
-							jagged edge of a wing.A red flare
-							silhouetted the jagged edge.</p>
+					<div className="col-md-6 maintain-service-image">
+						<div className="ser-image">
+							<img src={Wordpressmaintenance} />
 						</div>
 					</div>
-					<div className="col-md-6 col-lg-4 m-ser-wrap">
-						<div className="m-ser-wrap-inner">
-							<div className="m-ser-icon">
-								<img src={Serviceicon} className="ser-icon" alt=""/>
-								<img src={Serviceiconhover} className="ser-icon-hover" alt=""/>
-							</div>
-							<h2 class="m-ser-title">Pay Per Click</h2>
-							<p className="m-ser-text">A red flare silhouetted the
-							jagged edge of a wing.A red flare
-							silhouetted the jagged edge.</p>
+				</div>
+			</div>
+			<div className="maintain-service-wrap even">
+				<div className="row">
+				<div className="col-md-6 maintain-service-image">
+						<div className="ser-image">
+							<img src={Wordpressmaintenance} />
 						</div>
 					</div>
-					<div className="col-md-6 col-lg-4 m-ser-wrap">
-						<div className="m-ser-wrap-inner">
-							<div className="m-ser-icon">
-								<img src={Serviceicon} className="ser-icon" alt=""/>
-								<img src={Serviceiconhover} className="ser-icon-hover" alt=""/>
-							</div>
-							<h2 class="m-ser-title">Pay Per Click</h2>
-							<p className="m-ser-text">A red flare silhouetted the
-							jagged edge of a wing.A red flare
-							silhouetted the jagged edge.</p>
+					<div className="col-md-6 maintain-service-content">
+						<div className="ser-contain">
+							<h2 className="service-title">Magento Maintenance Services</h2>
+							<p className="service-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 
+							1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five </p>
+							<a href="#" className="service-link">Get Started</a>
 						</div>
 					</div>
-					<div className="col-md-6 col-lg-4 m-ser-wrap">
-						<div className="m-ser-wrap-inner">
-							<div className="m-ser-icon">
-								<img src={Serviceicon} className="ser-icon" alt=""/>
-								<img src={Serviceiconhover} className="ser-icon-hover" alt=""/>
-							</div>
-							<h2 class="m-ser-title">Pay Per Click</h2>
-							<p className="m-ser-text">A red flare silhouetted the
-							jagged edge of a wing.A red flare
-							silhouetted the jagged edge.</p>
+				</div>
+			</div>
+			<div className="maintain-service-wrap odd">
+				<div className="row">
+					<div className="col-md-6 maintain-service-content">
+						<div className="ser-contain">
+							<h2 className="service-title">Shopify Maintenance Services</h2>
+							<p className="service-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 
+							1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five </p>
+							<a href="#" className="service-link">Get Started</a>
 						</div>
 					</div>
-					<div className="col-md-6 col-lg-4 m-ser-wrap">
-						<div className="m-ser-wrap-inner">
-							<div className="m-ser-icon">
-								<img src={Serviceicon} className="ser-icon" alt=""/>
-								<img src={Serviceiconhover} className="ser-icon-hover" alt=""/>
-							</div>
-							<h2 class="m-ser-title">Pay Per Click</h2>
-							<p className="m-ser-text">A red flare silhouetted the
-							jagged edge of a wing.A red flare
-							silhouetted the jagged edge.</p>
+					<div className="col-md-6 maintain-service-image">
+						<div className="ser-image">
+							<img src={Wordpressmaintenance} />
 						</div>
 					</div>
 				</div>
@@ -133,38 +114,35 @@ const SecondPage = () => (
 	</div>
 </section>
 <section>
-	<div className="links-earned">
+	<div className="hire-developers-section">
 		<div className="container">
-			<div className="title text-center">
-				<h2>Links We've Earned</h2>
+			<div className="hire-developers-inner">
+				<div className="row">
+					<div className="col-lg-6">
+						<div className="hire-dev-image">
+							<img src={Wordpressmaintenance} />
+						</div>
+					</div>
+					<div className="col-lg-6">
+						<div className="hire-dev-content">
+							<h2 className="hire-dev-title">Hire Dedicated Developers for Extensive Support</h2>
+							<div className="hire-dev-text">
+								<p>Skilled developers are a great asset to any company. They bring value to your business with their profound knowledge and strong expertise. 
+									Our developers undergo technical training to ensure you a business-oriented complete solution.</p>
+									<ul>
+										<li>Hire Magento Developer</li>
+										<li>Hire Shopify Developer</li>
+										<li>Hire WooCommerce Developer</li>
+										<li>Hire Wordpress Developer</li>
+										<li>Hire Drupal Developer</li>
+										<li>Hire Angular Developer</li>
+									</ul>
+									<a href="#">Get Started</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<ul className="links-earned-list">
-				<li>
-					<div className="links-earned-wrap">
-						<img src={Earnedlink} />
-					</div>
-				</li>
-				<li>
-					<div className="links-earned-wrap">
-						<img src={Earnedlink} />
-					</div>
-				</li>
-				<li>
-					<div className="links-earned-wrap">
-						<img src={Earnedlink} />
-					</div>
-				</li>
-				<li>
-					<div className="links-earned-wrap">
-						<img src={Earnedlink} />
-					</div>
-				</li>
-				<li>
-					<div className="links-earned-wrap">
-						<img src={Earnedlink} />
-					</div>
-				</li>
-			</ul>
 		</div>
 	</div>
 </section>

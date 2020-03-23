@@ -33,6 +33,33 @@
             }
         }
     }
+    .banner-image{
+        @media #{$small-screen}{
+            text-align: center;
+        }
+        img{
+            max-width: 100%;
+        }
+    }
+    &.home{
+        padding: 180px 0 120px;
+        @media #{$medium-screen}{
+            padding: 120px 0 50px;
+        }
+        .banner-content{
+            h1{
+                color: $primary-color;
+                text-transform: inherit;
+            }
+            p{
+                color: $primary-light;
+                padding-right: 80px;
+                @media #{$tablet-screen}{
+                    padding: 0;
+                }
+            }
+        }
+    }
     &.make{
         background: linear-gradient( -47deg, rgb(3,22,142) 0%, rgb(7,132,165) 100%);
         background: -webkit-linear-gradient( -47deg, rgb(3,22,142) 0%, rgb(7,132,165) 100%);
@@ -40,5 +67,9 @@
     &.market{
         background: linear-gradient( -47deg, rgb(3,22,142) 0%, rgb(55,213,214) 100%);
         background: -webkit-linear-gradient( -47deg, rgb(3,22,142) 0%, rgb(55,213,214) 100%);
+    }
+    &.maintain{
+        background: -webkit-linear-gradient( -7deg, rgb(42,8,69) 1%, rgb(100,65,165) 100%);
+        background: linear-gradient( 47deg, rgb(42,8,69) 1%, rgb(100,65,165) 100%);
     }
 }

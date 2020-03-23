@@ -6,6 +6,7 @@
     .site-branding{
         img{
             max-width: 100%;
+            width: 198px;
             margin: 0;
         }
     }
@@ -50,17 +51,8 @@
         }
         .request-a-quote{
             a{
-                display: inline-block;
-                background-color: #1e2129;
-                color: $white;
-                font:{
-                    family: $primary-font;
-                    size: 16px;
-                    weight: bold;
-                }
+                @include theme-btn($bgcolor: $black, $font-size: 16px, $padding: 11px 18px, $border-radius: 2px,);
                 text-transform: uppercase;
-                padding: 11px 18px;
-                border-radius: 2px;
                 @media #{$medium-screen}{
                     font-size: 12px;
                 }

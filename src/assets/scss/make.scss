@@ -118,13 +118,6 @@
     }
 }
 .technology{
-    padding-bottom: 80px;
-    @media #{$medium-screen}{
-        padding-bottom: 50px;
-    }
-    @media #{$mobile-screen}{
-        padding-bottom: 30px;
-    }
     .title{
         margin-bottom: 70px;
         h2{
@@ -135,67 +128,80 @@
         }
     }
     .technology-list{
-        .technology-wrap{
-            display: flex;
-            flex-wrap: wrap;
+        .technology-outer-wrap{
             margin-bottom: 80px;
+            &:last-child, &:nth-child(5){
+                margin-bottom: 0;
+            }
             @media #{$medium-screen}{
                 margin-bottom: 40px;
             }
-            .icon-wrap{
-                width: 80px;
-                height: 80px;
-                border: 1px solid $primary-color;
-                border-radius: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-right: 25px;
-                @media #{$medium-screen}{
-                    width: 65px;
-                    height: 65px;
-                }
-                @media #{$mobile-screen}{
-                    width: 55px;
-                    height: 55px;
-                    margin-right: 15px;
-                }
-                img{
-                    margin: 0;
-                    @media #{$medium-screen}{
-                        width: 32px;
-                    }
-                    @media #{$mobile-screen}{
-                        width: 28px;
-                    }
+            @media #{$small-screen}{
+                &:nth-child(5){
+                    margin-bottom: 40px;
                 }
             }
-            .content-wrap{
-                width: calc(100% - 105px);
-                h3{
-                    @include sub-heading(22px);
-                    margin-bottom: 15px;
+            .technology-wrap{
+                display: flex;
+                flex-wrap: wrap;
+                .icon-wrap{
+                    width: 80px;
+                    height: 80px;
+                    border: 1px solid $primary-color;
+                    border-radius: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 25px;
+                    @media #{$medium-screen}{
+                        width: 65px;
+                        height: 65px;
+                    }
+                    @media #{$mobile-screen}{
+                        width: 55px;
+                        height: 55px;
+                        margin-right: 15px;
+                    }
+                    img{
+                        margin: 0;
+                        @media #{$medium-screen}{
+                            width: 32px;
+                        }
+                        @media #{$mobile-screen}{
+                            width: 28px;
+                        }
+                    }
                 }
-                a{
-                    @include link($primary-color);
-                }
-                @media #{$mobile-screen}{
-                    width: calc(100% - 70px);
+                .content-wrap{
+                    width: calc(100% - 105px);
+                    h3{
+                        @include sub-heading(22px);
+                        margin-bottom: 15px;
+                    }
+                    a{
+                        @include link($primary-color);
+                    }
+                    @media #{$mobile-screen}{
+                        width: calc(100% - 70px);
+                    }
                 }
             }
         }
     }
 }
 .our-credientials{
-    padding-bottom: 140px;
+    padding: 100px 0 140px;
     background-image: url('../images/credientials-background.png');
     background-repeat: no-repeat;
     background-position: center;
     @media #{$tablet-screen}{
-        padding-bottom: 60px;
+        padding: 60px 0 80px;
+    }
+    @media #{$small-screen}{
+        padding: 60px 0;
     }
     @media #{$mobile-screen}{
-        padding-bottom: 30px;
+        padding: 30px 0;
     }
     .title{
         margin-bottom: 70px;
@@ -307,6 +313,9 @@
     padding-bottom: 150px;
     @media #{$tablet-screen}{
         padding-bottom: 60px;
+    }
+    @media #{$mobile-screen}{
+        padding-bottom: 30px;
     }
     .title{
         margin-bottom: 40px;

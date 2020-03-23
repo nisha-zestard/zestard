@@ -104,17 +104,14 @@
 }
 .links-earned{
     padding: 85px 0;
-    margin-bottom: 100px;
     background: -webkit-linear-gradient( -47deg, rgb(55,213,214) 0%, rgb(0,39,87) 100%);
     background: -moz-linear-gradient( -47deg, rgb(55,213,214) 0%, rgb(0,39,87) 100%);
     background: linear-gradient( -47deg, rgb(55,213,214) 0%, rgb(0,39,87) 100%);
     @media #{$tablet-screen}{
         padding: 60px 0;
-        margin-bottom: 60px;
     }
     @media #{$small-screen}{
         padding: 30px 0;
-        margin-bottom: 30px;
     }
     .title{
         h2{
