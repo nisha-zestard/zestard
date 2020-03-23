@@ -1,25 +1,25 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "./../../components/layout"
+// import SEO from "../components/seo"
 
-import Bannerimage from "../assets/images/Top_Banner.png"
-import Techicon from "../assets/images/Magento.png"
-import Credentialsimage from "../assets/images/credientials-bg.png"
-import Zectopus from "../assets/images/zectopus.png"
-import Shopify from "../assets/images/shopify-experts.png"
-import Magento from "../assets/images/magento-certification-logo.png"
-import Contributor from "../assets/images/Contributor-Technology_Partner-stacked.png"
-import Aurthorized from "../assets/images/authorized.png"
-import Wpengin from "../assets/images/wpe_social.png"
-import Mascot from "../assets/images/Mascot.png"
-import Portfolioone from "../assets/images/portfolio-01.jpg"
-import Portfoliotwo from "../assets/images/portfolio-02.jpg"
+import Bannerimage from "./../../assets/images/Top_Banner.png"
+import Techicon from "./../../assets/images/Magento.png"
+import Credentialsimage from "./../../assets/images/credientials-bg.png"
+import Zectopus from "./../../assets/images/zectopus.png"
+import Shopify from "./../../assets/images/shopify-experts.png"
+import Magento from "./../../assets/images/magento-certification-logo.png"
+import Contributor from "./../../assets/images/Contributor-Technology_Partner-stacked.png"
+import Aurthorized from "./../../assets/images/authorized.png"
+import Wpengin from "./../../assets/images/wpe_social.png"
+import Mascot from "./../../assets/images/Mascot.png"
+import Portfolioone from "./../../assets/images/portfolio-01.jpg"
+import Portfoliotwo from "./../../assets/images/portfolio-02.jpg"
 
 const SecondPage = () => (
   <Layout>
-    <SEO title="Zestard Make" />
+    {/* <SEO title="Page two" /> */}
 
     <section>
 	<div className="page-banner make">
@@ -121,7 +121,7 @@ const SecondPage = () => (
 			</div>
 			<div className="technology-list">
 				<div className="row">
-					<div className="col-md-6 technology-outer-wrap">
+					<div className="col-md-6">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
                 				<img src={Techicon}  alt=""/>
@@ -133,7 +133,7 @@ const SecondPage = () => (
 							</div>
 						</div>
 					</div>
-					<div className="col-md-6 technology-outer-wrap">
+					<div className="col-md-6">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
                 				<img src={Techicon}  alt=""/>
@@ -145,7 +145,7 @@ const SecondPage = () => (
 							</div>
 						</div>
 					</div>
-					<div className="col-md-6 technology-outer-wrap">
+					<div className="col-md-6">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
                 				<img src={Techicon} alt=""/>
@@ -157,7 +157,7 @@ const SecondPage = () => (
 							</div>
 						</div>
 					</div>
-					<div className="col-md-6 technology-outer-wrap">
+					<div className="col-md-6">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
                 <img src={Techicon} />
@@ -169,7 +169,7 @@ const SecondPage = () => (
 							</div>
 						</div>
 					</div>
-					<div className="col-md-6 technology-outer-wrap">
+					<div className="col-md-6">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
                 <img src={Techicon} />
@@ -181,7 +181,7 @@ const SecondPage = () => (
 							</div>
 						</div>
 					</div>
-					<div className="col-md-6 technology-outer-wrap">
+					<div className="col-md-6">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
                 <img src={Techicon} />

@@ -1,35 +1,32 @@
-import React from "react"
+import React, { Component } from "react"
 // import { Link } from "gatsby"
+import { graphql } from "gatsby"
 
+import './../assets/scss/index.scss'
 import Layout from "../components/layout"
 // import Image from "../components/image"
 // import SEO from "../components/seo"
-import Bannerimage from "../assets/images/banner.png"
-import Portfolioone from "../assets/images/portfolio-01.jpg"
-import Portfoliotwo from "../assets/images/portfolio-02.jpg"
 
-const Home = () => {
-  //const data= this.
+class Home extends Component {
+
+    render() {
+        const data = this.props.data  
+        const header = data.wordpressAcfPages.acf;
+        console.log(header); 
   return(
   <Layout>
     {/* <SEO title="Home" /> */}
     {/* banner-section  */}
     <section>
-        <div className="page-banner home">
+        <div className="home-banner">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-7">
-                       <div className="banner-content">
-                       <h1>
-                            We Bring Your <br />Brick-and-Mortar Business to Digital Commerce
-                        </h1>
-                        <p>We deliver high performing shopping experience and marketing solutions to grow your online business.</p>
-                       </div>
+                    <div className="col-md-6">        
+                        <h1 dangerouslySetInnerHTML={{ __html: header.header_section_title }} />
+                        <p>{header.header_sub_text}</p>
                     </div>
-                    <div className="col-md-5 text-right">
-                        <div className="banner-image">
-                            <img src={Bannerimage} alt="banner-img" />
-                        </div>
+                    <div className="col-md-6 text-right">
+                        <img src={header.header_mascot.source_url} alt="banner-img" />
                     </div>
                 </div>
             </div>
@@ -81,45 +78,59 @@ const Home = () => {
         </div>
     </section>
     {/* Portfolio-section */}
-    <section>
-	<div className="recent-work portfolio">
-		<div className="container">
-			<div className="title text-left">
-				<h2>Our Portfolio</h2>
-			</div>
-			<div className="portfolio-list">
-				<div className="row">
-					<div className="col-md-6">
-						<div className="portfolio-wrap">
-							<div className="portfolio-image">
-								<img src={Portfolioone} />
-							</div>
-							<div className="portfolio-content">
-								<span className="sub-title">Web Platform</span>
-								<h2 className="portfolio-title">JadeBlue Fashion</h2>
-								<p>JadeBlue is India's Premier Fashion Store for Men.</p>
-								<a href="#" className="portfolio-link">Read more</a>
-							</div>
-						</div>
-					</div>
-					<div className="col-md-6">
-						<div className="portfolio-wrap">
-							<div className="portfolio-image">
-								<img src={Portfoliotwo} />
-							</div>
-							<div className="portfolio-content">
-								<span className="sub-title">Web Platform</span>
-								<h2 className="portfolio-title">Purvidoshi</h2>
-								<p>Purvi Doshi, an international designer, started her line back in 1992 with a passion for fashion.</p>
-								<a href="#" className="portfolio-link">Read more</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+    <div className="our-portfolio">
+        <div className="container">
+            <div className="title">
+                <h2>Our Portfolio</h2>
+            </div>
+            <div className="portfolio-inner">
+                <div className="one-column">
+                    <div className="portfolio-wrap">
+                        <div className="inner-content">
+                            <h4>Web Platform</h4>
+                            <h2>Panache Cosmetics</h2>
+                            <p>Panache Cosmetics is the world's premier online luxury beauty destination, offering exclusive must-have beauty products delivered worldwide.</p>
+                            <a className="r-more" href="#">Read More</a>
+
+                        </div>
+                        <div className="inner-img">
+                            <img src="assets/images/portfolio-img.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div className="two-column">
+                    <div className="row">
+                        <div className="col-md-6 pr-md-2">
+                            <div className="portfolio-wrap">
+                                <div className="inner-content">
+                                    <h4>Web Platform</h4>
+                                    <h2>JadeBlue Fashion</h2>
+                                    <p>JadeBlue is India's Premier Fashion Store for Men.</p>
+                                    <a className="r-more" href="#">Read More</a>
+                                    <div className="inner-img">
+                                        <img src="assets/images/jadeblue-img.png" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-6 pl-md-2 second">
+                            <div className="portfolio-wrap">
+                                <div className="inner-content">
+                                    <h4>Web Platform</h4>
+                                    <h2>Purvidoshi</h2>
+                                    <p>Purvi Doshi, an international designer, started her line back in 1992 with a passion for fashion.</p>
+                                    <a className="r-more" href="#">Read More</a>
+                                    <div className="inner-img">
+                                        <img src="assets/images/purvidosi-img.png" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     {/* Clients-section */}
     <section>
         <div className="clients-section">
@@ -317,35 +328,23 @@ const Home = () => {
                     <h2>Our Credentials</h2>
                 </div>
                 <ul>
-                    <li>
-                        <div className="box">
-                            <img src="assets/images/amasty-logo-800.png" alt="cre-img" />
-                        </div>
+                    <li className="box">
+                        <img src="assets/images/amasty-logo-800.png" alt="cre-img" />
                     </li>
-                    <li>
-                        <div className="box">
-                            <img src="assets/images/Contributor-Technology_Partner-stacked.png" alt="cre-img" />
-                        </div>
+                    <li className="box">
+                        <img src="assets/images/Contributor-Technology_Partner-stacked.png" alt="cre-img" />
                     </li>
-                    <li>
-                        <div className="box">
-                            <img src="assets/images/authorized.png" alt="cre-img" />
-                        </div>
+                    <li className="box">
+                        <img src="assets/images/authorized.png" alt="cre-img" />
                     </li>
-                    <li>
-                        <div className="box">
-                            <img src="assets/images/magento-certification-logo.png" alt="cre-img" />
-                        </div>
+                    <li className="box">
+                        <img src="assets/images/magento-certification-logo.png" alt="cre-img" />
                     </li>
-                    <li>
-                        <div className="box">
-                            <img src="assets/images/select_extensions_partner_large.png" alt="cre-img" />
-                        </div>
+                    <li className="box">
+                        <img src="assets/images/select_extensions_partner_large.png" alt="cre-img" />
                     </li>
-                    <li>
-                        <div className="box">
-                            <img src="assets/images/Layer 66.png" alt="cre-img" />
-                        </div>
+                    <li className="box">
+                        <img src="assets/images/Layer 66.png" alt="cre-img" />
                     </li>
                 </ul>
             </div>
@@ -392,8 +391,7 @@ const Home = () => {
         </div>
     </section>
   </Layout>
-)}
-
+)}}
 export default Home
 
 export const query = graphql`
