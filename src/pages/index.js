@@ -4,25 +4,32 @@ import React from "react"
 import Layout from "../components/layout"
 // import Image from "../components/image"
 // import SEO from "../components/seo"
+import Bannerimage from "../assets/images/banner.png"
+import Portfolioone from "../assets/images/portfolio-01.jpg"
+import Portfoliotwo from "../assets/images/portfolio-02.jpg"
 
 const Home = () => {
-  const data= this.
+  //const data= this.
   return(
   <Layout>
     {/* <SEO title="Home" /> */}
     {/* banner-section  */}
     <section>
-        <div className="home-banner">
+        <div className="page-banner home">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-6">
-                        <h1>
+                    <div className="col-md-7">
+                       <div className="banner-content">
+                       <h1>
                             We Bring Your <br />Brick-and-Mortar Business to Digital Commerce
                         </h1>
                         <p>We deliver high performing shopping experience and marketing solutions to grow your online business.</p>
+                       </div>
                     </div>
-                    <div className="col-md-6 text-right">
-                        <img src="assets/images/home-banner.png" alt="banner-img" />
+                    <div className="col-md-5 text-right">
+                        <div className="banner-image">
+                            <img src={Bannerimage} alt="banner-img" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,59 +81,45 @@ const Home = () => {
         </div>
     </section>
     {/* Portfolio-section */}
-    <div className="our-portfolio">
-        <div className="container">
-            <div className="title">
-                <h2>Our Portfolio</h2>
-            </div>
-            <div className="portfolio-inner">
-                <div className="one-column">
-                    <div className="portfolio-wrap">
-                        <div className="inner-content">
-                            <h4>Web Platform</h4>
-                            <h2>Panache Cosmetics</h2>
-                            <p>Panache Cosmetics is the world's premier online luxury beauty destination, offering exclusive must-have beauty products delivered worldwide.</p>
-                            <a className="r-more" href="#">Read More</a>
-
-                        </div>
-                        <div className="inner-img">
-                            <img src="assets/images/portfolio-img.png" alt="" />
-                        </div>
-                    </div>
-                </div>
-                <div className="two-column">
-                    <div className="row">
-                        <div className="col-md-6 pr-md-2">
-                            <div className="portfolio-wrap">
-                                <div className="inner-content">
-                                    <h4>Web Platform</h4>
-                                    <h2>JadeBlue Fashion</h2>
-                                    <p>JadeBlue is India's Premier Fashion Store for Men.</p>
-                                    <a className="r-more" href="#">Read More</a>
-                                    <div className="inner-img">
-                                        <img src="assets/images/jadeblue-img.png" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6 pl-md-2 second">
-                            <div className="portfolio-wrap">
-                                <div className="inner-content">
-                                    <h4>Web Platform</h4>
-                                    <h2>Purvidoshi</h2>
-                                    <p>Purvi Doshi, an international designer, started her line back in 1992 with a passion for fashion.</p>
-                                    <a className="r-more" href="#">Read More</a>
-                                    <div className="inner-img">
-                                        <img src="assets/images/purvidosi-img.png" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <section>
+	<div className="recent-work portfolio">
+		<div className="container">
+			<div className="title text-left">
+				<h2>Our Portfolio</h2>
+			</div>
+			<div className="portfolio-list">
+				<div className="row">
+					<div className="col-md-6">
+						<div className="portfolio-wrap">
+							<div className="portfolio-image">
+								<img src={Portfolioone} />
+							</div>
+							<div className="portfolio-content">
+								<span className="sub-title">Web Platform</span>
+								<h2 className="portfolio-title">JadeBlue Fashion</h2>
+								<p>JadeBlue is India's Premier Fashion Store for Men.</p>
+								<a href="#" className="portfolio-link">Read more</a>
+							</div>
+						</div>
+					</div>
+					<div className="col-md-6">
+						<div className="portfolio-wrap">
+							<div className="portfolio-image">
+								<img src={Portfoliotwo} />
+							</div>
+							<div className="portfolio-content">
+								<span className="sub-title">Web Platform</span>
+								<h2 className="portfolio-title">Purvidoshi</h2>
+								<p>Purvi Doshi, an international designer, started her line back in 1992 with a passion for fashion.</p>
+								<a href="#" className="portfolio-link">Read more</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
     {/* Clients-section */}
     <section>
         <div className="clients-section">
@@ -324,23 +317,35 @@ const Home = () => {
                     <h2>Our Credentials</h2>
                 </div>
                 <ul>
-                    <li className="box">
-                        <img src="assets/images/amasty-logo-800.png" alt="cre-img" />
+                    <li>
+                        <div className="box">
+                            <img src="assets/images/amasty-logo-800.png" alt="cre-img" />
+                        </div>
                     </li>
-                    <li className="box">
-                        <img src="assets/images/Contributor-Technology_Partner-stacked.png" alt="cre-img" />
+                    <li>
+                        <div className="box">
+                            <img src="assets/images/Contributor-Technology_Partner-stacked.png" alt="cre-img" />
+                        </div>
                     </li>
-                    <li className="box">
-                        <img src="assets/images/authorized.png" alt="cre-img" />
+                    <li>
+                        <div className="box">
+                            <img src="assets/images/authorized.png" alt="cre-img" />
+                        </div>
                     </li>
-                    <li className="box">
-                        <img src="assets/images/magento-certification-logo.png" alt="cre-img" />
+                    <li>
+                        <div className="box">
+                            <img src="assets/images/magento-certification-logo.png" alt="cre-img" />
+                        </div>
                     </li>
-                    <li className="box">
-                        <img src="assets/images/select_extensions_partner_large.png" alt="cre-img" />
+                    <li>
+                        <div className="box">
+                            <img src="assets/images/select_extensions_partner_large.png" alt="cre-img" />
+                        </div>
                     </li>
-                    <li className="box">
-                        <img src="assets/images/Layer 66.png" alt="cre-img" />
+                    <li>
+                        <div className="box">
+                            <img src="assets/images/Layer 66.png" alt="cre-img" />
+                        </div>
                     </li>
                 </ul>
             </div>

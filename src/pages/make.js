@@ -19,7 +19,7 @@ import Portfoliotwo from "../assets/images/portfolio-02.jpg"
 
 const SecondPage = () => (
   <Layout>
-    <SEO title="Page two" />
+    <SEO title="Zestard Make" />
 
     <section>
 	<div className="page-banner make">
@@ -121,7 +121,7 @@ const SecondPage = () => (
 			</div>
 			<div className="technology-list">
 				<div className="row">
-					<div className="col-md-6">
+					<div className="col-md-6 technology-outer-wrap">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
                 				<img src={Techicon}  alt=""/>
@@ -133,7 +133,7 @@ const SecondPage = () => (
 							</div>
 						</div>
 					</div>
-					<div className="col-md-6">
+					<div className="col-md-6 technology-outer-wrap">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
                 				<img src={Techicon}  alt=""/>
@@ -145,7 +145,7 @@ const SecondPage = () => (
 							</div>
 						</div>
 					</div>
-					<div className="col-md-6">
+					<div className="col-md-6 technology-outer-wrap">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
                 				<img src={Techicon} alt=""/>
@@ -157,7 +157,7 @@ const SecondPage = () => (
 							</div>
 						</div>
 					</div>
-					<div className="col-md-6">
+					<div className="col-md-6 technology-outer-wrap">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
                 <img src={Techicon} />
@@ -169,7 +169,7 @@ const SecondPage = () => (
 							</div>
 						</div>
 					</div>
-					<div className="col-md-6">
+					<div className="col-md-6 technology-outer-wrap">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
                 <img src={Techicon} />
@@ -181,7 +181,7 @@ const SecondPage = () => (
 							</div>
 						</div>
 					</div>
-					<div className="col-md-6">
+					<div className="col-md-6 technology-outer-wrap">
 						<div className="technology-wrap">
 							<div className="icon-wrap">
                 <img src={Techicon} />
