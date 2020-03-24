@@ -11,14 +11,15 @@ class Home extends Component {
 
     render() {
         const data = this.props.data  
-        const header = data.wordpressAcfPages.acf;
-        console.log(header); 
+        const header = data.allWordpressPage;
+        console.log(header);
+        //console.log(header.gen_content_modules_undefined[1].cs_cards_details[0].cs_icon.source_url); 
   return(
   <Layout>
     {/* <SEO title="Home" /> */}
     {/* banner-section  */}
-    <section>
-        <div className="home-banner">
+    {/* <section>
+        <div className="page-banner home">
             <div className="container">
                 <div className="row">
                     <div className="col-md-6">        
@@ -31,106 +32,80 @@ class Home extends Component {
                 </div>
             </div>
         </div>
-    </section>
+    </section> */}
     {/* Services-section */}
-    <section>
+    {/* <section>
         <div className="our-service">
             <div className="container">
                 <div className="row">
                     <div className="col-md-4 col-lg-6">
                         <div className="title">
-                            <h2>Our Services</h2>
+                            <h2>{header.gen_content_modules_undefined[0].pis_section_title}</h2>
                         </div>
                     </div>
                     <div className="col-md-8 col-lg-6">
-                        <p>As a strategic partner, we create a working product with thoughtful and large-scale architecture. We launch support and development.</p>
+                        <p>{header.gen_content_modules_undefined[0].pis_content}</p>
                     </div>
                 </div>
                 <div className="services-inner">
-                    <div className="card-deck">
-                        <div className="card">
-                            <img className="card-img-top" src="assets/images/make.png" alt="service-img" />
-                            <div className="card-body">
-                                <h5 className="card-title">Make</h5>
-                                <p className="card-text">We have a knack of turning great ideas into meaningful User Interactions with our design-led engineering practices.</p>
-                                <a className="l-more" href="#">Learn More</a>
+                    <div className="card-deck">              
+                    {header.gen_content_modules_undefined[1].cs_cards_details.map((node,index) => {                           
+                        return(
+                            <div className="card" key={index}>  
+                                <img class="card-img-top" src={node.cs_icon.source_url} alt="service-img"></img>                              
+                                <div className="card-body">
+                                    <h5 className="card-title">{node.cs_title}</h5>
+                                    <p className="card-text" dangerouslySetInnerHTML={{ __html: node.cs_content }} />
+                                    <a className="l-more" href={node.cs_learn_more_link}>Learn More</a>
+                                </div>
                             </div>
-                        </div>
-                        <div className="card">
-                            <img className="card-img-top" src="assets/images/market.png" alt="service-img" />
-                            <div className="card-body">
-                                <h5 className="card-title">Market</h5>
-                                <p className="card-text">Whether creating a web presence for your company, an information hub for your business.</p>
-                                <a className="l-more" href="#">Learn More</a>
-                            </div>
-                        </div>
-                        <div className="card">
-                            <img className="card-img-top" src="assets/images/maintain.png" alt="service-img" />
-                            <div className="card-body">
-                                <h5 className="card-title">Maintain</h5>
-                                <p className="card-text">We have a knack of turning great ideas into meaningful User Interactions with our design-led engineering practices.</p>
-                                <a className="l-more" href="#">Learn More</a>
-                            </div>
-                        </div>
+                        )
+                    })} 
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> */}
     {/* Portfolio-section */}
-    <div className="our-portfolio">
-        <div className="container">
-            <div className="title">
-                <h2>Our Portfolio</h2>
-            </div>
-            <div className="portfolio-inner">
-                <div className="one-column">
-                    <div className="portfolio-wrap">
-                        <div className="inner-content">
-                            <h4>Web Platform</h4>
-                            <h2>Panache Cosmetics</h2>
-                            <p>Panache Cosmetics is the world's premier online luxury beauty destination, offering exclusive must-have beauty products delivered worldwide.</p>
-                            <a className="r-more" href="#">Read More</a>
-
-                        </div>
-                        <div className="inner-img">
-                            <img src="assets/images/portfolio-img.png" alt="" />
-                        </div>
-                    </div>
-                </div>
-                <div className="two-column">
-                    <div className="row">
-                        <div className="col-md-6 pr-md-2">
-                            <div className="portfolio-wrap">
-                                <div className="inner-content">
-                                    <h4>Web Platform</h4>
-                                    <h2>JadeBlue Fashion</h2>
-                                    <p>JadeBlue is India's Premier Fashion Store for Men.</p>
-                                    <a className="r-more" href="#">Read More</a>
-                                    <div className="inner-img">
-                                        <img src="assets/images/jadeblue-img.png" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6 pl-md-2 second">
-                            <div className="portfolio-wrap">
-                                <div className="inner-content">
-                                    <h4>Web Platform</h4>
-                                    <h2>Purvidoshi</h2>
-                                    <p>Purvi Doshi, an international designer, started her line back in 1992 with a passion for fashion.</p>
-                                    <a className="r-more" href="#">Read More</a>
-                                    <div className="inner-img">
-                                        <img src="assets/images/purvidosi-img.png" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <section>
+	<div className="recent-work portfolio">
+		<div className="container">
+			<div className="title text-left">
+				<h2>Our Portfolio</h2>
+			</div>
+			<div className="portfolio-list">
+				<div className="row">
+					<div className="col-md-6">
+						<div className="portfolio-wrap">
+							<div className="portfolio-image">
+								{/* <img src={Portfolioone} /> */}
+							</div>
+							<div className="portfolio-content">
+								<span className="sub-title">Web Platform</span>
+								<h2 className="portfolio-title">JadeBlue Fashion</h2>
+								<p>JadeBlue is India's Premier Fashion Store for Men.</p>
+								<a href="#" className="portfolio-link">Read more</a>
+							</div>
+						</div>
+					</div>
+					<div className="col-md-6">
+						<div className="portfolio-wrap">
+							<div className="portfolio-image">
+								{/* <img src={Portfoliotwo} /> */}
+							</div>
+							<div className="portfolio-content">
+								<span className="sub-title">Web Platform</span>
+								<h2 className="portfolio-title">Purvidoshi</h2>
+								<p>Purvi Doshi, an international designer, started her line back in 1992 with a passion for fashion.</p>
+								<a href="#" className="portfolio-link">Read more</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
     {/* Clients-section */}
     <section>
         <div className="clients-section">
@@ -328,23 +303,35 @@ class Home extends Component {
                     <h2>Our Credentials</h2>
                 </div>
                 <ul>
-                    <li className="box">
-                        <img src="assets/images/amasty-logo-800.png" alt="cre-img" />
+                    <li>
+                        <div className="box">
+                            <img src="assets/images/amasty-logo-800.png" alt="cre-img" />
+                        </div>
                     </li>
-                    <li className="box">
-                        <img src="assets/images/Contributor-Technology_Partner-stacked.png" alt="cre-img" />
+                    <li>
+                        <div className="box">
+                            <img src="assets/images/Contributor-Technology_Partner-stacked.png" alt="cre-img" />
+                        </div>
                     </li>
-                    <li className="box">
-                        <img src="assets/images/authorized.png" alt="cre-img" />
+                    <li>
+                        <div className="box">
+                            <img src="assets/images/authorized.png" alt="cre-img" />
+                        </div>
                     </li>
-                    <li className="box">
-                        <img src="assets/images/magento-certification-logo.png" alt="cre-img" />
+                    <li>
+                        <div className="box">
+                            <img src="assets/images/magento-certification-logo.png" alt="cre-img" />
+                        </div>
                     </li>
-                    <li className="box">
-                        <img src="assets/images/select_extensions_partner_large.png" alt="cre-img" />
+                    <li>
+                        <div className="box">
+                            <img src="assets/images/select_extensions_partner_large.png" alt="cre-img" />
+                        </div>
                     </li>
-                    <li className="box">
-                        <img src="assets/images/Layer 66.png" alt="cre-img" />
+                    <li>
+                        <div className="box">
+                            <img src="assets/images/Layer 66.png" alt="cre-img" />
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -396,16 +383,42 @@ export default Home
 
 export const query = graphql`
 {
-  wordpressAcfPages(wordpress_id: {eq: 2}) {
-    acf {
-      header_type
-      header_mascot {
-        source_url
+    allWordpressPage(filter: {wordpress_id: {eq: 2}}) {
+        edges {
+          node {
+            acf {
+              gen_content_modules_page {
+                ... on WordPressAcf_gen_page_intro_section {
+                  id
+                  pis_section_title
+                  pis_content
+                  pis_section_class
+                }
+                ... on WordPressAcf_gen_cards_section {
+                  id
+                  cs_cards_details {
+                    cs_icon {
+                      source_url
+                    }
+                    cs_title
+                    cs_content
+                    cs_learn_more_link
+                  }
+                }
+              }
+            }
+          }
+        }
       }
-      home_mascot_class
-      header_section_title
-      header_page_title
-      header_sub_text
+
+  allWordpressWpClients(sort: {order: DESC}) {
+    edges {
+      node {
+        title
+        featured_media {
+          source_url
+        }
+      }
     }
   }
 }

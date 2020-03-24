@@ -25,8 +25,6 @@ const Header = () => {
   `)
 
   const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
-  console.log(acfoptions);
-
   return(
     <header className="site-header">    
       <div className="container">
