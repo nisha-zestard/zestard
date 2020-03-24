@@ -11,14 +11,16 @@ class Home extends Component {
 
     render() {
         const data = this.props.data  
-        const header = data.allWordpressPage;
-        console.log(header);
+        const header = data.allWordpressPage.edges[0].node.acf;
+        const page = data.wordpressPage.acf.gen_content_modules_page[1].cs_cards_details;
+        console.log(page);
+        
         //console.log(header.gen_content_modules_undefined[1].cs_cards_details[0].cs_icon.source_url); 
   return(
   <Layout>
     {/* <SEO title="Home" /> */}
     {/* banner-section  */}
-    {/* <section>
+    <section>
         <div className="page-banner home">
             <div className="container">
                 <div className="row">
@@ -32,26 +34,26 @@ class Home extends Component {
                 </div>
             </div>
         </div>
-    </section> */}
+    </section>
     {/* Services-section */}
-    {/* <section>
+    <section>
         <div className="our-service">
             <div className="container">
                 <div className="row">
                     <div className="col-md-4 col-lg-6">
                         <div className="title">
-                            <h2>{header.gen_content_modules_undefined[0].pis_section_title}</h2>
+                            <h2>{header.gen_content_modules_page[0].pis_section_title}</h2>
                         </div>
                     </div>
                     <div className="col-md-8 col-lg-6">
-                        <p>{header.gen_content_modules_undefined[0].pis_content}</p>
+                        <p>{header.gen_content_modules_page[0].pis_content}</p>
                     </div>
                 </div>
                 <div className="services-inner">
-                    <div className="card-deck">              
-                    {header.gen_content_modules_undefined[1].cs_cards_details.map((node,index) => {                           
-                        return(
-                            <div className="card" key={index}>  
+                    <div className="card-deck">  
+                    {page.map((node,index) => {                  
+                        return (
+                            <div className="card">  
                                 <img class="card-img-top" src={node.cs_icon.source_url} alt="service-img"></img>                              
                                 <div className="card-body">
                                     <h5 className="card-title">{node.cs_title}</h5>
@@ -65,7 +67,7 @@ class Home extends Component {
                 </div>
             </div>
         </div>
-    </section> */}
+    </section>
     {/* Portfolio-section */}
     <section>
 	<div className="recent-work portfolio">
@@ -383,43 +385,58 @@ export default Home
 
 export const query = graphql`
 {
+
     allWordpressPage(filter: {wordpress_id: {eq: 2}}) {
         edges {
           node {
             acf {
-              gen_content_modules_page {
-                ... on WordPressAcf_gen_page_intro_section {
-                  id
-                  pis_section_title
-                  pis_content
-                  pis_section_class
+                header_section_title
+                header_page_title
+                header_sub_text
+                home_mascot_class
+                header_mascot {
+                    source_url
                 }
-                ... on WordPressAcf_gen_cards_section {
-                  id
-                  cs_cards_details {
-                    cs_icon {
-                      source_url
+                gen_content_modules_page {
+                    ... on WordPressAcf_gen_page_intro_section {
+                    id
+                    pis_section_title
+                    pis_content
+                    pis_section_class
                     }
-                    cs_title
-                    cs_content
-                    cs_learn_more_link
-                  }
+                    ... on WordPressAcf_gen_cards_section {
+                    id
+                    cs_cards_details {
+                        cs_icon {
+                        source_url
+                        }
+                        cs_title
+                        cs_content
+                        cs_learn_more_link
+                    }
+                    }
                 }
-              }
             }
           }
         }
       }
 
-  allWordpressWpClients(sort: {order: DESC}) {
-    edges {
-      node {
-        title
-        featured_media {
-          source_url
+      wordpressPage(wordpress_id: {eq: 2}) {
+        acf {
+          gen_content_modules_page {
+            ... on WordPressAcf_gen_cards_section {
+              id
+              cs_cards_details {
+                cs_icon {
+                  source_url
+                }
+                cs_title
+                cs_content
+                cs_learn_more_link
+              }
+            }
+          }
         }
       }
-    }
-  }
 }
 `
