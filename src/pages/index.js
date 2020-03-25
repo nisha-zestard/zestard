@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 
 import './../assets/scss/index.scss'
 import Layout from "../components/layout"
+import Slider from "react-slick";
 // import Image from "../components/image"
 // import SEO from "../components/seo"
 
@@ -12,8 +13,27 @@ class Home extends Component {
     render() {
         const data = this.props.data  
         const header = data.allWordpressPage.edges[0].node.acf;
-        const page = data.wordpressPage.acf.gen_content_modules_page[1].cs_cards_details;
-        console.log(page);
+        const clientlogo = data.allWordpressWpClients.edges;
+        const expertise = header.home_content_modules_page[0];
+        const counter = data.wordpressAcfOptions.options;
+        const testimonial = data.allWordpressWpTestimonials.edges;
+        const credential = data.allWordpressWpCredentials.edges;
+        const recentpost = data.allWordpressPost.edges;
+        console.log(recentpost);
+        var testisettings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1
+          };
+          var clilogosettings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1
+          };
         
         //console.log(header.gen_content_modules_undefined[1].cs_cards_details[0].cs_icon.source_url); 
   return(
@@ -51,18 +71,16 @@ class Home extends Component {
                 </div>
                 <div className="services-inner">
                     <div className="card-deck">  
-                    {page.map((node,index) => {                  
-                        return (
-                            <div className="card">  
-                                <img class="card-img-top" src={node.cs_icon.source_url} alt="service-img"></img>                              
-                                <div className="card-body">
-                                    <h5 className="card-title">{node.cs_title}</h5>
-                                    <p className="card-text" dangerouslySetInnerHTML={{ __html: node.cs_content }} />
-                                    <a className="l-more" href={node.cs_learn_more_link}>Learn More</a>
-                                </div>
+                    {header.gen_content_modules_page[1].cs_cards_details.map((node,index) => (                           
+                        <div className="card" key={index}>  
+                            <img className="card-img-top" src={node.cs_icon.source_url} alt="service-img"></img>                              
+                            <div className="card-body">
+                                <h5 className="card-title">{node.cs_title}</h5>
+                                <p className="card-text" dangerouslySetInnerHTML={{ __html: node.cs_content }} />
+                                <a className="l-more" href={node.cs_learn_more_link}>Learn More</a>
                             </div>
-                        )
-                    })} 
+                        </div>                        
+                    ))} 
                     </div>
                 </div>
             </div>
@@ -117,42 +135,12 @@ class Home extends Component {
                 </div>
                 <div className="clients-logos">
                     <ul>
-                        <li>
-                            <a href="#"><img src="assets/images/boheco-logo.png" alt="c-logo-img" /></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="assets/images/farah-logo.png" alt="c-logo-img" /></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="assets/images/houzwala-logo.png" alt="c-logo-img" /></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="assets/images/customsash-logo.png" alt="c-logo-img" /></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="assets/images/jadeblue-logo.png" alt="c-logo-img" /></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="assets/images/kodak-logo.png" alt="c-logo-img" /></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="assets/images/lg-logo.png" alt="c-logo-img" /></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="assets/images/planet.png" alt="c-logo-img" /></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="assets/images/pumpkin.png" alt="c-logo-img" /></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="assets/images/purvi-doshi.png" alt="c-logo-img" /></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="assets/images/printogenic.png" alt="c-logo-img" /></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="assets/images/Shankus-Waterpark.png" alt="c-logo-img" /></a>
-                        </li>
+                        {clientlogo.map((node,index) => (
+                            <li key={index}>
+                                <a href="#"><img src={node.node.featured_media.source_url} alt="c-logo-img" /></a>
+                            </li>
+                        ))}
+                       
                     </ul>
                 </div>
             </div>
@@ -165,32 +153,19 @@ class Home extends Component {
                 <div className="row">
                     <div className="col-md-4">
                         <div className="title">
-                            <h2>Our Expertise</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
-                            <a className="btn r-more" href="#">read more</a>
+                            <h2>{expertise.home_oe_section_title}</h2>
+                            <p>{expertise.home_oe_content}</p>
+                            <a className="btn r-more" href={expertise.home_oe_read_more_link}>read more</a>
                         </div>
                     </div>
                     <div className="col-md-8">
                         <div className="experience-wrap">
                             <ul>
-                                <li>
-                                    <a href="#"><img src="assets/images/magento.png" alt="f-logo-img" /></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="assets/images/wordpress.png" alt="f-logo-img" /></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="assets/images/angular.png" alt="f-logo-img" /></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="assets/images/shopify.png" alt="f-logo-img" /></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="assets/images/react.png" alt="f-logo-img" /></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="assets/images/d-marketing.png" alt="f-logo-img" /></a>
-                                </li>
+                                {expertise.home_oe_right_icons.map((node,index) => (
+                                    <li key={index}>
+                                        <a href="#"><img src={node.home_oe_icons.source_url} alt="f-logo-img" /></a>
+                                    </li>
+                                ))}                                
                             </ul>
                         </div>
                     </div>
@@ -203,26 +178,12 @@ class Home extends Component {
             <div className="container">
                 <div className="counter-wraper">
                     <ul className="row">
-                        <li className="box">
-                            <h2>9<span>+</span></h2>
-                            <p>Years of Experience</p>
-                        </li>
-                        <li className="box">
-                            <h2>350<span>+</span></h2>
-                            <p>E-Commerce Stores</p>
-                        </li>
-                        <li className="box">
-                            <h2>800<span>+</span></h2>
-                            <p>Projects delivered</p>
-                        </li>
-                        <li className="box">
-                            <h2>30<span>+</span></h2>
-                            <p>Specialized Solutions</p>
-                        </li>
-                        <li className="box">
-                            <h2>40<span>+</span></h2>
-                            <p>Employees</p>
-                        </li>
+                        {counter.cs_counter_details.map((node,index) => (
+                            <li className="box" key={index}>
+                                <h2>{node.cs_number}<span>+</span></h2>
+                                <p>{node.cs_label}</p>
+                            </li>
+                        ))}                        
                     </ul>
                 </div>
             </div>
@@ -235,58 +196,33 @@ class Home extends Component {
                 <div className="title text-center">
                     <h2>Testimonials</h2>
                 </div>
-
-
                 <div className="container">
                     <div id="carouselTestimonial" className="carousel carousel-testimonial slide" data-ride="carousel">
                         <div className="carousel-inner">
-                            <div className="carousel-item active">
-                                <div className="row">
-                                    <div className="col-md-5">
-                                        <div className="testimonial-img">
-                                            <img className="d-block w-100" src="assets/images/db55bf46b7607faa44f18f5260daa827.png" alt="First slide" />
+                        <Slider {...testisettings}>
+                        {testimonial.map((node,index) => (
+                                <div className={index=0? 'carousel-item': 'carousel-item active'} key={index}>
+                                    <div className="row">
+                                        <div className="col-md-5">
+                                            <div className="testimonial-img">
+                                                {node.node.featured_media !== null && node.node.featured_media.source_url !== null &&                                                
+                                                    <img className="d-block w-100" src={node.node.featured_media.source_url} alt="Slide" />
+                                                }
+                                            </div>
+                                        </div>
+                                        <div className="col-md-7">
+                                            <h5 className="title">{node.node.title}</h5>
+                                            <p dangerouslySetInnerHTML={{ __html: node.node.content }} />
                                         </div>
                                     </div>
-                                    <div className="col-md-7">
-                                        <h5 className="title">Daniel Lock</h5>
-                                        <p> We experienced extreme difficulties with my hosting provider, therfore we had quite some rework and delay on the project. The Zestad Technologies's team is extremely responsive and have a high level of technical
-                                            mastery! I can highy recommend them for similar projects like ours! Value for money</p>
-                                    </div>
                                 </div>
-                            </div>
-                            <div className="carousel-item">
-                                <div className="row">
-                                    <div className="col-md-5">
-                                        <div className="testimonial-img">
-                                            <img className="d-block w-100" src="assets/images/db55bf46b7607faa44f18f5260daa827.png" alt="Second slide" />
-                                        </div>
-                                    </div>
-                                    <div className="col-md-7">
-                                        <h5 className="title">Daniel Lock</h5>
-                                        <p> We experienced extreme difficulties with my hosting provider, therfore we had quite some rework and delay on the project. The Zestad Technologies's team is extremely responsive and have a high level of technical
-                                            mastery! I can highy recommend them for similar projects like ours! Value for money</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                                <div className="row">
-                                    <div className="col-md-5">
-                                        <div className="testimonial-img">
-                                            <img className="d-block w-100" src="assets/images/db55bf46b7607faa44f18f5260daa827.png" alt="Third slide" />
-                                        </div>
-                                    </div>
-                                    <div className="col-md-7">
-                                        <h5 className="title">Daniel Lock</h5>
-                                        <p> We experienced extreme difficulties with my hosting provider, therfore we had quite some rework and delay on the project. The Zestad Technologies's team is extremely responsive and have a high level of technical
-                                            mastery! I can highy recommend them for similar projects like ours! Value for money</p>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
+                        </Slider>
+                            
                         </div>
                         <div className="next-pre">
                             <a className="button prev" href="#carouselTestimonial" role="button" data-slide="prev">
                                 <i className="fa fa-angle-left" aria-hidden="true"></i>
-
                             </a>
                             <a className="button next" href="#carouselTestimonial" role="button" data-slide="next">
                                 <i className="fa fa-angle-right" aria-hidden="true"></i>
@@ -305,36 +241,13 @@ class Home extends Component {
                     <h2>Our Credentials</h2>
                 </div>
                 <ul>
-                    <li>
-                        <div className="box">
-                            <img src="assets/images/amasty-logo-800.png" alt="cre-img" />
-                        </div>
-                    </li>
-                    <li>
-                        <div className="box">
-                            <img src="assets/images/Contributor-Technology_Partner-stacked.png" alt="cre-img" />
-                        </div>
-                    </li>
-                    <li>
-                        <div className="box">
-                            <img src="assets/images/authorized.png" alt="cre-img" />
-                        </div>
-                    </li>
-                    <li>
-                        <div className="box">
-                            <img src="assets/images/magento-certification-logo.png" alt="cre-img" />
-                        </div>
-                    </li>
-                    <li>
-                        <div className="box">
-                            <img src="assets/images/select_extensions_partner_large.png" alt="cre-img" />
-                        </div>
-                    </li>
-                    <li>
-                        <div className="box">
-                            <img src="assets/images/Layer 66.png" alt="cre-img" />
-                        </div>
-                    </li>
+                    {credential.map((node,index) => (
+                        <li>
+                            <div className="box">
+                                <img src={node.node.featured_media.source_url} alt="cre-img" />
+                            </div>
+                        </li>
+                    ))}                    
                 </ul>
             </div>
         </div>
@@ -347,7 +260,22 @@ class Home extends Component {
                     <h2>Read Our Latest News & Blog</h2>
                 </div>
                 <div className="row">
-                    <div className="col-md-6">
+                    {recentpost.map((node,index)=>(
+                        <div className="col-md-6">
+                            <div className="box">
+                                <img src={node.node.featured_media.source_url} alt="top-img" />
+                                <ul>
+                                    <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
+                                    <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.featured_media.date}</li>
+                                </ul>
+                                <p dangerouslySetInnerHTML={{ __html: node.node.excerpt }}/>
+                                <div className="button">
+                                    <a href="#" className="read-more">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                    {/* <div className="col-md-6">
                         <div className="box">
                             <img src="assets/images/WordCamp-Ahmedabad-’19-A-Rousing-Success-01.png" alt="top-img" />
                             <ul>
@@ -374,7 +302,7 @@ class Home extends Component {
                                 <a href="#" className="read-more">Read More</a>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
@@ -396,44 +324,92 @@ export const query = graphql`
                 home_mascot_class
                 header_mascot {
                     source_url
-                }
+                }                
                 gen_content_modules_page {
                     ... on WordPressAcf_gen_page_intro_section {
-                    id
-                    pis_section_title
-                    pis_content
-                    pis_section_class
+                        id
+                        pis_section_title
+                        pis_content
+                        pis_section_class
                     }
                     ... on WordPressAcf_gen_cards_section {
-                    id
-                    cs_cards_details {
-                        cs_icon {
-                        source_url
+                        id
+                        cs_cards_details {
+                            cs_icon {
+                            source_url
+                            }
+                            cs_title
+                            cs_content
+                            cs_learn_more_link
                         }
-                        cs_title
-                        cs_content
-                        cs_learn_more_link
-                    }
+                    }                    
+                }
+                home_content_modules_page {
+                    home_oe_section_title
+                    home_oe_content
+                    home_oe_read_more_link
+                    home_oe_right_icons {
+                      home_oe_icons {
+                        source_url
+                      }
                     }
                 }
             }
           }
         }
       }
-
-      wordpressPage(wordpress_id: {eq: 2}) {
-        acf {
-          gen_content_modules_page {
-            ... on WordPressAcf_gen_cards_section {
-              id
-              cs_cards_details {
-                cs_icon {
-                  source_url
-                }
-                cs_title
-                cs_content
-                cs_learn_more_link
-              }
+      allWordpressWpClients {
+        edges {
+          node {
+            featured_media {
+              source_url
+            }
+            title
+          }
+        }
+      }
+      wordpressAcfOptions {
+        options {
+          cs_section_class
+          cs_counter_details {
+            cs_label
+            cs_number
+          }
+        }
+      }
+      allWordpressWpTestimonials {
+        edges {
+          node {
+            featured_media {
+              source_url
+            }
+            title
+            content
+          }
+        }
+      }
+      allWordpressWpCredentials {
+        edges {
+          node {
+            featured_media {
+              source_url
+            }
+          }
+        }
+      }
+      allWordpressPost(sort: {order: DESC, fields: date}, limit: 2) {
+        edges {
+          node {
+            content
+            slug
+            link
+            excerpt
+            featured_media {
+              source_url
+              date(formatString: "MMMM DD, YYYY")
+            }
+            author {
+              name
             }
           }
         }
