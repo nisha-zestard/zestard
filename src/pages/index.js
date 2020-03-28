@@ -5,10 +5,19 @@ import { graphql } from "gatsby"
 import './../assets/scss/index.scss'
 import Layout from "../components/layout"
 import Slider from "react-slick";
-// import Image from "../components/image"
-// import SEO from "../components/seo"
 
 class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.next = this.next.bind(this);
+        this.previous = this.previous.bind(this);
+      }
+      next() {
+        this.slider.slickNext();
+      }
+      previous() {
+        this.slider.slickPrev();
+      }
 
     render() {
         const data = this.props.data  
@@ -19,7 +28,8 @@ class Home extends Component {
         const testimonial = data.allWordpressWpTestimonials.edges;
         const credential = data.allWordpressWpCredentials.edges;
         const recentpost = data.allWordpressPost.edges;
-        console.log(recentpost);
+        const portfolio = data.allWordpressWpPortfolio.edges;
+        // console.log(portfolio);
         var testisettings = {
             dots: true,
             infinite: true,
@@ -31,11 +41,10 @@ class Home extends Component {
             dots: true,
             infinite: true,
             speed: 500,
-            slidesToShow: 1,
+            autoplay: true,
+            slidesToShow: 6,
             slidesToScroll: 1
-          };
-        
-        //console.log(header.gen_content_modules_undefined[1].cs_cards_details[0].cs_icon.source_url); 
+          }; 
   return(
   <Layout>
     {/* <SEO title="Home" /> */}
@@ -95,32 +104,22 @@ class Home extends Component {
 			</div>
 			<div className="portfolio-list">
 				<div className="row">
-					<div className="col-md-6">
-						<div className="portfolio-wrap">
-							<div className="portfolio-image">
-								{/* <img src={Portfolioone} /> */}
-							</div>
-							<div className="portfolio-content">
-								<span className="sub-title">Web Platform</span>
-								<h2 className="portfolio-title">JadeBlue Fashion</h2>
-								<p>JadeBlue is India's Premier Fashion Store for Men.</p>
-								<a href="#" className="portfolio-link">Read more</a>
-							</div>
-						</div>
-					</div>
-					<div className="col-md-6">
-						<div className="portfolio-wrap">
-							<div className="portfolio-image">
-								{/* <img src={Portfoliotwo} /> */}
-							</div>
-							<div className="portfolio-content">
-								<span className="sub-title">Web Platform</span>
-								<h2 className="portfolio-title">Purvidoshi</h2>
-								<p>Purvi Doshi, an international designer, started her line back in 1992 with a passion for fashion.</p>
-								<a href="#" className="portfolio-link">Read more</a>
-							</div>
-						</div>
-					</div>
+                    {portfolio.map((node,index) => (
+                        <div className={node.node.title == "Panache Cosmetics" ? 'col-md-12' : 'col-md-6'} key={index}>
+                            <div className="portfolio-wrap">
+                                <div className="portfolio-image">
+                                    <img src={node.node.featured_media.source_url} />
+                                </div>
+                                <div className="portfolio-content">
+                                    <span className="sub-title">Web Platform</span>
+                                    <h2 className="portfolio-title">{node.node.title}</h2>
+                                    <p>JadeBlue is India's Premier Fashion Store for Men.</p>
+                                    <a href="#" className="portfolio-link">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                   
 				</div>
 			</div>
 		</div>
@@ -199,14 +198,14 @@ class Home extends Component {
                 <div className="container">
                     <div id="carouselTestimonial" className="carousel carousel-testimonial slide" data-ride="carousel">
                         <div className="carousel-inner">
-                        <Slider {...testisettings}>
-                        {testimonial.map((node,index) => (
+                        <Slider ref={c => (this.slider = c)} {...testisettings}>
+                            {testimonial.map((node,index) => (
                                 <div className={index=0? 'carousel-item': 'carousel-item active'} key={index}>
                                     <div className="row">
                                         <div className="col-md-5">
                                             <div className="testimonial-img">
-                                                {node.node.featured_media !== null && node.node.featured_media.source_url !== null &&                                                
-                                                    <img className="d-block w-100" src={node.node.featured_media.source_url} alt="Slide" />
+                                                {node.node.featured_media.source_url !== null &&                                                
+                                                    <img className="d-block w-100" src={node.node.featured_media.source_url} alt={node.node.title} />
                                                 }
                                             </div>
                                         </div>
@@ -221,12 +220,12 @@ class Home extends Component {
                             
                         </div>
                         <div className="next-pre">
-                            <a className="button prev" href="#carouselTestimonial" role="button" data-slide="prev">
-                                <i className="fa fa-angle-left" aria-hidden="true"></i>
-                            </a>
-                            <a className="button next" href="#carouselTestimonial" role="button" data-slide="next">
-                                <i className="fa fa-angle-right" aria-hidden="true"></i>
-                            </a>
+                            <button className="button" onClick={this.previous}>
+                                <i className="fa fa-long-arrow-left" aria-hidden="true"></i>
+                            </button> 
+                            <button className="button" onClick={this.next}>
+                                <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            </button> 
                         </div>
                     </div>
                 </div>
@@ -241,13 +240,15 @@ class Home extends Component {
                     <h2>Our Credentials</h2>
                 </div>
                 <ul>
+                <Slider {...clilogosettings}>
                     {credential.map((node,index) => (
-                        <li>
+                        <li key={index}>
                             <div className="box">
                                 <img src={node.node.featured_media.source_url} alt="cre-img" />
                             </div>
                         </li>
-                    ))}                    
+                    ))} 
+                </Slider>                   
                 </ul>
             </div>
         </div>
@@ -261,7 +262,7 @@ class Home extends Component {
                 </div>
                 <div className="row">
                     {recentpost.map((node,index)=>(
-                        <div className="col-md-6">
+                        <div className="col-md-6" key={index}>
                             <div className="box">
                                 <img src={node.node.featured_media.source_url} alt="top-img" />
                                 <ul>
@@ -275,34 +276,6 @@ class Home extends Component {
                             </div>
                         </div>
                     ))}
-                    {/* <div className="col-md-6">
-                        <div className="box">
-                            <img src="assets/images/WordCamp-Ahmedabad-’19-A-Rousing-Success-01.png" alt="top-img" />
-                            <ul>
-                                <li><span><i className="fa fa-user" aria-hidden="true"></i></span>Ritesh Vatwani</li>
-                                <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>December 31, 2019</li>
-                            </ul>
-                            <p>WordCamp Ahmedabad was a people-sponsored event in the city geared to be about WordPress only. WCAhmedabad – the voluntary organized local event tech conference brought Ahmedabad’s vibrant WordPress community all at one place
-                                – students, developers, experts, entrepreneurs, bloggers, and digital marketers – the event benefitting every WordPress enthusiast. From Left to Right – Boni,…</p>
-                            <div className="button">
-                                <a href="#" className="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-6">
-                        <div className="box">
-                            <img src="assets/images/wordpress5.3.png" alt="top-img" />
-                            <ul>
-                                <li><span><i className="fa fa-user" aria-hidden="true"></i></span>Ritesh Vatwani</li>
-                                <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>December 25, 2019</li>
-                            </ul>
-                            <p>Before the official release date of the WordPress, core WordPress Executive Director, Josepha Haden on 8th August 2019 summarized the updates and improvements one could expect in WordPress 5.3. She revealed that the focus of
-                                this version of WordPress was to polish current interactions and increase the user-friendliness of user interfaces. Have a look at…</p>
-                            <div className="button">
-                                <a href="#" className="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         </div>
@@ -313,7 +286,16 @@ export default Home
 
 export const query = graphql`
 {
-
+    allWordpressWpPortfolio(filter: {title: {in: ["Panache Cosmetics","JadeBlue Fashion","Purvidoshi"]}}) {
+        edges {
+          node {
+            title
+            featured_media {
+              source_url
+            }
+          }
+        }
+      }
     allWordpressPage(filter: {wordpress_id: {eq: 2}}) {
         edges {
           node {

@@ -35,7 +35,7 @@ const SecondPage = () => (
 				</div>
 				<div className="col-md-6">
 					<div className="banner-image">
-						<img src={Bannerimage} alt=""/>
+						<img src={Bannerimage} alt="Market banner"/>
 					</div>
 				</div>
 			</div>
