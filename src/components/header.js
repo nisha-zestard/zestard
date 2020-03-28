@@ -1,9 +1,7 @@
 // import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { useStaticQuery, Link, graphql } from "gatsby";
-
-import Logo from "../assets/images/Logo.png"
+import { useStaticQuery, graphql } from "gatsby";
 
 const Header = () => {
 
