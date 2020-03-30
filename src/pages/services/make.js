@@ -6,9 +6,7 @@ import Layout from "./../../components/layout"
 
 import Credentialsimage from "./../../assets/images/credientials-bg.png"
 import Zectopus from "./../../assets/images/zectopus.png"
-import Mascot from "./../../assets/images/Mascot.png"
-import Portfolioone from "./../../assets/images/portfolio-01.jpg"
-import Portfoliotwo from "./../../assets/images/portfolio-02.jpg"
+import AboutProject from './../../components/aboutproject'
 
 
 class Make extends Component {
@@ -20,8 +18,7 @@ class Make extends Component {
 		const technology = data.allWordpressWpTechnology.edges;
 		const credential = data.allWordpressWpCredentials.edges;
 		const portfolio = data.allWordpressWpPortfolio.edges;
-		console.log(portfolio);
-
+		
 		return(
 			<Layout>
 				<section>
@@ -137,10 +134,10 @@ class Make extends Component {
 							<div className="portfolio-list">
 								<div className="row">
 									{portfolio.map((node,index) => (
-										<div className="col-md-6">
+										<div className="col-md-6" key={index}>
 										<div className="portfolio-wrap">
 											<div className="portfolio-image">
-												<img src={node.node.featured_media.source_url} />
+												<img src={node.node.featured_media.source_url} alt={node.node.title} />
 											</div>
 											<div className="portfolio-content">
 												<span className="sub-title">Web Platform</span>
@@ -157,20 +154,8 @@ class Make extends Component {
 					</div>
 				</section>
 				<section>
-				<div className="footer-contactus text-center">
-					<div className="container">
-					<div className="footer-contactus-inner">
-					<div className="contcta-image">
-						<img src={Mascot} />
-					</div>
-					<div className="content">
-						<h2>Tell us about your project</h2>
-						<p>Do you have a project you think we will love?<br/> Why not get started and complete our short project enquiry form</p>
-						<a className="start-pro-btn" href="#">Start Your Project</a>
-					</div>
-					</div>
-					</div>
-				</div>
+					<AboutProject />
+				
 				</section>
 		<Link to="/">Go back to the homepage</Link>
 	  </Layout>

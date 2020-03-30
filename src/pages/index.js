@@ -105,10 +105,10 @@ class Home extends Component {
 			<div className="portfolio-list">
 				<div className="row">
                     {portfolio.map((node,index) => (
-                        <div className={node.node.title == "Panache Cosmetics" ? 'col-md-12' : 'col-md-6'} key={index}>
+                        <div className={node.node.title === "Panache Cosmetics" ? 'col-md-12' : 'col-md-6'} key={index}>
                             <div className="portfolio-wrap">
                                 <div className="portfolio-image">
-                                    <img src={node.node.featured_media.source_url} />
+                                    <img src={node.node.featured_media.source_url} alt={node.node.title} />
                                 </div>
                                 <div className="portfolio-content">
                                     <span className="sub-title">Web Platform</span>
