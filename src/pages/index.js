@@ -113,7 +113,7 @@ class Home extends Component {
                                 <div className="portfolio-content">
                                     <span className="sub-title">Web Platform</span>
                                     <h2 className="portfolio-title">{node.node.title}</h2>
-                                    <p>JadeBlue is India's Premier Fashion Store for Men.</p>
+                                    <p dangerouslySetInnerHTML={{ __html: node.node.excerpt }} />
                                     <a href="#" className="portfolio-link">Read more</a>
                                 </div>
                             </div>
@@ -290,6 +290,7 @@ export const query = graphql`
         edges {
           node {
             title
+            excerpt
             featured_media {
               source_url
             }
