@@ -85,7 +85,7 @@ class Home extends Component {
                             <img className="card-img-top" src={node.cs_icon.source_url} alt="service-img"></img>                              
                             <div className="card-body">
                                 <h5 className="card-title">{node.cs_title}</h5>
-                                <p className="card-text" dangerouslySetInnerHTML={{ __html: node.cs_content }} />
+                                <div className="card-text" dangerouslySetInnerHTML={{ __html: node.cs_content }} ></div>
                                 <a className="l-more" href={node.cs_learn_more_link}>Learn More</a>
                             </div>
                         </div>                        
@@ -105,7 +105,7 @@ class Home extends Component {
 			<div className="portfolio-list">
 				<div className="row">
                     {portfolio.map((node,index) => (
-                        <div className={node.node.title === "Panache Cosmetics" ? 'col-md-12' : 'col-md-6'} key={index}>
+                        <div className={node.node.title === "Panache Cosmetics" ? 'col-md-12 full-col' : 'col-md-6 half-col'} key={index}>
                             <div className="portfolio-wrap">
                                 <div className="portfolio-image">
                                     <img src={node.node.featured_media.source_url} alt={node.node.title} />
@@ -221,10 +221,10 @@ class Home extends Component {
                         </div>
                         <div className="next-pre">
                             <button className="button" onClick={this.previous}>
-                                <i className="fa fa-long-arrow-left" aria-hidden="true"></i>
+                                <i className="fa fa-angle-left" aria-hidden="true"></i>
                             </button> 
                             <button className="button" onClick={this.next}>
-                                <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                <i className="fa fa-angle-right" aria-hidden="true"></i>
                             </button> 
                         </div>
                     </div>
