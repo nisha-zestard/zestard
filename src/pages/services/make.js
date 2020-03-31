@@ -86,7 +86,7 @@ class Make extends Component {
 							<div className="technology-list">
 								<div className="row">
 									{technology.map((node,index) => (
-										<div className="col-md-6" key={index}>
+										<div className="col-md-6 technology-outer-wrap" key={index}>
 											<div className="technology-wrap">
 												<div className="icon-wrap">
 													<img src={node.node.featured_media.source_url}  alt={node.node.title+" Technology Logo"}/>

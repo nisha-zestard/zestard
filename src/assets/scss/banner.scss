@@ -46,17 +46,15 @@
         @media #{$medium-screen}{
             padding: 120px 0 50px;
         }
-        .banner-content{
-            h1{
-                color: $primary-color;
-                text-transform: inherit;
-            }
-            p{
-                color: $primary-light;
-                padding-right: 80px;
-                @media #{$tablet-screen}{
-                    padding: 0;
-                }
+        h1{
+            color: $primary-color;
+            text-transform: inherit;
+        }
+        p{
+            color: $primary-light;
+            padding-right: 80px;
+            @media #{$tablet-screen}{
+                padding: 0;
             }
         }
     }

@@ -51,10 +51,12 @@
                         @include sub-heading(26px);
                     }
                     .card-text {
-                        font-size: 18px;
-                        font-family: $secondary-font;
-                        color: $primary-light;
-                        line-height: 1.444;
+                        p{
+                            font-size: 18px;
+                            font-family: $secondary-font;
+                            color: $primary-light;
+                            line-height: 1.444;
+                        }
                     }
                     .l-more {
                         @include link($primary-color);
@@ -66,124 +68,32 @@
         }
     }
 }
-.our-portfolio {
-    padding: 50px 0px;
-    .title {
-        h2 {
-            @include heading;
-            margin-bottom: 30px;
+.portfolio{
+    .portfolio-wrap{
+        width: 100%;
+        .portfolio-image{
+            img{
+                width: 100%;
+                @media #{$small-screen}{
+                    height: 320px;
+                }
+            }
         }
     }
-    .portfolio-inner {
-        .portfolio-wrap {
-            background-position: center;
-            background-size: cover;
-            height: 100%;
-            position: relative;
-            &:before {
-                content: "";
-                opacity: 0.80;
-                background-image: -moz-linear-gradient( 153deg, rgb(57, 201, 201) 0%, rgb(54, 177, 178) 0%, rgb(0, 104, 105) 100%);
-                background-image: -webkit-linear-gradient( 153deg, rgb(57, 201, 201) 0%, rgb(54, 177, 178) 0%, rgb(0, 104, 105) 100%);
-                background-image: -ms-linear-gradient( 153deg, rgb(57, 201, 201) 0%, rgb(54, 177, 178) 0%, rgb(0, 104, 105) 100%);
-                display: block;
-                width: 100%;
-                height: 100%;
-                position: absolute;
-            }
-            .inner-content {
-                position: relative;
-                padding: 65px;
-                max-width: 645px;
-                height: 535px;
-                @media #{$tablet-screen} {
-                    padding: 30px;
-                }
-                @media #{$small-screen} {
-                    max-width: 100%;
-                }
-                @media #{$mobile-screen} {
-                    height: 315px;
-                }
-                h4 {
-                    font-size: 20px;
-                    font-family: $primary-font;
-                    color: $white;
-                }
-                h2 {
-                    @include heading;
-                    font-weight: 600;
-                    color: $white;
-                    margin: 20px 0;
-                }
-                p {
-                    font-size: 18px;
-                    color: $white;
-                    font-weight: 300;
-                    margin-bottom: 0;
-                }
-                .r-more {
-                    @include link($white);
-                    margin-top: 45px;
-                    display: block;
-                }
-            }
-            .inner-img {
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                max-width: 55%;
-                @media #{$tablet-screen} {
-                    max-width: 80%;
-                }
-                @media #{$mobile-screen} {
-                    display: none;
-                }
-            }
+    .half-col{
+        display: flex;
+        order: 2;
+    }
+    .full-col{
+        margin-bottom: 30px;
+        @media #{$small-screen}{
+            margin: 0;
         }
-        .two-column {
-            margin-top: 16px;
-            .portfolio-wrap {
-                &::before {
-                    content: "";
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    background-image: -ms-linear-gradient( -39deg, rgb(77, 22, 174) 0%, rgb(27, 112, 168) 100%);
-                    background-image: -webkit-linear-gradient(-39deg, rgb(77, 22, 174) 0%, rgb(27, 112, 168) 100%);
-                    width: 100%;
-                    height: 100%;
-                    opacity: 0.90;
-                }
-                .inner-content {
-                    h2 {
-                        margin: 20px 0px 10px;
-                    }
-                }
-                .inner-img {
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
+        .portfolio-wrap{
+            .portfolio-content{
+                max-width: 600px;
+                @media #{$small-screen}{
                     max-width: 100%;
-                }
-            }
-            .second {
-                @media #{$small-screen} {
-                    margin-top: 16px;
-                }
-                .portfolio-wrap {
-                    &::before {
-                        content: "";
-                        display: block;
-                        width: 100%;
-                        height: 100%;
-                        background-image: -moz-linear-gradient( 118deg, rgb(0, 183, 242) 0%, rgb(135, 197, 68) 100%);
-                        background-image: -webkit-linear-gradient( 118deg, rgb(0, 183, 242) 0%, rgb(135, 197, 68) 100%);
-                        background-image: -ms-linear-gradient( 118deg, rgb(0, 183, 242) 0%, rgb(135, 197, 68) 100%);
-                        width: 100%;
-                        height: 100%;
-                        opacity: 0.90;
-                    }
                 }
             }
         }
@@ -365,10 +275,10 @@
         .testimonial-img {
             margin: 35px auto 20px;
             position: relative;
-            max-width: 352px;
+            max-width: 320px;
             &::before {
                 content: "";
-                //background-image: url(../images/left-quote.png);
+                //background-image: url('../images/left-quote.png');
                 background-size: cover;
                 background-position: center;
                 width: 64px;
@@ -407,8 +317,9 @@
         }
         .next-pre {
             position: absolute;
-            left: 42.6%;
-            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -30px;
             @media #{$small-screen} {
                 position: relative;
                 left: 0;
@@ -423,8 +334,12 @@
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
+                margin: 0 2px;
                 &:hover {
                     text-decoration: none;
+                }
+                &:focus{
+                    outline: none;
                 }
                 .fa {
                     color: #6b7597;
@@ -449,39 +364,51 @@
             }
         }
     }
-    ul {
+    ul{
         margin: 0;
         padding: 0;
         list-style: none;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        li{
-            width: 16.6666%;
-            padding: 0 9px;
-            @media #{$medium-screen}{
-                width: 33.3333%;
-            }
-            @media #{$small-screen}{
-                width: 50%;
-            }
-            @media #{$xs-mobile-screen}{
-                width: 100%;
-            }
-            .box {
-                background-color: $white;
-                box-shadow: 0px 8px 17px 0px rgba(239, 239, 239, 0.35);
-                width: 100%;
-                height: 195px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-bottom: 3px solid $bg-color;
-                transition: transform .4s ease-in-out, box-shadow .4s ease-in-out, -webkit-transform .4s ease-in-out;
-                &:hover {
-                    transform: translateY(-10px);
-                    transition: transform .4s ease-in-out, box-shadow .4s ease-in-out, -webkit-transform .4s ease-in-out;
+        .slick-slider{
+            width: 100%;
+            .slick-list{
+                .slick-track{
+                    .slick-slide{
+                        li{
+                            width: 16.6666%;
+                            padding: 0 9px;
+                            @media #{$medium-screen}{
+                                width: 33.3333%;
+                            }
+                            @media #{$small-screen}{
+                                width: 50%;
+                            }
+                            @media #{$xs-mobile-screen}{
+                                width: 100%;
+                            }
+                            .box {
+                                background-color: $white;
+                                box-shadow: 0px 8px 17px 0px rgba(239, 239, 239, 0.35);
+                                width: 100%;
+                                height: 195px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border-bottom: 3px solid $bg-color;
+                                transition: transform .4s ease-in-out, box-shadow .4s ease-in-out, -webkit-transform .4s ease-in-out;
+                                &:hover {
+                                    transform: translateY(-10px);
+                                    transition: transform .4s ease-in-out, box-shadow .4s ease-in-out, -webkit-transform .4s ease-in-out;
+                                }
+                            }
+                        }
+                    }
                 }
+            }
+            .slick-dots{
+                bottom: -45px;
             }
         }
     }
