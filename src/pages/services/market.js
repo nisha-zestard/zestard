@@ -32,7 +32,9 @@ class Market extends Component {
 								</div>
 								<div className="col-md-6">
 									<div className="banner-image">
-										<img src={page.header_mascot.source_url} alt="Market banner"/>
+										{page.header_mascot.source_url !== null &&
+											<img src={page.header_mascot.source_url} alt="Market banner"/>
+										}										
 									</div>
 								</div>
 							</div>
@@ -81,7 +83,9 @@ class Market extends Component {
 								{genmodule[2].ls_link_images.map((node,index) => (
 									<li key={index}>
 										<div className="links-earned-wrap">
-											<img src={node.ls_image.source_url} alt="Links earned"/>
+											{node.ls_image.source_url !== null &&
+												<img src={node.ls_image.source_url} alt="Links earned"/>
+											}											
 										</div>
 									</li>
 								))}								
@@ -101,7 +105,9 @@ class Market extends Component {
 						<img src={Zectopus} className="center-image" alt="Zectopus"/>
 						{creden.map((node,index) => (
 							<div className={"creadi_wrap " + node.node.slug} key={index}>
-								<img src={node.node.featured_media.source_url} alt={node.node.title}/>
+								{node.node.featured_media.source_url !== null &&
+									<img src={node.node.featured_media.source_url} alt={node.node.title}/>
+								}								
 							</div>
 						))}						
 						</div>
@@ -122,7 +128,9 @@ class Market extends Component {
 										<div className="col-md-6" key={index}>
 											<div className="portfolio-wrap">
 												<div className="portfolio-image">
-													<img src={node.node.featured_media.source_url} alt={node.node.title}/>
+													{node.node.featured_media.source_url !== null &&
+														<img src={node.node.featured_media.source_url} alt={node.node.title}/>
+													}													
 												</div>
 												<div className="portfolio-content">
 													<span className="sub-title">Web Platform</span>

@@ -30,7 +30,9 @@ const AboutProject =   () => {
             <div className="container">
                 <div className="footer-contactus-inner">
                     <div className="contcta-image">
+                      {ctamodul.cta_mod_mascot_image.source_url !== null &&
                         <img src={ctamodul.cta_mod_mascot_image.source_url} alt="Tell us about your project banner"/>
+                      }                        
                     </div>
                     <div className="content">
                         <h2>{ctamodul.cta_mod_title}</h2>

@@ -15,9 +15,10 @@ class Maintain extends Component {
 	render() {
 		const data = this.props.data;
 		const page = data.allWordpressPage.edges[0].node.acf;
-		const genmodule = page.gen_content_modules_page;
+		const genmodule = data.allWordpressPage.edges[0].node.acf.gen_content_modules_page;
 		const credent = data.allWordpressWpCredentials.edges;
 		const portfolio = data.allWordpressWpPortfolio;
+		console.log(page);
 
 		return(
 			<Layout>
@@ -33,7 +34,9 @@ class Maintain extends Component {
 								</div>
 								<div className="col-md-6">
 									<div className="banner-image">
-										<img src={page.header_mascot.source_url} alt="Maintain banner"/>
+										{page.header_mascot.source_url !== null &&
+											<img src={page.header_mascot.source_url} alt="Maintain banner"/>
+										}										
 									</div>
 								</div>
 							</div>
@@ -62,7 +65,9 @@ class Maintain extends Component {
 										{index % 2 === 1 &&
 											<div className="col-md-6 maintain-service-image">
 												<div className="ser-image">
-													<img src={node.iwc_image.source_url} />
+													{node.iwc_image.source_url !== null &&
+														<img src={node.iwc_image.source_url} />
+													}													
 												</div>
 											</div>
 										}
@@ -76,7 +81,9 @@ class Maintain extends Component {
 										{index % 2 === 0 &&
 											<div className="col-md-6 maintain-service-image">
 												<div className="ser-image">
-													<img src={node.iwc_image.source_url} />
+													{node.iwc_image.source_url !== null &&
+														<img src={node.iwc_image.source_url} />
+													}													
 												</div>
 											</div>
 										}
@@ -94,24 +101,22 @@ class Maintain extends Component {
 								<div className="row">
 									<div className="col-lg-6">
 										<div className="hire-dev-image">
-											<img src={Wordpressmaintenance} />
+											{page.maintain_image.source_url !== null &&
+												<img src={page.maintain_image.source_url} />
+											}											
 										</div>
 									</div>
 									<div className="col-lg-6">
 										<div className="hire-dev-content">
-											<h2 className="hire-dev-title">Hire Dedicated Developers for Extensive Support</h2>
+											<h2 className="hire-dev-title">{page.maintain_title}</h2>
 											<div className="hire-dev-text">
-												<p>Skilled developers are a great asset to any company. They bring value to your business with their profound knowledge and strong expertise. 
-													Our developers undergo technical training to ensure you a business-oriented complete solution.</p>
+												<p dangerouslySetInnerHTML={{__html: page.maintain_content}} />
 													<ul>
-														<li>Hire Magento Developer</li>
-														<li>Hire Shopify Developer</li>
-														<li>Hire WooCommerce Developer</li>
-														<li>Hire Wordpress Developer</li>
-														<li>Hire Drupal Developer</li>
-														<li>Hire Angular Developer</li>
+														{page.maintain_list_repeater.map((node,index) => (
+															<li>{node.maintain_list}</li>
+														))}
 													</ul>
-													<a href="#">Get Started</a>
+													<a href={page.maintain_button_link}>{page.maintain_button_text}</a>
 											</div>
 										</div>
 									</div>
@@ -132,7 +137,9 @@ class Maintain extends Component {
 									<img src={Zectopus} className="center-image" />
 									{credent.map((node,index) => (
 										<div className={"creadi_wrap " + node.node.slug} key={index}>
-											<img src={node.node.featured_media.source_url} alt={node.node.title} />
+											{node.node.featured_media.source_url !== null &&
+												<img src={node.node.featured_media.source_url} alt={node.node.title} />
+											}											
 										</div>
 									))}
 								</div>
@@ -153,7 +160,9 @@ class Maintain extends Component {
 										<div className="col-md-6" key={index}>
 											<div className="portfolio-wrap">
 												<div className="portfolio-image">
-													<img src={node.node.featured_media.source_url} />
+													{node.node.featured_media.source_url !== null &&
+														<img src={node.node.featured_media.source_url} />
+													}													
 												</div>
 												<div className="portfolio-content">
 													<span className="sub-title">Web Platform</span>
@@ -214,6 +223,16 @@ export const query = graphql`{
 			  header_mascot {
 				source_url
 			  }
+			  maintain_image {
+				source_url
+			  }
+			  maintain_title
+			  maintain_content
+			  maintain_list_repeater {
+				maintain_list
+			  }
+			  maintain_button_text
+			  maintain_button_link
 			  gen_content_modules_page {
 				... on WordPressAcf_gen_page_intro_section {
 				  id
