@@ -58,7 +58,9 @@ class Home extends Component {
                         <p>{header.header_sub_text}</p>
                     </div>
                     <div className="col-md-6 text-right">
-                        <img src={header.header_mascot.source_url} alt="banner-img" />
+                        {header.header_mascot.source_url !== null &&
+                            <img src={header.header_mascot.source_url} alt="banner-img" />
+                        }                        
                     </div>
                 </div>
             </div>
@@ -82,7 +84,9 @@ class Home extends Component {
                     <div className="card-deck">  
                     {header.gen_content_modules_page[1].cs_cards_details.map((node,index) => (                           
                         <div className="card" key={index}>  
-                            <img className="card-img-top" src={node.cs_icon.source_url} alt="service-img"></img>                              
+                            {node.cs_icon.source_url !== null &&
+                                <img className="card-img-top" src={node.cs_icon.source_url} alt="service-img"></img>                              
+                            }                            
                             <div className="card-body">
                                 <h5 className="card-title">{node.cs_title}</h5>
                                 <div className="card-text" dangerouslySetInnerHTML={{ __html: node.cs_content }} ></div>
@@ -108,7 +112,9 @@ class Home extends Component {
                         <div className={node.node.title === "Panache Cosmetics" ? 'col-md-12 full-col' : 'col-md-6 half-col'} key={index}>
                             <div className="portfolio-wrap">
                                 <div className="portfolio-image">
-                                    <img src={node.node.featured_media.source_url} alt={node.node.title} />
+                                    {node.node.featured_media.source_url !== null &&
+                                        <img src={node.node.featured_media.source_url} alt={node.node.title} />
+                                    }                                    
                                 </div>
                                 <div className="portfolio-content">
                                     <span className="sub-title">Web Platform</span>
@@ -136,7 +142,9 @@ class Home extends Component {
                     <ul>
                         {clientlogo.map((node,index) => (
                             <li key={index}>
-                                <a href="#"><img src={node.node.featured_media.source_url} alt="c-logo-img" /></a>
+                                {node.node.featured_media.source_url !== null &&
+                                    <a href="#"><img src={node.node.featured_media.source_url} alt="c-logo-img" /></a>
+                                }                                
                             </li>
                         ))}
                        
@@ -162,7 +170,9 @@ class Home extends Component {
                             <ul>
                                 {expertise.home_oe_right_icons.map((node,index) => (
                                     <li key={index}>
-                                        <a href="#"><img src={node.home_oe_icons.source_url} alt="f-logo-img" /></a>
+                                        {node.home_oe_icons.source_url !== null &&
+                                            <a href="#"><img src={node.home_oe_icons.source_url} alt="f-logo-img" /></a>
+                                        }                                        
                                     </li>
                                 ))}                                
                             </ul>
@@ -244,7 +254,9 @@ class Home extends Component {
                     {credential.map((node,index) => (
                         <li key={index}>
                             <div className="box">
-                                <img src={node.node.featured_media.source_url} alt="cre-img" />
+                                {node.node.featured_media.source_url !== null &&
+                                    <img src={node.node.featured_media.source_url} alt="cre-img" />
+                                }                                
                             </div>
                         </li>
                     ))} 
@@ -264,7 +276,9 @@ class Home extends Component {
                     {recentpost.map((node,index)=>(
                         <div className="col-md-6" key={index}>
                             <div className="box">
-                                <img src={node.node.featured_media.source_url} alt="top-img" />
+                                {node.node.featured_media.source_url !== null &&
+                                    <img src={node.node.featured_media.source_url} alt="top-img" />
+                                }                                
                                 <ul>
                                     <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
                                     <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.featured_media.date}</li>

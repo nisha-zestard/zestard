@@ -33,7 +33,9 @@ class Make extends Component {
 								</div>
 								<div className="col-md-6">
 									<div className="banner-image">
-										<img src={pageacf.header_mascot.source_url}  alt="Make Banner"/>
+										{pageacf.header_mascot.source_url !== null &&
+											<img src={pageacf.header_mascot.source_url}  alt="Make Banner"/>
+										}										
 									</div>
 								</div>
 							</div>
@@ -89,7 +91,9 @@ class Make extends Component {
 										<div className="col-md-6 technology-outer-wrap" key={index}>
 											<div className="technology-wrap">
 												<div className="icon-wrap">
-													<img src={node.node.featured_media.source_url}  alt={node.node.title+" Technology Logo"}/>
+													{node.node.featured_media.source_url !== null &&
+														<img src={node.node.featured_media.source_url}  alt={node.node.title+" Technology Logo"}/>
+													}													
 												</div>
 												<div className="content-wrap">
 													<h3>{node.node.title}</h3>
@@ -116,7 +120,9 @@ class Make extends Component {
 						<img src={Zectopus} className="center-image" alt="Credential zectopus"/>
 						{credential.map((node,index) => (
 							<div className={"creadi_wrap " + node.node.slug} key={index}>
-								<img src={node.node.featured_media.source_url} alt={node.node.title}/>
+								{node.node.featured_media.source_url !== null &&
+									<img src={node.node.featured_media.source_url} alt={node.node.title}/>
+								}								
 							</div>
 						))}
 						</div>
@@ -137,7 +143,9 @@ class Make extends Component {
 										<div className="col-md-6" key={index}>
 										<div className="portfolio-wrap">
 											<div className="portfolio-image">
-												<img src={node.node.featured_media.source_url} alt={node.node.title} />
+												{node.node.featured_media.source_url !== null &&
+													<img src={node.node.featured_media.source_url} alt={node.node.title} />
+												}												
 											</div>
 											<div className="portfolio-content">
 												<span className="sub-title">Web Platform</span>

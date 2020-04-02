@@ -29,7 +29,9 @@ const Header = () => {
         <div className="row">
           <div className="col-md-3">
             <div className="site-branding">
-              <img src={acfoptions.site_logo.source_url} alt="Site Logo" />
+              {acfoptions.site_logo.source_url !== null &&
+                <img src={acfoptions.site_logo.source_url} alt="Site Logo" />
+              }              
             </div>
           </div>
           <div className="col-md-9">
