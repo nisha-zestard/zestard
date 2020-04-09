@@ -57,8 +57,8 @@ const Header = () => {
 
   const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
   const maninmenu = data.allWordpressMenusMenusItems.nodes[0].items;
-  const servicmenu = maninmenu[0];
-  console.log(maninmenu[0]);
+  const servicmenu = maninmenu[1];
+  console.log(maninmenu[1]);
   return(
     <header className="site-header">    
       <div className="container">
@@ -71,16 +71,25 @@ const Header = () => {
             </div>
           </div>
           <div className="col-md-9">
-          <Navbar bg="default" expand="lg" id="sectionsNav" className="site-nav d-flex justify-content-end align-items-center">
+          <Navbar bg="default" expand="lg" id={window.location.pathname === '/' ? 'home': 'other'} className="site-nav d-flex justify-content-end align-items-center">
             <ul className="nav">
-              <NavDropdown title={servicmenu.title} id="basic-nav-dropdown" onMouseEnter = { (e) => handleOpen(e) } onMouseLeave = { (e) => handleClose(e) } >
-                {servicmenu.child_items.map((node, index) => (
-                  <NavDropdown.Item href={`/services/${removePre(node.url)}`} key={index}>
-                    {node.title}
-                  </NavDropdown.Item>
+              <li>{servicmenu.title}
+              <ul className="sub-menu">
+                {servicmenu.child_items.map((node,index) => (
+                  <li key={index}><Link to={`/services/${removePre(node.url)}`}>{node.title}</Link></li>
                 ))}
-              </NavDropdown>
-               
+                  {/* <li><Link to={`/services/${removePre(maninmenu[0].child_items[0].url)}`}>{maninmenu[0].child_items[0].title}</Link></li>
+                  <li><Link to={`/services/${removePre(maninmenu[0].child_items[1].url)}`}>{maninmenu[0].child_items[1].title}</Link></li>
+                  <li><Link to={`/services/${removePre(maninmenu[0].child_items[2].url)}`}>{maninmenu[0].child_items[2].title}</Link></li> */}
+                </ul>
+                {/* <NavDropdown title={servicmenu.title} id="basic-nav-dropdown" onMouseEnter = { (e) => handleOpen(e) } onMouseLeave = { (e) => handleClose(e) } >
+                  {servicmenu.child_items.map((node, index) => (
+                    <NavDropdown.Item href={`/services/${removePre(node.url)}`} key={index}>
+                      {node.title}
+                    </NavDropdown.Item>
+                  ))}
+                </NavDropdown> */}
+              </li>             
               <li><a href="#">Work</a></li>
               <li><a href="#">Company</a></li>
               <li><a href="#">Blog</a></li>
