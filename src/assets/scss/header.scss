@@ -17,6 +17,7 @@
                 display: inline-block;
                 margin: 0 20px;
                 padding-bottom: 2px;
+                position: relative;
                 a{
                     font:{
                         size: 20px;
@@ -45,6 +46,30 @@
                             left: 0;
                             right: auto;
                         }
+                    }
+                }
+                .sub-menu{
+                    margin: 0;
+                    background: $white;
+                    width: 200px;
+                    border-radius: 4px;
+                    position: absolute;
+                    left: 0;
+                    top: 25px;
+                    z-index: 9999;
+                    display: none;
+                    li{
+                        display: block;
+                        margin: 0;
+                        padding: 10px;
+                        a{
+                            color: $primary-color;
+                        }
+                    }
+                }
+                &:hover{
+                    .sub-menu{
+                        display: block;
                     }
                 }
             }
