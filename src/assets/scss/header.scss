@@ -18,6 +18,12 @@
                 margin: 0 20px;
                 padding-bottom: 2px;
                 position: relative;
+                font:{
+                    size: 20px;
+                    family: $primary-font;
+                    weight: 600; 
+                }
+                color: $white;
                 a{
                     font:{
                         size: 20px;
@@ -83,6 +89,22 @@
                 }
                 &:hover{
                     text-decoration: none;
+                }
+            }
+        }
+        &#home{
+            li{
+                color: $primary-color;
+                a{
+                    color: $primary-color;
+                }
+                .sub-menu{
+                    background: $primary-color;
+                    li{
+                        a{
+                            color: $white;
+                        }
+                    }
                 }
             }
         }
