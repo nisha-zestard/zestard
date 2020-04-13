@@ -210,7 +210,7 @@ export const query = graphql`{
 		  }
 		}
 	  }
-	allWordpressPage(filter: {wordpress_id: {eq: 4651}}) {
+	allWordpressPage(filter: {wordpress_id: {eq: 6956}}) {
 		edges {
 		  node {
 			acf {
