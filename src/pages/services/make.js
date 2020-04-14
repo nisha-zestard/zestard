@@ -67,9 +67,11 @@ class Make extends Component {
 											<div className="card service-wrap">
 												<div className="service-icon">
 													{node.cs_icon.source_url !== null &&
-														<img src={node.cs_icon.source_url}/>
+														<img src={node.cs_icon.source_url} className="main-image"/>
 													}
-													
+													{node.cs_hover_icon.source_url !== null &&
+														<img src={node.cs_hover_icon.source_url} className="hover-image"/>
+													}
 												</div>
 												<div className="card-body">
 													<h2 className="s-title" dangerouslySetInnerHTML={{__html: node.cs_title}} />
@@ -239,7 +241,10 @@ export const query = graphql`{
 				  cs_cards_details {
 					cs_icon {
 						source_url
-					  }
+					}
+					cs_hover_icon {
+						source_url
+					}
 					cs_title
 					cs_content
 					cs_learn_more_link
