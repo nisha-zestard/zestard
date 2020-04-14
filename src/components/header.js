@@ -6,15 +6,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { removePre } from './../util/common';
-
+import { globalHistory as history } from '@reach/router'
 const Header = () => {
 
   const handleOpen = (el) => {  
     const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
   }
    
-  const handleClose = (el) => {
-    // setIsOpen(false);
+  const handleClose = (el) => {    
     const target = el.currentTarget.getElementsByClassName('dropdown-menu');
     if(target.length > 0) {
       const test = target[0].closest('.dropdown-menu');
@@ -22,44 +21,46 @@ const Header = () => {
         test.classList.remove('showmobmnu');
     }
   }
-
-  const data = useStaticQuery(
-    graphql`
-    {
-      allWordpressAcfOptions {
-        edges {
-          node {
-            options {
-              site_logo {
-                source_url
-              }
-            }
-          }
-        }
-      }
-      allWordpressMenusMenusItems(filter: {wordpress_id: {eq: 207}}) {
-        nodes {
-          name
-          items {
-            title
-            url
-            child_items {
-              title
-              url
-              wordpress_id
-              target
+  const data = useStaticQuery(graphql`
+  query {
+    wordpressPage {
+      id
+    }
+    allWordpressAcfOptions {
+      edges {
+        node {
+          options {
+            site_logo {
+              source_url
             }
           }
         }
       }
     }
-  `)
-
+    allWordpressMenusMenusItems(filter: {wordpress_id: {eq: 207}}) {
+      nodes {
+        name
+        items {
+          title
+          url
+          child_items {
+            title
+            url
+            wordpress_id
+            target
+          }
+        }
+      }
+    }
+  }
+`)
   const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
   const maninmenu = data.allWordpressMenusMenusItems.nodes[0].items;
   const servicmenu = maninmenu[1];
   const isBrowser = typeof window !== `undefined`
-  console.log(maninmenu[1]);
+  const { location} = history
+  console.log( location )
+ 
   return(
     <header className="site-header">    
       <div className="container">
@@ -72,7 +73,8 @@ const Header = () => {
             </div>
           </div>
           <div className="col-md-9">
-          <Navbar bg="default" expand="lg" id={isBrowser ? window.location.pathname === '/' ? 'home': 'other' : ''} className="site-nav d-flex justify-content-end align-items-center">
+          {/* <Navbar bg="default" expand="lg" id={isBrowser ? window.location.pathname === '/' ? 'home': 'other' : ''} className="site-nav d-flex justify-content-end align-items-center"> */}
+          <Navbar bg="default" expand="lg" id={location.pathname === '/' ? 'home' : 'other'}  className="site-nav d-flex justify-content-end align-items-center">
             <ul className="nav">
               <li>{servicmenu.title}
               <ul className="sub-menu">

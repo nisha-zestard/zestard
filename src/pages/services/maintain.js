@@ -113,7 +113,7 @@ class Maintain extends Component {
 												<p dangerouslySetInnerHTML={{__html: page.maintain_content}} />
 													<ul>
 														{page.maintain_list_repeater.map((node,index) => (
-															<li>{node.maintain_list}</li>
+															<li key={index}>{node.maintain_list}</li>
 														))}
 													</ul>
 													<a href={page.maintain_button_link}>{page.maintain_button_text}</a>
