@@ -65,7 +65,12 @@ class Make extends Component {
 									{acfgen[1].cs_cards_details.map((node,index) => (
 										<div className="col-lg-3 col-md-6" key={index}>
 											<div className="card service-wrap">
-												<div className="service-icon" />
+												<div className="service-icon">
+													{node.cs_icon.source_url !== null &&
+														<img src={node.cs_icon.source_url}/>
+													}
+													
+												</div>
 												<div className="card-body">
 													<h2 className="s-title" dangerouslySetInnerHTML={{__html: node.cs_title}} />
 													<p className="text" dangerouslySetInnerHTML={{__html:node.cs_content}} />
@@ -232,6 +237,9 @@ export const query = graphql`{
 				  id
 				  cs_section_class
 				  cs_cards_details {
+					cs_icon {
+						source_url
+					  }
 					cs_title
 					cs_content
 					cs_learn_more_link
