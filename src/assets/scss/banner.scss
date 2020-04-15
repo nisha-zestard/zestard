@@ -34,6 +34,7 @@
         }
     }
     .banner-image{
+        text-align: right;
         @media #{$small-screen}{
             text-align: center;
         }

@@ -52,6 +52,24 @@ img{
         weight: bold;
     }
     color: $color;
+    position: relative;
+    padding-right: 17px;
+    &:after{
+        content: "\f101";
+        font: normal normal normal 22px/1 FontAwesome;
+        position: absolute;
+        right: 15px;
+        top: 0;
+        transition: all 0.5s;
+        opacity: 0;
+    }
+    &:hover{
+        text-decoration: none;
+        &:after{
+            opacity: 1;
+            right: 0; 
+        }
+    }
 }
 @mixin theme-btn($bgcolor: $black, $font-size: 17px, $padding: 14px 26px, $border-radius: 2px,){
     background-color: $bgcolor;

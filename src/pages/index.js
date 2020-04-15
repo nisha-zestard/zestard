@@ -223,6 +223,14 @@ class Home extends Component {
                                         <div className="col-md-7">
                                             <h5 className="title">{node.node.title}</h5>
                                             <p dangerouslySetInnerHTML={{ __html: node.node.content }} />
+                                            <div className="next-pre">
+                                                <button className="button" onClick={this.previous}>
+                                                    <i className="fa fa-angle-left" aria-hidden="true"></i>
+                                                </button> 
+                                                <button className="button" onClick={this.next}>
+                                                    <i className="fa fa-angle-right" aria-hidden="true"></i>
+                                                </button> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -230,14 +238,7 @@ class Home extends Component {
                         </Slider>
                             
                         </div>
-                        <div className="next-pre">
-                            <button className="button" onClick={this.previous}>
-                                <i className="fa fa-angle-left" aria-hidden="true"></i>
-                            </button> 
-                            <button className="button" onClick={this.next}>
-                                <i className="fa fa-angle-right" aria-hidden="true"></i>
-                            </button> 
-                        </div>
+                        
                     </div>
                 </div>
             </div>

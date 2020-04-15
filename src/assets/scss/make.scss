@@ -86,6 +86,7 @@
                 }
                 a{
                     @include link(#2d6cdf);
+
                 }
             }
             &:hover{
@@ -93,6 +94,12 @@
                 .card-body{
                     .s-title, .text, a{
                         color: $white;
+                    }
+                    a{
+                        &:after{
+                            opacity: 1;
+                            right: 0;
+                        }
                     }
                 }
                 .service-icon{
