@@ -4,10 +4,6 @@ import { Link } from "gatsby"
 import Layout from "./../../components/layout"
 import Credentialsimage from "./../../assets/images/credientials-bg.png"
 import Zectopus from "./../../assets/images/zectopus.png"
-import Mascot from "./../../assets/images/Mascot.png"
-import Portfolioone from "./../../assets/images/portfolio-01.jpg"
-import Portfoliotwo from "./../../assets/images/portfolio-02.jpg"
-import Wordpressmaintenance from "./../../assets/images/Wordpress-Maintenance.png"
 
 import AboutProject from './../../components/aboutproject'
 
