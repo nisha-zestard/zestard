@@ -1,0 +1,300 @@
+.contact {
+    .page-header {
+        padding: 40px 0px 80px 0px;
+        img {
+            width: 300px;
+            @media screen and (max-width: 576px){
+                height: auto;
+            }
+        }
+        @media only screen and (max-width: 767px) {
+            background: linear-gradient(-14deg, #009fff 21%, #0974d5 30%, #053ab1 46%, #06284e 92%);
+        }
+    }
+    .contact-form {
+        .card {
+            box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 0px;
+            margin-top: -60px;
+            border: none;
+            @media only screen and (max-width: 576px) {
+                overflow: hidden;
+                margin-top: 15px;
+                padding: 0px;
+            }
+            .row {
+                position: relative;
+                .is-submitted {
+                    @media only screen and (max-width: 576px){
+                        height: 60%;
+                    }
+                }
+            }
+            .is-submitted{
+                position: absolute;
+                background: #fff;
+                top: 0;
+                height: 100%;
+                opacity: .95;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                display: none;
+                width: 50%;
+            }
+            .form-detail {
+                padding: 40px;
+                background-color: #122b47;
+                @media only screen and (max-width: 768px) {
+                    padding: 20px;
+                }
+                @media only screen and (max-width: 575px) {
+                    padding: 40px;
+                }
+                .btn-primary{
+                    &:focus{
+                       box-shadow: none;
+                       outline: none;
+                    }
+                    &:not(:disabled):not(.disabled):active:focus{
+                        box-shadow: none
+                    }
+                }
+                
+                h2 {
+                    font-size: 25px;
+                    color: #eaf3f6;
+                    line-height: 35px;
+                    text-align: left;
+                    font-weight: 600;
+                    margin: 0px;
+                    @media only screen and (max-width: 1199px) {
+                        font-size: 20px;
+                        line-height: 25px;
+                        margin-bottom: 5px;
+                    }
+                }
+                h4 {
+                    font-size: 15px;
+                    color: #8ba4bb;
+                    line-height: 20px;
+                    text-align: left;
+                    font-weight: 400;
+                    margin: 0px;
+                    @media only screen and (max-width: 1199px) {
+                        font-size: 12px;
+                    }
+                }
+                .mail-send {
+                    color: green;
+                    // background: white;
+                    // padding: 15px;
+                    // font-size: 18px;
+                    // margin-top: 20px;
+                    // font-weight: 600;
+                    // border-radius: 4px;
+                }
+                .mail-failed {
+                    color: red;                    
+                    // padding: 15px;
+                    // font-size: 18px;
+                    // margin-top: 20px;
+                    // font-weight: 600;
+                    // border-radius: 4px;
+                }
+                form {
+                    .form-group{
+                        color: #fff;
+                        font-size: 16px;
+                        display: block;
+                        margin-bottom: 15px;
+                        .form-control{
+                            width: 100%;
+                            height: 30px;
+                            padding: 0 10px;
+                            color: #fff;
+                            font-size: 14px;
+                            background-color: transparent;
+                            &:focus{
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+                textarea#message {
+                    height: auto;
+                }
+                .frm_forms{
+                    margin-top: 4%;
+                    label{
+                        span{
+                            color: #ff0000;
+                        }
+                    }
+                    .frm_message,
+                    .frm_error_style{
+                        font-size: 15px;
+                        color: #fff;
+                        line-height: 20px;
+                        text-align: left;
+                        font-weight: 400;
+                        margin: 0px;
+                    }
+                    .frm_error{
+                        color:#ff0000;
+                    }
+                }
+            }
+            .address-detail {
+                padding: 40px;
+                background-color: #ffffff;
+                @media only screen and (max-width: 768px) {
+                    padding: 20px;
+                }
+                @media only screen and (max-width: 575px) {
+                    padding: 40px;
+                }
+                ul {
+                    padding: 0px;
+                    margin: 0px;
+                    list-style: none;
+                    li {
+                        margin-bottom: 30px;
+                        &:last-child {
+                            margin-bottom: 0px;
+                        }
+                        h4 {
+                            color: #212529;
+                            font-weight: 600;
+                        }
+                        p {
+                            b {
+                                text-transform: uppercase;
+                                font-weight: 600;
+                                letter-spacing: 0.5px;
+                            }
+                            font-size: 16px;
+                            font-family: 'Open Sans',sans-serif;
+                            line-height: 25px;
+                            text-align: left;
+                            margin-bottom: 0px;
+                            @media only screen and (max-width: 1199px) {
+                                font-size: 12px;
+                            }
+                        }
+                        img{
+                            margin: 0;
+                        }
+                        .social {
+                            display: flex;
+                            li {
+                                margin-bottom: 0px;
+                                margin-right: 15px;
+                                &:last-child {
+                                    margin-right: 0px;
+                                }
+                                a {
+                                    font-size: 20px;
+                                    color: #ffffff;
+                                    background-color: #1f98ea;
+                                    width: 40px;
+                                    border-radius: 100%;
+                                    display: flex;
+                                    height: 100%;
+                                    align-items: center;
+                                    justify-content: center;
+                                    padding: 10px;
+                                    &:hover {
+                                        color: #ffffff;
+                                        background: linear-gradient(-45deg, #9fcb29 0%, #5bb53f 100%);
+                                    }
+                                    &:visited{
+                                        color: #ffffff;
+                                        background-color: #1f98ea;
+                                    }
+                                    @media only screen and (max-width: 1199px) {
+                                        font-size: 20px;
+                                    }
+                                }
+                                @media only screen and (max-width: 768px) {
+                                    margin-right: 15px;
+                                }
+                                @media only screen and (max-width: 375px) {
+                                    margin-right: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .location {
+        margin-top: 50px;
+        h2 {
+            font-size: 30px;
+            font-family: 'Open Sans', sans-serif;
+            color: #434e5a;
+            line-height: 1.028;
+            text-align: center;
+            font-weight: 800;
+            margin-bottom: 80px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            &:after{
+                content: '';
+                border-bottom: 5px solid #1f98ea;
+                width: 5%;
+                margin: 0 auto;
+                left: 0px;
+                right: 0px;
+                position: absolute;
+                top: 40px;
+            }
+        }
+    } 
+    div.wpcf7-mail-sent-ok, .wpcf7-validation-errors{
+        color: #ffffff;
+    }
+}
+
+.form-group {
+    span {
+        color: #ced4da;
+        font-size: 12px;
+    }
+    i {
+        color: red;
+        // size: 20px;
+    }
+}
+
+.form-control {
+    border-radius: 0px;
+    // color: #fff;
+    background-color: #122b47;
+    border: 1px solid #ced4da;
+    width: 350px;
+    
+    &:hover {
+        background: transparent;
+    }
+}
+.btn-primary {
+    padding: 15px 35px;
+    margin-top: 25px;
+    border-radius: 5px;
+    font-size: 18px;
+    line-height: 25px;
+    color: #fff;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(-45deg, #9fcb29 0%, #5bb53f 100%);
+    &:hover{
+        -webkit-box-shadow: 0 14px 26px -12px rgba(82,82,82,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(82,82,82,.2);
+        box-shadow: 0 14px 26px -12px rgba(82,82,82,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(82,82,82,.2);
+        background: linear-gradient(-45deg,#9fcb29 0,#5bb53f 100%);
+        border-color: #9fcb29;
+    }
+}

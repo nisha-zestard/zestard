@@ -1,20 +1,18 @@
-// Culture Page
-
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 import PageHeader from './../../components/page-header';
 import { removePre } from './../../util/common'
 import SEO from "../../components/seo";
+import './../../assets/scss/index.scss'
 
 class Culture extends Component {
   
     render() {
       const data = this.props.data
       const acfData = data.wordpressPage.acf;
-      const metadata = data.wordpressPage.yoast_meta[0].content;
       return (
         <>
-          <SEO title = {data.wordpressPage.yoast_title} description={metadata} />
+          <SEO />
             <div id="page" className="site-header">
                 <div id="content" className="site-content">
                     {/* page header */}

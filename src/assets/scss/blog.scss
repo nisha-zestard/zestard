@@ -1,0 +1,168 @@
+.blog-header {
+    background-image: url(./../images/blog-banner.png);
+    color: #fff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 75px;
+    background-repeat: no-repeat;
+
+    @media(max-width: 767px){
+        background: linear-gradient(-14deg, #009fff 21%, #0974d5 30%, #053ab1 46%, #06284e 92%);
+    }
+    @media screen and (max-width: 576px){
+        margin-top: 65px;
+    }
+    .blog-title {
+        font-family: 'Roboto', sans-serif;
+    }
+    h1.hestia-title{
+        @media(max-width: 767px){
+                font-size: 2.8rem;
+        }
+    }
+}
+
+.blog-list {
+    .card-image {
+        img {
+            border-radius: 3px 3px 0px 0px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 0px;
+        }
+    }
+
+    .section-desc {
+        padding: 30px;
+
+        .card-title {
+            font-style: normal;
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 30px;
+            color: #212b35;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-family: 'PT Sans', sans-serif;
+
+            @media only screen and (max-width: 575px) {
+                font-size: 18px;
+                line-height: 1.2;
+                margin-bottom: 10px;
+            }
+        }
+
+        .card-description {
+            p {
+                font-style: normal;
+                font-size: 16px;
+                font-weight: 400;
+                color: #637381;
+                line-height: 25px;
+                margin-bottom: 0px;
+                font-family: $blog-font;
+                @media only screen and (max-width: 575px) {
+                    font-size: 14px;
+                    line-height: 22px;
+                }
+            }
+        }
+    }
+
+    .blog-section-footer {
+        padding: 15px 30px;
+        border-top: 1px solid rgba(0, 0, 0, .1222);
+        display: block;
+        overflow: hidden;
+
+        .author {
+            @media only screen and (max-width: 575px) {
+                font-size: 14px;
+                line-height: 1.2;
+            }
+
+            a {
+                color: #7c8c92;
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 20px;
+                font-family: $blog-font;
+
+                @media only screen and (max-width: 575px) {
+                    font-size: 14px;
+                    line-height: 1.2;
+                }
+            }
+        }
+
+        .read-more-link {
+            text-align: right;
+
+            @media only screen and (max-width: 575px) {
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            a {
+                text-transform: uppercase;
+                color: #3f51b5;
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 27px;
+                font-family: $blog-font;
+
+                @media only screen and (max-width: 575px) {
+                    font-size: 14px;
+                    line-height: 1.2;
+                }
+
+                :hover {
+                    opacity: .75;
+                }
+            }
+        }
+    }
+    .posts-navigation {
+        @media only screen and (max-width: 575px) {
+            margin-bottom: 0px;
+        }
+
+        .nav-links {
+            .nav-previous {
+                a {
+                    font-size: 16px;
+                    line-height: 1.5;
+                    color: #3f51b5;
+                    font-weight: 600;
+
+                    @media only screen and (max-width: 575px) {
+                        font-size: 14px;
+                        line-height: 1.2;
+                    }
+                }
+            }
+        }
+    }
+    .post-pagination{
+        ul.page-num{
+            text-align: center;
+            li{
+                display: inline-flex;
+                .page-numbers{
+                    padding: 10px 20px;
+                    font-size: 17px;
+                    font-family: $para-font;
+                    font-weight: 400;
+                    margin: 10px 5px;
+                    border-radius: 3px;
+                    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+                    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+                    &.current{
+                        background: linear-gradient(-45deg,#9fcb29 0%,#5bb53f 100%);
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}

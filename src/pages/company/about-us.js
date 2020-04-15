@@ -11,16 +11,16 @@ class AboutUs extends Component {
     render() {
       const data = this.props.data
       const acfData = data.wordpressPage.acf;
-      const metadata = data.wordpressPage.yoast_meta[0].content;
+      //const metadata = data.wordpressPage.yoast_meta[0].content;
       const whoweare = data.wordpressPage.childWordPressAcfGenRightVideoAndLeftDescription;
       const ourValues = data.wordpressPage.childWordPressAcfGenGridBoxes;
       const industry = data.allWordpressAcfOptions.nodes[0].options;
       const whychoose = data.wordpressPage.childWordPressAcfGenLeftIconAndRightDescription;
-      const footer = data.wordpressAcfOptions.options;
+      //const footer = data.wordpressAcfOptions.options;
 
       return (
         <>
-        <SEO title = {data.wordpressPage.yoast_title} description={metadata} />
+        <SEO  />
           <div id="page" className="site about-page">
             <div id="content" className="site-content">
               {/* page header */}
@@ -150,21 +150,7 @@ class AboutUs extends Component {
                 </div>
               </section>
               {/* Call to action */}
-              <div className="footer-provide">
-                <div className="container">
-                  <div className="row">
-                  <div className="col-md-8 ml-auto mr-auto text-center">
-                    <div
-                      dangerouslySetInnerHTML = {{ __html: footer.cta_mod_description }}
-                    />
-                    <a className="get-in-touch btn btn-primary" 
-                    href={`/${removePre(footer.cta_mod_link)}`} target="_blank" rel="noopener noreferrer">
-                      Get In Touch
-                    </a>
-                  </div>
-                  </div>
-                </div>
-              </div>
+            
             </div>
           </div>
         </>
