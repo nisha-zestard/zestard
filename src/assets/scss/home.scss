@@ -263,9 +263,9 @@
     }
 }
 .testimonials-section {
-    padding: 100px 0px 100px;
+    padding: 100px 0px 30px;
     @media #{$tablet-screen}{
-        padding: 60px 0;
+        padding: 60px 0 10px;
     }
     .title {
         h2 {
@@ -318,10 +318,6 @@
             }
         }
         .next-pre {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: -30px;
             @media #{$small-screen} {
                 position: relative;
                 left: 0;

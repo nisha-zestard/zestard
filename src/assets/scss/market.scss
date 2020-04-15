@@ -138,10 +138,12 @@
                 background: $white;
                 border-radius: 5px;
                 text-align: center;
-                padding: 26px 0;
-                @media #{$mobile-screen}{
-                    padding: 10px 0;
-                }
+                width: 100%;
+                height: 86px;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
                 img{
                     @media #{$tablet-screen}{
                         max-width: 90%;
