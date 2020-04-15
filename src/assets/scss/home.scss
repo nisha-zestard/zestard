@@ -218,6 +218,9 @@
 }
 .counter-section {
     background-color: $bg-color;
+    background-image: url('../images/counter-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
     .counter-wraper {
         background-position: center;
         background-size: cover;
