@@ -42,20 +42,23 @@
         }
     }
     &.home{
-        padding: 180px 0 120px;
+        padding: 165px 0 80px;
         @media #{$medium-screen}{
             padding: 120px 0 50px;
         }
         h1{
             color: $primary-color;
             text-transform: inherit;
+            font-family: $primary-font;
+            font-size: 50px;
+            line-height: 65px;
+            font-weight: 800;
         }
         p{
             color: $primary-light;
-            padding-right: 80px;
-            @media #{$tablet-screen}{
-                padding: 0;
-            }
+            font-size: 24px;
+            line-height: 40px;
+            margin-bottom: 35px;
         }
     }
     &.make{
