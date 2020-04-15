@@ -1,0 +1,166 @@
+.modal-dialog {
+    max-width: 100% !important;
+    height: 100% !important;
+    margin: auto !important;
+}
+.lightboxContainer {
+    display: block;
+    // border: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    padding-right: 15px;
+    padding-left: 15px;
+    // border-top: 1px solid red;
+    // border-left: 1px solid red;
+    div {
+        overflow: hidden;
+        height: auto;
+        background: #fff;
+        padding: 0;
+        margin: 0;
+        // border-top: 1px solid red;
+        // border-left: 1px solid red;
+    }
+    img {
+        height: auto;
+        margin-bottom: 0px;
+    }
+}
+
+.closebutton {
+    float: right;
+    background: transparent;
+    border: none;
+}
+.slbCloseBtn {
+    -webkit-animation: slbEnter 0.3s;
+    -moz-animation: slbEnter 0.3s;
+    animation: slbEnter 0.3s;
+    position: absolute;
+    color: #fff;
+    text-align: center;
+    border: none;
+    outline: none;
+    display: inline-block;
+    top: 10px;
+    right: 10px;
+    background: #000;
+    width: 30px;
+    height: 30px;
+    line-height: 25px;
+    padding: 0 0 10px;
+    font-size: 28px;
+}
+
+.slbOverlay {
+    overflow: hidden;
+    z-index: 2000;
+    opacity: 0.6;
+    background-color: #000;
+    animation: slbOverlay 0.5s;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+.slbWrapOuter {
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 2010;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 70%;
+    position: relative;
+    .slbWrap {
+        position: fixed;
+        text-align: center;
+        top: 0;
+        bottom: 0;
+        margin: 0 auto;
+        display: flex;
+        width: 100%;
+        left: 0;
+        .slbContentOuter {
+            position: relative;
+            display: flex;
+            box-sizing: border-box;
+            z-index: 2020;
+            width: 60vw;
+            left: 20vw;
+            align-items: center;
+            justify-content: center;
+            height: 60vh;
+            top: 20vh;
+            .slbContent {
+                position: relative;
+                display: flex;
+                width: 100%;
+                max-width: 100%;
+                height: 100%;
+                .slbImageWrap {
+                    animation: slbEnter .3s;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    .slbImage {
+                        position: relative;
+                        width: 100%;
+                        max-width: 100%;
+                        display: block;
+                        box-sizing: border-box;
+                        border: 5px solid #fff;
+                        padding: 0;
+                        margin: 0 auto;
+                        // height: 100%;
+                        -o-object-fit: cover;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.slbArrows {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    .prev {
+        font-size: 3em;
+        width: 1.66667em;
+        height: 1.66667em;
+        line-height: 1.66667em;
+        position: absolute;
+        right: -0.33333em;
+        top: 0;
+        color: #fff;
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        background: transparent;
+        border: none;
+        left: 0;
+        outline: none;
+    }
+    .next {
+        font-size: 3em;
+        width: 1.66667em;
+        height: 1.66667em;
+        line-height: 1.66667em;
+        position: absolute;
+        right: -0.33333em;
+        top: 0;
+        color: #fff;
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        background: transparent;
+        border: none;
+        right: 0;
+        outline: none;
+    }
+} 
+

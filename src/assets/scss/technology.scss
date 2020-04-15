@@ -1,0 +1,299 @@
+.technology-page {
+    .tech-img{
+        img{
+            max-width: 80%; 
+            @media only screen and (max-width: 768px) {
+                max-width: 100%;
+            }
+            @media only screen and (max-width: 320px) {
+                max-width: 100%;
+            }
+        }
+    }
+    .technology-odd {
+        position: relative;
+        padding: 35px 0px; 
+        .title {
+            a {
+                margin-top: 0px;
+                text-align: left;
+                margin-bottom: 30px;
+                @media only screen and (max-width: 992px) {
+                    margin-bottom: 50px;
+                    font-size: 30px;
+                }
+                @media only screen and (max-width: 375px) {
+                    margin-bottom: 40px;
+                    font-size: 24px;
+                    line-height: 30px;
+                }
+            }
+        }
+        .tech-content{
+            .btn.btn-primary{
+                border: none;
+                &:not(:disabled):not(.disabled):active:focus{
+                    box-shadow: none
+                }
+            }
+        }
+        p {
+            font-family: $para-font;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 17px;
+            color: $para-font-color;
+            line-height: 28px;
+            @media only screen and (max-width: 1440px) {
+                font-size: 15px;
+                line-height: 20px;
+            }
+        }
+        ul {
+            padding: 0px;
+            margin-top: 30px;
+            @media(min-width: 768px) and (max-width:991px){
+                margin-left: 15px;
+            }
+            li {
+                position: relative;
+                width: 50%;
+                float: left;
+                padding-left: 30px;
+                margin-bottom: 15px;
+                list-style: none;
+                @media only screen and (max-width: 575px) {
+                    width: 100%;
+                    margin-bottom: 8px;
+                }
+                &:before {
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 5px;
+                    background-color: transparent;
+                    border: 2px solid #6fc65f;
+                    position: absolute;
+                    left: 0;
+                    top: 2px;
+                    content: "";
+                }
+                &:hover:before {
+                    background-color: #6fc65f;
+                }
+                a {
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    text-decoration: none;
+                    color: #4f4f4f;
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 19px;
+                    font-weight: 400;
+                    font-style: normal;
+                    line-height: 20px;
+                    &:hover {
+                        cursor: pointer;
+                        color: #6fc65f;
+                    }
+                    @media only screen and (max-width: 1450px) {
+                        font-size: 17px;
+                    }
+                    @media only screen and (max-width: 575px) {
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+        .sub-technology {
+            display: inline-block;
+        }
+    }
+    .technology-even {
+        position: relative;
+        padding: 100px 0px;
+        /*background: linear-gradient(-45deg, rgb(44, 81, 171) 0%, rgb(79, 136, 190) 100%);*/
+        background-color: #ffffff;
+        @media(max-width: 991px){
+            padding: 55px 0px;
+        }
+        @media screen and (max-width:767px){
+            padding: 20px 0;
+        }
+       
+        .title {
+            a {
+                color: #393b3c;
+                font-family: 'Roboto', sans-serif;
+                font-weight: bold;
+                font-style: normal;
+                font-size: 36px;
+                line-height: 60px;
+                margin-top: 0px;
+                text-align: left;
+                margin-bottom: 30px;
+                @media only screen and (max-width: 992px) {
+                    margin-bottom: 50px;
+                    font-size: 30px;
+                }
+                @media only screen and (max-width: 375px) {
+                    margin-bottom: 40px;
+                    font-size: 24px;
+                    line-height: 30px;
+                }
+            }
+        }
+        p {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 20px;
+            color: #7b7b7b;
+            line-height: 32px;
+            @media only screen and (max-width: 1440px) {
+                font-size: 15px;
+                line-height: 20px;
+            }
+        }
+        ul {
+            padding: 0px;
+            margin-top: 30px;
+            @media(min-width: 768px) and (max-width:991px){
+                margin-left: 15px;
+            }
+            li {
+                position: relative;
+                width: 50%;
+                float: left;
+                padding-left: 30px;
+                margin-bottom: 15px;
+                list-style: none;
+                @media only screen and (max-width: 575px) {
+                    width: 100%;
+                    margin-bottom: 8px;
+                }
+                &:before {
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 5px;
+                    background-color: transparent;
+                    border: 2px solid #6fc65f;
+                    position: absolute;
+                    left: 0;
+                    top: 2px;
+                    content: "";
+                }
+                &:hover:before {
+                    background-color: #6fc65f;
+                }
+                a {
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    text-decoration: none;
+                    color: #ffffff;
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 19px;
+                    font-weight: 400;
+                    font-style: normal;
+                    line-height: 20px;
+                    &:hover {
+                        cursor: pointer;
+                        color: #6fc65f;
+                    }
+                    @media only screen and (max-width: 1450px) {
+                        font-size: 17px;
+                    }
+                    @media only screen and (max-width: 575px) {
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+        .sub-technology {
+            display: inline-block;
+        }
+    }
+    .digital-marketing {
+        background: linear-gradient(-45deg, rgb(41, 46, 73) 0%, rgb(83, 105, 118) 100%);
+    }
+    .portfolio-project {
+        position: relative;
+        padding: 100px 0px;
+        background-color: #ecf0f5;
+        .title {
+            color: #393b3c;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            font-style: normal;
+            font-size: 36px;
+            line-height: 60px;
+            margin-top: 0px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .portfolio-card {
+            // padding: 30px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0px;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            .img-project {
+                transition-duration: .5s;
+                width: 100%;
+            }
+            .project-detail {
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                flex-direction: column;
+                padding: 30px;
+                display: flex;
+                z-index: 999;
+                h3 {
+                    margin: 0px;
+                    a {
+                        font-size: 37.506px;
+                        font-family: "Colfax";
+                        color: rgb(255, 255, 255);
+                        font-weight: bold;
+                        line-height: 1.245;
+                        text-align: left;
+                    }
+                }
+                p {
+                    font-size: 20px;
+                    font-family: 'Source Sans Pro';
+                    color: #bad2e6;
+                    font-style: italic;
+                    line-height: 1.3;
+                    text-align: left;
+                    max-width: 300px;
+                    margin-top: 10px;
+                    margin-bottom: 30px;
+                }
+                .View_Project {
+                    font-size: 18px;
+                    font-family: "Colfax";
+                    color: rgb(255, 255, 255);
+                    text-transform: uppercase;
+                    line-height: 1.667;
+                    text-align: left;
+                    span {
+                        img {
+                            width: 20px;
+                            margin-left: 5px;
+                        }
+                    }
+                }
+            }
+            &:hover .img-project {
+                transform: scale(1.1);
+            }
+        }
+    }
+}

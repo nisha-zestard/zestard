@@ -1,0 +1,49 @@
+.testimonial-list{
+    .my-masonry-grid{
+        display: flex;
+        margin-left: -30px;
+        width: auto;
+        .my-masonry-grid_column{
+            padding-left: 30px;
+            background-clip: padding-box;
+            .grid-item{
+                margin-bottom: 30px;
+                .testimonial-wrapper{
+                    margin-bottom: 0;
+                    border: 0;
+                    margin-top: 30px;
+                    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+                    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+                    .speaks{
+                        width: 100%;
+                        float: left;
+                        background: #fff;
+                        border-radius: 5px 5px 0 0;
+                        padding: 20px;
+                        div{
+                            padding: 10px 35px;
+                            display: inline-block;
+                            width: 100%;
+                            p{
+                                font-size: 17px;
+                                line-height: 30px;
+                                font-weight: 400;
+                                color: #606569;
+                                margin: 0;
+                            }
+                        }
+                    }
+                    .client-name {
+                        width: 100%;
+                        text-align: center;
+                        background-color: #f4f4f4;
+                        h3{
+                            margin: 0;
+                            font-size: 1.4em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
