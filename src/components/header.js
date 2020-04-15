@@ -56,10 +56,14 @@ const Header = () => {
 `)
   const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
   const maninmenu = data.allWordpressMenusMenusItems.nodes[0].items;
+  const companymenu = maninmenu[0];
   const servicmenu = maninmenu[1];
+  const workmenu = maninmenu[2];
+  const blogmenu = maninmenu[3];
+  const contactmenu = maninmenu[4];
   const isBrowser = typeof window !== `undefined`
   const { location} = history
-  console.log( location )
+  console.log(maninmenu);
  
   return(
     <header className="site-header">    
@@ -76,41 +80,31 @@ const Header = () => {
           {/* <Navbar bg="default" expand="lg" id={isBrowser ? window.location.pathname === '/' ? 'home': 'other' : ''} className="site-nav d-flex justify-content-end align-items-center"> */}
           <Navbar bg="default" expand="lg" id={location.pathname === '/' ? 'home' : 'other'}  className="site-nav d-flex justify-content-end align-items-center">
             <ul className="nav">
+              <li>{companymenu.title}
+              <ul className="sub-menu">   
+              {companymenu.child_items.map((node,index) => (
+                  <li key={index}><Link to={`/${removePre(node.url)}`}>{node.title}</Link></li>
+                ))}
+              </ul>
+              </li>
               <li>{servicmenu.title}
-              <ul className="sub-menu">
+              <ul className="sub-menu">                
                 {servicmenu.child_items.map((node,index) => (
                   <li key={index}><Link to={`/services/${removePre(node.url)}`}>{node.title}</Link></li>
-                ))}
-                  {/* <li><Link to={`/services/${removePre(maninmenu[0].child_items[0].url)}`}>{maninmenu[0].child_items[0].title}</Link></li>
-                  <li><Link to={`/services/${removePre(maninmenu[0].child_items[1].url)}`}>{maninmenu[0].child_items[1].title}</Link></li>
-                  <li><Link to={`/services/${removePre(maninmenu[0].child_items[2].url)}`}>{maninmenu[0].child_items[2].title}</Link></li> */}
+                ))}                  
                 </ul>
-                {/* <NavDropdown title={servicmenu.title} id="basic-nav-dropdown" onMouseEnter = { (e) => handleOpen(e) } onMouseLeave = { (e) => handleClose(e) } >
-                  {servicmenu.child_items.map((node, index) => (
-                    <NavDropdown.Item href={`/services/${removePre(node.url)}`} key={index}>
-                      {node.title}
-                    </NavDropdown.Item>
-                  ))}
-                </NavDropdown> */}
-              </li>             
-              <li><a href="#">Work</a></li>
-              <li><a href="#">Company</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
+              </li> 
+              <li>{workmenu.title}
+              <ul className="sub-menu">   
+                {workmenu.child_items.map((node,index) => (
+                  <li key={index}><Link to={`/${removePre(node.url)}`}>{node.title}</Link></li>
+                ))}
+                </ul>
+              </li>
+              <li><Link to={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Link></li>
+              <li><Link to={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Link></li>
             </ul>
           </Navbar>
-            {/* <div className="site-nav d-flex justify-content-end align-items-center">
-              <ul className="nav">
-                  <li><a href="#">{maninmenu[0].title}</a></li>
-                  <li><a href="#">Work</a></li>
-                  <li><a href="#">Company</a></li>
-                  <li><a href="#">Blog</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-                <div className="request-a-quote">
-                <a href="#" className="btn-primary">Request a Quote</a>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>  
