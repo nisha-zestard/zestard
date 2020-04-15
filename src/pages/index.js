@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 import './../assets/scss/index.scss'
 import Layout from "../components/layout"
 import Slider from "react-slick";
+import Counterbg from "../images/counter-bg.png"
 
 class Home extends Component {
     constructor(props) {
@@ -183,7 +184,7 @@ class Home extends Component {
         </div>
     </section>
     <section>
-        <div className="counter-section">
+        <div className="counter-section" style={{backgroundImage:`url(${Counterbg})`}}>
             <div className="container">
                 <div className="counter-wraper">
                     <ul className="row">
