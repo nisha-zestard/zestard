@@ -76,25 +76,25 @@ const Header = () => {
               }              
             </div>
           </div>
-          <div className="col-md-9">
+          <div className="col-md-9 d-flex justify-content-end">
           {/* <Navbar bg="default" expand="lg" id={isBrowser ? window.location.pathname === '/' ? 'home': 'other' : ''} className="site-nav d-flex justify-content-end align-items-center"> */}
           <Navbar bg="default" expand="lg" id={location.pathname === '/' ? 'home' : 'other'}  className="site-nav d-flex justify-content-end align-items-center">
             <ul className="nav">
-              <li>{companymenu.title}
+              <li className="has-submenu">{companymenu.title}
               <ul className="sub-menu">   
               {companymenu.child_items.map((node,index) => (
                   <li key={index}><Link to={`/${removePre(node.url)}`}>{node.title}</Link></li>
                 ))}
               </ul>
               </li>
-              <li>{servicmenu.title}
+              <li className="has-submenu">{servicmenu.title}
               <ul className="sub-menu">                
                 {servicmenu.child_items.map((node,index) => (
                   <li key={index}><Link to={`/services/${removePre(node.url)}`}>{node.title}</Link></li>
                 ))}                  
                 </ul>
               </li> 
-              <li>{workmenu.title}
+              <li className="has-submenu">{workmenu.title}
               <ul className="sub-menu">   
                 {workmenu.child_items.map((node,index) => (
                   <li key={index}><Link to={`/${removePre(node.url)}`}>{node.title}</Link></li>
@@ -105,6 +105,9 @@ const Header = () => {
               <li><Link to={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Link></li>
             </ul>
           </Navbar>
+          <div className="request-a-quote">
+                <a href="#" className="btn-primary">Request a Quote</a>
+            </div>
           </div>
         </div>
       </div>  

@@ -6,7 +6,7 @@
     .site-branding{
         img{
             max-width: 100%;
-            width: 198px;
+            width: 180px;
             margin: 0;
         }
     }
@@ -15,12 +15,12 @@
             margin: 0;
             li{
                 display: inline-block;
-                margin: 0 20px;
+                padding: 0 30px;
                 padding-bottom: 2px;
                 position: relative;
                 cursor: pointer;
                 font:{
-                    size: 20px;
+                    size: 19px;
                     family: $primary-font;
                     weight: 600; 
                 }
@@ -55,6 +55,15 @@
                         }
                     }
                 }
+                &.has-submenu{
+                    &:after{
+                        content: "\F107";
+                        font: normal normal normal 22px/1 FontAwesome;
+                        position: absolute;
+                        right: 11px;
+                        top: 2px;
+                    }
+                }
                 .sub-menu{
                     margin: 0;
                     background: $white;
@@ -68,9 +77,10 @@
                     li{
                         display: block;
                         margin: 0;
-                        padding: 10px;
+                        padding: 7px 10px;
                         a{
                             color: $primary-color;
+                            font-size: 17px;;
                         }
                     }
                 }
@@ -107,6 +117,24 @@
                         }
                     }
                 }
+            }
+        }
+    }
+    .request-a-quote{
+        a{
+            display: inline-block;
+            background-color: #1e2129;
+            color: $white;
+            font:{
+                family: $primary-font;
+                size: 16px;
+                weight: bold;
+            }
+            text-transform: uppercase;
+            padding: 11px 18px;
+            border-radius: 2px;
+            &:hover{
+                text-decoration: none;
             }
         }
     }

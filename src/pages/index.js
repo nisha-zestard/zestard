@@ -53,7 +53,7 @@ class Home extends Component {
         <div className="page-banner home">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-6">        
+                    <div className="col-md-6 d-flex align-content-centent flex-wrap">        
                         <h1 dangerouslySetInnerHTML={{ __html: header.header_section_title }} />
                         <p>{header.header_sub_text}</p>
                     </div>

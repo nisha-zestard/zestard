@@ -5,10 +5,10 @@
             font:{
                 size: 50px;
                 family: $primary-font;
-                weight: 800;
+                weight: 700;
             }
             color: $white;
-            text-transform: uppercase;
+            // text-transform: uppercase;
             margin-bottom: 25px;
             @media #{$medium-screen}{
                 font-size: 32px;
@@ -24,7 +24,7 @@
             color: #cfdefb;
             font:{
                 family: $primary-font;
-                size: 24px;
+                size: 22px;
             }
             line-height: 34px;
             @media #{$tablet-screen}{
@@ -53,13 +53,13 @@
             font-family: $primary-font;
             font-size: 50px;
             line-height: 65px;
-            font-weight: 800;
+            font-weight: 700;
         }
         p{
             color: $primary-light;
-            font-size: 24px;
-            line-height: 40px;
-            margin-bottom: 35px;
+            font-size: 22px;
+            line-height: 34px;
+            margin-bottom: 0;
         }
     }
     &.make{
@@ -67,8 +67,8 @@
         background: -webkit-linear-gradient( -47deg, rgb(3,22,142) 0%, rgb(7,132,165) 100%);
     }
     &.market{
-        background: linear-gradient( -47deg, rgb(3,22,142) 0%, rgb(55,213,214) 100%);
-        background: -webkit-linear-gradient( -47deg, rgb(3,22,142) 0%, rgb(55,213,214) 100%);
+        background: -webkit-linear-gradient( 128deg, rgb(0,39,87) 50%, rgb(55,213,214) 100%);
+        background:  linear-gradient( 128deg, rgb(0,39,87) 50%, rgb(55,213,214) 100%);
     }
     &.maintain{
         background: -webkit-linear-gradient( -7deg, rgb(42,8,69) 1%, rgb(100,65,165) 100%);

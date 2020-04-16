@@ -61,7 +61,7 @@
                     .l-more {
                         @include link($primary-color);
                         margin-top: 25px;
-                        display: block;
+                        display: inline-block;
                     }
                 }
             }
