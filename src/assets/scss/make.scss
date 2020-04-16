@@ -86,7 +86,12 @@
                 }
                 a{
                     @include link(#2d6cdf);
-
+                    padding-right: 30px;
+                    &::after{
+                        content: "\f178";
+                        opacity: 1;
+                        right: 0;
+                    }
                 }
             }
             &:hover{
@@ -179,7 +184,7 @@
                         @include link($primary-color);
                     }
                     @media #{$mobile-screen}{
-                        width: calc(100% - 70px);
+                        width: calc(100% - 70px); 
                     }
                 }
             }
