@@ -75,27 +75,23 @@ export default class Lightbox extends Component {
   render() {
     const { EventImages } = this.props;
     const { showLightbox, selIndex } = this.state;
+    console.log(EventImages);
     return (
       <Fragment>
         <div className="lightboxContainer">
-        <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid" columnClassName="my-masonry-grid_column" >
-                      
-        {EventImages.map((image, i) => (
-          
-                      <div className="grid-item">
-                          <div className="culture-wrapper card">
-                              <div className="speaks">
-                              <div className="previewButton" key={i} type="button"
-          onClick={e => this.handleClick(e, image, i) }>
-                                      <img className="img-responsive" alt="coma" loading="lazy"
-                                      src={image.source_url} />                                
-                              </div>
-                              
-                          </div>
-                      </div>
-                    </div>
-                      ))}
-                      </Masonry>
+        {/* <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid" columnClassName="my-masonry-grid_column" >
+          {EventImages.map((image, i) => (          
+            <div className="grid-item" key={i}>
+              <div className="culture-wrapper card">
+                <div className="speaks">
+                  <div className="previewButton" key={i} type="button" onClick={e => this.handleClick(e, image, i) }>
+                    <img className="img-responsive" alt="coma" loading="lazy" src={image.source_url} />                                
+                  </div>                              
+                </div>
+              </div>
+            </div>
+          ))}
+        </Masonry> */}
           {/* {EventImages.map((image, i) => (
             <div className="previewButton" key={i} type="button"
               onClick={e => this.handleClick(e, image, i) }>

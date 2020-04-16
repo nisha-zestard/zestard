@@ -11,12 +11,12 @@ class ServiceTemplate extends Component {
       const data = this.props.data
       const acfData = data.allWordpressPage.edges[0].node.acf;
       const sertech = data.allWordpressPage.edges[0].node;
-      const metadata = data.allWordpressPage.edges[0].node.yoast_meta[0].content;
+    
       
      // console.log(data.allWordpressPage.edges[0].node);
       return (
         <>
-        <SEO title = {data.allWordpressPage.edges[0].node.yoast_title} description={metadata} />
+        <SEO />
             <div id="page" className="site">
                 <div id="content" className="site-content">
                     <PageHeader
