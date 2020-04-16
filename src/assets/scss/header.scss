@@ -103,11 +103,27 @@
                 }
             }
         }
-        &#home{
+        &#lightheader{
             li{
                 color: $primary-color;
                 a{
                     color: $primary-color;
+                }
+                .sub-menu{
+                    background: $primary-color;
+                    li{
+                        a{
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+        &#darkheader{
+            li{
+                color: $white;
+                a{
+                    color: $white;
                 }
                 .sub-menu{
                     background: $primary-color;
