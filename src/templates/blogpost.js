@@ -33,7 +33,7 @@ class PostTemplate extends Component {
     
     return (
       <>
-      <SEO title={post.yoast_title} description={post.yoast_json_ld[0].wordpress__graph[2].description}/>
+      <SEO />
         <div id="page" className="site">
             <div id="content" className="single-post-detail site-content">
                 <div id="primary" className="content-area ">

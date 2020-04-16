@@ -13,10 +13,10 @@ class BlogList extends Component {
     const prevPage = currentPage - 1 === 1 ? "/blog" : `blog/page/${(currentPage - 1).toString()}`
     const nextPage = `blog/page/${(currentPage + 1).toString()}`
     const data = this.props.data
-    const metadata = data.wordpressPage.yoast_meta[0].content
+    
     return (
       <>
-      <SEO title={data.wordpressPage.yoast_title} description={metadata} />
+      <SEO />
         <div id="page" className="site">
           <div id="content" className="site-content">
             {/* blog header */}

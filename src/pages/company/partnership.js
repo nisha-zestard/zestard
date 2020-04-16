@@ -13,10 +13,10 @@ class Partnership extends Component {
       const offshore = data.wordpressPage.acf.gen_content_modules_page[0];
       const referral = data.wordpressPage.acf.gen_content_modules_page[2];
       const reseller = data.wordpressPage.childWordPressAcfGenLeftImageAndRightDescription;
-      const metadata = data.wordpressPage.yoast_meta[0].content;
+      //const metadata = data.wordpressPage.yoast_meta[0].content;
       return (
         <>
-          <SEO title = {data.wordpressPage.yoast_title} description={metadata} />
+          <SEO />
           <div id="page" className="site ">
             <div id="content" className="site-content">
               {/* page header */}

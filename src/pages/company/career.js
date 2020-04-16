@@ -10,10 +10,10 @@ class Career extends Component {
     render() {
       const data = this.props.data
       const acfData = data.wordpressPage.acf;
-      const metadata = data.wordpressPage.yoast_meta[0].content;
+      //const metadata = data.wordpressPage.yoast_meta[0].content;
       return (
         <>
-        <SEO title = {data.wordpressPage.yoast_title} description={metadata} />
+        <SEO />
             <div id="page" className="site career">
                 <div id="content" className="site-content">
                 {/* page header */}
