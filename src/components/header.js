@@ -82,7 +82,7 @@ const Header = () => {
           </div>
           <div className="col-md-9 d-flex justify-content-end">
           {/* <Navbar bg="default" expand="lg" id={isBrowser ? window.location.pathname === '/' ? 'home': 'other' : ''} className="site-nav d-flex justify-content-end align-items-center"> */}
-          <Navbar bg="default" expand="lg" id={location.pathname === '/' ? 'lightheader' : location.pathname === '/services/make/' ? 'darkheader' : location.pathname === '/services/market/' ? 'darkheader' : location.pathname === '/services/maintain/' ? 'darkheader' : 'lightheader'}  className="site-nav d-flex justify-content-end align-items-center">
+          <Navbar bg="default" expand="lg" id={location.pathname === '/services/make/' ? 'darkheader' : location.pathname === '/services/market/' ? 'darkheader' : location.pathname === '/services/maintain/' ? 'darkheader' : 'lightheader'}  className="site-nav d-flex justify-content-end align-items-center">
             <ul className="nav">
               <li className="has-submenu">{companymenu.title}
               <ul className="sub-menu">   
