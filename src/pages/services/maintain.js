@@ -62,7 +62,7 @@ class Maintain extends Component {
 											<div className="col-md-6 maintain-service-image">
 												<div className="ser-image">
 													{node.iwc_image.source_url !== null &&
-														<img src={node.iwc_image.source_url} />
+														<img src={node.iwc_image.source_url}  alt="Service icon"/>
 													}													
 												</div>
 											</div>
@@ -78,7 +78,7 @@ class Maintain extends Component {
 											<div className="col-md-6 maintain-service-image">
 												<div className="ser-image">
 													{node.iwc_image.source_url !== null &&
-														<img src={node.iwc_image.source_url} />
+														<img src={node.iwc_image.source_url}  alt="Service icon"/>
 													}													
 												</div>
 											</div>

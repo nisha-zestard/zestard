@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
 import BlogSidebar from './../components/blogsidebar'
 import { removePre, removeSpecialSymbols } from './../util/common'
 import SEO from "../components/seo";

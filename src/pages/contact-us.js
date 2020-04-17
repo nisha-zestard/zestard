@@ -2,10 +2,10 @@
 
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-import axios from 'axios'
 import Layout from "./../components/layout"
 import PageHeader from './../components/page-header';
 import SEO from "../components/seo";
+import axios from 'axios'
 
 const validEmailRegex = RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/);
 const validPhoneRegex = RegExp(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/);
@@ -132,7 +132,7 @@ class ContactUs extends Component {
                         <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 form-detail col-xs-12">
                           <h2>We'd love to hear from you!</h2>
                           <h4>Brief us your requirements below, and let's connect.</h4>
-                          <h3 class={this.state.submitted === true ? 'mail-send' : this.state.submitted === false ? 'mail-failed' : '' } >{this.state.status}</h3>
+                          <h3 className={this.state.submitted === true ? 'mail-send' : this.state.submitted === false ? 'mail-failed' : '' } >{this.state.status}</h3>
 
                           {/* form */}
                           
