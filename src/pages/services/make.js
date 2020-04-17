@@ -67,10 +67,10 @@ class Make extends Component {
 											<div className="card service-wrap">
 												<div className="service-icon">
 													{node.cs_icon.source_url !== null &&
-														<img src={node.cs_icon.source_url} className="main-image"/>
+														<img src={node.cs_icon.source_url} className="main-image" alt="Service icon" />
 													}
 													{node.cs_hover_icon.source_url !== null &&
-														<img src={node.cs_hover_icon.source_url} className="hover-image"/>
+														<img src={node.cs_hover_icon.source_url} className="hover-image"  alt="Service hover icon" />
 													}
 												</div>
 												<div className="card-body">
