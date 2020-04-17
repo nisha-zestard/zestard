@@ -33,7 +33,7 @@ class PostTemplate extends Component {
     
     return (
       <>
-      <SEO />
+      <SEO title="Blog post"/>
         <div id="page" className="site">
             <div id="content" className="single-post-detail site-content">
                 <div id="primary" className="content-area ">

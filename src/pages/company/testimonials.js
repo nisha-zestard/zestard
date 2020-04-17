@@ -1,9 +1,7 @@
-// Testimonials Page
-
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-
 import Masonry from 'react-masonry-css';
+import Layout from "../../components/layout"
 import PageHeader from './../../components/page-header';
 import SEO from "../../components/seo";
 
@@ -20,8 +18,8 @@ class Testimonials extends Component {
       const acfData = data.wordpressPage.acf;
       //const metadata = data.wordpressPage.yoast_meta[0].content;
       return (
-        <>
-        <SEO />
+        <Layout>
+        <SEO title="Testimonial"/>
             <div id="page" className="site">
                 <div id="content" className="site-content">
                     {/* Page header */}
@@ -60,7 +58,7 @@ class Testimonials extends Component {
                     {/* testimonials */}
                 </div>
             </div>
-        </>
+        </Layout>
       )
     }
 }

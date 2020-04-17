@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
+import Layout from "../../components/layout"
 import PageHeader from './../../components/page-header';
 import { removeSpecialSymbols } from './../../util/common'
 import SEO from "../../components/seo";
@@ -10,8 +11,8 @@ class Portfolio extends Component {
       const acfData = data.wordpressPage.acf;
       //const metadata = data.wordpressPage.yoast_meta[0].content;
       return (
-        <>
-            <SEO />
+        <Layout>
+            <SEO title="Portfolio"/>
             <div id="page" className="site portfolio-page">
                 <div id="content" className="site-content">
                     {/* page header */}
@@ -47,7 +48,7 @@ class Portfolio extends Component {
                     </section>
                 </div>
             </div>
-        </>
+        </Layout>
     )
   }
 

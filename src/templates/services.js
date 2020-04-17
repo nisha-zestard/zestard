@@ -16,7 +16,7 @@ class ServiceTemplate extends Component {
      // console.log(data.allWordpressPage.edges[0].node);
       return (
         <>
-        <SEO />
+        <SEO title="Services"/>
             <div id="page" className="site">
                 <div id="content" className="site-content">
                     <PageHeader
