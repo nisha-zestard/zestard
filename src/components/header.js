@@ -65,6 +65,7 @@ const Header = () => {
   const blogmenu = maninmenu[3];
   const contactmenu = maninmenu[4];
   const { location} = history
+  console.log(workmenu);
  
   return(
     <header className="site-header">    
@@ -98,17 +99,17 @@ const Header = () => {
               <li className="has-submenu">{workmenu.title}
               <ul className="sub-menu">   
                 {workmenu.child_items.map((node,index) => (
-                  <li key={index}><Link to={`/${removePre(node.url)}`}>{node.title}</Link></li>
+                  <li key={index}><Link to={`/${removePre(node.url)}`} target={node.target} >{node.title}</Link></li>
                 ))}
                 </ul>
               </li>
               <li><Link to={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Link></li>
-              <li><Link to={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Link></li>
+              {/* <li><Link to={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Link></li> */}
             </ul>
           </Navbar>
           <div className="request-a-quote">
-                <a href="#" className="btn-primary">Request a Quote</a>
-            </div>
+            <Link to={`/${removePre(contactmenu.url)}`} className="btn-primary">Request a Quote</Link>
+          </div>
           </div>
         </div>
       </div>  

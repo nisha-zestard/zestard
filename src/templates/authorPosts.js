@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
+import Layout from "./../components/layout"
 import BlogSidebar from './../components/blogsidebar'
 import { removePre, removeSpecialSymbols } from './../util/common'
 import SEO from "../components/seo";
@@ -10,7 +11,7 @@ class AuthorPostsTemplate extends Component {
     const data = this.props.data
     const authorName = data.allWordpressPost.edges[0].node.author.name
     return (
-      <>
+      <Layout>
       <SEO title={`${authorName}, Author`} />
         <div id="page" className="site">
           <div id="content" className="site-content">
@@ -98,7 +99,7 @@ class AuthorPostsTemplate extends Component {
             </div>
           </div>
         </div>
-      </>
+      </Layout>
     )
   }
 
