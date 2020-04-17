@@ -85,6 +85,7 @@ img{
     box-shadow: none;
     display: inline-block;
     transition: $transition;
+    margin: 0;
     &:hover{
         text-decoration: none;
         background-color: $primary-color;
