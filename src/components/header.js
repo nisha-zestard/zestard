@@ -65,7 +65,6 @@ const Header = () => {
   const blogmenu = maninmenu[3];
   const contactmenu = maninmenu[4];
   const { location} = history
-  console.log(workmenu);
  
   return(
     <header className="site-header">    
