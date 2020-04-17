@@ -25,7 +25,7 @@ class Culture extends Component {
                     {/* events */}
                     <div className="container">
                       <div className="row">
-                      {/* {data.allWordpressWpCultures.edges.map(({ node }) => (
+                      {data.allWordpressWpCulture.edges.map(({ node }) => (
                         <div className="col-lg-4 col-md-6 col-sm-6 culture-box-wrap" key={node.id}>
                           <div className="events-wrapper card shadow-sm rounded">
                           {node.featured_media !== null && node.featured_media.source_url !== null &&
@@ -41,7 +41,7 @@ class Culture extends Component {
                             </div>
                           </div>
                         </div>
-                      ))} */}
+                      ))}
                       </div>
                     </div>
                 </div>
@@ -63,6 +63,20 @@ export const query = graphql`
       header_section_title
       header_mascot {
         source_url
+      }
+    }
+  }  
+  allWordpressWpCulture(sort: {order: DESC, fields: date}) {
+    edges {
+      node {
+        id
+        title
+        slug
+        link
+        featured_media {
+          source_url
+          wordpress_id
+        }
       }
     }
   }

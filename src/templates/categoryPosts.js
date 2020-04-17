@@ -3,7 +3,7 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
-
+import Layout from "./../components/layout"
 import BlogSidebar from './../components/blogsidebar'
 import { removePre, removeSpecialSymbols } from './../util/common'
 import SEO from "../components/seo";
@@ -18,7 +18,7 @@ class CategoryPostsTemplate extends Component {
     const catName = parameters[len-2]
     const data1 = data.allWordpressPost;
     return (
-      <>
+      <Layout>
       <SEO title={`${catName} Archives`} />
         <div id="page" className="site">
           <div id="content" className="site-content">
@@ -112,7 +112,7 @@ class CategoryPostsTemplate extends Component {
             </div>
           </div>
         </div>
-      </>
+      </Layout>
     )
   }
 

@@ -79,7 +79,7 @@ export default class Lightbox extends Component {
     return (
       <Fragment>
         <div className="lightboxContainer">
-        {/* <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid" columnClassName="my-masonry-grid_column" >
+        <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid" columnClassName="my-masonry-grid_column" >
           {EventImages.map((image, i) => (          
             <div className="grid-item" key={i}>
               <div className="culture-wrapper card">
@@ -91,7 +91,7 @@ export default class Lightbox extends Component {
               </div>
             </div>
           ))}
-        </Masonry> */}
+        </Masonry>
           {/* {EventImages.map((image, i) => (
             <div className="previewButton" key={i} type="button"
               onClick={e => this.handleClick(e, image, i) }>

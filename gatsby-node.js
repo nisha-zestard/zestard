@@ -74,7 +74,20 @@ exports.createPages = async ({ graphql, actions }) => {
             slug
           }
         }
-      } 
+      }  
+      allWordpressWpCulture {
+        edges {
+          node {
+            title
+            slug
+            id
+            wordpress_id
+            featured_media {
+              source_url
+            }
+          }
+        }
+      }
       allWordpressPage {
         edges {
           node {
@@ -89,7 +102,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   const { allWordpressPost,  
-          allWordpressWpUsers, 
+          allWordpressWpUsers, allWordpressWpCulture,
           allWordpressPage} = result.data
 
   if (result.errors) {
@@ -168,15 +181,15 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // creating pages for blog events
 
-  // allWordpressWpCultures.edges.forEach(edge => {
-  //   createPage({
-  //     path: `/cultures/${edge.node.slug}/`,
-  //     component: slash(BlogEventTemplate),
-  //     context: {
-  //       id: edge.node.wordpress_id,
-  //     },
-  //   })
-  // })
+  allWordpressWpCulture.edges.forEach(edge => {
+    createPage({
+      path: `/culture/${edge.node.slug}/`,
+      component: slash(BlogEventTemplate),
+      context: {
+        id: edge.node.wordpress_id,
+      },
+    })
+  })
   
   // Pagination for blog posts page
 

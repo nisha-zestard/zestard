@@ -4,7 +4,6 @@ import React, { Component } from "react"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 import PageHeader from '../../components/page-header';
-import { removePre } from './../../util/common';
 import SEO from "../../components/seo";
 
 class AboutUs extends Component {

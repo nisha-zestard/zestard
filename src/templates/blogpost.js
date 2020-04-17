@@ -1,8 +1,7 @@
-// Template for single blog post page
-
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
+import Layout from "./../components/layout"
 import BlogPostFooter from './../components/blogpostfooter';
 import { dateFormate, removeSpecialSymbols } from './../util/common';
 import SEO from "../components/seo";
@@ -32,7 +31,7 @@ class PostTemplate extends Component {
     // const allpostauthor = this.props.data.allWordpressPost
     
     return (
-      <>
+      <Layout>
       <SEO title="Blog post"/>
         <div id="page" className="site">
             <div id="content" className="single-post-detail site-content">
@@ -119,7 +118,7 @@ class PostTemplate extends Component {
                 </div>
             </div>
         </div>
-      </>
+      </Layout>
     )
   }
 }
