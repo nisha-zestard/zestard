@@ -19,6 +19,7 @@
                 padding-bottom: 2px;
                 position: relative;
                 cursor: pointer;
+                margin: 0;
                 font:{
                     size: 19px;
                     family: $primary-font;
@@ -91,18 +92,6 @@
                 }
             }
         }
-        .request-a-quote{
-            a{
-                @include theme-btn($bgcolor: $black, $font-size: 16px, $padding: 11px 18px, $border-radius: 2px,);
-                text-transform: uppercase;
-                @media #{$medium-screen}{
-                    font-size: 12px;
-                }
-                &:hover{
-                    text-decoration: none;
-                }
-            }
-        }
         &#lightheader{
             li{
                 color: $primary-color;
@@ -135,11 +124,12 @@
                 }
             }
         }
-    }
+    } 
     .request-a-quote{
-        a{
+        .btn-primary{
             display: inline-block;
             background-color: #1e2129;
+            background: linear-gradient(-45deg, #9fcb29 0%, #5bb53f 100%);
             color: $white;
             font:{
                 family: $primary-font;
@@ -149,6 +139,7 @@
             text-transform: uppercase;
             padding: 11px 18px;
             border-radius: 2px;
+            margin: 0;
             &:hover{
                 text-decoration: none;
             }

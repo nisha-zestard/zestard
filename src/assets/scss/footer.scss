@@ -4,7 +4,7 @@
     background-size: cover;
     .footer-contactus-inner{
         position: relative;
-        padding: 50px 0;
+        padding: 40px 0;
         .contcta-image{
             position: absolute;
             top: 40px;
@@ -21,8 +21,9 @@
         .content{
             h2{
                 @include heading;
+                font-size: 30px;
                 color: $white;
-                margin-bottom: 30px;
+                margin-bottom: 20px;
                 @media #{$tablet-screen}{
                     font-size: 30px;
                     margin-bottom: 15px;
@@ -41,12 +42,12 @@
                 display: inline-block;
                 background-color: $white;
                 border-radius: 5px;
-                font-size: 18px;
+                font-size: 16px;
                 font-family: $primary-font;
                 font-weight: 600;
                 color: $primary-color;
                 text-transform: uppercase;
-                padding: 18px 26px;
+                padding: 12px 15px;
                 transition: $transition;
                 &:hover{
                     text-decoration: none;
