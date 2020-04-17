@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 import BlogSidebar from '../components/blogsidebar'
+import Layout from "../components/layout"
 import { removePre, removeSpecialSymbols } from './../util/common'
 import SEO from "../components/seo";
 
@@ -15,8 +16,8 @@ class BlogList extends Component {
     const data = this.props.data
     
     return (
-      <>
-      <SEO />
+      <Layout>
+      <SEO title="Blog"/>
         <div id="page" className="site">
           <div id="content" className="site-content">
             {/* blog header */}
@@ -138,7 +139,7 @@ class BlogList extends Component {
             </div>
           </div>
         </div>
-      </>
+      </Layout>
     )
   }
 

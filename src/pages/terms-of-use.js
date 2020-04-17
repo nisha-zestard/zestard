@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
+import Layout from "../components/layout"
 import PageHeader from './../components/page-header';
 import SEO from "../components/seo";
 
@@ -9,7 +10,7 @@ class TermsOfUse extends Component {
       const data = this.props.data
       const acfData = data.wordpressPage.acf;
       return (
-        <>
+        <Layout>
         <SEO title={data.wordpressPage.title} />
             <div id="page" className="site">
                 <div id="content" className="site-content">
@@ -34,7 +35,7 @@ class TermsOfUse extends Component {
                 ))}
                 </div>
             </div>
-        </>
+        </Layout>
       )
     }
 }

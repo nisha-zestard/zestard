@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
+import Layout from "../../components/layout"
 import PageHeader from './../../components/page-header';
 import { removePre } from './../../util/common'
 import SEO from "../../components/seo";
-import './../../assets/scss/index.scss'
 
 class Culture extends Component {
   
@@ -11,8 +11,8 @@ class Culture extends Component {
       const data = this.props.data
       const acfData = data.wordpressPage.acf;
       return (
-        <>
-          <SEO />
+        <Layout>
+          <SEO title="Culture"/>
             <div id="page" className="site-header">
                 <div id="content" className="site-content">
                     {/* page header */}
@@ -46,7 +46,7 @@ class Culture extends Component {
                     </div>
                 </div>
             </div>
-        </>
+        </Layout>
         )
   }
 

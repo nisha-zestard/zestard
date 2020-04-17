@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-
-import './../assets/scss/index.scss'
 import Layout from "../components/layout"
+import SEO from "../components/seo";
 import Slider from "react-slick";
 import Counterbg from "../images/counter-bg.png"
 
@@ -47,7 +46,7 @@ class Home extends Component {
           }; 
   return(
   <Layout>
-    {/* <SEO title="Home" /> */}
+    <SEO title="Home" />
     {/* banner-section  */}
     <section>
         <div className="page-banner home">

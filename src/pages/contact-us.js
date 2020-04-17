@@ -3,6 +3,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import axios from 'axios'
+import Layout from "./../components/layout"
 import PageHeader from './../components/page-header';
 import SEO from "../components/seo";
 
@@ -111,8 +112,8 @@ class ContactUs extends Component {
     const acfData = data.wordpressPage.acf;
     
     return (
-      <>
-      <SEO />
+      <Layout>
+      <SEO title="Contact us"/>
         <div id="page" className="site-header">
           <div id="content" className="site-content contact">
           {/* page header */}
@@ -189,7 +190,7 @@ class ContactUs extends Component {
             </section>
           </div>
         </div>
-      </>
+      </Layout>
     )
   }
 
