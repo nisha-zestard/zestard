@@ -68,6 +68,7 @@ const Header = () => {
   const contactmenu = maninmenu[4];
   const isBrowser = typeof window !== `undefined`
   const { location} = history
+  console.log(location);
  
   return(
     <header className="site-header">    
