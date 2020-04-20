@@ -149,7 +149,7 @@ class Market extends Component {
 				<section>
 					<AboutProject />
 				</section>
-				<Link to="/">Go back to the homepage</Link>
+				{/* <Link to="/">Go back to the homepage</Link> */}
 			</Layout>
 		)
 	}
