@@ -103,7 +103,7 @@ const Header = () => {
                 </ul>
               </li>
               <li><Link to={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Link></li>
-              {/* <li><Link to={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Link></li> */}
+              <li><Link to={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Link></li>
             </ul>
           </Navbar>
           <div className="request-a-quote">
