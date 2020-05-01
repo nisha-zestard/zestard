@@ -1,9 +1,10 @@
 import React, { Component } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo";
 import Slider from "react-slick";
 import Counterbg from "../images/counter-bg.png"
+import { removePre } from './../util/common'
 
 class Home extends Component {
     constructor(props) {
@@ -285,7 +286,7 @@ class Home extends Component {
                                 </ul>
                                 <p dangerouslySetInnerHTML={{ __html: node.node.excerpt }}/>
                                 <div className="button">
-                                    <a href="#" className="read-more">Read More</a>
+                                    <Link to={`/blog/${removePre(node.node.link)}`} className="read-more">Read More</Link>
                                 </div>
                             </div>
                         </div>
