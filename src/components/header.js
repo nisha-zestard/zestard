@@ -116,7 +116,7 @@ const Header = () => {
               <li className="has-submenu">{workmenu.title}
               <ul className="sub-menu">   
                 {workmenu.child_items.map((node,index) => (
-                  <li key={index}><Link to={`/${removePre(node.url)}`} target={node.target} >{node.title}</Link></li>
+                  <li key={index}><a href={`/${removePre(node.url)}`} target={node.target} >{node.title}</a></li>
                 ))}
                 </ul>
               </li>

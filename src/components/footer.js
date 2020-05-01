@@ -136,12 +136,12 @@ const acf = data.allWordpressAcfOptions.edges[0].node.options;
                 <ul className="p-0 m-0 d-flex justify-content-center">
                    <li>
                      {acf.external_links[0].external_image.source_url !== null &&
-                      <Link to="https://apps.shopify.com/partners/zestard-technologies" target="_blank"><img src={acf.external_links[0].external_image.source_url} /></Link>
+                      <a href="https://apps.shopify.com/partners/zestard-technologies" target="_blank"><img src={acf.external_links[0].external_image.source_url} /></a>
                      }                    
                   </li>
                   <li>
                      {acf.external_links[1].external_image.source_url !== null &&
-                      <Link to="https://zestardshop.com/" target="_blank"><img src={acf.external_links[1].external_image.source_url} /> </Link>
+                      <a href="https://zestardshop.com/" target="_blank"><img src={acf.external_links[1].external_image.source_url} /> </a>
                      }                    
                   </li>
                 </ul>
