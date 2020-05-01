@@ -5,8 +5,9 @@ import { useStaticQuery, graphql, Link } from "gatsby";
 import Navbar from 'react-bootstrap/Navbar';
 import { removePre } from './../util/common';
 import { globalHistory as history } from '@reach/router'
-const Header = () => {
 
+const Header = () => {
+  
   // const handleOpen = (el) => {  
   //   const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
   // }
@@ -65,7 +66,21 @@ const Header = () => {
   const blogmenu = maninmenu[3];
   const contactmenu = maninmenu[4];
   const { location} = history
- 
+  const param = location.pathname;
+  function renderSwitch(location) {
+    switch(param) {
+      
+      case '/services/make/':
+        return 'darkheader';
+      case '/services/market/':
+        return 'darkheader';
+      case '/services/maintain/':
+        return 'darkheader';
+      default:
+        console.log(param);
+        return 'lightheader';
+    }
+  }
   return(
     <header className="site-header">    
       <div className="container">
@@ -78,8 +93,11 @@ const Header = () => {
             </div>
           </div>
           <div className="col-md-9 d-flex justify-content-end">
+          
+
           {/* <Navbar bg="default" expand="lg" id={isBrowser ? window.location.pathname === '/' ? 'home': 'other' : ''} className="site-nav d-flex justify-content-end align-items-center"> */}         
-          <Navbar bg="default" expand="lg" id={location.pathname === '/services/make/' ? 'darkheader' : location.pathname === '/services/market/' ? 'darkheader' : location.pathname === '/services/maintain/' ? 'darkheader' : 'lightheader'}  className="site-nav d-flex justify-content-end align-items-center">
+          {/* <Navbar bg="default" expand="lg" id={location.pathname === '/services/make/' ? 'darkheader' : location.pathname === '/services/market/' ? 'darkheader' : location.pathname === '/services/maintain/' ? 'darkheader' : 'lightheader'}  className="site-nav d-flex justify-content-end align-items-center"> */}
+          <Navbar bg="default" expand="lg" id={renderSwitch()}  className="site-nav d-flex justify-content-end align-items-center">
             <ul className="nav">
               <li className="has-submenu">{companymenu.title}
               <ul className="sub-menu">   
