@@ -28,6 +28,7 @@ const Footer = () => {
             star_image {
               source_url
             }
+            contact_number
             star_content
             menu_title_with_links {
               menu_title
@@ -56,7 +57,7 @@ const Footer = () => {
 `)
 const foomenu = data.allWordpressMenusMenusItems.edges[0].node.items;
 const acf = data.allWordpressAcfOptions.edges[0].node.options;
-console.log(foomenu);
+
   return(
     <footer className="site-footer">
     <div className="main-footer">
@@ -82,7 +83,7 @@ console.log(foomenu);
                       <div className="icon">
                         <i className="fa fa-phone"></i>
                       </div>
-                      <a href={'tel:'+acf.phone_number}>{acf.phone_number}</a>									
+                      <a href={'tel:'+acf.contact_number}>{acf.contact_number}</a>									
                     </li>
                   </ul>
                 </div>
@@ -133,11 +134,16 @@ console.log(foomenu);
               </div>
               <div className="footer-creadientials">
                 <ul className="p-0 m-0 d-flex justify-content-center">
-                {acf.external_links.map((node,index) => (
-                  <li key={index}>
-                    <img src={node.external_image.source_url} alt=""/>
+                   <li>
+                     {acf.external_links[0].external_image.source_url !== null &&
+                      <Link to="https://apps.shopify.com/partners/zestard-technologies" target="_blank"><img src={acf.external_links[0].external_image.source_url} /></Link>
+                     }                    
                   </li>
-                  ))}                  
+                  <li>
+                     {acf.external_links[1].external_image.source_url !== null &&
+                      <Link to="https://zestardshop.com/" target="_blank"><img src={acf.external_links[1].external_image.source_url} /> </Link>
+                     }                    
+                  </li>
                 </ul>
               </div>
             </div>
@@ -156,8 +162,8 @@ console.log(foomenu);
           <div className="col-md-4 col-lg-5">
             <div className="bottom-link">
               <ul className="m-0 p-0 d-flex justify-content-end">
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms</a></li>
+                <li><Link to={'/privacy-policy/'}>Privacy Policy</Link></li>
+                <li><Link to={'/terms-of-use/'}>Terms</Link></li>
               </ul>
             </div>
           </div>
