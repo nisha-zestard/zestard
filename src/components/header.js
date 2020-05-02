@@ -4,7 +4,9 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby";
 import Navbar from 'react-bootstrap/Navbar';
 import { removePre } from './../util/common';
-import { globalHistory as history } from '@reach/router'
+import { globalHistory as history } from '@reach/router';
+
+
 
 const Header = () => {
   
@@ -97,8 +99,12 @@ const Header = () => {
 
           {/* <Navbar bg="default" expand="lg" id={isBrowser ? window.location.pathname === '/' ? 'home': 'other' : ''} className="site-nav d-flex justify-content-end align-items-center"> */}         
           {/* <Navbar bg="default" expand="lg" id={location.pathname === '/services/make/' ? 'darkheader' : location.pathname === '/services/market/' ? 'darkheader' : location.pathname === '/services/maintain/' ? 'darkheader' : 'lightheader'}  className="site-nav d-flex justify-content-end align-items-center"> */}
-          <Navbar bg="default" expand="lg" id={renderSwitch()}  className="site-nav d-flex justify-content-end align-items-center">
-            <ul className="nav">
+          <Navbar bg="default" expand="lg" id={renderSwitch()}  className="site-nav navbar d-flex justify-content-end align-items-center">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="nav navbar-nav">
               <li className="has-submenu">{companymenu.title}
               <ul className="sub-menu">   
               {companymenu.child_items.map((node,index) => (
@@ -126,6 +132,7 @@ const Header = () => {
               <li><Link to={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Link></li>
               <li><Link to={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Link></li>
             </ul>
+            </div>
           </Navbar>
           <div className="request-a-quote">
             <Link to={`/${removePre(contactmenu.url)}`} className="btn-primary">Request a Quote</Link>

@@ -13,7 +13,7 @@ class Culture extends Component {
       return (
         <Layout>
           <SEO title="Culture"/>
-            <div id="page" className="site-header">
+            <div id="page" className="">
                 <div id="content" className="site-content">
                     {/* page header */}
                     <PageHeader

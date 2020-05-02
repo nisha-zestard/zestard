@@ -114,7 +114,7 @@ class ContactUs extends Component {
     return (
       <Layout>
       <SEO title="Contact us"/>
-        <div id="page" className="site-header">
+        <div id="page" className="">
           <div id="content" className="site-content contact">
           {/* page header */}
             <PageHeader
