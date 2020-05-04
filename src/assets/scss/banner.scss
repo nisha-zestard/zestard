@@ -54,6 +54,12 @@
             font-size: 50px;
             line-height: 65px;
             font-weight: 700;
+            @media #{$medium-screen}{
+                font-size: 32px;
+            }
+            @media #{$tablet-screen}{
+                font-size: 30px;
+            }
         }
         p{
             color: $primary-light;
