@@ -3,7 +3,7 @@
     color: #fff;
     padding-top: 50px;
     padding-bottom: 50px;
-    margin-top: 75px;
+    margin-top: 97px;
     background-repeat: no-repeat;
 
     @media(max-width: 767px){
@@ -23,6 +23,9 @@
 }
 
 .blog-list {
+    .card{
+        margin: 30px 0;
+    }
     .card-image {
         img {
             border-radius: 3px 3px 0px 0px;
@@ -40,11 +43,13 @@
             font-size: 26px;
             font-weight: 700;
             line-height: 30px;
-            color: #212b35;
+            color: $primary-color;
             margin-top: 0;
             margin-bottom: 20px;
-            font-family: 'PT Sans', sans-serif;
-
+            font-family: $primary-font;
+            a{
+                color: $primary-color;
+            }
             @media only screen and (max-width: 575px) {
                 font-size: 18px;
                 line-height: 1.2;
@@ -57,7 +62,6 @@
                 font-style: normal;
                 font-size: 16px;
                 font-weight: 400;
-                color: #637381;
                 line-height: 25px;
                 margin-bottom: 0px;
                 font-family: $blog-font;

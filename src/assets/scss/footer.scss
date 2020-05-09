@@ -167,6 +167,7 @@
                             color: #93cf1c;
                             font-weight: 600;
                             margin-bottom: 25px;
+                            text-transform: uppercase;
                             @media #{$mobile-screen}{
                                 margin-bottom: 13px;
                             }
@@ -273,6 +274,7 @@
                     padding: 0 10px;
                     position: relative;
                     line-height: 17px;
+                    margin: 0;
                     @media #{$small-screen}{
                         &:first-child{
                             padding-left: 0;

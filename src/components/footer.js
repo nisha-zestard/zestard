@@ -153,7 +153,7 @@ const acf = data.allWordpressAcfOptions.edges[0].node.options;
     </div>
     <div className="copyright">
       <div className="container">
-        <div className="row">
+        <div className="row flex-wrap">
           <div className="col-md-8 col-lg-7">
             <div className="copyright-text">
               <p className="m-0">{acf.copyrigth}</p>

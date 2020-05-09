@@ -21,7 +21,7 @@
                     font-weight: 500;
                     font-size: 24px;
                     margin-bottom: 20px;
-                    color: #1f98ea;
+                    color: $primary-color;
                     margin-left: 0px;
                     margin-top: 10px;
                 }
@@ -33,7 +33,6 @@
             margin-top: -0px;
             font-family: 'PT Serif', serif;
             font-size: 20px;
-            color: #333;
             line-height: 34px;
             text-align: justify;
             margin-bottom: 15px;
@@ -176,7 +175,7 @@
             line-height: 58px;
             padding-right: 15px;
             margin-bottom: 15px;
-            color: black;
+            color: $primary-color;
             font-family: 'PT Sans', sans-serif;
             @media screen and (max-width: 991px){
                 font-size: 40px;
@@ -226,10 +225,10 @@
     }
     .blog-post{
         h2{
-            font-family: 'Lato', sans-serif;
+            font-family: $primary-font;
             font-weight: 700;
             font-style: normal;
-            color: #525252;
+            color: $primary-color;
             font-size: 24px;
             line-height: 35px;
             margin-top: 50px;
@@ -321,14 +320,17 @@
                 h1{
                     font-family: 'Graphik-Regular';
                     font-size: 44px;
+                    color: $primary-color;
                 }
                 h3{
+                    color: $primary-color;
                     strong{
                         font-size: 22px;
                         font-weight: 600;
                     }
                 }
                 h3{
+                    color: $primary-color;
                     strong{
                         font-size: 28px;
                         margin: 0px;
@@ -338,10 +340,12 @@
                     }
                 }
                 h4{
+                    color: $primary-color;
                     font-size: 17px;
                     // font-family: 'Graphik-Regular';
                 }
                 h3{
+                    color: $primary-color;
                     font-size: 22px;
                     // font-family: 'PT Sans', sans-serif;
                 }
@@ -354,9 +358,9 @@
                     line-height: 2;
                     font-family: 'PT Serif', serif;
                     strong {
+                        color: $primary-color;
                         font-weight: bold;
                         font-size: 20px !important;
-                        color: #333;
                         line-height: 34px;
                         font-family: 'PT Serif', serif;
                     }
@@ -379,7 +383,6 @@
                 p{
                     font-family: 'PT Serif', serif;
                     font-size: 20px;
-                    color: #333;
                     line-height: 34px;
                     text-align: justify;
                     margin-bottom: 15px;
@@ -411,7 +414,6 @@
                         font-weight: 600
                     }
                     p{
-                        color: #313c49;
                         font-size: 17px;
                         text-align: center;
                         line-height: 24px;
@@ -530,6 +532,7 @@
         background-image: none; 
         color: #fff;
         padding-top: 70px;
+        margin-top: 70px;
         padding-bottom: 0;
         background-size: 100% 100%;
         background-repeat: no-repeat;
@@ -548,7 +551,8 @@
         .related-blog-title{
             font-weight: bold;
             font-size: 30px;
-            font-family: 'Montserrat', sans-serif;
+            font-family: $primary-font;
+            color: $primary-color;
             @media(max-width: 767px){
                 font-size: 28px;
             }
@@ -579,11 +583,9 @@
                     h4{
                     margin-top: 5px;
                     line-height: 30px;
-                    font-family: 'Montserrat', sans-serif;
                     font-style: normal;
                     font-size: 20px;
                     font-weight: 500;
-                    color: #212b35;
                     margin: 0px;
                     margin-bottom: 15px;
                     @media (min-width: 768px) and (max-width: 991px){
@@ -593,7 +595,6 @@
                     }
                 .category{
                     a{
-                        font-family: 'Lato', sans-serif;
                         font-style: normal;
                         font-size: 20px;
                         font-weight: 400;
@@ -603,8 +604,6 @@
                     }
                 }
                 .card-description{
-                    color: #637381;
-                    font-family: 'Roboto', sans-serif;
                     font-weight: 400;
                     font-size: 16px;
                 }

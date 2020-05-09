@@ -77,45 +77,7 @@
                 }
               }
           }
-    .partner-type {
-        padding: 70px 0px;
-        .title {
-            font-size: 30px;
-            font-family: 'Montserrat', sans-serif;
-            color: rgb(34, 50, 84);
-            line-height: 30px;
-            text-align: left;
-            margin: 0px 0px 15px 0px;
-        }
-        b {
-            font-size: 16x;
-            font-family: 'Roboto', sans-serif;
-            color: rgb(34, 50, 84);
-            line-height: 25px;
-            text-align: left;
-            margin-bottom: 10px;
-            display: block;
-        }
-        p {
-            font-size: 16px;
-            font-family: 'Roboto', sans-serif;
-            color: #111111;
-            line-height: 25px;
-            text-align: left;
-            margin: 0px;
-            font-weight: 300;
-        }
-       
-       .col-lg-5{
-           text-align: center;
-           margin-bottom: 50px;
-       }
-       @media(max-width: 767px){
-        .col-md-7.col-lg-7{
-            order :2;
-        }
-       }
-    }
+    
     .offshare, .referral {
         .row{
             flex-direction: row-reverse;
@@ -224,6 +186,42 @@
 }
 
 // Partnership
+.partner-type {
+    padding: 70px 0px;
+    .title {
+        font-size: 30px;
+        font-family: $primary-font;
+        color: $primary-color;
+        line-height: 30px;
+        text-align: left;
+        margin: 0px 0px 15px 0px;
+    }
+    b {
+        font-size: 16x;
+        color: rgb(34, 50, 84);
+        line-height: 25px;
+        text-align: left;
+        margin-bottom: 10px;
+        display: block;
+    }
+    p {
+        font-size: 16px;
+        line-height: 25px;
+        text-align: left;
+        margin: 0px;
+        font-weight: 300;
+    }
+   
+   .col-lg-5{
+       text-align: center;
+       margin-bottom: 50px;
+   }
+   @media(max-width: 767px){
+    .col-md-7.col-lg-7{
+        order :2;
+    }
+   }
+}
 .offshare, .referral {
     padding: 70px 0px;
     @media screen and (max-width: 767px){

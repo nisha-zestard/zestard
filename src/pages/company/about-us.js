@@ -103,7 +103,7 @@ class AboutUs extends Component {
                       <div className="col-lg-6 col-md-6 col-sm-12">
                         <div className="trusted_wrapper m-xs-0  m-sm-0 m-md-0 mt-xs-4 mt-sm-4">
                           <h5>{industry.pt_right_sec_title}</h5>
-                          <h2><b>{industry.pt_right_sec_sub_title}</b></h2>
+                          <h2>{industry.pt_right_sec_sub_title}</h2>
                           <h6>{industry.pt_right_sec_description}</h6>
                           <div className="trutesd-grp">
                             <div className="row">
