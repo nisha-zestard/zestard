@@ -90,7 +90,8 @@ class Home extends Component {
                             <div className="card-body">
                                 <h5 className="card-title">{node.cs_title}</h5>
                                 <div className="card-text" dangerouslySetInnerHTML={{ __html: node.cs_content }} ></div>
-                                <a className="l-more" href={node.cs_learn_more_link}>Learn More</a>
+                                <Link to={`/services/${removePre(node.cs_learn_more_link)}`} className="l-more">Read More</Link>
+                                {/* <a className="l-more" href={node.cs_learn_more_link}>Learn More</a> */}
                             </div>
                         </div>                        
                     ))} 
@@ -221,7 +222,9 @@ class Home extends Component {
                                         </div>
                                         <div className="col-md-7">
                                             <h5 className="title">{node.node.title}</h5>
-                                            <p dangerouslySetInnerHTML={{ __html: node.node.content }} />
+                                            {node.node.content !== null &&
+                                                <div dangerouslySetInnerHTML={{ __html: node.node.content }} />
+                                            }                                            
                                             <div className="next-pre">
                                                 <button className="button" onClick={this.previous}>
                                                     <i className="fa fa-angle-left" aria-hidden="true"></i>
@@ -284,7 +287,9 @@ class Home extends Component {
                                     <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
                                     <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.featured_media.date}</li>
                                 </ul>
-                                <p dangerouslySetInnerHTML={{ __html: node.node.excerpt }}/>
+                                {node.node.excerpt !== null &&
+                                    <div dangerouslySetInnerHTML={{ __html: node.node.excerpt }}/>
+                                }                                
                                 <div className="button">
                                     <Link to={`/blog/${removePre(node.node.link)}`} className="read-more">Read More</Link>
                                 </div>
@@ -306,6 +311,7 @@ export const query = graphql`
           node {
             title
             excerpt
+            link
             featured_media {
               source_url
             }
