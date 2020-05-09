@@ -3,144 +3,253 @@
     position: absolute;
     width: 100%;
     top: 0; 
-    .site-branding{
-        img{
-            max-width: 100%;
-            width: 180px;
-            margin: 0;
+    .header-inner{
+        position: relative;
+        .submenu{
+            display: none;
         }
-    }
-    .site-nav{
-        .nav{
-            margin: 0;
-            li{
-                display: inline-block;
-                padding: 0 30px;
-                padding-bottom: 2px;
-                position: relative;
-                cursor: pointer;
+        .site-branding{
+            img{
+                max-width: 100%;
+                width: 180px;
                 margin: 0;
-                font:{
-                    size: 19px;
-                    family: $primary-font;
-                    weight: 600; 
+            }
+        }
+        .site-nav{
+            @media screen and (max-width: 991px){
+                position: inherit;
+                width: 100%;
+            }
+            .navbar-toggler{
+                &:focus{
+                    outline: none;
                 }
-                color: $white;
-                a{
-                    font:{
-                        size: 20px;
-                        family: $primary-font;
-                        weight: 600; 
-                    }
-                    color: $white;
-                    position: relative;
-                    &:before{
-                        content: "";
-                        width: 0;
-                        height: 1px;
-                        background: $white;
-                        position: absolute;
-                        bottom: 0;
-                        left: auto;
-                        right: 0;
-                        -webkit-transition: all 0.2s linear;
-                        -o-transition: all 0.2s linear;
-                        transition: all 0.2s linear;
-                    }
-                    &:hover{
-                        text-decoration: none;
-                        &::before{
-                            width: 100%;
-                            left: 0;
-                            right: auto;
-                        }
-                    }
-                }
-                &.has-submenu{
-                    &:after{
-                        content: "\F107";
-                        font: normal normal normal 22px/1 FontAwesome;
-                        position: absolute;
-                        right: 11px;
-                        top: 2px;
-                    }
-                }
-                .sub-menu{
-                    margin: 0;
-                    background: $white;
-                    width: 200px;
-                    border-radius: 4px;
+                @media screen and (max-width: 991px){
                     position: absolute;
+                    top: -44px;
+                    right: 200px;
+                }
+                @media screen and (max-width: 575px){
+                   right: 0;
+                }
+            }
+            .navbar-collapse.collapse{
+                @media screen and (max-width: 991px){
+                    position: absolute;
+                    top: 10px;
+                    width: 100%;
                     left: 0;
-                    top: 25px;
+                    background-color: $white;
                     z-index: 9999;
-                    display: none;
+                }
+                
+                .nav{
+                    margin: 0;
                     li{
-                        display: block;
+                        display: inline-block;
+                        padding: 0 30px;
+                        padding-bottom: 2px;
+                        position: relative;
+                        cursor: pointer;
                         margin: 0;
-                        padding: 7px 10px;
-                        a{
+                        font:{
+                            size: 19px;
+                            family: $primary-font;
+                            weight: 600; 
+                        }
+                        color: $white;
+                        @media screen and (max-width: 991px){
+                            padding: 20px;
+                            border-top: 1px solid #ccc;
                             color: $primary-color;
-                            font-size: 17px;;
+                        }
+                        a{
+                            font:{
+                                size: 20px;
+                                family: $primary-font;
+                                weight: 600; 
+                            }
+                            color: $white;
+                            position: relative;
+                            &:before{
+                                content: "";
+                                width: 0;
+                                height: 1px;
+                                background: $white;
+                                position: absolute;
+                                bottom: 0;
+                                left: auto;
+                                right: 0;
+                                -webkit-transition: all 0.2s linear;
+                                -o-transition: all 0.2s linear;
+                                transition: all 0.2s linear;
+                            }
+                            &:hover{
+                                text-decoration: none;
+                                &::before{
+                                    width: 100%;
+                                    left: 0;
+                                    right: auto;
+                                }
+                            }
+                        }
+                        &.has-submenu{
+                            &:after{
+                                content: "\F107";
+                                font: normal normal normal 22px/1 FontAwesome;
+                                position: absolute;
+                                right: 11px;
+                                top: 2px;
+                                @media screen and (max-width: 991px){
+                                    top: 21px;
+                                }
+                            }
+                        }
+                        .sub-menu{
+                            margin: 0;
+                            background: $white;
+                            width: 200px;
+                            border-radius: 4px;
+                            position: absolute;
+                            left: 0;
+                            top: 25px;
+                            z-index: 9999;
+                            display: none;
+                            @media screen and (max-width: 991px){
+                                position: inherit;
+                                top: inherit;
+                                background: transparent;
+                            }
+                            li{
+                                display: block;
+                                margin: 0;
+                                padding: 7px 10px;
+                                a{
+                                    color: $primary-color;
+                                    font-size: 17px;
+                                    @media screen and (max-width: 991px){
+                                        color: $primary-light; 
+                                    }
+                                }
+                            }
+                        }
+                        &:hover{
+                            .sub-menu{
+                                display: block;
+                            }
                         }
                     }
                 }
-                &:hover{
-                    .sub-menu{
-                        display: block;
-                    }
+                &:not(.show){
+                    display: block;
+                }
+                &:not(.in){
+                    display: none;
+                }
+                &.collapsing{
+                    display: none;
                 }
             }
-        }
-        &#lightheader{
-            li{
-                color: $primary-color;
-                a{
+            &#lightheader{
+                .navbar-toggler-icon{
+                    background-image: url('../images/menu.png');
+                }
+                li{
                     color: $primary-color;
-                }
-                .sub-menu{
-                    background: $primary-color;
-                    li{
-                        a{
-                            color: $white;
+                    @media screen and (max-width: 991px){
+                        padding: 20px;
+                        border-top: 1px solid #ccc;
+                    }
+                    a{
+                        color: $primary-color;
+                    }
+                    .sub-menu{
+                        background: $primary-color;
+                        @media screen and (max-width: 991px){
+                            background: transparent;
+                            width: 100%;
+                            margin-top: 20px;
+                        }
+                        li{
+                            a{
+                                color: $white;
+                                @media screen and (max-width: 991px){
+                                    color: $primary-light;
+                                }
+                            }
                         }
                     }
                 }
             }
-        }
-        &#darkheader{
-            li{
-                color: $white;
-                a{
+            &#darkheader{
+                .navbar-toggler{
+                    border-color: #fff;
+                    padding: 6px;
+                    .navbar-toggler-icon{
+                        background-image: url('../images/menu-white.png');
+                        width: 33px;
+                        height: 25px;
+                    }
+                }
+                li{
                     color: $white;
-                }
-                .sub-menu{
-                    background: $primary-color;
-                    li{
-                        a{
-                            color: $white;
+                    @media screen and (max-width: 991px){
+                        padding: 20px;
+                        border-top: 1px solid #ccc;
+                        color: $primary-color;
+                        background-color: #fff;
+                        margin: 0;
+                    }
+                    a{
+                        color: $white;
+                        @media screen and (max-width: 991px){
+                            color: $primary-color;
+                        }
+                    }
+                    .sub-menu{
+                        background: $primary-color;
+                        @media screen and (max-width: 991px){
+                            background: transparent;
+                            width: 100%;
+                            margin-top: 20px;
+                        }
+                        li{
+                            a{
+                                color: $white;
+                                @media screen and (max-width: 991px){
+                                    color: $primary-light;
+                                }
+                            }
                         }
                     }
                 }
             }
-        }
-    } 
-    .request-a-quote{
-        .btn-primary{
-            display: inline-block;
-            background: #1e2129;
-            color: $white;
-            font:{
-                family: $primary-font;
-                size: 16px;
-                weight: bold; 
-            }
-            text-transform: uppercase;
-            padding: 11px 18px;
-            border-radius: 2px;
-            margin: 0;
-            &:hover{
-                text-decoration: none;
+        } 
+        .request-a-quote{
+             @media screen and (max-width: 991px){
+                position: absolute;
+                top: -44px;
+                right: 0;
+             }
+             @media screen and (max-width: 575px){
+                 display: none;
+             }
+            .btn-primary{
+                display: inline-block;
+                background: #1e2129;
+                color: $white;
+                font:{
+                    family: $primary-font;
+                    size: 16px;
+                    weight: bold; 
+                }
+                text-transform: uppercase;
+                padding: 11px 18px;
+                border-radius: 2px;
+                margin: 0;
+                &:hover{
+                    text-decoration: none;
+                }
             }
         }
     }

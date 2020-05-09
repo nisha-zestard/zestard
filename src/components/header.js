@@ -86,15 +86,17 @@ const Header = () => {
   return(
     <header className="site-header">    
       <div className="container">
+        <div className="header-inner">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-lg-3">
             <div className="site-branding">            
               {acfoptions.site_logo !== null && acfoptions.light_site_logo !== null &&              
                 <Link to="/"><img src={location.pathname === '/services/make/' ? lightlogo : location.pathname === '/services/market/' ? lightlogo : location.pathname === '/services/maintain/' ? lightlogo : darklogo} alt="Site Logo" /></Link>                                
               }  
             </div>
           </div>
-          <div className="col-md-9 d-flex justify-content-end">
+
+          <div className="col-lg-9 d-flex justify-content-end">
           {/* <Navbar bg="default" expand="lg" id={isBrowser ? window.location.pathname === '/' ? 'home': 'other' : ''} className="site-nav d-flex justify-content-end align-items-center"> */}         
           {/* <Navbar bg="default" expand="lg" id={location.pathname === '/services/make/' ? 'darkheader' : location.pathname === '/services/market/' ? 'darkheader' : location.pathname === '/services/maintain/' ? 'darkheader' : 'lightheader'}  className="site-nav d-flex justify-content-end align-items-center"> */}
           <Navbar bg="default" expand="lg" id={renderSwitch()}  className="site-nav navbar d-flex justify-content-end align-items-center">
@@ -138,6 +140,7 @@ const Header = () => {
           </div>
         </div>
       </div>  
+      </div>
   </header>
   )  
 }
