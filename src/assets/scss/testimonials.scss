@@ -28,7 +28,6 @@
                                 font-size: 17px;
                                 line-height: 30px;
                                 font-weight: 400;
-                                color: #606569;
                                 margin: 0;
                             }
                         }
@@ -40,6 +39,9 @@
                         h3{
                             margin: 0;
                             font-size: 1.4em;
+                            font-family: $primary-font;
+                            color: $primary-color;
+                            font-weight: 600;
                         }
                     }
                 }

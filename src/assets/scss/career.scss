@@ -11,10 +11,10 @@
                     }
         h2 {
             font-size: 30px;
-            font-family: 'Montserrat', sans-serif;
-            color: rgb(67, 78, 90);
+            font-family: $primary-font;
+            color: $primary-color;
             line-height: 40px;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: capitalize;
             margin: 0px;
             text-align: center;
@@ -26,7 +26,7 @@
         h6 {
             font-size: 18px;
             font-family: 'Open sans', sans-serif;
-            color: rgb(101, 112, 124);
+            color: $primary-color;
             line-height: 25px;
             font-weight: 400;
             margin-bottom: 80px;
@@ -54,8 +54,7 @@
                 }
                 h3 {
                     font-size: 25px;
-                    font-family: 'Montserrat', sans-serif;
-                    color: rgb(67, 78, 90);
+                    color: $primary-color;
                     line-height: 30px;
                     text-align: left;
                     font-weight: 700;
@@ -81,8 +80,6 @@
                 }
                 h4 {
                     font-size: 18px;
-                    font-family:  sans-serif;
-                    color: #111111;
                     line-height: 25px;
                     text-align: left;
                     font-weight: 500;
@@ -95,7 +92,6 @@
                 span {
                     font-size: 15px;
                     font-family: 'Open sans', sans-serif;
-                    color: rgb(101, 112, 124);
                     line-height: 25px;
                     text-align: left;
                     font-weight: 400;

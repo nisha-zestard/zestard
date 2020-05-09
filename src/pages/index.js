@@ -144,7 +144,7 @@ class Home extends Component {
                         {clientlogo.map((node,index) => (
                             <li key={index}>
                                 {node.node.featured_media.source_url !== null &&
-                                    <a href="#"><img src={node.node.featured_media.source_url} alt="c-logo-img" /></a>
+                                    <img src={node.node.featured_media.source_url} alt="c-logo-img" />
                                 }                                
                             </li>
                         ))}
