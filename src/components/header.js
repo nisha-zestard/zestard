@@ -95,14 +95,13 @@ const Header = () => {
               }  
             </div>
           </div>
-          <div className="col-lg-9 d-flex justify-content-end">
-          
 
+          <div className="col-lg-9 d-flex justify-content-end">
           {/* <Navbar bg="default" expand="lg" id={isBrowser ? window.location.pathname === '/' ? 'home': 'other' : ''} className="site-nav d-flex justify-content-end align-items-center"> */}         
           {/* <Navbar bg="default" expand="lg" id={location.pathname === '/services/make/' ? 'darkheader' : location.pathname === '/services/market/' ? 'darkheader' : location.pathname === '/services/maintain/' ? 'darkheader' : 'lightheader'}  className="site-nav d-flex justify-content-end align-items-center"> */}
           <Navbar bg="default" expand="lg" id={renderSwitch()}  className="site-nav navbar d-flex justify-content-end align-items-center">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="nav navbar-nav">
