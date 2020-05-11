@@ -195,6 +195,7 @@
         line-height: 30px;
         text-align: left;
         margin: 0px 0px 15px 0px;
+        font-weight: 700;
     }
     b {
         font-size: 16x;
@@ -205,11 +206,11 @@
         display: block;
     }
     p {
-        font-size: 16px;
-        line-height: 25px;
+        font-size: 18px;
+        line-height: 34px;
         text-align: left;
         margin: 0px;
-        font-weight: 300;
+        font-weight: 400;
     }
    
    .col-lg-5{
@@ -237,10 +238,9 @@
     }
     p {
         padding: 6px;
-        font-size: 17px;
+        font-size: 18px;
         font-family: 'Open Sans', sans-serif;
-        color: #6e6e6e;
-        line-height: 25px;
+        line-height: 34px;
         text-align: left;
     }
 }
@@ -256,9 +256,8 @@
     p {
         padding: 0px;
         color: #fff;
-        font-size: 17px;
-        font-family: 'Open Sans', sans-serif;
-        line-height: 25px;
+        font-size: 18px;
+        line-height: 34px;
         text-align: left;
     }
 }

@@ -47,11 +47,11 @@
                     margin: 0;
                     li{
                         display: inline-block;
-                        padding: 0 30px;
+                        margin: 0 30px;
                         padding-bottom: 2px;
+                        padding-right: 20px;
                         position: relative;
                         cursor: pointer;
-                        margin: 0;
                         font:{
                             size: 19px;
                             family: $primary-font;
@@ -127,6 +127,10 @@
                                 a{
                                     color: $primary-color;
                                     font-size: 17px;
+                                    display: block;
+                                    &::before{
+                                        display: none;
+                                    }
                                     @media screen and (max-width: 991px){
                                         color: $primary-light; 
                                     }
