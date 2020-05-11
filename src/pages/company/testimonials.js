@@ -4,6 +4,7 @@ import Masonry from 'react-masonry-css';
 import Layout from "../../components/layout"
 import PageHeader from './../../components/page-header';
 import SEO from "../../components/seo";
+import Testimonialcomma from "../../images/quote-icon.png"
 
 const breakpointColumnsObj = {
     default: 3,
@@ -41,8 +42,7 @@ class Testimonials extends Component {
                         <div className="testimonial-wrapper card">
                             <div className="speaks">
                                 <i className="coma">
-                                    <img className="img-responsive" alt="coma" loading="lazy"
-                                    src="https://postyoulike.com/zestard/wp-content/themes/zestard/images/testimonials/quote-icon.png" />
+                                    <img className="img-responsive" alt="coma" loading="lazy" src={Testimonialcomma} />
                                 </i>
                                 <div dangerouslySetInnerHTML={{ __html: node.content }} />
                             </div>
