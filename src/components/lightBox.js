@@ -120,11 +120,11 @@ export default class Lightbox extends Component {
                 <div className="slbArrows">
                   <button type="button" title="Previous" className="prev slbArrow"
                    onClick={this.goBack} disabled={selIndex === 0}>
-                      <i className='fas fa-caret-left'></i>
+                      <i className='fa fa-caret-left'></i>
                    </button>
                   <button type="button" title="Next" className="next slbArrow"
                    onClick={this.goForward} disabled={selIndex === EventImages.length - 1}>
-                     <i className='fas fa-caret-right'></i>
+                     <i className='fa fa-caret-right'></i>
                    </button>
                 </div>
               </div>
