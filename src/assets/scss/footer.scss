@@ -80,6 +80,10 @@
             }
             .f-left-top{
                 border-right: 1px solid #3a4c62;
+                margin-right: 30px;
+                @media #{$medium-screen}{
+                    margin-right: 0;
+                }
                 @media #{$tablet-screen}{
                     border-right: 0;
                 }
@@ -102,6 +106,7 @@
                             }
                             a{
                                 color: $white;
+                                font-weight: 600;
                                 &:hover{
                                     color: #93cf1c;
                                 }
@@ -110,12 +115,12 @@
                     }
                 }
                 .company-ratings{
-                    margin-bottom: 25px;
+                    margin-bottom: 30px;
                     .figure{
                         margin-bottom: 10px;
                     }
                     p{
-                        padding-right: 120px;
+                        padding-right: 90px;
                         @media screen and (max-width: 1309px){
                             padding-right: 0;
                         }

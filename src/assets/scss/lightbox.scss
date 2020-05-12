@@ -50,6 +50,9 @@
     line-height: 25px;
     padding: 0 0 10px;
     font-size: 28px;
+    &:focus{
+        outline: none;
+    }
 }
 
 .slbOverlay {

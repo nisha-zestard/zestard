@@ -24,10 +24,11 @@
         }
          p {
             font-size: 18px;
-            line-height: 34px;
+            line-height: 28px;
             text-align: left;
             @media only screen and (max-width: 768px) {
-                font-size: 15px;
+                font-size: 16px;
+                line-height: 26px;
             }
             @media only screen and (max-width: 575px) {
                 margin-bottom: 15px;
@@ -103,7 +104,7 @@
                     margin-bottom: 0px;
                     font-weight: 400;
                     @media only screen and (max-width: 768px) {
-                        font-size: 15px;
+                        font-size: 16px;
                     }
                 }
             }
@@ -199,8 +200,12 @@
                 margin-bottom: 5px;
                 line-height: 30px;
                 letter-spacing: 0.5px;
+                padding-right: 55px;
+                @media #{$medium-screen}{
+                    padding-right: 0;
+                }
                 @media only screen and (max-width: 768px) {
-                    font-size:18px;
+                    font-size: 16px;
                     line-height: 25px;
                 }
                 @media only screen and (max-width: 575px) {
