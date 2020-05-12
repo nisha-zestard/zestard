@@ -69,7 +69,7 @@ class Maintain extends Component {
 										}
 										<div className="col-md-6 maintain-service-content">
 											<div className="ser-contain">
-												<h2 className="service-title">{node.iwc_title}</h2>
+												<h2 className="service-title" dangerouslySetInnerHTML={{__html: node.iwc_title}} />
 												<p className="service-text" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />
 												<a href="#" className="service-link">{node.iwc_button_text}</a>
 											</div>
