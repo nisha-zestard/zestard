@@ -112,6 +112,9 @@
     }
     .industry{
         padding: 70px 0;
+        @media #{$small-screen}{
+            padding: 40px 0;
+        }
         h5{
             font-size: 18px;
             color: $primary-color;
@@ -130,6 +133,9 @@
         .industry-wrapper{
             .mobile{
                 .card{
+                    @media #{$small-screen}{
+                        margin-bottom: 20px;
+                    }
                     .card-body{
                         padding: 10px 0;
                         text-align: center;

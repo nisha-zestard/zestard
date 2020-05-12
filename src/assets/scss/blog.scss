@@ -24,6 +24,9 @@
         font-family: $secondary-font;
         font-size: 45px;
         font-weight: 600;
+        @media #{$small-screen}{
+            font-size: 32px;
+        }
     }
 }
 
