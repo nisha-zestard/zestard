@@ -1,64 +1,58 @@
-// import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { useStaticQuery, graphql, Link, StaticQuery } from "gatsby";
 import Navbar from 'react-bootstrap/Navbar';
 import { removePre } from './../util/common';
 import { globalHistory as history } from '@reach/router';
 
-
-
-const Header = () => {
-  
-  // const handleOpen = (el) => {  
-  //   const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
-  // }
-   
-  // const handleClose = (el) => {    
-  //   const target = el.currentTarget.getElementsByClassName('dropdown-menu');
-  //   if(target.length > 0) {
-  //     const test = target[0].closest('.dropdown-menu');
-  //       test.classList.remove('show');
-  //       test.classList.remove('showmobmnu');
-  //   }
-  // }
-  const data = useStaticQuery(graphql`
-  query {
-    wordpressPage {
-      id
-    }
-    allWordpressAcfOptions {
-      edges {
-        node {
-          options {
-            site_logo {
-              source_url
-            }
-            light_site_logo {
-              source_url
-            }
-          }
-        }
-      }
-    }
-    allWordpressMenusMenusItems(filter: {wordpress_id: {eq: 207}}) {
-      nodes {
-        name
-        items {
-          title
-          url
-          child_items {
-            title
-            url
-            wordpress_id
-            target
-          }
-        }
-      }
-    }
+class Header extends React.Component {
+  render () {
+    return (
+      <div />
+    )
   }
-`)
-  const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
+}
+
+export default () => (
+  <StaticQuery
+    query={graphql`
+      query {       
+        wordpressPage {
+          id
+        }
+        allWordpressAcfOptions {
+          edges {
+            node {
+              options {
+                site_logo {
+                  source_url
+                }
+                light_site_logo {
+                  source_url
+                }
+              }
+            }
+          }
+        }
+        allWordpressMenusMenusItems(filter: {wordpress_id: {eq: 207}}) {
+          nodes {
+            name
+            items {
+              title
+              url
+              child_items {
+                title
+                url
+                wordpress_id
+                target
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={(data) => {
+      const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
   const maninmenu = data.allWordpressMenusMenusItems.nodes[0].items;
   const darklogo = acfoptions.site_logo.source_url;
   const lightlogo = acfoptions.light_site_logo.source_url;
@@ -96,10 +90,7 @@ const Header = () => {
               }  
             </div>
           </div>
-
           <div className="col-lg-9 d-flex justify-content-end">
-          {/* <Navbar bg="default" expand="lg" id={isBrowser ? window.location.pathname === '/' ? 'home': 'other' : ''} className="site-nav d-flex justify-content-end align-items-center"> */}         
-          {/* <Navbar bg="default" expand="lg" id={location.pathname === '/services/make/' ? 'darkheader' : location.pathname === '/services/market/' ? 'darkheader' : location.pathname === '/services/maintain/' ? 'darkheader' : 'lightheader'}  className="site-nav d-flex justify-content-end align-items-center"> */}
           <Navbar bg="default" expand="lg" id={renderSwitch()}  className="site-nav navbar d-flex justify-content-end align-items-center">
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -125,10 +116,7 @@ const Header = () => {
                 <li><Link to={`/${removePre(workmenu.child_items[0].url)}`}>{workmenu.child_items[0].title}</Link></li>
                 <li><a href={workmenu.child_items[1].url} target="_blank">{workmenu.child_items[1].title}</a></li>
                 <li><a href={workmenu.child_items[2].url} target="_blank">{workmenu.child_items[2].title}</a></li>
-                {/* {workmenu.child_items.map((node,index) => (
-                  <li key={index}><a href={`/${removePre(node.url)}`} target={node.target} >{node.title}</a></li>
-                ))} */}
-                </ul>
+              </ul>
               </li>
               <li><Link to={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Link></li>
               <li><Link to={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Link></li>
@@ -143,15 +131,6 @@ const Header = () => {
       </div>  
       </div>
   </header>
-  )  
-}
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+  )  }}
+  />
+)
