@@ -120,12 +120,16 @@
             flex-wrap: wrap;
             justify-content: center;
             li {
-                max-width: 213px;
-                width: 100%;
                 display: flex;
                 align-items: center;
+                margin: 0 30px;
                 justify-content: center;
                 padding-bottom: 30px;
+                @media screen and (max-width: 1199px){
+                    max-width: 213px;
+                     width: 100%;
+                     margin: 0;
+                }
                 &:nth-child(7) {
                     @media screen and (min-width: 1200px) {
                         justify-content: flex-end;
@@ -200,6 +204,7 @@
                     height: 100px;
                     padding: 10px 0;
                     margin: 0px auto;
+                    cursor: default;
                     @media screen and (max-width: 1199px) {
                         width: calc(100% - 10px);
                     }
@@ -280,7 +285,7 @@
             max-width: 320px;
             &::before {
                 content: "";
-                //background-image: url('../images/left-quote.png');
+                background-image: url('../../assets/images/left-quote.png');
                 background-size: cover;
                 background-position: center;
                 width: 64px;
