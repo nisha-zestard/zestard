@@ -70,6 +70,7 @@ const Header = () => {
   const { location} = history
   const param = location.pathname;
   function renderSwitch(location) {
+    console.log(param);
     switch(param) {
       
       case '/services/make/':
