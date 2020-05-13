@@ -172,7 +172,7 @@ class Home extends Component {
                                 {expertise.home_oe_right_icons.map((node,index) => (
                                     <li key={index}>
                                         {node.home_oe_icons.source_url !== null &&
-                                            <a href="javascript:;"><img src={node.home_oe_icons.source_url} alt="f-logo-img" /></a>
+                                            <a href="#"><img src={node.home_oe_icons.source_url} alt="f-logo-img" /></a>
                                         }                                        
                                     </li>
                                 ))}                                

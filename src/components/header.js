@@ -1,11 +1,11 @@
-import PropTypes from "prop-types"
 import React from "react"
-import { useStaticQuery, graphql, Link, StaticQuery } from "gatsby";
+import { graphql, Link, StaticQuery } from "gatsby";
 import Navbar from 'react-bootstrap/Navbar';
 import { removePre } from './../util/common';
 import { globalHistory as history } from '@reach/router';
 
 class Header extends React.Component {
+  
   render () {
     return (
       <div />
@@ -66,15 +66,15 @@ export default () => (
       function renderSwitch(location) {
         switch(param) {          
           case '/services/make/':
-            console.log(location);
-            console.log(param);
+            console.log('inside location----'+location);
+            console.log('inside param-----'+param);
             return 'darkheader';
           case '/services/market/':
             return 'darkheader';
           case '/services/maintain/':
             return 'darkheader';
           default:
-            console.log(location);
+            console.log('inside default location-----'+location);
             return 'lightheader';
         }
       }
@@ -91,7 +91,8 @@ export default () => (
                 </div>
               </div>
               <div className="col-lg-9 d-flex justify-content-end">
-              <Navbar bg="default" expand="lg" id={renderSwitch()}  className="site-nav navbar d-flex justify-content-end align-items-center">
+              <Navbar bg="default" expand="lg" id={location !== 'undefined' ? renderSwitch() : 'doesnt match'}  className="site-nav navbar d-flex justify-content-end align-items-center">
+
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>

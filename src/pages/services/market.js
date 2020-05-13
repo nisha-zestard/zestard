@@ -1,6 +1,4 @@
 import React, { Component } from "react"
-import { Link } from "gatsby"
-
 import Credentialsimage from "./../../assets/images/credientials-bg.png"
 import Zectopus from "./../../assets/images/zectopus.png"
 import Serviceicon from "./../../assets/images/m-service-icon.png"
