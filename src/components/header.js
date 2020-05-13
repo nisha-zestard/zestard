@@ -63,18 +63,19 @@ export default () => (
       const contactmenu = maninmenu[4];
       const { location} = history
       const param = location.pathname;
+     
       function renderSwitch(location) {
         switch(param) {          
           case '/services/make/':
-            console.log('inside location----'+location);
-            console.log('inside param-----'+param);
+            //console.log(location);
+            //console.log(param);
             return 'darkheader';
           case '/services/market/':
             return 'darkheader';
           case '/services/maintain/':
             return 'darkheader';
           default:
-            console.log('inside default location-----'+location);
+            console.log('Default location-------->'+location);
             return 'lightheader';
         }
       }
@@ -91,8 +92,7 @@ export default () => (
                 </div>
               </div>
               <div className="col-lg-9 d-flex justify-content-end">
-              <Navbar bg="default" expand="lg" id={location !== 'undefined' ? renderSwitch() : 'doesnt match'}  className="site-nav navbar d-flex justify-content-end align-items-center">
-
+              <Navbar bg="default" expand="lg" id={location !== 'undefined' ? renderSwitch() : 'not match'}  className="site-nav navbar d-flex justify-content-end align-items-center">
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
