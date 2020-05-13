@@ -14,7 +14,7 @@ class Market extends Component {
 		const genmodule = page.gen_content_modules_page;
 		const creden = data.allWordpressWpCredentials.edges;
 		const portfolio = data.allWordpressWpPortfolio.edges;
-		console.log(portfolio);
+		//console.log(portfolio);
 
 		return(
 			<Layout>

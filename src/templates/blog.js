@@ -15,7 +15,7 @@ class BlogList extends Component {
     const nextPage = `blog/page/${(currentPage + 1).toString()}`
     const data = this.props.data
     const post = data.allWordpressPost;
-    console.log(post);
+    //console.log(post);
     
     return (
       <Layout>
