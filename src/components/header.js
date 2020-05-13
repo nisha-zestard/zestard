@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql, Link, StaticQuery } from "gatsby";
 import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import { removePre } from './../util/common';
 import { globalHistory as history } from '@reach/router';
 import { Route, Switch } from "react-router";
@@ -78,19 +80,19 @@ export default () => (
           </Route>
         </Switch>
       );
-      // const handleOpen = (el) => {  
-      //   const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
-      // }
+      const handleOpen = (el) => {  
+        const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
+      }
        
-      // const handleClose = (el) => {
+      const handleClose = (el) => {
         
-      //   const target = el.currentTarget.getElementsByClassName('dropdown-menu');
-      //   if(target.length > 0) {
-      //     const test = target[0].closest('.dropdown-menu');
-      //       test.classList.remove('show');
-      //       test.classList.remove('showmobmnu');
-      //   }
-      // }
+        const target = el.currentTarget.getElementsByClassName('dropdown-menu');
+        if(target.length > 0) {
+          const test = target[0].closest('.dropdown-menu');
+            test.classList.remove('show');
+            test.classList.remove('showmobmnu');
+        }
+      }
         const handleClicko = (el) => { 
           // const menudiv = document.getElementById("navbarNav")[0];
           // menudiv.classList.toggle('showmobmenu');
@@ -148,29 +150,57 @@ export default () => (
               </button>
               <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="nav navbar-nav">
-                  <li className="has-submenu">{companymenu.title}
-                  <ul className="sub-menu">   
+                  <li className="nav-item menu-item">
+                  <NavDropdown title={companymenu.title} id="basic-nav-dropdown"
+                    onMouseEnter = { (e) => handleOpen(e) } onMouseLeave = { (e) => handleClose(e) } >
+                      {companymenu.child_items.map((node, index) => (
+                        <NavDropdown.Item href={`/${removePre(node.url)}`} key={index}>
+                          {node.title}
+                        </NavDropdown.Item>
+                      ))}
+                  </NavDropdown>
+                  {/* <ul className="sub-menu">   
                   {companymenu.child_items.map((node,index) => (
                       <li key={index}><Link to={`/${removePre(node.url)}`}>{node.title}</Link></li>
                     ))}
-                  </ul>
+                  </ul> */}
                   </li>
-                  <li className="has-submenu">{servicmenu.title}
-                  <ul className="sub-menu">                
+                  <li className="nav-item menu-item">
+                  <NavDropdown title={servicmenu.title} id="basic-nav-dropdown"
+                    onMouseEnter = { (e) => handleOpen(e) }
+                    onMouseLeave = { (e) => handleClose(e) }>
+                      {servicmenu.child_items.map((node, index) => (
+                        <NavDropdown.Item href={`/${removePre(node.url)}`} key={index}>
+                          {node.title}
+                        </NavDropdown.Item>
+                      ))}
+                  </NavDropdown>
+                  {/* <ul className="sub-menu">                
                     {servicmenu.child_items.map((node,index) => (
                       <li key={index}><Link to={`/services/${removePre(node.url)}`}>{node.title}</Link></li>
                     ))}                  
-                    </ul>
+                    </ul> */}
                   </li> 
-                  <li className="has-submenu">{workmenu.title}
-                  <ul className="sub-menu">   
+                  <li className="nav-item menu-item">
+                  <NavDropdown title={workmenu.title} id="basic-nav-dropdown"
+                    onMouseEnter = { (e) => handleOpen(e) }
+                    onMouseLeave = { (e) => handleClose(e) }>
+                      {workmenu.child_items.map((node, index) => (
+                        <NavDropdown.Item 
+                        href={`${node.target === "" ? `/${removePre(node.url)}` : node.url}`}
+                                        target={node.target} key={index}>
+                          {node.title}
+                        </NavDropdown.Item>
+                      ))}
+                  </NavDropdown>
+                  {/* <ul className="sub-menu">   
                     <li><Link to={`/${removePre(workmenu.child_items[0].url)}`}>{workmenu.child_items[0].title}</Link></li>
                     <li><a href={workmenu.child_items[1].url} target="_blank">{workmenu.child_items[1].title}</a></li>
                     <li><a href={workmenu.child_items[2].url} target="_blank">{workmenu.child_items[2].title}</a></li>
-                  </ul>
+                  </ul> */}
                   </li>
-                  <li><Link to={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Link></li>
-                  <li><Link to={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Link></li>
+                  <li className="nav-item menu-item"><Nav.Link href={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Nav.Link></li>
+                  <li className="nav-item menu-item"><Nav.Link href={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Nav.Link></li>
                 </ul>
                 </div>
               </Navbar>
