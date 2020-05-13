@@ -22,13 +22,13 @@ class Market extends Component {
 					<div className="page-banner market">
 						<div className="container">
 							<div className="row">
-								<div className="col-md-6 d-flex align-items-center">
+								<div className="col-md-6 banner-content-wrap d-flex align-items-center">
 									<div className="banner-content">
 										<h1 dangerouslySetInnerHTML={{__html: page.header_section_title}} />
 										<p dangerouslySetInnerHTML={{__html: page.header_sub_text}} />
 									</div>
 								</div>
-								<div className="col-md-6">
+								<div className="col-md-6 banner-image-wrap">
 									<div className="banner-image">
 										{page.header_mascot.source_url !== null &&
 											<img src={page.header_mascot.source_url} alt="Market banner"/>

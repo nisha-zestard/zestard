@@ -1,5 +1,14 @@
 .page-banner{
     padding: 150px 0 50px;
+    @media #{$small-screen}{
+        padding: 100px 0 50px;
+    }
+    .banner-content-wrap{
+        @media #{$small-screen}{
+            order: 2;
+            margin-top: 20px;
+        }
+    }
     .banner-content{
         h1{
             font:{
@@ -11,10 +20,12 @@
             // text-transform: uppercase;
             margin-bottom: 25px;
             @media #{$medium-screen}{
-                font-size: 32px;
+                font-size: 34px;
+                line-height: 48px;
             }
             @media #{$tablet-screen}{
                 font-size: 30px;
+                line-height: 38px;
             }
             span{
                 color: #96d21f;
@@ -37,15 +48,23 @@
         text-align: right;
         @media #{$small-screen}{
             text-align: center;
+            margin-top: 20px;
         }
         img{
             max-width: 100%;
+            width: auto;
         }
     }
     &.home{
         padding: 165px 0 80px;
         @media #{$medium-screen}{
             padding: 120px 0 50px;
+        }
+        .baner-content-wrap{
+            @media #{$small-screen}{
+                order: 2;
+                margin-top: 20px;
+            }
         }
         h1{
             color: $primary-color;
@@ -54,11 +73,15 @@
             font-size: 50px;
             line-height: 65px;
             font-weight: 700;
+            margin-bottom: 40px;
             @media #{$medium-screen}{
-                font-size: 32px;
+                font-size: 34px;
+                line-height: 48px;
+                margin-bottom: 25px;
             }
             @media #{$tablet-screen}{
-                font-size: 30px;
+                font-size: 29px;
+                line-height: 38px;
             }
         }
         p{
@@ -66,6 +89,10 @@
             font-size: 22px;
             line-height: 34px;
             margin-bottom: 0;
+            @media #{$medium-screen}{
+                font-size: 18px;
+                line-height: 28px;
+            }
         }
     }
     &.make{
