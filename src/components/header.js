@@ -166,7 +166,7 @@ export default () => (
                     onMouseEnter = { (e) => handleOpen(e) }
                     onMouseLeave = { (e) => handleClose(e) }>
                       {servicmenu.child_items.map((node, index) => (
-                        <NavDropdown.Item href={`/${removePre(node.url)}`} key={index}>
+                        <NavDropdown.Item href={`/services/${removePre(node.url)}`} key={index}>
                           {node.title}
                         </NavDropdown.Item>
                       ))}
