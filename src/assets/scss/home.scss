@@ -3,6 +3,9 @@
     @media #{$tablet-screen}{
         padding: 50px 0;
     }
+    @media #{$small-screen}{
+        padding: 0 0 50px;
+    }
     .title {
         h2 {
             @include heading;
@@ -12,9 +15,9 @@
         font-size: 22px;
         line-height: 34px;
         margin-bottom: 0px;
-        @media screen and (max-width: 991px) {
-            font-size: 20px;
-            line-height: 30px;
+        @media #{$medium-screen} {
+            font-size: 18px;
+            line-height: 28px;
         }
     }
     .services-inner {
@@ -44,6 +47,11 @@
                 }
                 .card-body {
                     padding: 30px 40px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    @media #{$medium-screen}{
+                        padding: 30px 30px;
+                    }
                     @media #{$tablet-screen}{
                         padding: 20px 15px;
                     }
@@ -51,6 +59,7 @@
                         @include sub-heading(26px);
                     }
                     .card-text {
+                        margin-bottom: 25px;
                         p{
                             font-size: 18px;
                             font-family: $secondary-font;
@@ -60,17 +69,18 @@
                     }
                     .l-more {
                         @include link($primary-color);
-                        margin-top: 25px;
-                        display: inline-block;
+                        margin-top: auto;
+                        display: flex;
                     }
                 }
             }
         }
     }
 }
-.portfolio{
+.recent-work.portfolio{
     .portfolio-wrap{
         width: 100%;
+        position: relative;
         .portfolio-image{
             img{
                 width: 100%;
@@ -92,6 +102,12 @@
         .portfolio-wrap{
             .portfolio-content{
                 max-width: 600px;
+                @media #{$medium-screen}{
+                   padding-right: 140px;
+                }
+                @media #{$tablet-screen}{
+                    padding-right: 0;
+                 }
                 @media #{$small-screen}{
                     max-width: 100%;
                 }
@@ -125,6 +141,9 @@
                 margin: 0 30px;
                 justify-content: center;
                 padding-bottom: 30px;
+                @media screen and (max-width: 1309px){
+                    margin: 0 20px;
+                }
                 @media screen and (max-width: 1199px){
                     max-width: 213px;
                      width: 100%;
@@ -149,9 +168,12 @@
 .expertise-section {
     padding: 100px 0px 80px;
     @media #{$small-screen}{
-        padding: 60px 0;
+        padding: 50px 0;
     }
     .title {
+        @media #{$tablet-screen}{
+            margin-bottom: 30px;
+        }
         h2 {
             @include heading;
             margin-bottom: 20px;
@@ -205,6 +227,9 @@
                     padding: 10px 0;
                     margin: 0px auto;
                     cursor: default;
+                    img{
+                        cursor: pointer;
+                    }
                     @media screen and (max-width: 1199px) {
                         width: calc(100% - 10px);
                     }
@@ -222,20 +247,29 @@
     }
 }
 .counter-section {
-    background-color: $bg-color;    
+    background-size: cover;   
     background-repeat: no-repeat;
     background-position: center;
     .counter-wraper {
         background-position: center;
         background-size: cover;
         padding: 105px 0px;
+        @media #{$medium-screen}{
+            padding: 80px 0;
+        }
         @media #{$tablet-screen}{
             padding: 60px 0;
+        }
+        @media #{$small-screen}{
+            padding: 40px 0;
         }
         ul {
             margin: 0;
             padding: 0;
             list-style: none;
+            @media #{$tablet-screen}{
+                justify-content: center;
+            }
             .box {
                 border-width: 2px;
                 border-color: rgba(255, 255, 255, 0.05);
@@ -246,15 +280,39 @@
                 padding: 43px 0px;
                 text-align: center;
                 margin: auto;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-content: center;
+                @media #{$tablet-screen}{
+                   margin: 0 10px 20px;
+                   width: 200px;
+                   height: 200px;
+                }
+                @media #{$small-screen}{
+                    width: 150px;
+                    height: 150px;
+                 }
+                 @media screen and (max-width: 369px){
+                     width: 180px;
+                     height: 180px;
+                 }
                 h2 {
                     font-size: 58px;
                     color: $white;
                     font-weight: bold;
                     position: relative;
                     text-shadow: 0px 9px 4px rgba(122, 122, 122, 0.35);
+                    width: 100%;
+                    @media #{$tablet-screen}{
+                        font-size: 36px;
+                    }
                     span {
                         font-size: 35px;
                         position: absolute;
+                        @media #{$tablet-screen}{
+                            font-size: 30px;
+                        }
                     }
                 }
                 p {
@@ -262,6 +320,9 @@
                     color: $white;
                     text-shadow: 0px 9px 4px rgba(122, 122, 122, 0.35);
                     font-weight: bold;
+                    @media #{$small-screen}{
+                        font-size: 16px;
+                    }
                 }
             }
         }
