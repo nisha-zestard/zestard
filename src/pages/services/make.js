@@ -74,7 +74,9 @@ class Make extends Component {
 												</div>
 												<div className="card-body">
 													<h2 className="s-title" dangerouslySetInnerHTML={{__html: node.cs_title}} />
-													<p className="text" dangerouslySetInnerHTML={{__html:node.cs_content}} />
+													{node.cs_content !== null &&
+														<div className="text" dangerouslySetInnerHTML={{__html:node.cs_content}} />
+													}													
 													<a href="#" className="s-link">Learn More</a>
 												</div>
 											</div>
@@ -103,7 +105,9 @@ class Make extends Component {
 												</div>
 												<div className="content-wrap">
 													<h3>{node.node.title}</h3>
-													<p dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
+													{node.node.excerpt !== null &&
+														<div dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
+													}													
 													<a href="#">Learn More</a>
 												</div>
 											</div>

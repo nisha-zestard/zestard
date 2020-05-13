@@ -25,7 +25,9 @@ class Market extends Component {
 								<div className="col-md-6 banner-content-wrap d-flex align-items-center">
 									<div className="banner-content">
 										<h1 dangerouslySetInnerHTML={{__html: page.header_section_title}} />
-										<p dangerouslySetInnerHTML={{__html: page.header_sub_text}} />
+										{page.header_sub_text !== null &&
+											<div dangerouslySetInnerHTML={{__html: page.header_sub_text}} />
+										}										
 									</div>
 								</div>
 								<div className="col-md-6 banner-image-wrap">
@@ -47,7 +49,9 @@ class Market extends Component {
 									<h2>{genmodule[0].pis_section_title}</h2>
 								</div>
 								<div className="text">
-									<p dangerouslySetInnerHTML={{__html: genmodule[0].pis_content}} />
+									{genmodule[0].pis_content !== null &&
+										<div dangerouslySetInnerHTML={{__html: genmodule[0].pis_content}} />
+									}									
 								</div>
 							</div>
 							<div className="market-services-list">
@@ -62,7 +66,9 @@ class Market extends Component {
 													</div>
 												}												
 												<h2 className={index === 0 ? 'service-main-title' : 'm-ser-title'}>{node.cs_title}</h2>
-												<p className="m-ser-text" dangerouslySetInnerHTML={{__html: node.cs_content}} />
+												{node.cs_content !== null &&
+													<div className="m-ser-text" dangerouslySetInnerHTML={{__html: node.cs_content}} />
+												}												
 											</div>
 										</div>
 									))}									
