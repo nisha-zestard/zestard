@@ -264,6 +264,10 @@
                 padding: 11px 18px;
                 border-radius: 2px;
                 margin: 0;
+                @media #{$medium-screen}{
+                    padding: 10px;
+                    font-size: 14px;
+                }
                 &:hover{
                     text-decoration: none;
                 }

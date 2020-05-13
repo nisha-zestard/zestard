@@ -53,14 +53,18 @@ class Home extends Component {
         <div className="page-banner home">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-6 d-flex align-content-centent flex-wrap">        
+                    <div className="col-md-6 baner-content-wrap d-flex align-items-center flex-wrap">        
+                       <div className="baner-content">
                         <h1 dangerouslySetInnerHTML={{ __html: header.header_section_title }} />
-                        <p>{header.header_sub_text}</p>
+                            <p>{header.header_sub_text}</p>
+                       </div>
                     </div>
-                    <div className="col-md-6 text-right">
-                        {header.header_mascot.source_url !== null &&
-                            <img src={header.header_mascot.source_url} alt="banner-img" />
-                        }                        
+                    <div className="col-md-6 banner-image-wrap text-right">
+                        <div className="banner-image">
+                            {header.header_mascot.source_url !== null &&
+                                <img src={header.header_mascot.source_url} alt="banner-img" />
+                            }       
+                        </div>                 
                     </div>
                 </div>
             </div>
@@ -71,12 +75,12 @@ class Home extends Component {
         <div className="our-service">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-4 col-lg-6">
+                    <div className="col-lg-6">
                         <div className="title">
                             <h2>{header.gen_content_modules_page[0].pis_section_title}</h2>
                         </div>
                     </div>
-                    <div className="col-md-8 col-lg-6">
+                    <div className="col-lg-6">
                         <p>{header.gen_content_modules_page[0].pis_content}</p>
                     </div>
                 </div>
@@ -159,14 +163,14 @@ class Home extends Component {
         <div className="expertise-section">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-lg-4">
                         <div className="title">
                             <h2>{expertise.home_oe_section_title}</h2>
                             <p>{expertise.home_oe_content}</p>
                             <a className="btn r-more" href={expertise.home_oe_read_more_link}>read more</a>
                         </div>
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-lg-8">
                         <div className="experience-wrap">
                             <ul>
                                 {expertise.home_oe_right_icons.map((node,index) => (
