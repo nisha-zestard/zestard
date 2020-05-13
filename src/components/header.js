@@ -63,7 +63,6 @@ export default () => (
       const contactmenu = maninmenu[4];
       const { location} = history
       const param = location.pathname;
-     
       function renderSwitch(location) {
         switch(param) {          
           case '/services/make/':
@@ -93,6 +92,7 @@ export default () => (
               </div>
               <div className="col-lg-9 d-flex justify-content-end">
               <Navbar bg="default" expand="lg" id={location !== 'undefined' ? renderSwitch() : 'doesnt match'}  className="site-nav navbar d-flex justify-content-end align-items-center">
+
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
