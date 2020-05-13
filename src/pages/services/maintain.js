@@ -13,7 +13,7 @@ class Maintain extends Component {
 		const genmodule = data.allWordpressPage.edges[0].node.acf.gen_content_modules_page;
 		const credent = data.allWordpressWpCredentials.edges;
 		const portfolio = data.allWordpressWpPortfolio;
-		console.log(page);
+		//console.log(page);
 
 		return(
 			<Layout>
