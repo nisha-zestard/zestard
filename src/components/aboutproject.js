@@ -36,7 +36,9 @@ const AboutProject =   () => {
                     </div>
                     <div className="content">
                         <h2>{ctamodul.cta_mod_title}</h2>
-                        <p dangerouslySetInnerHTML={{__html:ctamodul.cta_mod_content}} />
+                        {ctamodul.cta_mod_content !== null &&
+                          <div dangerouslySetInnerHTML={{__html:ctamodul.cta_mod_content}} />
+                        }                        
                         <a className="start-pro-btn" href="#">{ctamodul.cta_mod_button_text}</a>
                     </div>
                 </div>

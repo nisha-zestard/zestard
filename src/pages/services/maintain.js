@@ -24,7 +24,9 @@ class Maintain extends Component {
 								<div className="col-md-6 banner-content-wrap d-flex align-items-center">
 									<div className="banner-content">
 										<h1 dangerouslySetInnerHTML={{__html: page.header_section_title}} />
-										<p dangerouslySetInnerHTML={{__html: page.header_sub_text}} />
+										{page.header_sub_text !== null &&
+											<div dangerouslySetInnerHTML={{__html: page.header_sub_text}} />
+										}										
 									</div>
 								</div>
 								<div className="col-md-6 banner-image-wrap">
@@ -46,7 +48,9 @@ class Maintain extends Component {
 								<h2>{genmodule[0].pis_section_title}</h2>
 							</div>
 							<div className="content">
-								<p dangerouslySetInnerHTML={{__html: genmodule[0].pis_content}} />
+								{genmodule[0].pis_content !== null &&
+									<div dangerouslySetInnerHTML={{__html: genmodule[0].pis_content}} />
+								}								
 							</div>
 						</div>
 					</div>
@@ -69,7 +73,9 @@ class Maintain extends Component {
 										<div className="col-md-6 maintain-service-content">
 											<div className="ser-contain">
 												<h2 className="service-title" dangerouslySetInnerHTML={{__html: node.iwc_title}} />
-												<p className="service-text" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />
+												{node.iwc_sub_desc !== null &&
+													<div className="service-text" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />
+												}
 												<a href="#" className="service-link">{node.iwc_button_text}</a>
 											</div>
 										</div>
@@ -105,13 +111,15 @@ class Maintain extends Component {
 										<div className="hire-dev-content">
 											<h2 className="hire-dev-title">{page.maintain_title}</h2>
 											<div className="hire-dev-text">
-												<p dangerouslySetInnerHTML={{__html: page.maintain_content}} />
-													<ul>
-														{page.maintain_list_repeater.map((node,index) => (
-															<li key={index}>{node.maintain_list}</li>
-														))}
-													</ul>
-													<a href={page.maintain_button_link}>{page.maintain_button_text}</a>
+												{page.maintain_content !== null &&
+													<div dangerouslySetInnerHTML={{__html: page.maintain_content}} />
+												}												
+												<ul>
+													{page.maintain_list_repeater.map((node,index) => (
+														<li key={index}>{node.maintain_list}</li>
+													))}
+												</ul>
+												<a href={page.maintain_button_link}>{page.maintain_button_text}</a>
 											</div>
 										</div>
 									</div>
@@ -147,7 +155,7 @@ class Maintain extends Component {
 						<div className="container">
 							<div className="title text-center">
 								<h2>{genmodule[2].css_title}</h2>
-								<p dangerouslySetInnerHTML={{__html: genmodule[2].css_content}} />
+								<div dangerouslySetInnerHTML={{__html: genmodule[2].css_content}} />
 							</div>
 							<div className="portfolio-list">
 								<div className="row">
@@ -162,7 +170,7 @@ class Maintain extends Component {
 												<div className="portfolio-content">
 													<span className="sub-title">Web Platform</span>
 													<h2 className="portfolio-title">{node.node.title}</h2>
-													<p dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
+													<div dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
 													<a href="#" className="portfolio-link">Read more</a>
 												</div>
 											</div>
