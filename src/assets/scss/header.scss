@@ -34,6 +34,9 @@
                 }
             }
             .navbar-collapse.collapse{
+                .showmobmenu{
+                    display: block;
+                }
                 @media screen and (max-width: 991px){
                     position: absolute;
                     top: 10px;
@@ -157,15 +160,15 @@
                         }
                     }
                 }
-                &:not(.show){
-                    display: block;
-                }
-                &:not(.in){
-                    display: none;
-                }
-                &.collapsing{
-                    display: none;
-                }
+                // &:not(.show){
+                //     display: block;
+                // }
+                // &:not(.in){
+                //     display: none;
+                // }
+                // &.collapsing{
+                //     display: none;
+                // }
             }
             &#lightheader{
                 .navbar-toggler-icon{
