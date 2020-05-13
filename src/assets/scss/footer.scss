@@ -80,7 +80,6 @@
             }
             .f-left-top{
                 border-right: 1px solid #3a4c62;
-                margin-right: 30px;
                 @media #{$medium-screen}{
                     margin-right: 0;
                 }
@@ -157,7 +156,7 @@
                 .footer-col{
                     .footer-col-inner{
                         border-right: 1px solid #3a4c62;
-                        padding-left: 30px;
+                        padding-left: 15px;
                         @media #{$mobile-screen}{
                             margin-bottom: 15px;
                         }
