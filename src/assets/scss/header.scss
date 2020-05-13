@@ -4,9 +4,9 @@
     width: 100%;
     top: 0; 
     .header-inner{
-        position: relative;
+        justify-content: space-between;
         .submenu{
-            display: none;
+            display: none; 
         }
         .site-branding{
             img{
@@ -19,15 +19,22 @@
             @media screen and (max-width: 991px){
                 position: inherit;
                 width: 100%;
+                padding: 0 10px;
             }
             .navbar-toggler{
+               border: 0;
+               padding: 0;
+                div{
+                    width: 35px;
+                    height: 5px;
+                    background-color: $primary-color;
+                    margin: 6px 0;
+                }
+                i{
+                    color: $primary-color;
+                }
                 &:focus{
                     outline: none;
-                }
-                @media screen and (max-width: 991px){
-                    position: absolute;
-                    top: -44px;
-                    right: 200px;
                 }
                 @media screen and (max-width: 575px){
                    right: 0;
@@ -39,7 +46,7 @@
                 }
                 @media screen and (max-width: 991px){
                     position: absolute;
-                    top: 10px;
+                    top: 80px;
                     width: 100%;
                     left: 0;
                     background-color: $white;
@@ -132,6 +139,7 @@
                                 position: inherit;
                                 top: inherit;
                                 background: transparent;
+                                box-shadow: none;
                             }
                             li{
                                 display: block;
@@ -148,7 +156,7 @@
                                         color: $bg-color; 
                                     }
                                     @media screen and (max-width: 991px){
-                                        color: $primary-light; 
+                                        color: $primary-light !important; 
                                     }
                                 }
                             }
@@ -192,7 +200,7 @@
                         @media screen and (max-width: 991px){
                             background: transparent;
                             width: 100%;
-                            margin-top: 20px;
+                            margin-top: 0px;
                         }
                     }
                 }
@@ -247,9 +255,7 @@
         } 
         .request-a-quote{
              @media screen and (max-width: 991px){
-                position: absolute;
-                top: -44px;
-                right: 0;
+               
              }
              @media screen and (max-width: 575px){
                  display: none;
@@ -270,6 +276,10 @@
                 @media #{$medium-screen}{
                     padding: 10px;
                     font-size: 14px;
+                }
+                @media #{$tablet-screen}{
+                    width: 180px;
+                    text-align: center;
                 }
                 &:hover{
                     text-decoration: none;

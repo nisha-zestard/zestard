@@ -130,17 +130,13 @@ export default () => (
       }
       return(
         <header className="site-header">    
-          <div className="container">
-            <div className="header-inner">
-            <div className="row">
-              <div className="col-lg-3">
+          <div className="container d-flex frex-wrap justify-content-space-between header-inner">
                 <div className="site-branding">            
                   {acfoptions.site_logo !== null && acfoptions.light_site_logo !== null &&              
                     <Link to="/"><img src={param === '/services/make/' ? lightlogo : location.pathname === '/services/market/' ? lightlogo : location.pathname === '/services/maintain/' ? lightlogo : darklogo} alt="Site Logo" /></Link>                                
                   }  
                 </div>
-              </div>
-              <div className="col-lg-9 d-flex justify-content-end">
+              <div className="menu-wraper d-flex">
               <Navbar bg="default" expand="lg" id={renderSwitch()}  className="mobile-view site-nav navbar d-flex justify-content-end align-items-center">
               {/* <Navbar bg="default" expand="lg" id={renderSwitch()}  className="navbar navbar-light navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg"> */}
               <button id="mobmenu" className="navbar-toggler" type="button" onClick={handleClicko} data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -208,9 +204,7 @@ export default () => (
                 <Link to={`/${removePre(contactmenu.url)}`} className="btn-primary">Request a Quote</Link>
               </div>
               </div>
-            </div>
           </div>  
-          </div>
       </header>
       )  
     }}
