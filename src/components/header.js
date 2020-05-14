@@ -67,7 +67,7 @@ export default () => (
       const contactmenu = maninmenu[4];
       const { location} = history
       const param = location.pathname;
-      console.log(workmenu);
+      ///console.log(workmenu);
       // let routes = (
       //   <Switch>
       //     <Route path={["/services/make", "/services/market", "/services/maintain"]}>
@@ -80,10 +80,8 @@ export default () => (
       // );
       const handleOpen = (el) => {  
         const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
-      }
-       
-      const handleClose = (el) => {
-        
+      }       
+      const handleClose = (el) => {        
         const target = el.currentTarget.getElementsByClassName('dropdown-menu');
         if(target.length > 0) {
           const test = target[0].closest('.dropdown-menu');
@@ -91,32 +89,31 @@ export default () => (
             test.classList.remove('showmobmnu');
         }
       }
-        const handleClicko = (el) => { 
-          const navbarmenu = document.getElementsByClassName('mobile-view')[0];
-          navbarmenu.classList.toggle('show-mob-view');
-          const shwmenu = document.getElementsByClassName('navbar-collapse')[0];
-          shwmenu.classList.toggle('show');
-          const menudiv = document.getElementById("mobmenu");
-          menudiv.classList.toggle('mobmubtn');
-          if(menudiv.innerHTML === '<div></div><div></div><div></div>') {            
-            menudiv.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
-          }
-          else  {   
-            menudiv.innerHTML = "<div></div><div></div><div></div>";
-          }     
+      const handleClicko = (el) => { 
+        const navbarmenu = document.getElementsByClassName('mobile-view')[0];
+        navbarmenu.classList.toggle('show-mob-view');
+        const shwmenu = document.getElementsByClassName('navbar-collapse')[0];
+        shwmenu.classList.toggle('show');
+        const menudiv = document.getElementById("mobmenu");
+        menudiv.classList.toggle('mobmubtn');
+        if(menudiv.innerHTML === '<div></div><div></div><div></div>') {            
+          menudiv.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
+        }
+        else  {   
+          menudiv.innerHTML = "<div></div><div></div><div></div>";
+        }     
       }
-      function renderSwitch(location) {
-        
+      function renderSwitch(location) {        
           switch(param) {          
             case '/services/make/':
-              console.log('make inside location-------->'+location);
+              //console.log('make inside location-------->'+location);
               return 'darkheader';
             case '/services/market/':
               return 'darkheader';
             case '/services/maintain/':
               return 'darkheader';
             default:
-              console.log('Default location-------->'+location);
+              //console.log('Default location-------->'+location);
               return 'lightheader';
           }
         
