@@ -3,14 +3,15 @@
     color: #fff;
     padding-top: 50px;
     padding-bottom: 50px;
-    margin-top: 97px;
+    margin-top: 95px;
     background-repeat: no-repeat;
 
-    @media(max-width: 767px){
+    @media #{$small-screen}{
         background: linear-gradient(-14deg, #009fff 21%, #0974d5 30%, #053ab1 46%, #06284e 92%);
+        margin-top: 82px;
     }
-    @media screen and (max-width: 576px){
-        margin-top: 65px;
+    @media #{$mobile-screen}{
+        margin-top: 67px;
     }
     .blog-title {
         font-family: 'Roboto', sans-serif;
