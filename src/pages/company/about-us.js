@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 import PageHeader from '../../components/page-header';
 import SEO from "../../components/seo";
+import AboutProject from './../../components/aboutproject'
 
 class AboutUs extends Component {
   
@@ -149,8 +150,9 @@ class AboutUs extends Component {
                   </div>
                 </div>
               </section>
-              {/* Call to action */}
-            
+              <section>
+                <AboutProject />
+              </section>            
             </div>
           </div>
           </Layout>

@@ -69,7 +69,7 @@ const acf = data.allWordpressAcfOptions.edges[0].node.options;
               <div className="f-left-top">
                 <div className="footer-logo">
                   {acf.light_site_logo !== null &&
-                    <img src={acf.light_site_logo.source_url} altr="Light footer logo"/>
+                    <Link to="/"><img src={acf.light_site_logo.source_url} altr="Light footer logo"/></Link>
                   }                  
                 </div>
                 <div className="contact-info">
