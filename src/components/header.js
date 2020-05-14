@@ -67,19 +67,17 @@ export default () => (
       const contactmenu = maninmenu[4];
       const { location} = history
       const param = location.pathname;
-      let routes = (
-        <Switch>
-          {/* <Route exact path="/">
-            <div className="others" />
-          </Route> */}
-          <Route path={["/services/make", "/services/market", "/services/maintain"]}>
-          <div className="services" />
-          </Route>
-          <Route>
-          <div className="others" />
-          </Route>
-        </Switch>
-      );
+      console.log(workmenu);
+      // let routes = (
+      //   <Switch>
+      //     <Route path={["/services/make", "/services/market", "/services/maintain"]}>
+      //     <div className="services" />
+      //     </Route>
+      //     <Route>
+      //     <div className="others" />
+      //     </Route>
+      //   </Switch>
+      // );
       const handleOpen = (el) => {  
         const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
       }
@@ -94,9 +92,6 @@ export default () => (
         }
       }
         const handleClicko = (el) => { 
-          // const menudiv = document.getElementById("navbarNav")[0];
-          // menudiv.classList.toggle('showmobmenu');
-          // console.log(menudiv);
           const navbarmenu = document.getElementsByClassName('mobile-view')[0];
           navbarmenu.classList.toggle('show-mob-view');
           const shwmenu = document.getElementsByClassName('navbar-collapse')[0];
@@ -115,7 +110,6 @@ export default () => (
           switch(param) {          
             case '/services/make/':
               console.log('make inside location-------->'+location);
-              //console.log(param);
               return 'darkheader';
             case '/services/market/':
               return 'darkheader';
@@ -125,7 +119,6 @@ export default () => (
               console.log('Default location-------->'+location);
               return 'lightheader';
           }
-        
         
       }
       return(
@@ -149,53 +142,58 @@ export default () => (
                   <li className="nav-item menu-item">
                   <NavDropdown title={companymenu.title} id="basic-nav-dropdown"
                     onMouseEnter = { (e) => handleOpen(e) } onMouseLeave = { (e) => handleClose(e) } >
+                      <ul>
                       {companymenu.child_items.map((node, index) => (
-                        <NavDropdown.Item href={`/${removePre(node.url)}`} key={index}>
+                        <li><Link to={`/${removePre(node.url)}`} key={index}>
                           {node.title}
-                        </NavDropdown.Item>
+                        </Link></li>
                       ))}
+                      </ul>
                   </NavDropdown>
-                  {/* <ul className="sub-menu">   
-                  {companymenu.child_items.map((node,index) => (
-                      <li key={index}><Link to={`/${removePre(node.url)}`}>{node.title}</Link></li>
-                    ))}
-                  </ul> */}
                   </li>
                   <li className="nav-item menu-item">
                   <NavDropdown title={servicmenu.title} id="basic-nav-dropdown"
                     onMouseEnter = { (e) => handleOpen(e) }
                     onMouseLeave = { (e) => handleClose(e) }>
+                      <ul>
                       {servicmenu.child_items.map((node, index) => (
-                        <NavDropdown.Item href={`/services/${removePre(node.url)}`} key={index}>
+                        <li>
+                          <Link to={`/services/${removePre(node.url)}`} key={index}>
                           {node.title}
-                        </NavDropdown.Item>
+                        </Link>
+                        </li>
                       ))}
+                      </ul>
                   </NavDropdown>
-                  {/* <ul className="sub-menu">                
-                    {servicmenu.child_items.map((node,index) => (
-                      <li key={index}><Link to={`/services/${removePre(node.url)}`}>{node.title}</Link></li>
-                    ))}                  
-                    </ul> */}
                   </li> 
                   <li className="nav-item menu-item">
                   <NavDropdown title={workmenu.title} id="basic-nav-dropdown"
                     onMouseEnter = { (e) => handleOpen(e) }
                     onMouseLeave = { (e) => handleClose(e) }>
-                      {workmenu.child_items.map((node, index) => (
-                        <NavDropdown.Item 
-                        href={`${node.target === "" ? `/${removePre(node.url)}` : node.url}`}
-                                        target={node.target} key={index}>
-                          {node.title}
-                        </NavDropdown.Item>
-                      ))}
+                      <ul>
+                      <li>
+                        <Link 
+                          to={`${workmenu.child_items[0].target === "" ? `/${removePre(workmenu.child_items[0].url)}` : workmenu.child_items[0].url}`} 
+                          target={workmenu.child_items[0].target} >{workmenu.child_items[0].title}
+                        </Link>
+                      </li>
+                      <li>
+                        <a
+                          href={workmenu.child_items[1].url} 
+                          target={workmenu.child_items[1].target} >{workmenu.child_items[1].title}
+                        </a>
+                      </li>
+                      <li>
+                        <a 
+                          href={workmenu.child_items[2].url} 
+                          target={workmenu.child_items[2].target} >{workmenu.child_items[2].title}
+                        </a>
+                      </li>                        
+                      </ul>
+                      
                   </NavDropdown>
-                  {/* <ul className="sub-menu">   
-                    <li><Link to={`/${removePre(workmenu.child_items[0].url)}`}>{workmenu.child_items[0].title}</Link></li>
-                    <li><a href={workmenu.child_items[1].url} target="_blank">{workmenu.child_items[1].title}</a></li>
-                    <li><a href={workmenu.child_items[2].url} target="_blank">{workmenu.child_items[2].title}</a></li>
-                  </ul> */}
                   </li>
-                  <li className="nav-item menu-item"><Nav.Link href={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Nav.Link></li>
+                  <li className="nav-item menu-item"><Link to={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Link></li>
                   <li className="nav-item menu-item"><Nav.Link href={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Nav.Link></li>
                 </ul>
                 </div>

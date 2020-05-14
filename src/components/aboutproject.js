@@ -1,5 +1,6 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
+import { removePre } from './../util/common';
 
 const AboutProject =   () => {
   const data = useStaticQuery(graphql`
@@ -39,7 +40,7 @@ const AboutProject =   () => {
                         {ctamodul.cta_mod_content !== null &&
                           <div dangerouslySetInnerHTML={{__html:ctamodul.cta_mod_content}} />
                         }                        
-                        <a className="start-pro-btn" href="#">{ctamodul.cta_mod_button_text}</a>
+                        <Link to={`/${removePre('contact-us')}`} className="start-pro-btn">{ctamodul.cta_mod_button_text}</Link>
                     </div>
                 </div>
             </div>
