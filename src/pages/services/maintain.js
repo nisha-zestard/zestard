@@ -3,7 +3,7 @@ import React, { Component } from "react"
 import Layout from "./../../components/layout"
 import Credentialsimage from "./../../assets/images/credientials-bg.png"
 import Zectopus from "./../../assets/images/zectopus.png"
-
+import SEO from "./../../components/seo"
 import AboutProject from './../../components/aboutproject'
 
 class Maintain extends Component {
@@ -17,6 +17,7 @@ class Maintain extends Component {
 
 		return(
 			<Layout>
+				<SEO title="Maintain"/>
 				<section>
 					<div className="page-banner maintain">
 						<div className="container">

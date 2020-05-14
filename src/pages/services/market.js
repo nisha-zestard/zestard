@@ -3,7 +3,7 @@ import Credentialsimage from "./../../assets/images/credientials-bg.png"
 import Zectopus from "./../../assets/images/zectopus.png"
 import Serviceicon from "./../../assets/images/m-service-icon.png"
 import Serviceiconhover from "./../../assets/images/m-service-icon-hover.png"
-
+import SEO from "./../../components/seo"
 import Layout from "./../../components/layout"
 import AboutProject from './../../components/aboutproject'
 
@@ -18,6 +18,7 @@ class Market extends Component {
 
 		return(
 			<Layout>
+				<SEO title="Market"/>
 				<section>
 					<div className="page-banner market">
 						<div className="container">
