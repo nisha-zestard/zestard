@@ -111,7 +111,7 @@ export default () => (
           }     
       }
       function renderSwitch(location) {
-        if(location !== 'undefined'){
+        
           switch(param) {          
             case '/services/make/':
               console.log('make inside location-------->'+location);
@@ -125,7 +125,7 @@ export default () => (
               console.log('Default location-------->'+location);
               return 'lightheader';
           }
-        }
+        
         
       }
       return(
@@ -137,7 +137,7 @@ export default () => (
                   }  
                 </div>
               <div className="menu-wraper d-flex">
-              <Navbar bg="default" expand="lg" id={renderSwitch()}  className="mobile-view site-nav navbar d-flex justify-content-end align-items-center">
+              <Navbar bg="default" expand="lg" id={location !== 'undefined' ? renderSwitch() : 'not matching'}  className="mobile-view site-nav navbar d-flex justify-content-end align-items-center">
               {/* <Navbar bg="default" expand="lg" id={renderSwitch()}  className="navbar navbar-light navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg"> */}
               <button id="mobmenu" className="navbar-toggler" type="button" onClick={handleClicko} data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <div></div>
