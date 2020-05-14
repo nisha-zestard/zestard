@@ -158,27 +158,38 @@
                                 top: inherit;
                                 background: transparent;
                                 box-shadow: none;
+                                padding-bottom: 0;
                             }
-                            .dropdown-item{
-                                color: $primary-color;
-                                font-size: 17px;
-                                display: block; 
-                                padding: 10px 20px;
-                                &::before{
-                                    display: none;
-                                }
-                                &:hover{
-                                    color: $bg-color; 
-                                }
-                                @media #{$tablet-screen}{
-                                    color: $primary-light !important; 
-                                    &:last-child{
-                                        padding-bottom: 0;
+                            ul{
+                                margin: 0;
+                                li{
+                                    display: block;
+                                    margin: 0;
+                                    @media #{$tablet-screen}{
+                                        padding: 10px 0 !important;
                                     }
-                                }
-                                &:active{
-                                    color: #fff;
-                                    background-color: transparent;
+                                    a{
+                                        color: $primary-color;
+                                        font-size: 17px;
+                                        display: block; 
+                                        padding: 10px 20px;
+                                        &::before{
+                                            display: none;
+                                        }
+                                        &:hover{
+                                            color: $bg-color; 
+                                        }
+                                        @media #{$tablet-screen}{
+                                            color: $primary-light !important; 
+                                        }
+                                        &:active{
+                                            color: #fff;
+                                            background-color: transparent;
+                                        }
+                                    }
+                                    &:last-child{
+                                        padding-bottom: 0 !important;
+                                    }
                                 }
                             }
                         }
