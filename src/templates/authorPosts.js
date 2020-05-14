@@ -40,7 +40,7 @@ class AuthorPostsTemplate extends Component {
                           <div className="row">
                             <div className="col-md-12 col-sm-12">
                               <div className="card-image">
-                                <Link to={`/${removePre(node.node.link)}`} className="post-thumbnail">
+                                <Link to={`/blog/${removePre(node.node.link)}`} className="post-thumbnail">
                                 {node.node.featured_media !== null && node.node.featured_media.source_url !== null && node.node.featured_media.source_url !== null &&
                                   <img src={node.node.featured_media.source_url} alt="" loading="lazy"/>  
                                 }</Link>
