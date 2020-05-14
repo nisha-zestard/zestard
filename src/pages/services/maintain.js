@@ -74,6 +74,11 @@ class Maintain extends Component {
 										<div className="col-md-6 maintain-service-content">
 											<div className="ser-contain">
 												<h2 className="service-title" dangerouslySetInnerHTML={{__html: node.iwc_title}} />
+												<div className="ser-image">
+													{node.iwc_image.source_url !== null &&
+														<img src={node.iwc_image.source_url}  alt="Service icon"/>
+													}													
+												</div>
 												{node.iwc_sub_desc !== null &&
 													<div className="service-text" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />
 												}
