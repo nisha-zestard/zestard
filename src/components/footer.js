@@ -32,9 +32,10 @@ const Footer = () => {
             star_content
             menu_title_with_links {
               menu_title
-              menu_links {
-                link_title
-                link
+              menu_link
+              inner_links {
+                inner_title
+                inner_indi_link
               }
             }
             social_media {
@@ -114,10 +115,10 @@ const acf = data.allWordpressAcfOptions.edges[0].node.options;
                   {acf.menu_title_with_links.map((node,index) => (
                     <div className="col-sm-4 footer-col" key={index}>
                     <div className="footer-col-inner">
-                      <h3 className="s-title">{node.menu_title}</h3>
+                      <h3 className="s-title"><Link to={`/${removePre(node.menu_link)}`}>{node.menu_title}</Link></h3>
                       <ul className="m-0 p-0 s-list">
-                        {node.menu_links.map((node,index) => (
-                          <li key={index}><a href={node.link}>{node.link_title}</a></li>
+                        {node.inner_links.map((node,index) => (
+                          <li key={index}><a href={node.inner_indi_link}>{node.inner_title}</a></li>
                         ))}
                       </ul>
                     </div>
