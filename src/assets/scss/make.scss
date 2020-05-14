@@ -275,7 +275,7 @@
                     position: inherit;
                     margin: 15px;
                 }
-                &.shopify{
+                &.shopify, &.linkedin{
                     left: 0;
                     top: 30px;
                     @media #{$small-screen}{
@@ -283,7 +283,7 @@
                         top: inherit;
                     }
                 }
-                &.magento{
+                &.magento, &.semrush{
                     right: 30px;
                     top: 0;
                     @media #{$small-screen}{
@@ -291,7 +291,7 @@
                         top: inherit;
                     }
                 }
-                &.contributor{
+                &.contributor, &.google-adwords{
                     bottom: 108px;
                     left: -40px;
                     @media #{$small-screen}{
@@ -299,7 +299,7 @@
                         bottom: inherit;
                     }
                 }
-                &.aurthorized{
+                &.aurthorized, &.google-analytics{
                     right: -80px;
                     bottom: 195px;
                     @media #{$tablet-screen}{
@@ -310,7 +310,7 @@
                         bottom: inherit;
                     }
                 }
-                &.wp-engin{
+                &.wp-engin, &.hubspot{
                     width: 200px;
                     height: 94px;
                     line-height: 95px;

@@ -382,6 +382,9 @@
             @media screen and (max-width: 1199px) {
                 padding-right: 0px;
             }
+            @media #{$small-screen}{
+                line-height: 26px;
+            }
         }
         .next-pre {
             @media #{$small-screen} {
