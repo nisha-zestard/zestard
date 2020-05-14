@@ -172,6 +172,9 @@
                             font-weight: 600;
                             margin-bottom: 25px;
                             text-transform: uppercase;
+                            a{
+                                color: #93cf1c;
+                            }
                             @media #{$mobile-screen}{
                                 margin-bottom: 13px;
                             }

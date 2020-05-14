@@ -23,11 +23,11 @@
     @media(max-width: 767px){
         background: linear-gradient(-14deg, #009fff 21%, #0974d5 30%, #053ab1 46%, #06284e 92%);
     }
-    @media(max-width: 576px){
-        margin-top: 70px;
+    @media #{$small-screen}{
+       margin-top: 82px;
     }
-    @media (max-width: 480px){
-        margin-top: 65px;
+    @media #{$mobile-screen}{
+        margin-top: 67px;
     }
     .vector {
         text-align: center;
