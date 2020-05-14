@@ -197,6 +197,7 @@ export default () => (
                   </li>
                   <li className="nav-item menu-item"><Nav.Link href={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Nav.Link></li>
                   <li className="nav-item menu-item"><Nav.Link href={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Nav.Link></li>
+                  <li className="nave-item menu-item request-quote-mob"><Link to={`/${removePre(contactmenu.url)}`} className="btn-primary">Request a Quote</Link></li>
                 </ul>
                 </div>
               </Navbar>

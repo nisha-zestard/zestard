@@ -188,6 +188,15 @@
                         @include sub-heading(22px);
                         margin-bottom: 15px;
                     }
+                    p{
+                        min-height: 72px;
+                        @media #{$tablet-screen}{
+                            min-height: 145px;
+                        }
+                        @media #{$small-screen}{
+                            min-height: inherit;
+                        }
+                    }
                     a{
                         @include link($primary-color);
                     }

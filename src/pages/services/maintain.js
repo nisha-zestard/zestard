@@ -25,7 +25,7 @@ class Maintain extends Component {
 									<div className="banner-content">
 										<h1 dangerouslySetInnerHTML={{__html: page.header_section_title}} />
 										{page.header_sub_text !== null &&
-											<div dangerouslySetInnerHTML={{__html: page.header_sub_text}} />
+											<p dangerouslySetInnerHTML={{__html: page.header_sub_text}} />
 										}										
 									</div>
 								</div>

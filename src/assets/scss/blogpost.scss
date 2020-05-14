@@ -17,7 +17,7 @@
             }
             .title {
                 h3 {
-                    font-family: 'PT Sans', sans-serif;
+                    font-family: $primary-font;
                     font-weight: 500;
                     font-size: 24px;
                     margin-bottom: 20px;
@@ -31,9 +31,9 @@
             padding-left: 0px;
             padding-right: 0px;
             margin-top: -0px;
-            font-family: 'PT Serif', serif;
-            font-size: 20px;
-            line-height: 34px;
+            font-family: $secondary-font;
+            font-size: 18px;
+            line-height: 28px;
             text-align: justify;
             margin-bottom: 15px;
             a:hover{
@@ -44,7 +44,7 @@
     .related-posts {
         // margin: 40px 0 20px;
         .related-blog-title {
-            font-family: 'PT Sans', sans-serif;
+            font-family: $primary-font;
             font-weight: 700;
             width: 100%;
             padding-bottom: 20px;
@@ -72,7 +72,7 @@
                 h4 {
                     margin-top: 5px;
                     line-height: 30px;
-                    font-family: 'PT Sans', sans-serif;
+                    font-family: $primary-font;
                     font-style: normal;
                     font-size: 20px;
                     font-weight: 700;
@@ -91,7 +91,7 @@
                 .card-description {
                     padding: 0px;
                     color: #637381;
-                    font-family: 'PT Serif', serif;
+                    font-family: $secondary-font;
                     font-weight: 400;
                     font-size: 18px;
                     line-height: 28px;
@@ -99,7 +99,7 @@
                 p {
                     padding: 0px;
                     color: #637381;
-                    font-family: 'PT Serif', serif;
+                    font-family: $secondary-font;
                     font-weight: 400;
                     font-size: 18px;
                     line-height: 28px;
@@ -117,7 +117,7 @@
                     display: inline-block;
                     margin-left: 0px;
                     color: #23527c;
-                    font-family: 'PT Serif', serif;
+                    font-family: $secondary-font;
                     font-weight: 400;
                     font-size: 18px;
                     line-height: 28px;
@@ -146,7 +146,7 @@
                     }
                     span {
                         color: #637381;
-                        font-family: 'PT Serif', serif;
+                        font-family: $secondary-font;
                         font-weight: 400;
                         line-height: 28px;
                         font-size: 14px !important;
@@ -176,7 +176,7 @@
             padding-right: 15px;
             margin-bottom: 15px;
             color: $primary-color;
-            font-family: 'PT Sans', sans-serif;
+            font-family: $primary-font;
             @media screen and (max-width: 991px){
                 font-size: 40px;
                 line-height: 44px;
@@ -318,7 +318,7 @@
                     text-align: center;
                 }
                 h1{
-                    font-family: 'Graphik-Regular';
+                    font-family: $primary-font;
                     font-size: 44px;
                     color: $primary-color;
                 }
@@ -347,22 +347,21 @@
                 h3{
                     color: $primary-color;
                     font-size: 22px;
-                    // font-family: 'PT Sans', sans-serif;
+                    // font-family: $primary-font;
                 }
                 ul,ol{
                     margin: 20px;
                 }
                 ul li, ol li{
-                    font-size: 20px !important;
-                    font-weight: 300;
+                    font-size: 18px !important;
                     line-height: 2;
-                    font-family: 'PT Serif', serif;
+                    font-family: $secondary-font;
                     strong {
                         color: $primary-color;
                         font-weight: bold;
-                        font-size: 20px !important;
-                        line-height: 34px;
-                        font-family: 'PT Serif', serif;
+                        font-size: 18px !important;
+                        line-height: 28px;
+                        font-family: $secondary-font;
                     }
                 }
                 ul.compact-table{
@@ -381,9 +380,9 @@
                     }
                 }
                 p{
-                    font-family: 'PT Serif', serif;
-                    font-size: 20px;
-                    line-height: 34px;
+                    font-family: $secondary-font;
+                    font-size: 18px;
+                    line-height: 28px;
                     text-align: justify;
                     margin-bottom: 15px;
                     padding: 0px;

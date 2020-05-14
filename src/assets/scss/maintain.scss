@@ -67,6 +67,9 @@
                     font-size: 18px;
                     line-height: 34px;
                     margin-bottom: 30px;
+                    @media #{$tablet-screen}{
+                        line-height: 26px;
+                    }
                 }
                 .service-link{
                     @include theme-btn($bgcolor: $black, $font-size: 18px, $padding: 11px 44px, $border-radius: 7px);

@@ -492,12 +492,13 @@
         border: 1px solid transparent;
         padding: 20px;
         height: 100%;
-        display: flex;
-        flex-wrap: wrap;
+        @media #{$tablet-screen}{
+            padding: 0;
+        }
         &:hover {
             border-color: #ccc;
         }
-        ul {
+        ul {  
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -506,9 +507,12 @@
             background-color: $white;
             box-shadow: 0px 9px 15.04px 0.96px rgba(217, 217, 217, 0.35);
             width: 444px;
+            max-width: 95%;
             height: 55px;
             padding: 0;
             margin: -30px auto 45px;
+            position: relative;
+            z-index: 999;
             li {
                 color: #c1c1c1;
                 font-size: 16px;
@@ -517,6 +521,13 @@
                 max-width: calc(50% - 10px);
                 width: 100%;
                 margin-left: 10px;
+                @media #{$tablet-screen}{
+                    font-size: 14px;
+                    margin-bottom: 0;
+                }
+                @media screen and (max-width: 360px){
+                    max-width: 100%;
+                }
                 span {
                     color: $bg-color;
                     font-size: 20px;
