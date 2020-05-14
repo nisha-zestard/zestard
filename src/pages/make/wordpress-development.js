@@ -3,7 +3,7 @@ import Layout from "./../../components/layout"
 import SEO from "./../../components/seo"
 import AboutProject from './../../components/aboutproject'
 
-class EcommerceDevelopment extends Component {
+class WordpressDevelopment extends Component {
 
 	render() {		
 		return(
@@ -19,4 +19,4 @@ class EcommerceDevelopment extends Component {
 
 }
 
-export default EcommerceDevelopment
+export default WordpressDevelopment
