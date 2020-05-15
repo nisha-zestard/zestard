@@ -5,6 +5,8 @@ import SEO from "../components/seo";
 import Slider from "react-slick";
 import Counterbg from "../images/counter-bg.png"
 import { removePre } from './../util/common'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 class Home extends Component {
     constructor(props) {
@@ -143,8 +145,8 @@ class Home extends Component {
                 <div className="title text-center">
                     <h2>Our Clients</h2>
                 </div>
-                <div className="clients-logos">
-                    <ul>
+                <div className="clients-logos mob-client d-md-none d-sm-block">                    
+                    <Carousel>
                         {clientlogo.map((node,index) => (
                             <li key={index}>
                                 {node.node.featured_media.source_url !== null &&
@@ -152,7 +154,17 @@ class Home extends Component {
                                 }                                
                             </li>
                         ))}
-                       
+                    </Carousel>                    
+                </div>
+                <div className="clients-logos desk-client d-md-block d-none">
+                    <ul>                    
+                        {clientlogo.map((node,index) => (
+                            <li key={index}>
+                                {node.node.featured_media.source_url !== null &&
+                                    <img src={node.node.featured_media.source_url} alt="c-logo-img" />
+                                }                                
+                            </li>
+                        ))}                    
                     </ul>
                 </div>
             </div>
@@ -213,6 +225,7 @@ class Home extends Component {
                 <div className="container">
                     <div id="carouselTestimonial" className="carousel carousel-testimonial slide" data-ride="carousel">
                         <div className="carousel-inner">
+                        
                         <Slider ref={c => (this.slider = c)} {...testisettings}>
                             {testimonial.map((node,index) => (
                                 <div className={index=0? 'carousel-item': 'carousel-item active'} key={index}>
@@ -257,7 +270,22 @@ class Home extends Component {
                 <div className="title text-center">
                     <h2>Our Credentials</h2>
                 </div>
+                <div class="d-md-none d-sm-block mob-credential">
+                <Carousel>
+                    {credential.map((node,index) => (
+                        <li key={index}>
+                            <div className="box">
+                                {node.node.featured_media.source_url !== null &&
+                                    <img src={node.node.featured_media.source_url} alt="cre-img" />
+                                }                                
+                            </div>
+                        </li>
+                    ))}     
+                </Carousel>
+                </div>
+                <div class="d-md-block d-none desk-credential">
                 <ul>
+                
                 <Slider {...clilogosettings}>
                     {credential.map((node,index) => (
                         <li key={index}>
@@ -270,6 +298,7 @@ class Home extends Component {
                     ))} 
                 </Slider>                   
                 </ul>
+                </div>
             </div>
         </div>
     </section>

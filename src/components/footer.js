@@ -101,7 +101,7 @@ const acf = data.allWordpressAcfOptions.edges[0].node.options;
                 <ul className="p-0 m-0">
                   {acf.social_media.map((node,index) => (
                     <li key={index}>  
-                      <a href={node.social_media_link}><i className={node.social_media_icon}></i></a>
+                      <a href={node.social_media_link} target="_blank"><i className={node.social_media_icon}></i></a>
                     </li>
                   ))}
                 </ul>
