@@ -80,6 +80,7 @@ class Header extends React.Component {
         const workmenu = maninmenu[2];
         const blogmenu = maninmenu[3];
         const contactmenu = maninmenu[4];
+        const isBrowser = () => typeof window !== "undefined"
         const { location} = history
         const param = location.pathname;
         ///console.log(workmenu);
@@ -142,7 +143,8 @@ class Header extends React.Component {
                     }  
                   </div>
                 <div className="menu-wraper d-flex">
-                <Navbar bg="default" expand="lg" id={location !== 'undefined' ? renderSwitch() : 'not matching'}  className="mobile-view site-nav navbar d-flex justify-content-end align-items-center">
+                <Navbar bg="default" expand="lg" id={isBrowser ? renderSwitch() : 'not matching'} className="mobile-view site-nav navbar d-flex justify-content-end align-items-center">
+                {/* <Navbar bg="default" expand="lg" id={location !== 'undefined' ? renderSwitch() : 'not matching'}  className="mobile-view site-nav navbar d-flex justify-content-end align-items-center"> */}
                 {/* <Navbar bg="default" expand="lg" id={renderSwitch()}  className="navbar navbar-light navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg"> */}
                 <button id="mobmenu" className="navbar-toggler" type="button" onClick={handleClicko} data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <div></div>
