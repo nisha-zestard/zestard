@@ -307,4 +307,28 @@
             }
         }
     }
+    &.sticky-header{
+        position: fixed;
+        right: 0;
+        left: 0;
+        z-index: 99999;
+        background-color: $white;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+        transition: all 0.2s;
+        .header-inner{
+            .menu-wraper{
+                nav#darkheader{
+                    .collapse.navbar-collapse{
+                        .nav{
+                            .nav-item{
+                                a{
+                                    color: $primary-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
