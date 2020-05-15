@@ -45,8 +45,42 @@ class Home extends Component {
             speed: 500,
             autoplay: true,
             slidesToShow: 6,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                  }
+                },
+                {
+                  breakpoint: 600,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+              ]
+          }; 
+          var clientlogoset = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
             slidesToScroll: 1
           }; 
+          
   return(
   <Layout>
     <SEO title="Home" />
@@ -145,16 +179,17 @@ class Home extends Component {
                 <div className="title text-center">
                     <h2>Our Clients</h2>
                 </div>
-                <div className="clients-logos mob-client d-md-none d-sm-block">                    
-                    <Carousel>
+                <div className="clients-logos mob-client d-md-none d-sm-block">  
+                                  
+                    <Slider ref={c => (this.slider = c)} {...clientlogoset}>
                         {clientlogo.map((node,index) => (
-                            <li key={index}>
+                            <div>
                                 {node.node.featured_media.source_url !== null &&
-                                    <img src={node.node.featured_media.source_url} alt="c-logo-img" />
-                                }                                
-                            </li>
+                                <img src={node.node.featured_media.source_url} alt="c-logo-img" />
+                            }
+                            </div>
                         ))}
-                    </Carousel>                    
+                    </Slider>                    
                 </div>
                 <div className="clients-logos desk-client d-md-block d-none">
                     <ul>                    
@@ -269,36 +304,20 @@ class Home extends Component {
             <div className="container">
                 <div className="title text-center">
                     <h2>Our Credentials</h2>
-                </div>
-                <div class="d-md-none d-sm-block mob-credential">
-                <Carousel>
-                    {credential.map((node,index) => (
-                        <li key={index}>
-                            <div className="box">
-                                {node.node.featured_media.source_url !== null &&
-                                    <img src={node.node.featured_media.source_url} alt="cre-img" />
-                                }                                
-                            </div>
-                        </li>
-                    ))}     
-                </Carousel>
-                </div>
-                <div class="d-md-block d-none desk-credential">
-                <ul>
-                
-                <Slider {...clilogosettings}>
-                    {credential.map((node,index) => (
-                        <li key={index}>
-                            <div className="box">
-                                {node.node.featured_media.source_url !== null &&
-                                    <img src={node.node.featured_media.source_url} alt="cre-img" />
-                                }                                
-                            </div>
-                        </li>
-                    ))} 
-                </Slider>                   
+                </div>  
+                <ul>                
+                    <Slider {...clilogosettings}>
+                        {credential.map((node,index) => (
+                            <li key={index}>
+                                <div className="box">
+                                    {node.node.featured_media.source_url !== null &&
+                                        <img src={node.node.featured_media.source_url} alt="cre-img" />
+                                    }                                
+                                </div>
+                            </li>
+                        ))} 
+                    </Slider>                   
                 </ul>
-                </div>
             </div>
         </div>
     </section>
