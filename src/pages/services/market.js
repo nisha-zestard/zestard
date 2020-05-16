@@ -62,8 +62,11 @@ class Market extends Component {
 											<div className="m-ser-wrap-inner">
 												{node.cs_icon !== null &&
 													<div className="m-ser-icon">
-														<img src={Serviceicon} className="ser-icon" alt=""/>
-														<img src={Serviceiconhover} className="ser-icon-hover" alt=""/>
+														{node.cs_icon.source_url !== null &&
+															<img src={node.cs_icon.source_url} className="ser-icon" alt=""/>
+														}
+														
+														{/* <img src={Serviceiconhover} className="ser-icon-hover" alt=""/> */}
 													</div>
 												}												
 												<h2 className={index === 0 ? 'service-main-title' : 'm-ser-title'}>{node.cs_title}</h2>
