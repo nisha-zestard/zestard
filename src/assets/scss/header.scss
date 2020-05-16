@@ -33,6 +33,7 @@
             .navbar-toggler{
                border: 0;
                padding: 0;
+               margin-right: 10px;
                 div{
                     width: 35px;
                     height: 5px;
@@ -318,6 +319,11 @@
         .header-inner{
             .menu-wraper{
                 nav#darkheader{
+                    .navbar-toggler{
+                        div{
+                            background-color: $primary-color;
+                        }
+                    }
                     .collapse.navbar-collapse{
                         .nav{
                             .nav-item{

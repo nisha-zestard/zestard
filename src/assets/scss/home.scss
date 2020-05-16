@@ -12,8 +12,8 @@
         }
     }
     p {
-        font-size: 22px;
-        line-height: 34px;
+        font-size: 18px;
+        line-height: 28px;
         margin-bottom: 0px;
         @media #{$medium-screen} {
             font-size: 18px;
@@ -41,8 +41,12 @@
                     object-fit: contain;
                     padding: 30px 40px 0;
                     margin-right: auto;
+                    max-width: 230px;
                     @media #{$tablet-screen}{
                         padding: 20px 15px 0;
+                    }
+                    @media #{$small-screen}{
+                        max-width: 180px;
                     }
                 }
                 .card-body {
@@ -64,7 +68,7 @@
                             font-size: 18px;
                             font-family: $secondary-font;
                             color: $primary-light;
-                            line-height: 1.444;
+                            line-height: 28px;
                         }
                     }
                     .l-more {
@@ -85,7 +89,7 @@
             img{
                 width: 100%;
                 @media #{$small-screen}{
-                    height: 320px;
+                    
                 }
             }
         }
@@ -93,6 +97,12 @@
     .half-col{
         display: flex;
         order: 2;
+        .portfolio-content{
+            @media #{$xs-mobile-screen}{
+                top: 15px !important;
+                left: 15px !important;
+            }
+        }
     }
     .full-col{
         margin-bottom: 30px;
@@ -100,6 +110,16 @@
             margin: 0;
         }
         .portfolio-wrap{
+            .portfolio-image{
+               img{
+                   @media #{$small-screen}{
+                       height: 250px;
+                   }
+                   @media #{$xs-mobile-screen}{
+                    height: 275px;
+                }
+               }
+            }
             .portfolio-content{
                 max-width: 600px;
                 @media #{$medium-screen}{
@@ -110,6 +130,10 @@
                  }
                 @media #{$small-screen}{
                     max-width: 100%;
+                }
+                @media #{$xs-mobile-screen}{
+                    top: 15px;
+                    left: 15px;
                 }
             }
         }
@@ -163,6 +187,23 @@
                 }
             }
         }
+        &.mob-client{
+            .slick-slider{
+                img{
+                    margin: 0 auto;
+                }
+                .slick-arrow{
+                    display: none !important;
+                }
+                .slick-dots{
+                    display: flex !important;
+                    li{
+                        width: 10px;
+                        margin: 0 5px;
+                    }
+                }
+            }
+        }
     }
 }
 .expertise-section {
@@ -180,6 +221,7 @@
         }
         p {
             font-size: 18px;
+            line-height: 28px;
             font-family: $secondary-font;
         }
         .r-more {
@@ -377,7 +419,7 @@
             color: $primary-light;
             font-size: 18px;
             font-family: $secondary-font;
-            line-height: 34px;
+            line-height: 28px;
             padding-right: 100px;
             @media screen and (max-width: 1199px) {
                 padding-right: 0px;
@@ -440,6 +482,9 @@
         justify-content: center;
         .slick-slider{
             width: 100%;
+            .slick-arrow{
+                display: none !important;
+            }
             .slick-list{
                 .slick-track{
                     .slick-slide{
@@ -476,6 +521,11 @@
             }
             .slick-dots{
                 bottom: -45px;
+                li{
+                    @media #{$xs-mobile-screen}{
+                        margin: 0;
+                    }
+                }
             }
         }
     }
@@ -497,6 +547,9 @@
         height: 100%;
         @media #{$tablet-screen}{
             padding: 0;
+        }
+        @media #{$small-screen}{
+            margin-bottom: 20px;
         }
         &:hover {
             border-color: #ccc;
@@ -537,6 +590,10 @@
                     margin-right: 10px;
                 }
             }
+        }
+        p{
+            font-size: 18px;
+            line-height: 28px;
         }
         .button {
             margin-top: 30px;

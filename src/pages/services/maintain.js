@@ -45,7 +45,7 @@ class Maintain extends Component {
 					<div className="make-intro-section text-center">
 						<div className="container">
 							<div className="title">
-								<span>{genmodule[0].pis_page_title}</span>
+								{/* <span>{genmodule[0].pis_page_title}</span> */}
 								<h2>{genmodule[0].pis_section_title}</h2>
 							</div>
 							<div className="content">
@@ -118,7 +118,7 @@ class Maintain extends Component {
 											<h2 className="hire-dev-title">{page.maintain_title}</h2>
 											<div className="hire-dev-text">
 												{page.maintain_content !== null &&
-													<div dangerouslySetInnerHTML={{__html: page.maintain_content}} />
+													<p dangerouslySetInnerHTML={{__html: page.maintain_content}} />
 												}												
 												<ul>
 													{page.maintain_list_repeater.map((node,index) => (

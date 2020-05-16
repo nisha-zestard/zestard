@@ -16,11 +16,24 @@ $transition: all 0.5s ease;
 $para-font: 'Open Sans',sans-serif;
 $para-font-color: #6e6e6e;
 $blog-font: 'PT Serif', serif;
+
+/*=============Responsive Media Query Variables==================*/
+$extra-large-screen: "screen and (min-width: 1300px)";
+$medium-screen : "screen and (max-width: 1199px)";
+$tablet-screen : "screen and (max-width: 991px)";
+$small-screen : "screen and (max-width: 767px)";
+$mobile-screen : "screen and (max-width: 575px)";
+$xs-mobile-screen : "screen and (max-width: 420px)";
+
 body{
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 28px;
     color: $primary-light;
     font-family: $secondary-font;
+    @media #{$small-screen}{
+        font-size: 16px;
+        line-height: 26px;
+    }
 }
 img{
     margin: 0;
@@ -105,10 +118,3 @@ img{
     }
 }
 
-/*=============Responsive Media Query Variables==================*/
-$extra-large-screen: "screen and (min-width: 1300px)";
-$medium-screen : "screen and (max-width: 1199px)";
-$tablet-screen : "screen and (max-width: 991px)";
-$small-screen : "screen and (max-width: 767px)";
-$mobile-screen : "screen and (max-width: 575px)";
-$xs-mobile-screen : "screen and (max-width: 420px)";
