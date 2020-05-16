@@ -3,6 +3,7 @@ module.exports = {
     title: `Zestard Technologies`,
     description: `Offshore Website Design & Development Company | Zestard Technologies`,
     author: `@zestard`,
+    siteURL: 'https://zestard-new.netlify.app/',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

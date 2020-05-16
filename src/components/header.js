@@ -17,8 +17,9 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
+    const isTop = window.scrollY < 100;
     document.addEventListener('scroll', () => {
-      const isTop = window.scrollY < 100;
+      
       if (isTop !== this.state.isTop) {
         this.onScroll(isTop);
         const stickyhead = document.getElementsByClassName('site-header')[0];
