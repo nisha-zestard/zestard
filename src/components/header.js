@@ -16,14 +16,15 @@ class Header extends React.Component {
     this.onScroll = this.onScroll.bind(this);
   }
 
-  componentDidMount() {
-    const isTop = window.scrollY < 100;
-    document.addEventListener('scroll', () => {
-      
+  componentDidMount() {    
+    document.addEventListener('scroll', () => {   
+      const isTop = window.scrollY < 100;   
+      console.log(isTop);
       if (isTop !== this.state.isTop) {
         this.onScroll(isTop);
         const stickyhead = document.getElementsByClassName('site-header')[0];
-        stickyhead.classList.toggle('sticky-header');        
+        stickyhead.classList.toggle('sticky-header');   
+             
       }
     });
   }
@@ -147,7 +148,7 @@ class Header extends React.Component {
         }
         return(
           
-          <header className="site-header"> 
+          <header className="site-header" style={{width:'100%'}}> 
           {/* <Router>
             <Switch>
             <Route path={["/services/make", "/services/market", "/services/maintain"]}>
