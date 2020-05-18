@@ -109,7 +109,7 @@ class Maintain extends Component {
 									<div className="col-lg-6">
 										<div className="hire-dev-image">
 											{page.maintain_image.source_url !== null &&
-												<img src={page.maintain_image.source_url} />
+												<img src={page.maintain_image.source_url} alt="Hire developers"/>
 											}											
 										</div>
 									</div>
@@ -142,8 +142,8 @@ class Maintain extends Component {
 							</div>
 							<div className="credientials-wrap text-center">
 								<div className="c-main">
-									<img src={Credentialsimage} className="main-image"/>
-									<img src={Zectopus} className="center-image" />
+									<img src={Credentialsimage} className="main-image" alt="Credential"/>
+									<img src={Zectopus} className="center-image" alt="Zectopus"/>
 									{credent.map((node,index) => (
 										<div className={"creadi_wrap " + node.node.slug} key={index}>
 											{node.node.featured_media.source_url !== null &&

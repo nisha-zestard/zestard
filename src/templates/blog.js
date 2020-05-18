@@ -14,7 +14,7 @@ class BlogList extends Component {
     const prevPage = currentPage - 1 === 1 ? "/blog" : `blog/page/${(currentPage - 1).toString()}`
     const nextPage = `blog/page/${(currentPage + 1).toString()}`
     const data = this.props.data
-    const post = data.allWordpressPost;
+    // const post = data.allWordpressPost;
     //console.log(post);
     
     return (
