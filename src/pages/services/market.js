@@ -62,7 +62,7 @@ class Market extends Component {
 											<div className="m-ser-wrap-inner">
 												{node.cs_icon !== null &&
 													<div className="m-ser-icon">
-														{node.cs_icon.source_url !== null &&
+														{node.cs_icon !== null &&
 															<img src={node.cs_icon.source_url} className="ser-icon" alt=""/>
 														}
 														
