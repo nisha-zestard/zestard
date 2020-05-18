@@ -142,7 +142,7 @@ class Home extends Component {
                     <div className="card-deck">  
                     {header.gen_content_modules_page[1].cs_cards_details.map((node,index) => (                           
                         <div className="card" key={index}>  
-                            {node.cs_icon.source_url !== null &&
+                            {node.cs_icon !== null &&
                                 <img className="card-img-top" src={node.cs_icon.source_url} alt="service-img"></img>                              
                             }                            
                             <div className="card-body">
