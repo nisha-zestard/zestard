@@ -116,11 +116,7 @@
     }
     .hire-dev-image{
         @media #{$tablet-screen}{
-            text-align: center;
-            margin-bottom: 50px;
-            @media #{$small-screen}{
-                margin-bottom: 30px;
-            }
+            display: none;
         }
     }
     .hire-dev-content{
@@ -128,6 +124,13 @@
             @include heading;
             margin-bottom: 35px;
             @media #{$small-screen}{
+                margin-bottom: 20px;
+            }
+        }
+        .hire-dev-image{
+            display: none;
+            @media #{$tablet-screen}{
+                display: block;
                 margin-bottom: 20px;
             }
         }
