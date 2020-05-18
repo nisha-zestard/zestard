@@ -124,9 +124,20 @@ const acf = data.allWordpressAcfOptions.edges[0].node.options;
                     </div>
                   </div>
                   ))}
+                   <div className="col-sm-4 footer-col last-col">
+                      <div className="footer-col-inner">
+                      <h3 className="s-title">Quick Links</h3>
+                        <ul className="m-0 p-0 s-list"> 
+                          {foomenu.map((node,index) => (
+                            <li key={index}><Link to={`/${removePre(node.url)}`}>{node.title}</Link></li>
+                          ))}
+                        </ul>
+                      </div>
+                   </div>
                 </div>
               </div>
-              <div className="f-right-bottom"> 
+              <div className="f-right-bottom">
+              <h3 className="s-title">Quick Links</h3>
                 <ul className="f-menu m-0 p-0 d-flex">
                   {foomenu.map((node,index) => (
                     <li key={index}><Link to={`/${removePre(node.url)}`}>{node.title}</Link></li>
