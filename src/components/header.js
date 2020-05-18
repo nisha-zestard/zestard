@@ -88,28 +88,8 @@ class Header extends React.Component {
         const isBrowser = () => typeof window !== "undefined"
         const { location} = history
         const param = location.pathname;
-        const routes = (          
-          <Switch>
-            <Route path={["/services/make", "/services/market", "/services/maintain"]}>
-            <div className="services" />
-            </Route>
-            <Route>
-            <div className="others" />
-            </Route>
-          </Switch>          
-        );
-        const mmmpage = routes.props.children[0].props.path;
-        const mpmake = mmmpage[0]+'/'
-        const mpmarket = mmmpage[1]+'/'
-        const mpmaintain = mmmpage[2]+'/'
-        function test(){
-          if(param === mpmake || param === mpmarket || param === mpmaintain){
-            return 'darkheader';
-          }
-          else{
-            return 'lightheader';
-          }
-        }
+        
+       
         const handleOpen = (el) => {  
           const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
         }       
@@ -134,34 +114,16 @@ class Header extends React.Component {
           else  {   
             menudiv.innerHTML = "<div></div><div></div><div></div>";
           }     
-        }
-        function renderSwitch(location) {        
-            switch(param) {          
-              case '/services/make/':
-                //console.log('make inside location-------->'+location);
-                return 'darkheader';
-              case '/services/market/':
-                return 'darkheader';
-              case '/services/maintain/':
-                return 'darkheader';
-              default:
-                //console.log('Default location-------->'+location);
-                return 'lightheader';
-            }
-          
-        }
+        }        
         return(
-
-   <header className="site-header"> 
-   
+          <header className="site-header">    
             <div className="container d-flex frex-wrap justify-content-space-between header-inner">
-                  <div className="site-branding">            
-                    {acfoptions.site_logo !== null && acfoptions.light_site_logo !== null &&              
-                      <Link to="/"><img src={param === '/services/make/' ? lightlogo : location.pathname === '/services/market/' ? lightlogo : location.pathname === '/services/maintain/' ? lightlogo : darklogo} alt="Site Logo" /></Link>                                
-                    }  
-                  </div>
-                <div className="menu-wraper d-flex">
-                  {/* <div id={routes}>Testing</div> */}
+              <div className="site-branding">            
+                {acfoptions.site_logo !== null && acfoptions.light_site_logo !== null &&              
+                  <Link to="/"><img src={param === '/services/make/' ? lightlogo : location.pathname === '/services/market/' ? lightlogo : location.pathname === '/services/maintain/' ? lightlogo : darklogo} alt="Site Logo" /></Link>                                
+                }  
+              </div>
+              <div className="menu-wraper d-flex">
                 <Navbar bg="default" expand="lg" id={headernavclass} className="mobile-view site-nav navbar d-flex justify-content-end align-items-center">
                 {/* <Navbar bg="default" expand="lg" id={location !== 'undefined' ? renderSwitch() : 'not matching'}  className="mobile-view site-nav navbar d-flex justify-content-end align-items-center"> */}
                 {/* <Navbar bg="default" expand="lg" id={renderSwitch()}  className="navbar navbar-light navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg"> */}
