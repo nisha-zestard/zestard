@@ -15,9 +15,9 @@
         font-size: 18px;
         line-height: 28px;
         margin-bottom: 0px;
-        @media #{$medium-screen} {
-            font-size: 18px;
-            line-height: 28px;
+        @media #{$small-screen} {
+            font-size: 16px;
+            line-height: 26px;
         }
     }
     .services-inner {
@@ -69,8 +69,12 @@
                             font-family: $secondary-font;
                             color: $primary-light;
                             line-height: 28px;
+                            @media #{$small-screen}{
+                                font-size: 16px;
+                                line-height: 26px;
+                            }
                         }
-                    }
+                    } 
                     .l-more {
                         @include link($primary-color);
                         margin-top: auto;
@@ -220,9 +224,7 @@
             margin-bottom: 20px;
         }
         p {
-            font-size: 18px;
-            line-height: 28px;
-            font-family: $secondary-font;
+            
         }
         .r-more {
             font-size: 16px;

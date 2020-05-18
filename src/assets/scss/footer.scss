@@ -158,7 +158,7 @@
             .f-right-top{
                 margin-bottom: 30px;
                 @media #{$mobile-screen}{
-                    margin-bottom: 13px;
+                    margin-bottom: 0px;
                 }
                 .footer-col{
                     .footer-col-inner{
@@ -179,6 +179,18 @@
                             font-weight: 600;
                             margin-bottom: 25px;
                             text-transform: uppercase;
+                            position: relative;
+                            &:after{
+                                content: "\f0d7";
+                                font: normal normal normal 14px/1 FontAwesome;
+                                display: inline-block;
+                                color: #93cf1c;
+                                margin-left: 5px;
+                                display: none;
+                                @media #{$mobile-screen}{
+                                    display: inline-block;
+                                }
+                            }
                             a{
                                 color: #93cf1c;
                             }
@@ -202,9 +214,15 @@
                             }
                         }
                     }
-                    &:last-child{
+                    &:nth-child(3){
                         .footer-col-inner{
                             border: 0;
+                        }
+                    }
+                    &.last-col{
+                        display: none;
+                        @media #{$mobile-screen}{
+                            display: block;
                         }
                     }
                 }
@@ -217,6 +235,20 @@
                 }
                 @media #{$small-screen}{
                     margin-bottom: 0;
+                }
+                @media #{$mobile-screen}{
+                    display: none;
+                }
+                .s-title{
+                    font-size: 18px;
+                    color: #93cf1c;
+                    font-weight: 600;
+                    margin-bottom: 13px;
+                    text-transform: uppercase;
+                    display: none;
+                    @media #{$mobile-screen}{
+                        display: block;
+                    }
                 }
                 .f-menu{
                     list-style: none;
@@ -269,13 +301,10 @@
             .footer-creadientials{
                 ul{
                     list-style: none;
-                    @media #{$mobile-screen}{
-                        flex-wrap: wrap;
-                    }
                     li{
                         margin: 0 10px;
                         @media #{$mobile-screen}{
-                            margin: 0 10px 10px;
+                            margin: 0 5px 5px;
                         }
                     }
                 }
