@@ -17,15 +17,22 @@ class Header extends React.Component {
   }
 
   componentDidMount() {    
-    document.addEventListener('scroll', () => {   
-      const isTop = window.scrollY < 100;   
+    document.addEventListener('scroll', () => { 
+      const stickyhead = document.getElementsByClassName('site-header')[0];  
+      const isTop = window.scrollY ;   
       console.log(isTop);
-      if (isTop !== this.state.isTop) {
-        this.onScroll(isTop);
-        const stickyhead = document.getElementsByClassName('site-header')[0];
-        stickyhead.classList.toggle('sticky-header');   
+      if (isTop >= 100) { 
+        stickyhead.classList.add('sticky-header'); }
+      else { 
+        stickyhead.classList.remove('sticky-header');
+    
+    }
+      // if (isTop !== this.state.isTop) {
+      //   this.onScroll(isTop);
+      //   const stickyhead = document.getElementsByClassName('site-header')[0];
+      //   stickyhead.classList.toggle('sticky-header');   
              
-      }
+      // }
     });
   }
 
