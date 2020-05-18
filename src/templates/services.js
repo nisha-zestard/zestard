@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PageHeader from './../components/page-header';
+import Header from "./../components/header";
 import Technology from './../components/technology'
 import ServiceTech from './../components/serviceTech'
 import SEO from './../components/seo'
@@ -17,6 +18,7 @@ class ServiceTemplate extends Component {
       return (
         <>
         <SEO title="Services"/>
+        <Header headernavclass="lightheader" />
             <div id="page" className="site">
                 <div id="content" className="site-content">
                     <PageHeader

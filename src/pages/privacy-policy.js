@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import Header from "../components/header";
 import PageHeader from './../components/page-header';
 import SEO from "../components/seo";
 
@@ -12,6 +13,7 @@ class PrivacyPolicy extends Component {
       return (
         <Layout>
         <SEO title={data.wordpressPage.title} />
+        <Header headernavclass="lightheader" />
             <div id="page" className="site">
                 <div id="content" className="site-content">
                 {/* page header */}

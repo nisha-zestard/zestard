@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { graphql } from "gatsby";
 //import Masonry from 'react-masonry-css';
 import Layout from "../components/layout"
+import Header from "../components/header";
 import Lightbox from "../components/lightBox";
 import SEO from "../components/seo";
 class BlogEventTemplate extends Component {
@@ -15,6 +16,7 @@ class BlogEventTemplate extends Component {
       return (
         <Layout>
         <SEO title={eventHead} />
+        <Header headernavclass="lightheader" />
           <div id="page" className="site">
             <div id="content" className="site-content">
             {/* blog header */}

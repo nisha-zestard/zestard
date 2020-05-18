@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 import BlogSidebar from '../components/blogsidebar'
 import Layout from "../components/layout"
+import Header from "../components/header";
 import { removePre, removeSpecialSymbols } from './../util/common'
 import SEO from "../components/seo";
 
@@ -20,6 +21,7 @@ class BlogList extends Component {
     return (
       <Layout>
       <SEO title="Blog"/>
+      <Header headernavclass="lightheader" />
         <div id="page" className="site">
           <div id="content" className="site-content">
             {/* blog header */}
