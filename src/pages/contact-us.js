@@ -83,7 +83,7 @@ class ContactUs extends Component {
     event.preventDefault();
     if(this.allFieldsValid()) {
       const { fullname, email, phone, subject,message } = this.state;
-      axios.post('https://api.zestard.com/wp-json/zestard/v1/contact-us', {
+      axios.post('https://phptasks.com/zestard-mmm/wp-json/zestard/v1/contact-us', {
         'fullname': fullname,
         'email': email,
         'phone': phone,

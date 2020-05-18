@@ -20,7 +20,7 @@ class Header extends React.Component {
     document.addEventListener('scroll', () => { 
       const stickyhead = document.getElementsByClassName('site-header')[0];  
       const isTop = window.scrollY ;   
-      console.log(isTop);
+      //console.log(isTop);
       if (isTop >= 100) { 
         stickyhead.classList.add('sticky-header'); }
       else { 
