@@ -3,6 +3,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
+import Header from "../../components/header";
 import PageHeader from '../../components/page-header';
 import SEO from "../../components/seo";
 import AboutProject from './../../components/aboutproject'
@@ -22,6 +23,7 @@ class AboutUs extends Component {
       return (
         <Layout>
         <SEO title="About us"/>
+        <Header headernavclass="lightheader" />
           <div id="page" className="site about-page">
             <div id="content" className="site-content">
               {/* page header */}

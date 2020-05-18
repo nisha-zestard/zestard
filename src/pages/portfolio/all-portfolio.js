@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
+import Header from "../../components/header";
 import PageHeader from './../../components/page-header';
 import { removeSpecialSymbols } from './../../util/common'
 import SEO from "../../components/seo";
@@ -13,6 +14,7 @@ class Portfolio extends Component {
       return (
         <Layout>
             <SEO title="Portfolio"/>
+            <Header headernavclass="lightheader" />
             <div id="page" className="site portfolio-page">
                 <div id="content" className="site-content">
                     {/* page header */}

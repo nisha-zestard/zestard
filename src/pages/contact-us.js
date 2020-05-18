@@ -3,6 +3,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import Layout from "./../components/layout"
+import Header from "./../components/header";
 import PageHeader from './../components/page-header';
 import SEO from "../components/seo";
 import axios from 'axios'
@@ -114,6 +115,7 @@ class ContactUs extends Component {
     return (
       <Layout>
       <SEO title="Contact us"/>
+      <Header headernavclass="lightheader" />
         <div id="page" className="fffff">
           <div id="content" className="site-content contact">
           {/* page header */}

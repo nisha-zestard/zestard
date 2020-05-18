@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../../components/layout"
+import Header from "../../components/header";
 import PageHeader from './../../components/page-header';
 import { removePre } from './../../util/common'
 import SEO from "../../components/seo";
@@ -13,6 +14,7 @@ class Culture extends Component {
       return (
         <Layout>
           <SEO title="Culture"/>
+          <Header headernavclass="lightheader" />
             <div id="page" className="">
                 <div id="content" className="site-content">
                     {/* page header */}

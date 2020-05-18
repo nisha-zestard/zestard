@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { graphql } from "gatsby"
 import Masonry from 'react-masonry-css';
 import Layout from "../../components/layout"
+import Header from "../../components/header";
 import PageHeader from './../../components/page-header';
 import SEO from "../../components/seo";
 import Testimonialcomma from "../../images/quote-icon.png"
@@ -21,6 +22,7 @@ class Testimonials extends Component {
       return (
         <Layout>
         <SEO title="Testimonial"/>
+        <Header headernavclass="lightheader" />
             <div id="page" className="site">
                 <div id="content" className="site-content">
                     {/* Page header */}

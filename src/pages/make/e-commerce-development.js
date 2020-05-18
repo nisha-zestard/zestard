@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Layout from "./../../components/layout"
+import Header from "../../components/header";
 import SEO from "./../../components/seo"
 import AboutProject from './../../components/aboutproject' 
 
@@ -9,6 +10,7 @@ class EcommerceDevelopment extends Component {
 		return(
 			<Layout>
 				<SEO title="E-commerce Development"/>
+				<Header headernavclass="lightheader" />
 				<div id="page" className="ecommerce-development">
 					<section>
 						<div className="sub-services-breadcums">
