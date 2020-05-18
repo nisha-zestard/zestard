@@ -43,9 +43,9 @@
                     line-height: 65px;
                     text-align: center;
                     border-radius: 100%;
-                    background: -webkit-linear-gradient( -47deg, rgb(0,39,87) 40%, rgb(55,213,214) 100%);
-                    background: moz-linear-gradient( -47deg, rgb(0,39,87) 40%, rgb(55,213,214) 100%);
-                    background: -webkit-linear-gradient( -47deg, rgb(0,39,87) 40%, rgb(55,213,214) 100%);
+                    // background: -webkit-linear-gradient( -47deg, rgb(0,39,87) 40%, rgb(55,213,214) 100%);
+                    // background: moz-linear-gradient( -47deg, rgb(0,39,87) 40%, rgb(55,213,214) 100%);
+                    // background: -webkit-linear-gradient( -47deg, rgb(0,39,87) 40%, rgb(55,213,214) 100%);
                     margin: 0 auto 30px;
                     transition: $transition;
                     .ser-icon-hover{
@@ -65,20 +65,20 @@
                 .m-ser-text{
                     margin: 0;
                 }
-                &:hover{
-                    .m-ser-icon{
-                        background: transparent;
-                        box-shadow: 0px 0px 26.35px 4.65px rgba(0, 0, 0, 0.2);
-                        transform: rotateY(360deg);
-                        .ser-icon{
-                            display: none;
-                            transition: $transition;
-                        }
-                        .ser-icon-hover{
-                            display: inline-block;
-                        }
-                    }
-                }
+                // &:hover{
+                //     .m-ser-icon{
+                //         background: transparent;
+                //         box-shadow: 0px 0px 26.35px 4.65px rgba(0, 0, 0, 0.2);
+                //         transform: rotateY(360deg);
+                //         .ser-icon{
+                //             display: none;
+                //             transition: $transition;
+                //         }
+                //         .ser-icon-hover{
+                //             display: inline-block;
+                //         }
+                //     }
+                // }
             }
             &:first-child{
                 .m-ser-wrap-inner{
