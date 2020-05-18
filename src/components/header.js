@@ -5,8 +5,6 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { removePre } from './../util/common';
 import { globalHistory as history } from '@reach/router';
-import { BrowserRouter as Router, Route, Switch } from "react-router";
-// import { globalHistory } from '@reach/router'
 
 class Header extends React.Component {
   constructor(props) {
@@ -75,7 +73,7 @@ class Header extends React.Component {
         }
       `}      
       render={(data) => {
-        console.log(this.props)
+        
         const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
         const maninmenu = data.allWordpressMenusMenusItems.nodes[0].items;
         const darklogo = acfoptions.site_logo.source_url;
@@ -120,8 +118,11 @@ class Header extends React.Component {
             <div className="container d-flex frex-wrap justify-content-space-between header-inner">
               <div className="site-branding">            
                 {acfoptions.site_logo !== null && acfoptions.light_site_logo !== null &&              
-                  <Link to="/"><img src={param === '/services/make/' ? lightlogo : location.pathname === '/services/market/' ? lightlogo : location.pathname === '/services/maintain/' ? lightlogo : darklogo} alt="Site Logo" /></Link>                                
+                  <Link to="/"><img id="main-logo" src={param === '/services/make/' ? lightlogo : location.pathname === '/services/market/' ? lightlogo : location.pathname === '/services/maintain/' ? lightlogo : darklogo} alt="Site Logo" /></Link>                                
                 }  
+                {acfoptions.site_logo !== null &&             
+                  <Link to="/"><img src={darklogo} id="dark-sticky-logo" alt="Site Logo" /></Link>                                
+                } 
               </div>
               <div className="menu-wraper d-flex">
                 <Navbar bg="default" expand="lg" id={headernavclass} className="mobile-view site-nav navbar d-flex justify-content-end align-items-center">
