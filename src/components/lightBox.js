@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Masonry from 'react-masonry-css';
 import Modal from 'react-bootstrap/Modal'
+import ImageGallery from 'react-image-gallery';
 const breakpointColumnsObj = {
   default: 3,
   1025: 3,
@@ -75,7 +76,15 @@ export default class Lightbox extends Component {
   render() {
     const { EventImages } = this.props;
     const { showLightbox, selIndex } = this.state;
-    //console.log(EventImages);
+    console.log(EventImages.length);
+    function imagel(){
+      for(var i=0; i< EventImages.length; i++) {
+        EventImages[i]='{original:'+EventImages[i].source_url+','+'thumbnail:'+EventImages[i].source_url+'},';
+      }
+      return EventImages
+      console.log(EventImages);
+    }
+    //imagel()
     return (
       <Fragment>
         <div className="lightboxContainer">
@@ -92,6 +101,7 @@ export default class Lightbox extends Component {
             </div>
           ))}
         </Masonry>
+         {/* <ImageGallery items={imagel()} /> */}
           {/* {EventImages.map((image, i) => (
             <div className="previewButton" key={i} type="button"
               onClick={e => this.handleClick(e, image, i) }>
@@ -109,8 +119,7 @@ export default class Lightbox extends Component {
             <button type="button" title="Close" className="slbCloseBtn " onClick={this.closeModal}>×</button>
               <div className="slbContentOuter">
                 <div className="slbContent">
-                  <div className="slbImageWrap">
-                    {/* <Img fluid= {EventImages[selIndex].localFile.childImageSharp.fluid}/> */}
+                  <div className="slbImageWrap">                    
                     {EventImages !== null &&
                       <img src={EventImages[selIndex].source_url} alt="img" loading="lazy" className="slbImage"/>
                     }

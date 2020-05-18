@@ -63,8 +63,10 @@ class Market extends Component {
 														{node.cs_icon !== null &&
 															<img src={node.cs_icon.source_url} className="ser-icon" alt=""/>
 														}
+														{node.cs_hover_icon !== null &&
+															<img src={node.cs_hover_icon.source_url} className="ser-icon-hover" alt=""/>
+														}
 														
-														{/* <img src={Serviceiconhover} className="ser-icon-hover" alt=""/> */}
 													</div>
 												}												
 												<h2 className={index === 0 ? 'service-main-title' : 'm-ser-title'}>{node.cs_title}</h2>
@@ -208,6 +210,9 @@ export const query = graphql`{
 				  id
 				  cs_cards_details {
 					cs_icon {
+					  source_url
+					}
+					cs_hover_icon{
 					  source_url
 					}
 					cs_title
