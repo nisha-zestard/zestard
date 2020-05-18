@@ -76,9 +76,27 @@ class Home extends Component {
           var clientlogoset = {
             dots: true,
             infinite: true,
+            autoplay: true,
             speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToShow: 3,
+            arrow: false,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 500,
+                    settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 1, 
+                    }
+                  },
+                {
+                  breakpoint: 420,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1, 
+                  }
+                }
+            ]
           }; 
           
   return(

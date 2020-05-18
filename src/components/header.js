@@ -147,8 +147,8 @@ class Header extends React.Component {
           
         }
         return(
-   <header className="site-header"> 
 
+   <header className="site-header"> 
             <div className="container d-flex frex-wrap justify-content-space-between header-inner">
                   <div className="site-branding">            
                     {acfoptions.site_logo !== null && acfoptions.light_site_logo !== null &&              
