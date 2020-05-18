@@ -1,8 +1,6 @@
 import React, { Component } from "react"
 import Credentialsimage from "./../../assets/images/credientials-bg.png"
 import Zectopus from "./../../assets/images/zectopus.png"
-// import Serviceicon from "./../../assets/images/m-service-icon.png"
-// import Serviceiconhover from "./../../assets/images/m-service-icon-hover.png"
 import SEO from "./../../components/seo"
 import Layout from "./../../components/layout"
 import Header from "./../../components/header"
@@ -15,8 +13,6 @@ class Market extends Component {
 		const genmodule = page.gen_content_modules_page;
 		const creden = data.allWordpressWpCredentials.edges;
 		const portfolio = data.allWordpressWpPortfolio.edges;
-		//console.log(portfolio);
-
 		return(
 			<Layout>
 				<SEO title="Market"/>
