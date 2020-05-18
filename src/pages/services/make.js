@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 // import { Link } from "gatsby"
 import Layout from "./../../components/layout"
+import Header from "./../../components/header"
 import SEO from "./../../components/seo"
 
 import Credentialsimage from "./../../assets/images/credientials-bg.png"
@@ -21,6 +22,7 @@ class Make extends Component {
 		return(
 			<Layout>
 				<SEO title="Make"/>
+				<Header headernavclass="darkheader" />
 				<section>
 					<div className="page-banner make">
 						<div className="container">

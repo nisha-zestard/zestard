@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { removePre } from './../util/common';
 import { globalHistory as history } from '@reach/router';
 import { BrowserRouter as Router, Route, Switch } from "react-router";
+// import { globalHistory } from '@reach/router'
 
 class Header extends React.Component {
   constructor(props) {
@@ -19,27 +20,22 @@ class Header extends React.Component {
   componentDidMount() {    
     document.addEventListener('scroll', () => { 
       const stickyhead = document.getElementsByClassName('site-header')[0];  
-      const isTop = window.scrollY ;   
-      //console.log(isTop);
+      const isTop = window.scrollY ;     
       if (isTop >= 100) { 
         stickyhead.classList.add('sticky-header'); }
       else { 
         stickyhead.classList.remove('sticky-header');
     
     }
-      // if (isTop !== this.state.isTop) {
-      //   this.onScroll(isTop);
-      //   const stickyhead = document.getElementsByClassName('site-header')[0];
-      //   stickyhead.classList.toggle('sticky-header');   
-             
-      // }
     });
   }
-
   onScroll(isTop) {
     this.setState({ isTop });
   }
   render () {
+    const {
+      headernavclass,
+    } = this.props;
     return (
       <StaticQuery
       query={graphql`
@@ -79,6 +75,7 @@ class Header extends React.Component {
         }
       `}      
       render={(data) => {
+        console.log(this.props)
         const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
         const maninmenu = data.allWordpressMenusMenusItems.nodes[0].items;
         const darklogo = acfoptions.site_logo.source_url;
@@ -156,6 +153,7 @@ class Header extends React.Component {
         return(
 
    <header className="site-header"> 
+   
             <div className="container d-flex frex-wrap justify-content-space-between header-inner">
                   <div className="site-branding">            
                     {acfoptions.site_logo !== null && acfoptions.light_site_logo !== null &&              
@@ -164,7 +162,7 @@ class Header extends React.Component {
                   </div>
                 <div className="menu-wraper d-flex">
                   {/* <div id={routes}>Testing</div> */}
-                <Navbar bg="default" expand="lg" id={test()} className="mobile-view site-nav navbar d-flex justify-content-end align-items-center">
+                <Navbar bg="default" expand="lg" id={headernavclass} className="mobile-view site-nav navbar d-flex justify-content-end align-items-center">
                 {/* <Navbar bg="default" expand="lg" id={location !== 'undefined' ? renderSwitch() : 'not matching'}  className="mobile-view site-nav navbar d-flex justify-content-end align-items-center"> */}
                 {/* <Navbar bg="default" expand="lg" id={renderSwitch()}  className="navbar navbar-light navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg"> */}
                 <button id="mobmenu" className="navbar-toggler" type="button" onClick={handleClicko} data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
