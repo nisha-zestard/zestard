@@ -116,6 +116,11 @@ class Maintain extends Component {
 									<div className="col-lg-6">
 										<div className="hire-dev-content">
 											<h2 className="hire-dev-title">{page.maintain_title}</h2>
+											<div className="hire-dev-image">
+												{page.maintain_image.source_url !== null &&
+													<img src={page.maintain_image.source_url} alt="Hire developers"/>
+												}											
+											</div>
 											<div className="hire-dev-text">
 												{page.maintain_content !== null &&
 													<p dangerouslySetInnerHTML={{__html: page.maintain_content}} />

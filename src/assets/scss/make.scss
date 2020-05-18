@@ -256,13 +256,7 @@
                 -webkit-transform: translate(-50%, -50%);
                 -moz-transform: translate(-50%, -50%);
                 @media #{$small-screen}{
-                    position: inherit;
-                    transform: inherit;
-                    top: inherit;
-                    left: inherit;
-                    display: block;
-                    margin: 0 auto;
-                    padding-bottom: 20px;
+                   display: none;
                 }
             }
             .creadi_wrap{
@@ -277,7 +271,14 @@
                 z-index: 9999;
                 @media #{$small-screen}{
                     position: inherit;
-                    margin: 15px;
+                    margin: 0 10px 10px;
+                    width: calc(50% - 20px) !important;
+                    height: 125px !important;
+                    line-height: 125px !important;
+                    @media screen and (max-width: 400px){
+                        width: 100% !important;
+                        margin: 0 0 10px; 
+                    }
                 }
                 &.shopify, &.linkedin{
                     left: 0;
