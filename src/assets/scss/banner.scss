@@ -3,6 +3,12 @@
     @media #{$small-screen}{
         padding: 100px 0 50px;
     }
+    @media #{$small-screen}{
+        padding: 100px 0 50px;
+    }
+    @media #{$mobile-screen}{
+        padding: 70px 0 50px;
+    }
     .banner-content-wrap{
         @media #{$small-screen}{
             order: 2;
@@ -59,6 +65,9 @@
         padding: 165px 0 80px;
         @media #{$medium-screen}{
             padding: 120px 0 50px;
+        }
+        @media #{$mobile-screen}{
+            padding: 70px 0 50px;
         }
         .baner-content-wrap{
             @media #{$small-screen}{
