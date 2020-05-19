@@ -331,7 +331,7 @@
             }
         }
         .header-inner{
-            .menu-wraper{
+            .menu-wraper{ 
                 nav#darkheader{
                     .navbar-toggler{
                         div{
@@ -342,16 +342,20 @@
                         }
                     }
                     .collapse.navbar-collapse{
-                        top: 55px;
-                        @media #{$mobile-screen}{
-                            top: 51px;
-                        }
                         .nav{
                             .nav-item{
                                 a{
                                     color: $primary-color;
                                 }
                             }
+                        }
+                    }
+                }
+                .site-nav {
+                    .navbar-collapse.collapse{
+                        top: 55px;
+                        @media #{$mobile-screen}{
+                            top: 51px;
                         }
                     }
                 }

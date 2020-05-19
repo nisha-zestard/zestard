@@ -84,9 +84,14 @@
                     display: inline-block;
                     margin-bottom: 30px;
                     min-height: 75px;
+                    width: 50%;
+                    @media #{$small-screen}{
+                        margin-bottom: 15px;
+                    }
                     img {
                         margin: 0 auto;
-                        width: 50%;
+                        width: 100%;
+                        max-height: 75px;
                     }
                 }
                 h3 {
@@ -96,6 +101,9 @@
                     color: $primary-color;
                     font-weight: 600;
                     margin: 0px 0px 10px 0px;
+                    @media #{$small-screen}{
+                        font-size: 18px;
+                    }
                 }
                 p {
                     font-size: 18px;
