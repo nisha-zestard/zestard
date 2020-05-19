@@ -78,9 +78,15 @@
         @media #{$tablet-screen}{
            padding: 50px 0 20px;
         }
+        @media #{$mobile-screen}{
+            padding: 30px 0 20px;
+         }
         .footer-col-left{
             @media #{$tablet-screen}{
                 margin-bottom: 30px;
+            }
+            @media #{$mobile-screen}{
+                margin-bottom: 15px;
             }
             .f-left-top{
                 border-right: 1px solid #3a4c62;
@@ -98,6 +104,9 @@
                 }
                 .contact-info{
                     margin-bottom: 20px;
+                    @media #{$mobile-screen}{
+                        margin-bottom: 10px;
+                    }
                     ul{
                         li{
                             margin-bottom: 5px;
@@ -119,6 +128,9 @@
                 }
                 .company-ratings{
                     margin-bottom: 30px;
+                    @media #{$mobile-screen}{
+                        margin-bottom: 15px;
+                    }
                     .figure{
                         margin-bottom: 10px;
                     }
@@ -158,7 +170,7 @@
             .f-right-top{
                 margin-bottom: 30px;
                 @media #{$mobile-screen}{
-                    margin-bottom: 0px;
+                    margin-bottom: 10px;
                 }
                 .footer-col{
                     .footer-col-inner{
@@ -210,6 +222,41 @@
                                 }
                                 &:last-child{
                                     margin: 0;
+                                }
+                            }
+                        }
+                        &.mobilefooddmenu{
+                            display: none;
+                        }
+                        @media #{$mobile-screen}{
+                            display: none;
+                            &.mobilefooddmenu{
+                                display: block;
+                                margin-bottom: 10px;
+                                .dropdown{
+                                    .dropdown-toggle{
+                                        font-size: 16px;
+                                        color: #93cf1c;
+                                        font-weight: 600;
+                                        margin-bottom: 7px;
+                                        text-transform: uppercase;
+                                        position: relative;
+                                    }
+                                    .dropdown-menu{
+                                        background-color: transparent;
+                                        position: inherit !important;
+                                        transform: inherit !important;
+                                        border: 0;
+                                        padding: 0 0 10px;
+                                        ul{
+                                            li{
+                                                a{
+                                                    font-size: 16px;
+
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
