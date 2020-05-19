@@ -2,6 +2,9 @@ import PropTypes from "prop-types"
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { removePre } from './../util/common';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 const Footer = () => {
   const data = useStaticQuery(graphql`
   query {
@@ -58,7 +61,17 @@ const Footer = () => {
 `)
 const foomenu = data.allWordpressMenusMenusItems.edges[0].node.items;
 const acf = data.allWordpressAcfOptions.edges[0].node.options;
-
+const handleOpen = (el) => {  
+          const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
+        }       
+        const handleClose = (el) => {        
+          const target = el.currentTarget.getElementsByClassName('dropdown-menu');
+          if(target.length > 0) {
+            const test = target[0].closest('.dropdown-menu');
+              test.classList.remove('show');
+              test.classList.remove('showmobmnu');
+          }
+        }
   return(
     <footer className="site-footer">
     <div className="main-footer">
@@ -114,24 +127,45 @@ const acf = data.allWordpressAcfOptions.edges[0].node.options;
                 <div className="row">
                   {acf.menu_title_with_links.map((node,index) => (
                     <div className="col-sm-4 footer-col" key={index}>
-                    <div className="footer-col-inner">
-                      <h3 className="s-title"><Link to={`/${removePre(node.menu_link)}`}>{node.menu_title}</Link></h3>
-                      <ul className="m-0 p-0 s-list">
-                        {node.inner_links.map((node,index) => (
-                          <li key={index}><a href={node.inner_indi_link}>{node.inner_title}</a></li>
-                        ))}
-                      </ul>
-                    </div>
+                      <div className="footer-col-inner">
+                        <h3 className="s-title"><Link to={`/${removePre(node.menu_link)}`}>{node.menu_title}</Link></h3>
+                        <ul className="m-0 p-0 s-list">
+                          {node.inner_links.map((node,index) => (
+                            <li key={index}><a href={node.inner_indi_link}>{node.inner_title}</a></li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="footer-col-inner mobilefooddmenu">                        
+                        <NavDropdown title={node.menu_title} id="basic-nav-dropdown"
+                          onMouseEnter = { (e) => handleOpen(e) } onMouseLeave = { (e) => handleClose(e) } >
+                            <ul className="m-0 p-0 s-list">
+                              {/* <li><a href={node.inner_links[0].inner_indi_link}>{node.inner_title}</a></li> */}
+                              {node.inner_links.map((node,index) => (
+                                <li key={index}><a href={node.inner_indi_link}>{node.inner_title}</a></li>
+                              ))}
+                            </ul>
+                        </NavDropdown>                       
+                      </div>
                   </div>
                   ))}
                    <div className="col-sm-4 footer-col last-col">
                       <div className="footer-col-inner">
-                      <h3 className="s-title">Quick Links</h3>
                         <ul className="m-0 p-0 s-list"> 
                           {foomenu.map((node,index) => (
                             <li key={index}><Link to={`/${removePre(node.url)}`}>{node.title}</Link></li>
                           ))}
-                        </ul>
+                        </ul>                      
+                      </div>
+                      <div className="footer-col-inner mobilefooddmenu">
+                        {/* <h3 className="s-title">Quick Links</h3> */}
+                        <NavDropdown title="Quick Links" id="basic-nav-dropdown"
+                          onMouseEnter = { (e) => handleOpen(e) } onMouseLeave = { (e) => handleClose(e) } >
+                            <ul className="m-0 p-0 s-list"> 
+                              {foomenu.map((node,index) => (
+                                <li key={index}><Link to={`/${removePre(node.url)}`}>{node.title}</Link></li>
+                              ))}
+                            </ul>
+                        </NavDropdown>                          
                       </div>
                    </div>
                 </div>
