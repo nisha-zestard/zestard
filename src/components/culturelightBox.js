@@ -2,14 +2,17 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Masonry from 'react-masonry-css';
 import Modal from 'react-bootstrap/Modal'
-import ImageGallery from 'react-image-gallery';
+// import ReactFancyBox from 'react-fancybox'
+// import 'react-fancybox/lib/fancybox.css'
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 const breakpointColumnsObj = {
   default: 3,
   1025: 3,
   768: 2,
   500: 1
 };
-export default class Lightbox extends Component {
+export default class CultureLightbox extends Component {
   static propTypes = {
     EventImages: PropTypes.array.isRequired, // eslint-disable-line
   }
@@ -21,70 +24,68 @@ export default class Lightbox extends Component {
       showLightbox: false,
       selectedImage: null,
       selIndex: null,
+      photoIndex: 0,
+      isOpen: false,
     };
   }
     componentDidMount = () => {
         window.addEventListener('keyup', this.handleKeyUp, false)
     }
-
     componentWillUnmount = () => {
         window.removeEventListener('keyup', this.handleKeyUp, false)
     }
-
     handleClick = (e, image, index) => {
         e.preventDefault()
         this.setState({ showLightbox: true, selectedImage: image, selIndex: index })
-        // this.setState({ showLightbox: !this.state.showLightbox, selectedImage: index })
     }
-
     closeModal = () => {
         this.setState({ showLightbox: false })
-    }
-    
+    }    
     goBack = () => {
       this.setState({ selIndex: this.state.selIndex - 1 })
-    }
-    
+    }    
     goForward = () => {
       this.setState({ selIndex: this.state.selIndex + 1 })
-    }
-    
+    }    
     handleKeyUp = e => {
-        e.preventDefault()
-        const { keyCode } = e
-        if (this.state.showLightbox) {
-            if (keyCode === 37) {
-                // Left Arrow Key
-                if (this.state.selIndex > 0) {
-                    this.setState({ selIndex: this.state.selIndex - 1 })
-                }
-            }
-            if (keyCode === 39) {
-            // Right Arrow Key
-                if (this.state.selIndex < this.props.EventImages.length - 1) {
-                    this.setState({ selIndex: this.state.selIndex + 1 })
-                }
-            }
-            if (keyCode === 27) {
-            // Escape key
-            this.setState({ showLightbox: false })
-            }
+      e.preventDefault()
+      const { keyCode } = e
+      if (this.state.showLightbox) {
+        if (keyCode === 37) {
+          if (this.state.selIndex > 0) {
+              this.setState({ selIndex: this.state.selIndex - 1 })
+          }
         }
+        if (keyCode === 39) {
+          if (this.state.selIndex < this.props.EventImages.length - 1) {
+              this.setState({ selIndex: this.state.selIndex + 1 })
+          }
+        }
+        if (keyCode === 27) {
+          this.setState({ showLightbox: false })
+        }
+      }
     }
-  
 
   render() {
     const { EventImages } = this.props;
+    const { photoIndex, isOpen } = this.state;
+
+    //console.log(EventImages[photoIndex]);
     const { showLightbox, selIndex } = this.state;
-    console.log(EventImages.length);
+    //console.log(EventImages.length);
+    
     function imagel(){
       for(var i=0; i< EventImages.length; i++) {
-        EventImages[i]='{original:'+EventImages[i].source_url+','+'thumbnail:'+EventImages[i].source_url+'},';
+        if(EventImages[i].source_url !== null){
+          EventImages[i] = EventImages[i].source_url;
+        }
+          
       }
-      return EventImages
-      console.log(EventImages);
+      const eimages = EventImages
     }
     //imagel()
+    //const image = imagel()
     return (
       <Fragment>
         <div className="lightboxContainer">
@@ -94,7 +95,7 @@ export default class Lightbox extends Component {
               <div className="culture-wrapper card">
                 <div className="speaks">
                   <div className="previewButton" key={i} type="button" onClick={e => this.handleClick(e, image, i) }>
-                    <img className="img-responsive" alt="coma" loading="lazy" src={image.source_url} />                                
+                    <img className="img-responsive" alt="coma" loading="lazy" src={image.source_url} onClick={() => this.setState({ isOpen: true })}/>                                
                   </div>                              
                 </div>
               </div>
@@ -105,12 +106,33 @@ export default class Lightbox extends Component {
           {/* {EventImages.map((image, i) => (
             <div className="previewButton" key={i} type="button"
               onClick={e => this.handleClick(e, image, i) }>
-                  <img src={image.source_url} alt="img" />
+                <ReactFancyBox
+                  thumbnail={image.source_url}
+                  image={image.source_url}/>
                
             </div>
           ))} */}
+          {isOpen && (
+          <Lightbox
+            mainSrc={EventImages[photoIndex]}
+            nextSrc={EventImages[(photoIndex + 1) % EventImages.length]}
+            prevSrc={EventImages[(photoIndex + EventImages.length - 1) % EventImages.length]}
+            onCloseRequest={() => this.setState({ isOpen: false })}
+            onMovePrevRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + EventImages.length - 1) % EventImages.length,
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + 1) % EventImages.length,
+              })
+            }
+          />
+        )}
         </div>
-        {showLightbox && (
+       
+        {/* {showLightbox && (
         <Modal show={showLightbox} onKeyUp={e => this.handleKeyDown(e)} >
         <div className="slbElement">
           <div className="slbOverlay"></div>
@@ -124,8 +146,7 @@ export default class Lightbox extends Component {
                       <img src={EventImages[selIndex].source_url} alt="img" loading="lazy" className="slbImage"/>
                     }
                   </div>
-                </div>
-                
+                </div>                
                 <div className="slbArrows">
                   <button type="button" title="Previous" className="prev slbArrow"
                    onClick={this.goBack} disabled={selIndex === 0}>
@@ -141,7 +162,7 @@ export default class Lightbox extends Component {
           </div>
         </div>
         </Modal>
-        )}
+        )} */}
       </Fragment>
     );
   }

@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 //import Masonry from 'react-masonry-css';
 import Layout from "../components/layout"
 import Header from "../components/header";
-import Lightbox from "../components/lightBox";
+import CultureLightbox from "../components/culturelightBox";
 import SEO from "../components/seo";
 class BlogEventTemplate extends Component {
   
@@ -37,7 +37,7 @@ class BlogEventTemplate extends Component {
                   <div className="container">
                     <div className="event-gallery">
                         <div className="grid" style={{position:`relative`}}>
-                          <Lightbox
+                          <CultureLightbox
                           EventImages={data.wordpressWpCulture.acf.el_gallery} 
                           />
                         </div>

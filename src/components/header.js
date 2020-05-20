@@ -14,7 +14,6 @@ class Header extends React.Component {
     };
     this.onScroll = this.onScroll.bind(this);
   }
-
   componentDidMount() {    
     document.addEventListener('scroll', () => { 
       const stickyhead = document.getElementsByClassName('site-header')[0];  
@@ -73,7 +72,6 @@ class Header extends React.Component {
         }
       `}      
       render={(data) => {
-        
         const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
         const maninmenu = data.allWordpressMenusMenusItems.nodes[0].items;
         const darklogo = acfoptions.site_logo.source_url;
@@ -86,8 +84,6 @@ class Header extends React.Component {
         const isBrowser = () => typeof window !== "undefined"
         const { location} = history
         const param = location.pathname;
-        
-       
         const handleOpen = (el) => {  
           const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
         }       
@@ -126,8 +122,6 @@ class Header extends React.Component {
               </div>
               <div className="menu-wraper d-flex">
                 <Navbar bg="default" expand="lg" id={headernavclass} className="mobile-view site-nav navbar d-flex justify-content-end align-items-center">
-                {/* <Navbar bg="default" expand="lg" id={location !== 'undefined' ? renderSwitch() : 'not matching'}  className="mobile-view site-nav navbar d-flex justify-content-end align-items-center"> */}
-                {/* <Navbar bg="default" expand="lg" id={renderSwitch()}  className="navbar navbar-light navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg"> */}
                 <button id="mobmenu" className="navbar-toggler" type="button" onClick={handleClicko} data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <div></div>
                   <div></div>
@@ -155,8 +149,8 @@ class Header extends React.Component {
                         {servicmenu.child_items.map((node, index) => (
                           <li key={index}>
                             <Link to={`/services/${removePre(node.url)}`} key={index}>
-                            {node.title}
-                          </Link>
+                              {node.title}
+                            </Link>
                           </li>
                         ))}
                         </ul>
@@ -185,8 +179,7 @@ class Header extends React.Component {
                             target={workmenu.child_items[2].target} >{workmenu.child_items[2].title}
                           </a>
                         </li>                        
-                        </ul>
-                        
+                        </ul>                        
                     </NavDropdown>
                     </li>
                     <li className="nav-item menu-item"><Link to={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Link></li>
@@ -197,8 +190,7 @@ class Header extends React.Component {
                   <div className="request-a-quote">
                     <Link to={`/${removePre(contactmenu.url)}`} className="btn-primary">Request a Quote</Link>
                   </div>
-                </Navbar>
-                
+                </Navbar>                
                 </div>
             </div>  
         </header>
