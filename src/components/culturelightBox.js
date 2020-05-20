@@ -112,10 +112,10 @@ export default class CultureLightbox extends Component {
                   image={image.source_url}/>               
             </div>
           ))} */}
-          
+
           {isOpen && (
           <Lightbox
-            mainSrc={EventImages[photoIndex]}
+            mainSrc={EventImages[photoIndex].source_url}
             nextSrc={EventImages[(photoIndex + 1) % EventImages.length]}
             prevSrc={EventImages[(photoIndex + EventImages.length - 1) % EventImages.length]}
             onCloseRequest={() => this.setState({ isOpen: false })}
