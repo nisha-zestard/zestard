@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { graphql } from "gatsby"
 import Layout from "./../../components/layout"
 import Header from "../../components/header";
 import SEO from "./../../components/seo"
@@ -6,7 +7,13 @@ import AboutProject from './../../components/aboutproject'
 
 class EcommerceDevelopment extends Component {
 
-	render() {		
+	render() {	
+		const data = this.props.data  
+		const acf = data.wordpressPage.acf.gen_content_modules_page
+		const banner = acf[0].iwc_layout_details[0]
+		const services = acf[1].cs_cards_details
+		const platform = acf[2].iwc_layout_details
+		
 		return(
 			<Layout>
 				<SEO title="E-commerce Development"/>
@@ -22,13 +29,13 @@ class EcommerceDevelopment extends Component {
 									<div className="breadcums-wrap">
 										<ul className="d-flex justify-content-center m-0 p-0">
 											<li>
-												<a href="javascript:;">Home</a>
+												<a href="#">Home</a>
 											</li>
 											<li>
-												<a href="javascript:;">Services</a>
+												<a href="#">Services</a>
 											</li>
 											<li>
-												<a href="javascript:;">E-commerce Development</a>
+												<a href="#">E-commerce Development</a>
 											</li>
 										</ul>
 									</div>
@@ -42,15 +49,13 @@ class EcommerceDevelopment extends Component {
 								<div className="row">
 									<div className="col-md-6 baner-image-wrap">
 										<div className="image-wrap">
-										
+											{banner.iwc_image !== null &&
+												<img src={banner.iwc_image.source_url} />
+											}											
 										</div>
 									</div>
 									<div className="col-md-6 baner-content-wrap">
-										<div className="content-wrap">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan nisi arcu, sit amet mattis sem lacinia non. Fusce lobortis, lectus eu mollis lacinia, diam metus eleifend ipsum, 
-											quis sodales nunc metus ac ante. Proin gravida ex libero, quis porttitor est eleifend eget. Donec dictum tortor vel sem interdum dictum at ac lorem. </p>
-											<p>Cras eu sem placerat, gravida ante sed, tempor nisl. Morbi ac metus diam. Morbi condimentum elementum mi.</p>
-										</div>
+										<div className="content-wrap" dangerouslySetInnerHTML={{__html: banner.iwc_sub_desc}} />
 									</div>
 								</div>
 							</div>
@@ -62,72 +67,16 @@ class EcommerceDevelopment extends Component {
 								<h2 className="section-title text-center">Our Ecommerce Services</h2>
 								<div className="services-list">
 									<div className="row">
-										<div className="col-md-6 col-lg-4">
-											<div className="service-box">
-												<div className="ss-title">
-													<h2>Ecommerce<br/> Website Design</h2>
-												</div>
-												<div className="ss-content">
-												<p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mollis tellus ac nisi suscipit.sunt in culpa qui officia 
-													deserunt mollit anim id est laborum.</p>
-												</div>
-											</div>
-										</div>
-										<div className="col-md-6 col-lg-4">
-											<div className="service-box">
-												<div className="ss-title">
-													<h2>Ecommerce<br/> Website Design</h2>
-												</div>
-												<div className="ss-content">
-												<p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mollis tellus ac nisi suscipit.sunt in culpa qui officia 
-													deserunt mollit anim id est laborum.</p>
+										{services.map((node, index) => (
+											<div className="col-md-6 col-lg-4">
+												<div className="service-box">
+													<div className="ss-title">
+														<h2 dangerouslySetInnerHTML={{__html: node.cs_title}} />
+													</div>
+													<div className="ss-content" dangerouslySetInnerHTML={{__html: node.cs_content}} />													
 												</div>
 											</div>
-										</div>
-										<div className="col-md-6 col-lg-4">
-											<div className="service-box">
-												<div className="ss-title">
-													<h2>Ecommerce<br/> Website Design</h2>
-												</div>
-												<div className="ss-content">
-												<p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mollis tellus ac nisi suscipit.sunt in culpa qui officia 
-													deserunt mollit anim id est laborum.</p>
-												</div>
-											</div>
-										</div>
-										<div className="col-md-6 col-lg-4">
-											<div className="service-box">
-												<div className="ss-title">
-													<h2>Ecommerce<br/> Website Design</h2>
-												</div>
-												<div className="ss-content">
-												<p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mollis tellus ac nisi suscipit.sunt in culpa qui officia 
-													deserunt mollit anim id est laborum.</p>
-												</div>
-											</div>
-										</div>
-										<div className="col-md-6 col-lg-4">
-											<div className="service-box">
-												<div className="ss-title">
-													<h2>Ecommerce<br/> Website Design</h2>
-												</div>
-												<div className="ss-content">
-												<p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mollis tellus ac nisi suscipit.sunt in culpa qui officia 
-													deserunt mollit anim id est laborum.</p>
-												</div>
-											</div>
-										</div>
-										<div className="col-md-6 col-lg-4">
-											<div className="service-box">
-												<div className="ss-title">
-													<h2>Ecommerce<br/> Website Design</h2>
-												</div>
-												<div className="ss-content">
-												<p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mollis tellus ac nisi suscipit.sunt in culpa qui officia 
-													deserunt mollit anim id est laborum.</p>
-												</div>
-											</div>
-										</div>
+										))}
 									</div>
 								</div>
 							</div>
@@ -137,78 +86,44 @@ class EcommerceDevelopment extends Component {
 						<div className="platform-section">
 							<div className="container">
 								<h2 className="section-title text-center">Platforms We Work On</h2>
-								<div className="platform-wrap odd">
-									<div className="row">
-										<div className="col-md-7 platform-image-wrap">
-											<div className="image text-center">
-
-											</div>
-										</div>
-										<div className="col-md-5 platform-content-wrap">
-											<div className="content-inner">
-												<div className="p-title d-flex align-items-center">
-													<img  />
-													<h4>Shopify</h4>
+								{platform.map((node,index) => (
+									<div className={"platform-wrap "+node.iwc_section_class}>
+										<div className="row">
+											{node.iwc_section_class === 'odd' &&
+												<div className="col-md-7 platform-image-wrap">
+													<div className="image text-center">
+														{node.iwc_image !== null &&
+															<img src={node.iwc_image.source_url} />
+														}
+													</div>
 												</div>
-												<div className="p-desc">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui vel nisl rutrum malesuada id sit amet arcu. Cras ac arcu facilisis, consequat lectus malesuada, placerat massa. Vivamus dapibus orci et ligula efficitur semper. 
-													Sed pulvinar justo eu blandit vestibulum. Nulla quis lorem quis justo vestibulum aliquam in et.</p>
-												</div>
-												<div className="know-more-btn">
-													<a href="javascript:;">Know More</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="platform-wrap even">
-									<div className="row">
-										<div className="col-md-5 platform-content-wrap">
-											<div className="content-inner">
-												<div className="p-title d-flex align-items-center">
-													<img  />
-													<h4>Shopify</h4>
-												</div>
-												<div className="p-desc">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui vel nisl rutrum malesuada id sit amet arcu. Cras ac arcu facilisis, consequat lectus malesuada, placerat massa. Vivamus dapibus orci et ligula efficitur semper. 
-													Sed pulvinar justo eu blandit vestibulum. Nulla quis lorem quis justo vestibulum aliquam in et.</p>
-												</div>
-												<div className="know-more-btn">
-													<a href="javascript:;">Know More</a>
+											}											
+											<div className="col-md-5 platform-content-wrap">
+												<div className="content-inner">
+													<div className="p-title d-flex align-items-center">
+														{node.iwc_icon !== null &&
+															<img src={node.iwc_icon.source_url} />
+														}
+														<h4>{node.iwc_title}</h4>
+													</div>
+													<div className="p-desc" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />														
+													<div className="know-more-btn">
+														<a href="#">Know More</a>
+													</div>
 												</div>
 											</div>
-										</div>
-										<div className="col-md-7 platform-image-wrap">
-											<div className="image text-center">
-
-											</div>
+											{node.iwc_section_class === 'even' &&
+												<div className="col-md-7 platform-image-wrap">
+													<div className="image text-center">
+														{node.iwc_image !== null &&
+															<img src={node.iwc_image.source_url} />
+														}
+													</div>
+												</div>
+											}
 										</div>
 									</div>
-								</div>
-								<div className="platform-wrap odd">
-									<div className="row">
-										<div className="col-md-7 platform-image-wrap">
-											<div className="image text-center">
-
-											</div>
-										</div>
-										<div className="col-md-5 platform-content-wrap">
-											<div className="content-inner">
-												<div className="p-title d-flex align-items-center">
-													<img  />
-													<h4>Shopify</h4>
-												</div>
-												<div className="p-desc">
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui vel nisl rutrum malesuada id sit amet arcu. Cras ac arcu facilisis, consequat lectus malesuada, placerat massa. Vivamus dapibus orci et ligula efficitur semper. 
-													Sed pulvinar justo eu blandit vestibulum. Nulla quis lorem quis justo vestibulum aliquam in et.</p>
-												</div>
-												<div className="know-more-btn">
-													<a href="javascript:;">Know More</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								))}
 							</div>
 						</div>
 					</section>
@@ -223,3 +138,34 @@ class EcommerceDevelopment extends Component {
 }
 
 export default EcommerceDevelopment
+
+export const query = graphql`
+{
+	wordpressPage(wordpress_id: {eq: 1491}) {
+		acf {
+		  gen_content_modules_page {
+			... on WordPressAcf_gen_image_with_content {
+			  id
+			  iwc_layout_details {
+				iwc_title
+				iwc_image {
+				  source_url
+				}
+				iwc_icon {
+					source_url
+				  }
+				iwc_sub_desc
+				iwc_section_class
+			  }
+			}
+			... on WordPressAcf_gen_cards_section {
+			  id
+			  cs_cards_details {
+				cs_title
+				cs_content
+			  }
+			}
+		  }
+		}
+	  }  
+}`

@@ -75,43 +75,44 @@ export default class CultureLightbox extends Component {
     const { showLightbox, selIndex } = this.state;
     //console.log(EventImages.length);
     
-    function imagel(){
+    function imgculture(){
+      const cultimglist = [];
       for(var i=0; i< EventImages.length; i++) {
-        if(EventImages[i].source_url !== null){
-          EventImages[i] = EventImages[i].source_url;
-        }
-          
+         cultimglist.push(EventImages[i].source_url);
       }
-      const eimages = EventImages
+      return cultimglist; 
+      console.log('-->'+cultimglist);     
     }
-    //imagel()
+    imgculture()
+    console.log('index-->'+photoIndex)
     //const image = imagel()
     return (
+      
       <Fragment>
         <div className="lightboxContainer">
-        <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid" columnClassName="my-masonry-grid_column" >
-          {EventImages.map((image, i) => (          
-            <div className="grid-item" key={i}>
-              <div className="culture-wrapper card">
-                <div className="speaks">
-                  <div className="previewButton" key={i} type="button" onClick={e => this.handleClick(e, image, i) }>
-                    <img className="img-responsive" alt="coma" loading="lazy" src={image.source_url} onClick={() => this.setState({ isOpen: true })}/>                                
-                  </div>                              
+          <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid" columnClassName="my-masonry-grid_column" >
+            {EventImages.map((image, i) => (          
+              <div className="grid-item" key={i}>
+                <div className="culture-wrapper card">
+                  <div className="speaks">
+                    <div className="previewButton" key={i} type="button" onClick={e => this.handleClick(e, image, i) }>
+                      <img className="img-responsive" alt="coma" loading="lazy" src={image.source_url} onClick={() => this.setState({ isOpen: true })}/>                                
+                    </div>                              
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </Masonry>
+            ))}
+          </Masonry>
          {/* <ImageGallery items={imagel()} /> */}
           {/* {EventImages.map((image, i) => (
             <div className="previewButton" key={i} type="button"
               onClick={e => this.handleClick(e, image, i) }>
                 <ReactFancyBox
                   thumbnail={image.source_url}
-                  image={image.source_url}/>
-               
+                  image={image.source_url}/>               
             </div>
           ))} */}
+          
           {isOpen && (
           <Lightbox
             mainSrc={EventImages[photoIndex]}
