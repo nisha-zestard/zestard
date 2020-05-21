@@ -1,6 +1,8 @@
 import React, { Component } from "react"
+import { Link } from "gatsby"
 import Layout from "./../../components/layout"
 import Header from "./../../components/header"
+import { removePre } from './../../util/common'
 import Credentialsimage from "./../../assets/images/credientials-bg.png"
 import Zectopus from "./../../assets/images/zectopus.png"
 import SEO from "./../../components/seo"
@@ -83,7 +85,8 @@ class Maintain extends Component {
 												{node.iwc_sub_desc !== null &&
 													<div className="service-text" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />
 												}
-												<a href="#" className="service-link">{node.iwc_button_text}</a>
+												{/* {node.iwc_button_link} */}
+												<Link to={`/${removePre(node.iwc_button_link)}`} className="service-link">{node.iwc_button_text}</Link>
 											</div>
 										</div>
 										{index % 2 === 0 &&
@@ -131,7 +134,8 @@ class Maintain extends Component {
 														<li key={index}>{node.maintain_list}</li>
 													))}
 												</ul>
-												<a href={page.maintain_button_link}>{page.maintain_button_text}</a>
+												<Link to={`/${removePre(page.maintain_button_link)}`}>{page.maintain_button_text}</Link>
+												{/* <a href={page.maintain_button_link}>{page.maintain_button_text}</a> */}
 											</div>
 										</div>
 									</div>

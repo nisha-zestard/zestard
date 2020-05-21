@@ -1,9 +1,9 @@
 import React, { Component } from "react"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 import Layout from "./../../components/layout"
 import Header from "./../../components/header"
 import SEO from "./../../components/seo"
-
+import { removePre } from './../../util/common'
 import Credentialsimage from "./../../assets/images/credientials-bg.png"
 import Zectopus from "./../../assets/images/zectopus.png"
 import AboutProject from './../../components/aboutproject'
@@ -79,8 +79,9 @@ class Make extends Component {
 													<h2 className="s-title" dangerouslySetInnerHTML={{__html: node.cs_title}} />
 													{node.cs_content !== null &&
 														<div className="text" dangerouslySetInnerHTML={{__html:node.cs_content}} />
-													}													
-													<a href="#" className="s-link">Learn More</a>
+													}
+													<Link to={`/${removePre(node.cs_learn_more_link)}`}>Learn More</Link>													
+													{/* <a href="#" className="s-link">Learn More</a> */}
 												</div>
 											</div>
 										</div>
@@ -110,8 +111,10 @@ class Make extends Component {
 													<h3>{node.node.title}</h3>
 													{node.node.excerpt !== null &&
 														<div dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
-													}													
-													<a href="#">Learn More</a>
+													}	
+													{/* {node.node.acf.technology_custom_link} */}
+													<Link to={node.node.acf.technology_custom_link}>Learn More</Link>												
+													{/* <a href="#">Learn More</a> */}
 												</div>
 											</div>
 										</div>
@@ -191,6 +194,9 @@ export const query = graphql`{
 	allWordpressWpTechnology {
 		edges {
 		  node {
+			acf {
+				technology_custom_link
+			}
 			title
 			featured_media {
 			  source_url

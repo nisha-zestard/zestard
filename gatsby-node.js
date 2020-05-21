@@ -129,13 +129,16 @@ exports.createPages = async ({ graphql, actions }) => {
     }
     
     if(edge.node.path.indexOf('services') > -1) {
+      console.log('Services origin path---->'+edge.node.path);
+      console.log('Services path---->'+removePre(edge.node.path));
       createPage({
-        path: `${edge.node.path}`,
+        path: `${removePre(edge.node.path)}`,
         component: slash(ServiceTemplate),
         context: {
           id: edge.node.wordpress_id,
         },
       })
+      
      }
   })
 
