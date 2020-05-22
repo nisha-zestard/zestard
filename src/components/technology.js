@@ -37,11 +37,10 @@ class Technology extends Component {
                     </div>
                 </div>
             </section> 
-            <Footer />
+            
             </>
         )
     }
 }
-
 
 export default Technology

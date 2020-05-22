@@ -31,7 +31,7 @@ class ServiceTechnology extends Component {
                         </div>
                     </div>
                 </section>
-                <Footer />
+                
             </div>
         )
     }
