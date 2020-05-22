@@ -2,6 +2,7 @@
 
 import React, { Component } from "react"
 import { Link } from "gatsby"
+import Footer from "./footer";
 import { removePre } from './../util/common'
 //import Img from "gatsby-image"
 class Technology extends Component {
@@ -14,6 +15,7 @@ class Technology extends Component {
             serLink
         } = this.props;
         return (
+            <>
             <section>
                 <div className="technology-odd">
                     <div className="container">
@@ -35,6 +37,8 @@ class Technology extends Component {
                     </div>
                 </div>
             </section> 
+            <Footer />
+            </>
         )
     }
 }
