@@ -39,7 +39,6 @@ class ServicePortfolio extends Component {
                         </div>
                     </div>
                 </section>
-                <Footer />
             </div>
         )
     }

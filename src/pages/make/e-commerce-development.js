@@ -1,8 +1,9 @@
 import React, { Component } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "./../../components/layout"
 import Header from "../../components/header";
 import SEO from "./../../components/seo"
+import { removePre } from './../../util/common'
 import AboutProject from './../../components/aboutproject' 
 
 class EcommerceDevelopment extends Component {
@@ -108,7 +109,7 @@ class EcommerceDevelopment extends Component {
 													</div>
 													<div className="p-desc" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />														
 													<div className="know-more-btn">
-														<a href="#">Know More</a>
+														<Link to={`/${removePre(node.iwc_button_link)}`}>Know More</Link>
 													</div>
 												</div>
 											</div>
@@ -156,6 +157,7 @@ export const query = graphql`
 				  }
 				iwc_sub_desc
 				iwc_section_class
+				iwc_button_link
 			  }
 			}
 			... on WordPressAcf_gen_cards_section {

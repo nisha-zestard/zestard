@@ -1,6 +1,7 @@
 // Technology part of a Service
 
 import React, { Component } from "react"
+import Footer from "./footer";
 import ServiceTechnology from './serviceTechnology'
 import ServiceServices from "./serviceServices";
 import ServicePortfolio from "./servicePortfolio";
@@ -47,6 +48,7 @@ class ServiceTech extends Component {
                         benefitsDetails = {benefits}
                     />
                 }
+                <Footer />
             </div>
         )
     }

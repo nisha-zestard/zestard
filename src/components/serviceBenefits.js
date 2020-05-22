@@ -41,7 +41,6 @@ class ServiceBenefits extends Component {
                         </div>
                     </div>
                 </section>
-                <Footer />
             </div>
            
         )

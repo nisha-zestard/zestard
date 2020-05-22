@@ -244,7 +244,8 @@ class Home extends Component {
                                 {expertise.home_oe_right_icons.map((node,index) => (
                                     <li key={index}>
                                         {node.home_oe_icons.source_url !== null &&
-                                            <a href="#"><img src={node.home_oe_icons.source_url} alt="f-logo-img" /></a>
+                                        <Link to={`/${removePre(node.home_oe_rp_links)}`}><img src={node.home_oe_icons.source_url} alt="f-logo-img" /></Link>
+                                            // <a href="#"><img src={node.home_oe_icons.source_url} alt="f-logo-img" /></a>
                                         }                                        
                                     </li>
                                 ))}                                
@@ -426,9 +427,10 @@ export const query = graphql`
                     home_oe_content
                     home_oe_read_more_link
                     home_oe_right_icons {
-                      home_oe_icons {
-                        source_url
-                      }
+                        home_oe_rp_links
+                        home_oe_icons {
+                            source_url
+                        }
                     }
                 }
             }
