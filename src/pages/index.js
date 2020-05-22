@@ -234,7 +234,8 @@ class Home extends Component {
                         <div className="title">
                             <h2>{expertise.home_oe_section_title}</h2>
                             <p>{expertise.home_oe_content}</p>
-                            <a className="btn r-more" href={expertise.home_oe_read_more_link}>read more</a>
+                            <Link to={`/services/${removePre(expertise.home_oe_read_more_link)}`} className="btn r-more">read more</Link>
+                            {/* <a className="btn r-more" href={expertise.home_oe_read_more_link}>read more</a> */}
                         </div>
                     </div>
                     <div className="col-lg-8">
