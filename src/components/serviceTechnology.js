@@ -1,6 +1,7 @@
 // Technology section in service technology
 
 import React, { Component } from "react"
+import Footer from "./footer";
 
 class ServiceTechnology extends Component {
     
@@ -30,6 +31,7 @@ class ServiceTechnology extends Component {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </div>
         )
     }

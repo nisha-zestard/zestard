@@ -3,6 +3,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import TechPortfolio from './techportfolio'
+import Footer from "./footer";
 import Benefiteicon from '../assets/images/benefite-icon.png';
 
 class TechnologyDetail extends Component {
@@ -119,6 +120,7 @@ class TechnologyDetail extends Component {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </div>
         )
     }

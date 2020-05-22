@@ -131,7 +131,7 @@ const handleOpen = (el) => {
                         <h3 className="s-title"><Link to={`/${removePre(node.menu_link)}`}>{node.menu_title}</Link></h3>
                         <ul className="m-0 p-0 s-list">
                           {node.inner_links.map((node,index) => (
-                            <li key={index}><a href={node.inner_indi_link}>{node.inner_title}</a></li>
+                            <li key={index}><Link to={`/${removePre(node.inner_indi_link)}`}>{node.inner_title}</Link></li>
                           ))}
                         </ul>
                       </div>

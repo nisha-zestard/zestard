@@ -1,6 +1,7 @@
 // Services section in service technology
 
 import React, { Component } from "react"
+import Footer from "./footer";
 
 class ServiceServices extends Component {
     
@@ -38,6 +39,7 @@ class ServiceServices extends Component {
                         </div>
                     </div>
                 </section> 
+                <Footer />
             </div>
         )
     }
