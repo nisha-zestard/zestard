@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { graphql } from "gatsby"
 import Layout from "./../../components/layout"
 import Header from "../../components/header";
 import SEO from "./../../components/seo"
@@ -7,12 +8,16 @@ import AboutProject from './../../components/aboutproject'
 class WordpressDevelopment extends Component {
 
 	render() {		
+		const data = this.props.data  
+		const acf = data.allWordpressPage.edges[0].node.acf
+		const pagedata = acf.gen_content_modules_page
+		console.log(acf);
 		return(
 			<Layout>
 				<SEO title="E-commerce Development"/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="wordpress-development">
-				<section>
+					<section>
 						<div className="sub-services-breadcums">
 							<div className="container">
 								<div className="breadcums-inner">
@@ -22,13 +27,13 @@ class WordpressDevelopment extends Component {
 									<div className="breadcums-wrap">
 										<ul className="d-flex justify-content-center m-0 p-0">
 											<li>
-												<a href="javascript:;">Home</a>
+												<a href="#">Home</a>
 											</li>
 											<li>
-												<a href="javascript:;">Services</a>
+												<a href="#">Services</a>
 											</li>
 											<li>
-												<a href="javascript:;">Wordpress Development</a>
+												<a href="#">Wordpress Development</a>
 											</li>
 										</ul>
 									</div>
@@ -42,15 +47,13 @@ class WordpressDevelopment extends Component {
 								<div className="row">
 									<div className="col-md-6 baner-image-wrap">
 										<div className="image-wrap">
-										
+											{acf.header_mascot !== null &&
+												<img src={pagedata[0].iwc_layout_details[0].iwc_image.source_url} alt="" />
+											}											
 										</div>
 									</div>
 									<div className="col-md-6 baner-content-wrap">
-										<div className="content-wrap">
-											<p>Our website developers provide expert web application development and web design services to our clients. Appnovation offers a variety of website design and development services, from creating mobile web development solutions and responsive website designs, 
-												to building custom e-commerce and intranet experiences using the latest and proven web technologies.</p>
-											<p>With up to 85% of consumers visiting company’s or service provider’s website before making a purchase.</p>
-										</div>
+										<div className="content-wrap" dangerouslySetInnerHTML={{__html: pagedata[0].iwc_layout_details[0].iwc_sub_desc}} />											
 									</div>
 								</div>
 							</div>
@@ -62,19 +65,25 @@ class WordpressDevelopment extends Component {
 								<h2 className="section-title text-center">Our Wordpess Servcies</h2>
 								<div className="services-list">
 									<div className="row">
-										<div className="col-md-6 col-lg-4">
-											<div className="flip-card">
-												<div className="flip-card-inner">
-													<div className="flip-card-front">
-														<h3>Wordpress Website Design</h3>
-													</div>
-													<div className="flip-card-back">
-														<h3>Wordpress Website Design</h3>
-														<p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mollis tellus ac nisi suscipit.sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										{pagedata[1].cs_cards_details.map((node,index) => (
+											<div className="col-md-6 col-lg-4" key={index}>
+												<div className="flip-card">
+													<div className="flip-card-inner">
+														<div className="flip-card-front">
+															{node.cs_icon !== null &&
+																<img src={node.cs_icon.source_url} />														
+															}															
+															<h3>{node.cs_title}</h3>
+														</div>
+														<div className="flip-card-back">
+															<h3>{node.cs_title}</h3>
+															<div dangerouslySetInnerHTML={{__html: node.cs_content}} />															
+														</div>
 													</div>
 												</div>
 											</div>
-										</div>
+										))}
+										
 									</div>
 								</div>
 							</div>
@@ -91,3 +100,44 @@ class WordpressDevelopment extends Component {
 }
 
 export default WordpressDevelopment
+
+export const query = graphql`
+{
+	allWordpressPage(filter: {wordpress_id: {eq: 1505}}) {
+		edges {
+		  node {
+			acf {
+			  header_sub_text
+			  header_section_title
+			  header_mascot {
+				source_url
+			  }
+			  header_page_title
+			  home_mascot_class
+			  gen_content_modules_page {
+				... on WordPressAcf_gen_image_with_content {
+				  id
+				  iwc_layout_details {
+					iwc_image {
+					  source_url
+					}
+					iwc_sub_desc
+				  }
+				}
+				... on WordPressAcf_gen_cards_section {
+				  id
+				  cs_cards_details {
+					cs_icon {
+						source_url
+					}
+					cs_title
+					cs_content
+					cs_learn_more_link
+				  }
+				}
+			  }
+			}
+		  }
+		}
+	}
+}`
