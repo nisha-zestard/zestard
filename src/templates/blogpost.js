@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import Layout from "./../components/layout"
+import Header from "./../components/header";
 import BlogPostFooter from './../components/blogpostfooter';
 import { dateFormate, removeSpecialSymbols } from './../util/common';
 import SEO from "../components/seo";
@@ -33,6 +34,7 @@ class PostTemplate extends Component {
     return (
       <Layout>
       <SEO title="Blog post"/>
+      <Header headernavclass="lightheader" />
         <div id="page" className="site">
             <div id="content" className="single-post-detail site-content">
                 <div id="primary" className="content-area ">
