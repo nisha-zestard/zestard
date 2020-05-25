@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-import Layout from "./../../components/layout"
+import Layout from "../../components/layout"
 import Header from "../../components/header";
-import SEO from "./../../components/seo"
-import AboutProject from './../../components/aboutproject'
+import SEO from "../../components/seo"
+import AboutProject from '../../components/aboutproject'
 
 class WordpressDevelopment extends Component {
 
@@ -22,7 +22,7 @@ class WordpressDevelopment extends Component {
 							<div className="container">
 								<div className="breadcums-inner">
 									<div className="page-title">
-										<h1>E-commerce Development</h1>
+										<h1>Website Development</h1>
 									</div>
 									<div className="breadcums-wrap">
 										<ul className="d-flex justify-content-center m-0 p-0">
@@ -33,7 +33,7 @@ class WordpressDevelopment extends Component {
 												<a href="#">Services</a>
 											</li>
 											<li>
-												<a href="#">Wordpress Development</a>
+												<a href="#">Website Development</a>
 											</li>
 										</ul>
 									</div>
@@ -60,9 +60,28 @@ class WordpressDevelopment extends Component {
 						</div>
 					</section>
 					<section>
-						<div className="wordpress-services">
+						<div className="ecommerce-sercices-wrap">
 							<div className="container">
-								<h2 className="section-title text-center">Our Wordpess Servcies</h2>
+								<h2 className="section-title text-center">Our Website Services</h2>
+								<div className="services-list">
+									<div className="row">
+									{pagedata[1].cs_cards_details.map((node,index) => (
+											<div className="col-md-6 col-lg-4">
+												<div className="service-box">
+													<div className="ss-title">
+														<h2 dangerouslySetInnerHTML={{__html: node.cs_title}} />
+													</div>
+													<div className="ss-content" dangerouslySetInnerHTML={{__html: node.cs_content}} />													
+												</div>
+											</div>
+										))}
+									</div>
+								</div>
+							</div>
+						</div>
+						{/* <div className="wordpress-services">
+							<div className="container">
+								<h2 className="section-title text-center">Our Wordpess Servcies</h2>								
 								<div className="services-list">
 									<div className="row">
 										{pagedata[1].cs_cards_details.map((node,index) => (
@@ -87,7 +106,7 @@ class WordpressDevelopment extends Component {
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> */}
 					</section>
 				</div>
 				<section>
@@ -103,7 +122,7 @@ export default WordpressDevelopment
 
 export const query = graphql`
 {
-	allWordpressPage(filter: {wordpress_id: {eq: 1505}}) {
+	allWordpressPage(filter: {wordpress_id: {eq: 7271}}) {
 		edges {
 		  node {
 			acf {
