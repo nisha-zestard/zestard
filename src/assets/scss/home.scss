@@ -79,6 +79,9 @@
                         @include link($primary-color);
                         margin-top: auto;
                         display: flex;
+                        &:after{
+                            top: 3px;
+                        }
                     }
                 }
             }
@@ -607,13 +610,14 @@
                 &:hover {
                     text-decoration: none;
                 }
-                &:after {
+                &:before {
                     content: "";
                     border-bottom: 3px solid $bg-color;
                     width: 35px;
                     display: block;
                     margin-top: 5px;
                     opacity: 1;
+                    position: absolute;
                     bottom: 0;
                     left: 0;
                 }
