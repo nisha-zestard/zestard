@@ -17,7 +17,15 @@
             a {
                 margin-top: 0px;
                 text-align: left;
+                font-weight: 700;
                 margin-bottom: 30px;
+                font-size: 36px;
+                line-height: 42px;
+                color: $primary-color;
+                font-family: $primary-font;
+                &:hover{
+                    text-decoration: none;
+                }
                 @media only screen and (max-width: 992px) {
                     margin-bottom: 50px;
                     font-size: 30px;
@@ -31,23 +39,16 @@
         }
         .tech-content{
             .btn.btn-primary{
-                border: none;
+                @include theme-btn($bgcolor: $black, $font-size: 18px, $padding: 11px 44px, $border-radius: 7px);
+                background: $black;
+                margin-top: 25px;
                 &:not(:disabled):not(.disabled):active:focus{
                     box-shadow: none
                 }
             }
         }
         p {
-            font-family: $para-font;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 17px;
-            color: $para-font-color;
-            line-height: 28px;
-            @media only screen and (max-width: 1440px) {
-                font-size: 15px;
-                line-height: 20px;
-            }
+            
         }
         ul {
             padding: 0px;
@@ -122,12 +123,12 @@
        
         .title {
             a {
-                color: #393b3c;
-                font-family: 'Roboto', sans-serif;
+                color: $primary-color;
+                font-family: $primary-font;
                 font-weight: bold;
                 font-style: normal;
                 font-size: 36px;
-                line-height: 60px;
+                line-height: 42px;
                 margin-top: 0px;
                 text-align: left;
                 margin-bottom: 30px;

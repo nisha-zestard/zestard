@@ -35,11 +35,15 @@
                     align-content: center;
                     flex-wrap: wrap;
                     justify-content: center;
+                    img{
+                        margin-bottom: 25px;
+                    }
                     h3{
                         font-size: 22px;
                         font-weight: bold;
                         font-family: $primary-font;
                         color: $primary-color;
+                        width: 100%;
                     }
                 }
                 .flip-card-back {
@@ -55,7 +59,7 @@
                         font-weight: bold;
                         font-family: $primary-font;
                         color: $primary-color;
-                        margin-bottom: 25px;
+                        margin-bottom: 17px;
                     }
                     p{
                         font-size: 18px;

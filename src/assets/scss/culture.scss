@@ -27,6 +27,9 @@
     .grid-item {
         padding: 7.5px;
         height: auto;
+        .culture-wrapper.card{
+            margin: 0;
+        }
     }
 }
 
@@ -88,6 +91,23 @@
             }
             @media (min-width: 768px) and (max-width: 991px) {
                 font-size: 1.4rem;
+            }
+        }
+    }
+}
+.ReactModal__Body--open{
+    position: fixed;
+    width: 100%;
+}
+.ReactModalPortal{
+    .ReactModal__Overlay{
+        .ReactModal__Content{
+            .ril-outer{
+                button{
+                    &:focus{
+                        outline: none;
+                    }
+                }
             }
         }
     }
