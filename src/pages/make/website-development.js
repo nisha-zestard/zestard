@@ -16,7 +16,7 @@ class WordpressDevelopment extends Component {
 			<Layout>
 				<SEO title="E-commerce Development"/>
 				<Header headernavclass="lightheader" />
-				<div id="page" className="wordpress-development">
+				<div id="page" className="website-development">
 					<section>
 						<div className="sub-services-breadcums">
 							<div className="container">

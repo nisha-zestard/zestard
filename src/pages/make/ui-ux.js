@@ -19,7 +19,7 @@ class EcommerceDevelopment extends Component {
 			<Layout>
 				<SEO title="E-commerce Development"/>
 				<Header headernavclass="lightheader" />
-				<div id="page" className="ecommerce-development">
+				<div id="page" className="ui-ux-development">
 					<section>
 						<div className="sub-services-breadcums">
 							<div className="container">
