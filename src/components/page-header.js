@@ -1,7 +1,4 @@
-// Common Page header
-
 import React, { Component } from "react"
-//import Img from "gatsby-image"
 
 class PageHeader extends Component {
     
