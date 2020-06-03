@@ -11,20 +11,27 @@ class Portfolio extends Component {
         const portfoliolist = data.allWordpressWpPortfolio.edges
         //console.log(portfoliolist[0].node.title);
         const getpcid = (el) => { 
-            const pcategoryid = el.target.getAttribute("data-pcid");
+            const pcategoryid = el.target.getAttribute("data-pcid");            
             console.log('Category id ----->'+pcategoryid);
-            for(var i=0; i< portfoliolist.length; i++) {
+            for(var i=0; i< portfoliolist.length; i++) {                
                 if(pcategoryid==portfoliolist[i].node.portfolio_category[0]){
-                        var titlelist = portfoliolist[i].node.title
-                        console.log(titlelist)
+                    var titlelist = portfoliolist[i].node.title
+                    var setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'block';
+                    // portlist.classList.toggle('selectedportfolio');
+                     console.log(setlid)
+                }
+                else {
+                    var setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'none';
                 }
             }
         }
         const allpid = (el) => {
+            console.log('hi...');
             const plist = document.getElementsByClassName('portfoliolist');
-            for(var k=1;k<=plist.lentgh;k++){
-                const selectedid = k.getAttribute("data-id");
-                console.log('Category id ----->'+selectedid);
+            
+            //console.log(plist);
+            for(var k=0; k < plist.length; k++) {
+                plist[k].style.display = 'block';                
             }
             
         }
@@ -49,7 +56,7 @@ class Portfolio extends Component {
 								</div>
                                 <div className="portfolio-list">
                                     <ul>
-                                        <li>All</li>
+                                        <li onClick={ (e) => allpid(e) }>All</li>
                                         {portcat.map((node,index) => (
                                             <li data-pcid={node.node.wordpress_id} key={index} onClick={ (e) => getpcid(e) }>{node.node.name}</li>
                                         ))}
