@@ -32,7 +32,7 @@ class Home extends Component {
         const credential = data.allWordpressWpCredentials.edges;
         const recentpost = data.allWordpressPost.edges;
         const portfolio = data.allWordpressWpPortfolio.edges;
-        // console.log(portfolio);
+         console.log(data.allWordpressPage);
         var testisettings = {
             dots: true,
             infinite: true,
@@ -420,7 +420,14 @@ export const query = graphql`
                             cs_content
                             cs_learn_more_link
                         }
-                    }                    
+                    }  
+                    ... on WordPressAcf_gen_case_study_section {
+                        id
+                        css_title
+                        css_content
+                        css_section_class
+                        css_select_case_studies
+                    }                  
                 }
                 home_content_modules_page {
                     home_oe_section_title

@@ -18,7 +18,6 @@ class Make extends Component {
 		const technology = data.allWordpressWpTechnology.edges;
 		const credential = data.allWordpressWpCredentials.edges;
 		const portfolio = data.allWordpressWpPortfolio.edges;
-		
 		return(
 			<Layout>
 				<SEO title="Make"/>
@@ -150,8 +149,8 @@ class Make extends Component {
 					<div className="recent-work">
 						<div className="container">
 							<div className="title text-center">
-								<h2>Our Recent Work</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+								<h2>{acfgen[2].css_title}</h2>
+								<p dangerouslySetInnerHTML={{__html: acfgen[2].css_content}} />
 							</div>
 							<div className="portfolio-list">
 								<div className="row">
