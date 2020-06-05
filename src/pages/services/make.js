@@ -65,6 +65,7 @@ class Make extends Component {
 								<div className="row">
 									{acfgen[1].cs_cards_details.map((node,index) => (
 										<div className="col-lg-3 col-md-6" key={index}>
+											<Link to={`/${removePre(node.cs_learn_more_link)}`}>
 											<div className="card service-wrap">
 												<div className="service-icon">
 													{node.cs_icon !== null &&
@@ -79,10 +80,11 @@ class Make extends Component {
 													{node.cs_content !== null &&
 														<div className="text" dangerouslySetInnerHTML={{__html:node.cs_content}} />
 													}
-													<Link to={`/${removePre(node.cs_learn_more_link)}`}>Learn More</Link>													
+													Learn More													
 													{/* <a href="#" className="s-link">Learn More</a> */}
 												</div>
 											</div>
+											</Link>
 										</div>
 									))}
 								</div>
