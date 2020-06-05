@@ -105,7 +105,7 @@ class Maintain extends Component {
 						</div>
 					</div>
 				</section>
-				
+
 				<section>
 					<div className="hire-developers-section">
 						<div className="container">
@@ -149,7 +149,7 @@ class Maintain extends Component {
 					<div className="our-credientials">
 						<div className="container">
 							<div className="title text-center">
-								<h2>Our Credentials</h2>
+								<h2>Our Certifications</h2>
 							</div>
 							<div className="credientials-wrap text-center">
 								<div className="c-main">
