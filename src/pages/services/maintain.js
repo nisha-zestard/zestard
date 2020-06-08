@@ -21,6 +21,7 @@ class Maintain extends Component {
 			<Layout>
 				<SEO title="Maintain"/>
 				<Header headernavclass="darkheader" />
+				<div className="maintain-main">
 				<section>
 					<div className="page-banner maintain">
 						<div className="container">
@@ -202,6 +203,7 @@ class Maintain extends Component {
 					<AboutProject />
 				</section>
 				{/* <Link to="/">Go back to the homepage</Link> */}
+				</div>
 			</Layout>
 		)
 	}

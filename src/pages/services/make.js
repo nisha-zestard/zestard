@@ -22,6 +22,7 @@ class Make extends Component {
 			<Layout>
 				<SEO title="Make"/>
 				<Header headernavclass="darkheader" />
+				<div className="make-main">
 				<section>
 					<div className="page-banner make">
 						<div className="container">
@@ -183,6 +184,7 @@ class Make extends Component {
 				
 				</section>
 		{/* <Link to="/">Go back to the homepage</Link> */}
+		</div>
 	  </Layout>
 		)
 	}

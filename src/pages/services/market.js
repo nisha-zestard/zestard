@@ -17,6 +17,7 @@ class Market extends Component {
 			<Layout>
 				<SEO title="Market"/>
 				<Header headernavclass="darkheader" />
+				<div className="market-main">
 				<section>
 					<div className="page-banner market">
 						<div className="container">
@@ -158,6 +159,7 @@ class Market extends Component {
 					<AboutProject />
 				</section>
 				{/* <Link to="/">Go back to the homepage</Link> */}
+				</div>
 			</Layout>
 		)
 	}
