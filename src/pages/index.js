@@ -39,14 +39,15 @@ class Home extends Component {
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1
-          };
-          var clilogosettings = {
+        };
+
+        var clilogosettings = {
             dots: true,
-            infinite: true,
+            infinite: false,
             speed: 500,
             autoplay: true,
             slidesToShow: 6,
-            slidesToScroll: 1,
+            slidesToScroll: 6,
             responsive: [
                 {
                   breakpoint: 1024,
@@ -73,8 +74,9 @@ class Home extends Component {
                   }
                 }
               ]
-          }; 
-          var clientlogoset = {
+        }; 
+
+        var clientlogoset = {
             dots: true,
             infinite: true,
             autoplay: true,
@@ -98,7 +100,7 @@ class Home extends Component {
                   }
                 }
             ]
-          }; 
+        }; 
           
   return(
   <Layout>
@@ -474,7 +476,7 @@ export const query = graphql`
           }
         }
       }
-      allWordpressWpCredentials {
+      allWordpressWpCredentials(sort: {order: ASC, fields: date}) {
         edges {
           node {
             featured_media {

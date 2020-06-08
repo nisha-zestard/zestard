@@ -212,9 +212,11 @@
         }
     }
 }
-.our-credientials{
-    padding: 100px 0 140px;
+.make-main .our-credientials{
     background-image: url('../images/credientials-background.png');
+}
+.our-credientials{
+    padding: 100px 0 140px;    
     background-repeat: no-repeat;
     background-position: center;
     @media #{$tablet-screen}{
