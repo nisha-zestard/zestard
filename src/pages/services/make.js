@@ -192,7 +192,7 @@ class Make extends Component {
 export default Make
 
 export const query = graphql`{
-	allWordpressWpTechnology {
+	allWordpressWpTechnology(sort: {order: DESC, fields: date}) {
 		edges {
 		  node {
 			acf {
