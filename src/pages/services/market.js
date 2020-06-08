@@ -112,7 +112,7 @@ class Market extends Component {
 						<img src={Credentialsimage} className="main-image" alt="Credential main"/>
 						<img src={Zectopus} className="center-image" alt="Zectopus"/>
 						{creden.map((node,index) => (
-							<div className={"creadi_wrap " + node.node.slug} key={index}>
+							<div className={"credi-logo-" + index + " creadi_wrap " + node.node.slug} key={index}>
 								{node.node.featured_media.source_url !== null &&
 									<img src={node.node.featured_media.source_url} alt={node.node.title}/>
 								}								
