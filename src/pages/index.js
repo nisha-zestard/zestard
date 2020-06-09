@@ -332,12 +332,17 @@ class Home extends Component {
                 <ul>                
                     <Slider {...clilogosettings}>
                         {credential.map((node,index) => (
-                            <li key={index}>
+                            
+                            <li >
+                                {node.node.acf.hide_on_home_page === false &&
+                            
+                        
                                 <div className="box">
                                     {node.node.featured_media.source_url !== null &&
                                         <img src={node.node.featured_media.source_url} alt="cre-img" />
                                     }                                
                                 </div>
+                                }
                             </li>
                         ))} 
                     </Slider>                   
@@ -382,7 +387,7 @@ export default Home
 
 export const query = graphql`
 {
-    allWordpressWpPortfolio(filter: {title: {in: ["Panache Cosmetics","JadeBlue Fashion","Purvidoshi"]}}) {
+    allWordpressWpPortfolio(filter: {title: {in: ["Avast AVG","JadeBlue Fashion","Kodak Lens"]}}) {
         edges {
           node {
             title
@@ -479,6 +484,9 @@ export const query = graphql`
       allWordpressWpCredentials(sort: {order: ASC, fields: date}) {
         edges {
           node {
+            acf {
+                hide_on_home_page
+            }
             featured_media {
               source_url
             }
