@@ -193,6 +193,7 @@
                         margin-bottom: 15px;
                     }
                     p{
+                        margin: 0 0 10px;
                         min-height: 112px;
                         @media #{$tablet-screen}{
                             min-height: 252px;
