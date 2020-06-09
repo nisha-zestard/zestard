@@ -113,9 +113,11 @@ class Make extends Component {
 													<h3>{node.node.title}</h3>
 													{node.node.excerpt !== null &&
 														<div dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
-													}	
+														
+													}
+													<Link to={node.node.acf.technology_custom_link}>Learn More</Link>	
 													{/* {node.node.acf.technology_custom_link} */}
-													<Link to={node.node.acf.technology_custom_link}>Learn More</Link>												
+																									
 													{/* <a href="#">Learn More</a> */}
 												</div>
 											</div>

@@ -32,7 +32,7 @@ class Home extends Component {
         const credential = data.allWordpressWpCredentials.edges;
         const recentpost = data.allWordpressPost.edges;
         const portfolio = data.allWordpressWpPortfolio.edges;
-         console.log(data.allWordpressPage);
+         console.log(portfolio);
         var testisettings = {
             dots: true,
             infinite: true,
@@ -331,18 +331,13 @@ class Home extends Component {
                 </div>  
                 <ul>                
                     <Slider {...clilogosettings}>
-                        {credential.map((node,index) => (
-                            
+                        {credential.map((node,index) => (                            
                             <li >
-                                {node.node.acf.hide_on_home_page === false &&
-                            
-                        
                                 <div className="box">
                                     {node.node.featured_media.source_url !== null &&
                                         <img src={node.node.featured_media.source_url} alt="cre-img" />
                                     }                                
-                                </div>
-                                }
+                                </div>                                
                             </li>
                         ))} 
                     </Slider>                   
@@ -387,7 +382,7 @@ export default Home
 
 export const query = graphql`
 {
-    allWordpressWpPortfolio(filter: {title: {in: ["Avast AVG","JadeBlue Fashion","Kodak Lens"]}}) {
+    allWordpressWpPortfolio(filter: {title: {in: ["Avast AVG","Kodak Lens","JadeBlue Fashion"]}}) {
         edges {
           node {
             title
@@ -481,7 +476,7 @@ export const query = graphql`
           }
         }
       }
-      allWordpressWpCredentials(sort: {order: ASC, fields: date}) {
+      allWordpressWpCredentials(sort: {order: ASC, fields: date}, filter: {acf: {hide_on_home_page: {eq: false}}}) {
         edges {
           node {
             acf {
