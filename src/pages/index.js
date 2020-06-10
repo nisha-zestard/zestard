@@ -333,11 +333,13 @@ class Home extends Component {
                     <Slider {...clilogosettings}>
                         {credential.map((node,index) => (                            
                             <li >
-                                <div className="box">
-                                    {node.node.featured_media.source_url !== null &&
+                                
+                                    {node.node.featured_media !== null &&
+                                        <div className="box">
                                         <img src={node.node.featured_media.source_url} alt="cre-img" />
+                                        </div>
                                     }                                
-                                </div>                                
+                                                                
                             </li>
                         ))} 
                     </Slider>                   
