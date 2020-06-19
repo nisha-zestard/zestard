@@ -94,9 +94,10 @@
                     p{
                         font-size: 18px;
                         line-height: 28px;
+                        color: $primary-light;
                     }
                 }
-                a{
+                .s-link{ 
                     @include link(#2d6cdf);
                     padding-right: 30px;
                     &::after{
@@ -109,7 +110,7 @@
             &:hover{
                 background: linear-gradient( -47deg, rgb(71,96,255) 0%, rgb(13,204,255) 100%);
                 .card-body{
-                    .s-title, .text, a{
+                    .s-title, .text p, .s-link{
                         color: $white;
                     }
                     a{
