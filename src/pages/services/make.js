@@ -82,6 +82,7 @@ class Make extends Component {
 														<div className="text" dangerouslySetInnerHTML={{__html:node.cs_content}} />
 													}
 													<span className="s-link">Learn More</span>													
+
 													{/* <a href="#" className="s-link">Learn More</a> */}
 												</div>
 											</div>

@@ -28,6 +28,9 @@ $small-screen : "screen and (max-width: 767px)";
 $mobile-screen : "screen and (max-width: 575px)";
 $xs-mobile-screen : "screen and (max-width: 420px)";
 
+a:hover{
+    text-decoration: none;
+}
 body{
     font-size: 18px;
     line-height: 28px;
