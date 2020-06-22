@@ -95,6 +95,16 @@
                         font-size: 18px;
                         line-height: 28px;
                         color: $primary-light;
+                        min-height: 252px;
+                        @media #{$medium-screen}{
+                            min-height: 280px;
+                        }
+                        @media #{$tablet-screen}{
+                            min-height: 168px;
+                        }
+                        @media #{$small-screen}{
+                            min-height: inherit; 
+                        }
                     }
                 }
                 .s-link{ 
