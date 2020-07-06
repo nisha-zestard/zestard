@@ -54,26 +54,30 @@ class Portfolio extends Component {
 										</ul>
 									</div>
 								</div>
-                                <div className="portfolio-list">
-                                    <ul>
-                                        <li onClick={ (e) => allpid(e) }>All</li>
-                                        {portcat.map((node,index) => (
-                                            <li data-pcid={node.node.wordpress_id} key={index} onClick={ (e) => getpcid(e) }>{node.node.name}</li>
-                                        ))}
-                                    </ul>
-                                </div>
+                               
 							</div>
 						</div>
+                        <div className="portfolio-list">
+                            <div className="container">
+                                <ul>
+                                    <li onClick={ (e) => allpid(e) }>All</li>
+                                    {portcat.map((node,index) => (
+                                        <li data-pcid={node.node.wordpress_id} key={index} onClick={ (e) => getpcid(e) }>{node.node.name}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
                         <div className="portfolio-boxes">
-                            <div className="row all-portfolio-list">
+                            <div className="all-portfolio-list">
                                 {data.allWordpressWpPortfolio.edges.map((node,index) => (
-                                    <div className="col-lg-4 portfoliolist" key={index} data-id={node.node.portfolio_category} onLoad={ (e) => allpid(e) }>                                        
+                                    <div className="portfoliolist" key={index} data-id={node.node.portfolio_category} onLoad={ (e) => allpid(e) }>                                        
                                         <div className="project">
                                             {node.node.featured_media !== null && node.node.featured_media.source_url !== null && 
                                                 <img src={node.node.featured_media.source_url} alt="Portfolio featured" />
                                             }
-                                            <div className="project-title">
-                                                <h5>{node.title}</h5>
+                                            <div className="project-detail">
+                                                <h5 className="project-title">Edible Beauty</h5>
+                                                <p className="category">E-commerce Website</p>
                                             </div>
                                         </div>
                                     </div>
