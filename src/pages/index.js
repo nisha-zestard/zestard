@@ -32,7 +32,7 @@ class Home extends Component {
         const credential = data.allWordpressWpCredentials.edges;
         const recentpost = data.allWordpressPost.edges;
         const portfolio = data.allWordpressWpPortfolio.edges;
-         console.log(portfolio);
+
         var testisettings = {
             dots: true,
             infinite: true,
@@ -172,11 +172,11 @@ class Home extends Component {
 			<div className="portfolio-list">
 				<div className="row">
                     {portfolio.map((node,index) => (
-                        <div className={node.node.title === "Panache Cosmetics" ? 'col-md-12 full-col' : 'col-md-6 half-col'} key={index}>
+                        <div className={node.node.title === "Jadeblue" ? 'col-md-12 full-col' : 'col-md-6 half-col'} key={index}>
                             <div className="portfolio-wrap">
                                 <div className="portfolio-image">
-                                    {node.node.featured_media.source_url !== null &&
-                                        <img src={node.node.featured_media.source_url} alt={node.node.title} />
+                                    {node.node.acf.pf_image_with_responsive.source_url !== null &&
+                                        <img src={node.node.acf.pf_image_with_responsive.source_url} alt={node.node.title} />
                                     }                                    
                                 </div>
                                 <div className="portfolio-content">
@@ -384,7 +384,9 @@ export default Home
 
 export const query = graphql`
 {
-    allWordpressWpPortfolio(filter: {title: {in: ["Avast AVG","Kodak Lens","JadeBlue Fashion"]}}) {
+
+    allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 231}}}}) {
+
         edges {
           node {
             title
@@ -392,6 +394,11 @@ export const query = graphql`
             link
             featured_media {
               source_url
+            }
+            acf {
+              pf_image_with_responsive {
+                source_url
+              }
             }
           }
         }

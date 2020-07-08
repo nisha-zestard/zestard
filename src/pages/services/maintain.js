@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "./../../components/layout"
 import Header from "./../../components/header"
 import { removePre } from './../../util/common'
@@ -181,8 +181,8 @@ class Maintain extends Component {
 										<div className="col-md-6" key={index}>
 											<div className="portfolio-wrap">
 												<div className="portfolio-image">
-													{node.node.featured_media.source_url !== null &&
-														<img src={node.node.featured_media.source_url} />
+													{node.node.acf.pf_image_with_responsive.source_url !== null &&
+														<img src={node.node.acf.pf_image_with_responsive.source_url} />
 													}													
 												</div>
 												<div className="portfolio-content">
@@ -212,18 +212,23 @@ class Maintain extends Component {
 export default Maintain
 
 export const query = graphql`{
-	allWordpressWpPortfolio(filter: {title: {in: ["JadeBlue Fashion","Purvidoshi"]}}) {
+	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 233}}}}, limit: 2) {
         edges {
           node {
-			title
-			excerpt
-			path
+            title
+            excerpt
+            link
             featured_media {
               source_url
             }
+            acf {
+              pf_image_with_responsive {
+                source_url
+              }
+            }
           }
         }
-    }
+      }
 	allWordpressWpCredentials(filter: {credentials_category: {eq: 219}}) {
 		edges {
 		  node {

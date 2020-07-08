@@ -11,7 +11,7 @@ class WordpressDevelopment extends Component {
 		const data = this.props.data  
 		const acf = data.allWordpressPage.edges[0].node.acf
 		const pagedata = acf.gen_content_modules_page
-		console.log(acf);
+		//console.log(acf);
 		return(
 			<Layout>
 				<SEO title="E-commerce Development"/>
