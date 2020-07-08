@@ -18,7 +18,7 @@ class Portfolio extends Component {
                     var titlelist = portfoliolist[i].node.title
                     var setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'block';
                     // portlist.classList.toggle('selectedportfolio');
-                     console.log(setlid)
+                     //console.log(setlid)
                 }
                 else {
                     var setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'none';
@@ -26,7 +26,7 @@ class Portfolio extends Component {
             }
         }
         const allpid = (el) => {
-            console.log('hi...');
+           // console.log('hi...');
             const plist = document.getElementsByClassName('portfoliolist');
             
             //console.log(plist);
@@ -99,6 +99,7 @@ export const query = graphql`
         edges {
           node {
             title
+            portfolio_category
             acf {
                 pf_category_name
             }

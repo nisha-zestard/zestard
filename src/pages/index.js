@@ -332,8 +332,7 @@ class Home extends Component {
                 <ul>                
                     <Slider {...clilogosettings}>
                         {credential.map((node,index) => (                            
-                            <li >
-                                
+                            <li key={index}>                                
                                     {node.node.featured_media !== null &&
                                         <div className="box">
                                         <img src={node.node.featured_media.source_url} alt="cre-img" />
