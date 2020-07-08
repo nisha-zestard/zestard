@@ -15,8 +15,6 @@ class Maintain extends Component {
 		const genmodule = data.allWordpressPage.edges[0].node.acf.gen_content_modules_page;
 		const credent = data.allWordpressWpCredentials.edges;
 		const portfolio = data.allWordpressWpPortfolio;
-		//console.log(page);
-
 		return(
 			<Layout>
 				<SEO title="Maintain"/>
@@ -49,7 +47,6 @@ class Maintain extends Component {
 					<div className="make-intro-section text-center">
 						<div className="container">
 							<div className="title">
-								{/* <span>{genmodule[0].pis_page_title}</span> */}
 								<h2>{genmodule[0].pis_section_title}</h2>
 							</div>
 							<div className="content">
@@ -86,7 +83,6 @@ class Maintain extends Component {
 												{node.iwc_sub_desc !== null &&
 													<div className="service-text" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />
 												}
-												{/* {node.iwc_button_link} */}
 												<Link to={`/${removePre(node.iwc_button_link)}`} className="service-link">{node.iwc_button_text}</Link>
 											</div>
 										</div>
@@ -99,14 +95,12 @@ class Maintain extends Component {
 												</div>
 											</div>
 										}
-										
 									</div>
 								</div>
 							))}
 						</div>
 					</div>
 				</section>
-
 				<section>
 					<div className="hire-developers-section">
 						<div className="container">
@@ -137,7 +131,6 @@ class Maintain extends Component {
 													))}
 												</ul>
 												<Link to={`/${removePre(page.maintain_button_link)}`}>{page.maintain_button_text}</Link>
-												{/* <a href={page.maintain_button_link}>{page.maintain_button_text}</a> */}
 											</div>
 										</div>
 									</div>
@@ -182,14 +175,14 @@ class Maintain extends Component {
 											<div className="portfolio-wrap">
 												<div className="portfolio-image">
 													{node.node.acf.pf_image_with_responsive.source_url !== null &&
-														<img src={node.node.acf.pf_image_with_responsive.source_url} />
+														<img src={node.node.acf.pf_image_with_responsive.source_url} alt="Maintain recent work"/>
 													}													
 												</div>
 												<div className="portfolio-content">
 													<span className="sub-title">Web Platform</span>
 													<h2 className="portfolio-title">{node.node.title}</h2>
 													<div dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
-													<a href="#" className="portfolio-link">Read more</a>
+													<Link to="#" className="portfolio-link">Read more</Link>
 												</div>
 											</div>
 										</div>
@@ -202,7 +195,6 @@ class Maintain extends Component {
 				<section>
 					<AboutProject />
 				</section>
-				{/* <Link to="/">Go back to the homepage</Link> */}
 				</div>
 			</Layout>
 		)

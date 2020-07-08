@@ -81,7 +81,7 @@ class Header extends React.Component {
         const workmenu = maninmenu[2];
         const blogmenu = maninmenu[3];
         const contactmenu = maninmenu[4];
-        const isBrowser = () => typeof window !== "undefined"
+        //const isBrowser = () => typeof window !== "undefined"
         const { location} = history
         const param = location.pathname;
         const handleOpen = (el) => {  

@@ -7,7 +7,6 @@ import Slider from "react-slick";
 import Counterbg from "../images/counter-bg.png"
 import { removePre } from './../util/common'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
 
 class Home extends Component {
     constructor(props) {
@@ -153,7 +152,6 @@ class Home extends Component {
                                 <h5 className="card-title">{node.cs_title}</h5>
                                 <div className="card-text" dangerouslySetInnerHTML={{ __html: node.cs_content }} ></div>
                                 <Link to={`/services/${removePre(node.cs_learn_more_link)}`} className="l-more">Read More</Link>
-                                {/* <a className="l-more" href={node.cs_learn_more_link}>Learn More</a> */}
                             </div>
                         </div>                        
                     ))} 
@@ -183,12 +181,11 @@ class Home extends Component {
                                     <span className="sub-title">Web Platform</span>
                                     <h2 className="portfolio-title">{node.node.title}</h2>
                                     <p dangerouslySetInnerHTML={{ __html: node.node.excerpt }} />
-                                    <a href="#" className="portfolio-link">Read more</a>
+                                    <Link to="#" className="portfolio-link">Read more</Link>
                                 </div>
                             </div>
                         </div>
-                    ))}
-                   
+                    ))}                   
 				</div>
 			</div>
 		</div>
@@ -201,8 +198,7 @@ class Home extends Component {
                 <div className="title text-center">
                     <h2>Our Clients</h2>
                 </div>
-                <div className="clients-logos mob-client d-md-none d-sm-block">  
-                                  
+                <div className="clients-logos mob-client d-md-none d-sm-block"> 
                     <Slider ref={c => (this.slider = c)} {...clientlogoset}>
                         {clientlogo.map((node,index) => (
                             <div key={index}>
@@ -237,7 +233,6 @@ class Home extends Component {
                             <h2>{expertise.home_oe_section_title}</h2>
                             <p>{expertise.home_oe_content}</p>
                             <Link to={`/services/${removePre(expertise.home_oe_read_more_link)}`} className="btn r-more">read more</Link>
-                            {/* <a className="btn r-more" href={expertise.home_oe_read_more_link}>read more</a> */}
                         </div>
                     </div>
                     <div className="col-lg-8">
@@ -247,7 +242,6 @@ class Home extends Component {
                                     <li key={index}>
                                         {node.home_oe_icons.source_url !== null &&
                                         <Link to={`/${removePre(node.home_oe_rp_links)}`}><img src={node.home_oe_icons.source_url} alt="f-logo-img" /></Link>
-                                            // <a href="#"><img src={node.home_oe_icons.source_url} alt="f-logo-img" /></a>
                                         }                                        
                                     </li>
                                 ))}                                
@@ -283,8 +277,7 @@ class Home extends Component {
                 </div>
                 <div className="container">
                     <div id="carouselTestimonial" className="carousel carousel-testimonial slide" data-ride="carousel">
-                        <div className="carousel-inner">
-                        
+                        <div className="carousel-inner">                        
                         <Slider ref={c => (this.slider = c)} {...testisettings}>
                             {testimonial.map((node,index) => (
                                 <div className={index=0? 'carousel-item': 'carousel-item active'} key={index}>
@@ -313,10 +306,8 @@ class Home extends Component {
                                     </div>
                                 </div>
                             ))}
-                        </Slider>
-                            
-                        </div>
-                        
+                        </Slider>                            
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -337,8 +328,7 @@ class Home extends Component {
                                         <div className="box">
                                         <img src={node.node.featured_media.source_url} alt="cre-img" />
                                         </div>
-                                    }                                
-                                                                
+                                    }                           
                             </li>
                         ))} 
                     </Slider>                   

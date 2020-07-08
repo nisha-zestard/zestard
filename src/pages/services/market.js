@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Credentialsimage from "./../../assets/images/credientials-bg.png"
 import Zectopus from "./../../assets/images/zectopus.png"
 import SEO from "./../../components/seo"
@@ -146,7 +146,7 @@ class Market extends Component {
 													<span className="sub-title">Web Platform</span>
 													<h2 className="portfolio-title">{node.node.title}</h2>
 													<p dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
-													<a href="#" className="portfolio-link">Read more</a>
+													<Link to="#" className="portfolio-link">Read more</Link>
 												</div>
 											</div>
 										</div>
@@ -159,7 +159,6 @@ class Market extends Component {
 				<section>
 					<AboutProject />
 				</section>
-				{/* <Link to="/">Go back to the homepage</Link> */}
 				</div>
 			</Layout>
 		)

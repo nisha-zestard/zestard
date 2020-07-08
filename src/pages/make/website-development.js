@@ -1,17 +1,15 @@
 import React, { Component } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../../components/layout"
 import Header from "../../components/header";
 import SEO from "../../components/seo"
 import AboutProject from '../../components/aboutproject'
 
 class WordpressDevelopment extends Component {
-
 	render() {		
 		const data = this.props.data  
 		const acf = data.allWordpressPage.edges[0].node.acf
 		const pagedata = acf.gen_content_modules_page
-		//console.log(acf);
 		return(
 			<Layout>
 				<SEO title="E-commerce Development"/>
@@ -26,15 +24,9 @@ class WordpressDevelopment extends Component {
 									</div>
 									<div className="breadcums-wrap">
 										<ul className="d-flex justify-content-center m-0 p-0">
-											<li>
-												<a href="#">Home</a>
-											</li>
-											<li>
-												<a href="#">Services</a>
-											</li>
-											<li>
-												<a href="#">Website Development</a>
-											</li>
+											<li><Link to="#">Home</Link></li>
+											<li><Link hrtoef="#">Services</Link></li>
+											<li><Link to="#">Website Development</Link></li>
 										</ul>
 									</div>
 								</div>
@@ -79,34 +71,6 @@ class WordpressDevelopment extends Component {
 								</div>
 							</div>
 						</div>
-						{/* <div className="wordpress-services">
-							<div className="container">
-								<h2 className="section-title text-center">Our Wordpess Servcies</h2>								
-								<div className="services-list">
-									<div className="row">
-										{pagedata[1].cs_cards_details.map((node,index) => (
-											<div className="col-md-6 col-lg-4" key={index}>
-												<div className="flip-card">
-													<div className="flip-card-inner">
-														<div className="flip-card-front">
-															{node.cs_icon !== null &&
-																<img src={node.cs_icon.source_url} />														
-															}															
-															<h3>{node.cs_title}</h3>
-														</div>
-														<div className="flip-card-back">
-															<h3>{node.cs_title}</h3>
-															<div dangerouslySetInnerHTML={{__html: node.cs_content}} />															
-														</div>
-													</div>
-												</div>
-											</div>
-										))}
-										
-									</div>
-								</div>
-							</div>
-						</div> */}
 					</section>
 				</div>
 				<section>
@@ -117,7 +81,6 @@ class WordpressDevelopment extends Component {
 	}
 
 }
-
 export default WordpressDevelopment
 
 export const query = graphql`

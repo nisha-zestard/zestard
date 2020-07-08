@@ -2,8 +2,8 @@ import PropTypes from "prop-types"
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { removePre } from './../util/common';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+// import Navbar from 'react-bootstrap/Navbar';
+// import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -82,7 +82,7 @@ const handleOpen = (el) => {
               <div className="f-left-top">
                 <div className="footer-logo">
                   {acf.light_site_logo !== null &&
-                    <Link to="/"><img src={acf.light_site_logo.source_url} altr="Light footer logo"/></Link>
+                    <Link to="/"><img src={acf.light_site_logo.source_url} alt="Light footer logo" /></Link>
                   }                  
                 </div>
                 <div className="contact-info">
@@ -104,7 +104,7 @@ const handleOpen = (el) => {
                 <div className="company-ratings">
                   <div className="figure">
                     {acf.star_image !== null &&
-                      <img src={acf.star_image.source_url} />
+                      <img src={acf.star_image.source_url} alt="Company rating"/>
                     }                    
                   </div>
                   <p className="m-0">{acf.star_content}</p>
@@ -114,7 +114,7 @@ const handleOpen = (el) => {
                 <ul className="p-0 m-0">
                   {acf.social_media.map((node,index) => (
                     <li key={index}>  
-                      <a href={node.social_media_link} target="_blank"><i className={node.social_media_icon}></i></a>
+                      <a href={node.social_media_link} target="_blank" without rel="noopener noreferrer"><i className={node.social_media_icon}></i></a>
                     </li>
                   ))}
                 </ul>
@@ -182,12 +182,12 @@ const handleOpen = (el) => {
                 <ul className="p-0 m-0 d-flex justify-content-center">
                    <li>
                      {acf.external_links[0].external_image.source_url !== null &&
-                      <a href="https://zestardshop.com/" target="_blank"><img src={acf.external_links[0].external_image.source_url} /></a>
+                      <a href="https://zestardshop.com/" target="_blank" without rel="noopener noreferrer"><img src={acf.external_links[0].external_image.source_url} alt="Zestard shop logo" /></a>
                      }                    
                   </li>
                   <li>
                      {acf.external_links[1].external_image.source_url !== null &&
-                      <a href="https://apps.shopify.com/partners/zestard-technologies" target="_blank"><img src={acf.external_links[1].external_image.source_url} /> </a>
+                      <a href="https://apps.shopify.com/partners/zestard-technologies" target="_blank" without rel="noopener noreferrer"><img src={acf.external_links[1].external_image.source_url} alt="Shopify app logo" /> </a>
                      }                    
                   </li>
                 </ul>

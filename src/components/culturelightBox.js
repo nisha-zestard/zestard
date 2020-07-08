@@ -1,9 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Masonry from 'react-masonry-css';
-import Modal from 'react-bootstrap/Modal'
-// import ReactFancyBox from 'react-fancybox'
-// import 'react-fancybox/lib/fancybox.css'
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 const breakpointColumnsObj = {
@@ -14,7 +11,7 @@ const breakpointColumnsObj = {
 };
 export default class CultureLightbox extends Component {
   static propTypes = {
-    EventImages: PropTypes.array.isRequired, // eslint-disable-line
+    EventImages: PropTypes.array.isRequired, 
   }
 
   constructor(props) {
@@ -73,19 +70,8 @@ export default class CultureLightbox extends Component {
   render() {
     const { EventImages } = this.props;
     const { photoIndex, isOpen } = this.state;
-    const { showLightbox, selIndex } = this.state;
     
-    // function imgculture(){
-    //   const cultimglist = [];
-    //   for(var i=0; i< EventImages.length; i++) {
-    //      cultimglist.push(EventImages[i].source_url);
-    //   }
-    //   return cultimglist;   
-    // }
-    
-    
-    return (
-      
+    return (      
       <Fragment>
         <div className="lightboxContainer">
           <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid" columnClassName="my-masonry-grid_column" >
@@ -120,7 +106,7 @@ export default class CultureLightbox extends Component {
             }
           />
         )}
-        </div>       
+        </div>      
         
       </Fragment>
     );
