@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "./../../components/layout"
 import Header from "./../../components/header"
 import SEO from "./../../components/seo"
@@ -159,8 +159,8 @@ class Make extends Component {
 										<div className="col-md-6" key={index}>
 										<div className="portfolio-wrap">
 											<div className="portfolio-image">
-												{node.node.featured_media.source_url !== null &&
-													<img src={node.node.featured_media.source_url} alt={node.node.title} />
+												{node.node.acf.pf_image_with_responsive.source_url !== null &&
+													<img src={node.node.acf.pf_image_with_responsive.source_url} alt={node.node.title} />
 												}												
 											</div>
 											<div className="portfolio-content">
@@ -206,14 +206,19 @@ export const query = graphql`{
 		  }
 		}
 	}
-	allWordpressWpPortfolio(filter: {title: {in: ["JadeBlue Fashion","Purvidoshi"]}}) {
+	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 232}}}}, limit: 2) {
         edges {
           node {
-			title
-			excerpt
-			path
+            title
+            excerpt
+            link
             featured_media {
               source_url
+            }
+            acf {
+              pf_image_with_responsive {
+                source_url
+              }
             }
           }
         }

@@ -129,8 +129,8 @@ exports.createPages = async ({ graphql, actions }) => {
     }
     
     if(edge.node.path.indexOf('services') > -1) {
-      console.log('Services origin path---->'+edge.node.path);
-      console.log('Services path---->'+removePre(edge.node.path));
+      //console.log('Services origin path---->'+edge.node.path);
+      //console.log('Services path---->'+removePre(edge.node.path));
       createPage({
         path: `${removePre(edge.node.path)}`,
         component: slash(ServiceTemplate),

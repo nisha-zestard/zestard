@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { graphql } from "gatsby"
 import Credentialsimage from "./../../assets/images/credientials-bg.png"
 import Zectopus from "./../../assets/images/zectopus.png"
 import SEO from "./../../components/seo"
@@ -136,8 +137,8 @@ class Market extends Component {
 										<div className="col-md-6" key={index}>
 											<div className="portfolio-wrap">
 												<div className="portfolio-image">
-													{node.node.featured_media.source_url !== null &&
-														<img src={node.node.featured_media.source_url} alt={node.node.title}/>
+													{node.node.acf.pf_image_with_responsive.source_url !== null &&
+														<img src={node.node.acf.pf_image_with_responsive.source_url} alt={node.node.title}/>
 													}													
 												</div>
 												<div className="portfolio-content">
@@ -166,14 +167,19 @@ class Market extends Component {
 export default Market
 
 export const query = graphql`{
-	allWordpressWpPortfolio(filter: {title: {in: ["JadeBlue Fashion","Purvidoshi"]}}) {
+	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 234}}}}, limit: 2) {
         edges {
           node {
-			title
-			excerpt
-			path
+            title
+            excerpt
+            link
             featured_media {
               source_url
+            }
+            acf {
+              pf_image_with_responsive {
+                source_url
+              }
             }
           }
         }
