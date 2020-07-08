@@ -76,8 +76,8 @@ class Portfolio extends Component {
                                                 <img src={node.node.featured_media.source_url} alt="Portfolio featured" />
                                             }
                                             <div className="project-detail">
-                                                <h5 className="project-title">Edible Beauty</h5>
-                                                <p className="category">E-commerce Website</p>
+                                                <h5 className="project-title">{node.node.title}</h5>
+                                                <p className="category">{node.node.acf.pf_category_name}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +99,9 @@ export const query = graphql`
         edges {
           node {
             title
-            portfolio_category
+            acf {
+                pf_category_name
+            }
             featured_media {
                 source_url
             }            
