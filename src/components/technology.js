@@ -2,7 +2,7 @@
 
 import React, { Component } from "react"
 import { Link } from "gatsby"
-import Footer from "./footer";
+// import Footer from "./footer";
 import { removePre } from './../util/common'
 //import Img from "gatsby-image"
 class Technology extends Component {

@@ -2,7 +2,7 @@
 
 import React, { Component } from "react"
 import Benefiteicon from '../assets/images/benefite-icon.png';
-import Footer from "./footer";
+// import Footer from "./footer";
 
 class ServiceBenefits extends Component {
     

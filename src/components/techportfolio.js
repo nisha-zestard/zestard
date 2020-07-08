@@ -1,7 +1,7 @@
 // Portfolio part in service technology portfolio section
 
 import React from "react"
-import Footer from "./footer";
+// import Footer from "./footer";
 import { graphql, StaticQuery } from "gatsby"
 //import Img from "gatsby-image"
 

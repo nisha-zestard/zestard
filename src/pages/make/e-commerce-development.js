@@ -7,14 +7,12 @@ import { removePre } from './../../util/common'
 import AboutProject from './../../components/aboutproject' 
 
 class EcommerceDevelopment extends Component {
-
 	render() {	
 		const data = this.props.data  
 		const acf = data.wordpressPage.acf.gen_content_modules_page
 		const banner = acf[0].iwc_layout_details[0]
 		const services = acf[1].cs_cards_details
-		const platform = acf[2].iwc_layout_details
-		
+		const platform = acf[2].iwc_layout_details		
 		return(
 			<Layout>
 				<SEO title="E-commerce Development"/>
@@ -29,15 +27,9 @@ class EcommerceDevelopment extends Component {
 									</div>
 									<div className="breadcums-wrap">
 										<ul className="d-flex justify-content-center m-0 p-0">
-											<li>
-												<a href="#">Home</a>
-											</li>
-											<li>
-												<a href="#">Services</a>
-											</li>
-											<li>
-												<a href="#">E-commerce Development</a>
-											</li>
+											<li><Link to="#">Home</Link></li>
+											<li><Link to="#">Services</Link></li>
+											<li><Link to="#">E-commerce Development</Link></li>
 										</ul>
 									</div>
 								</div>
@@ -51,7 +43,7 @@ class EcommerceDevelopment extends Component {
 									<div className="col-md-6 baner-image-wrap">
 										<div className="image-wrap">
 											{banner.iwc_image !== null &&
-												<img src={banner.iwc_image.source_url} />
+												<img src={banner.iwc_image.source_url} alt="Service banner"/>
 											}											
 										</div>
 									</div>
@@ -94,7 +86,7 @@ class EcommerceDevelopment extends Component {
 												<div className="col-md-7 platform-image-wrap">
 													<div className="image text-center">
 														{node.iwc_image !== null &&
-															<img src={node.iwc_image.source_url} />
+															<img src={node.iwc_image.source_url} alt="Platform odd"/>
 														}
 													</div>
 												</div>
@@ -103,7 +95,7 @@ class EcommerceDevelopment extends Component {
 												<div className="content-inner">
 													<div className="p-title d-flex align-items-center">
 														{node.iwc_icon !== null &&
-															<img src={node.iwc_icon.source_url} />
+															<img src={node.iwc_icon.source_url} alt="Platform center" />
 														}
 														<h4>{node.iwc_title}</h4>
 													</div>
@@ -117,7 +109,7 @@ class EcommerceDevelopment extends Component {
 												<div className="col-md-7 platform-image-wrap">
 													<div className="image text-center">
 														{node.iwc_image !== null &&
-															<img src={node.iwc_image.source_url} />
+															<img src={node.iwc_image.source_url} alt="Plateform even" />
 														}
 													</div>
 												</div>

@@ -1,7 +1,7 @@
 // Technology section in service technology
 
 import React, { Component } from "react"
-import Footer from "./footer";
+// import Footer from "./footer";
 
 class ServiceTechnology extends Component {
     

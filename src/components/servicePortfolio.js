@@ -3,7 +3,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import TechPortfolio from './techportfolio'
-import Footer from "./footer";
+// import Footer from "./footer";
 
 class ServicePortfolio extends Component {
     

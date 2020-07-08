@@ -8,9 +8,7 @@ import Credentialsimage from "./../../assets/images/credientials-bg.png"
 import Zectopus from "./../../assets/images/zectopus.png"
 import AboutProject from './../../components/aboutproject'
 
-
 class Make extends Component {
-
 	render() {
 		const data = this.props.data;
 		const pageacf = data.allWordpressPage.edges[0].node.acf;
@@ -81,9 +79,7 @@ class Make extends Component {
 													{node.cs_content !== null &&
 														<div className="text" dangerouslySetInnerHTML={{__html:node.cs_content}} />
 													}
-													<span className="s-link">Learn More</span>													
-
-													{/* <a href="#" className="s-link">Learn More</a> */}
+													<span className="s-link">Learn More</span>	
 												</div>
 											</div>
 											</Link>
@@ -117,9 +113,6 @@ class Make extends Component {
 														
 													}
 													<Link to={node.node.acf.technology_custom_link}>Learn More</Link>	
-													{/* {node.node.acf.technology_custom_link} */}
-																									
-													{/* <a href="#">Learn More</a> */}
 												</div>
 											</div>
 										</div>
@@ -171,8 +164,8 @@ class Make extends Component {
 											<div className="portfolio-content">
 												<span className="sub-title">Web Platform</span>
 												<h2 className="portfolio-title">{node.node.title}</h2>
-												<p>{node.node.expert}</p>
-												<a href="#" className="portfolio-link">Read more</a>
+												<p dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
+												<Link to="#" className="portfolio-link">Read more</Link>
 											</div>
 										</div>
 									</div>
@@ -183,10 +176,8 @@ class Make extends Component {
 					</div>
 				</section>
 				<section>
-					<AboutProject />
-				
+					<AboutProject />				
 				</section>
-		{/* <Link to="/">Go back to the homepage</Link> */}
 		</div>
 	  </Layout>
 		)
