@@ -18,11 +18,11 @@ class Make extends Component {
 		const technology = data.allWordpressWpTechnology.edges;
 		const credential = data.allWordpressWpCredentials.edges;
 		const portfolio = data.allWordpressWpPortfolio.edges;
-		
 		return(
 			<Layout>
 				<SEO title="Make"/>
 				<Header headernavclass="darkheader" />
+				<div className="make-main">
 				<section>
 					<div className="page-banner make">
 						<div className="container">
@@ -66,6 +66,7 @@ class Make extends Component {
 								<div className="row">
 									{acfgen[1].cs_cards_details.map((node,index) => (
 										<div className="col-lg-3 col-md-6" key={index}>
+											<Link to={`/${removePre(node.cs_learn_more_link)}`}>
 											<div className="card service-wrap">
 												<div className="service-icon">
 													{node.cs_icon !== null &&
@@ -80,10 +81,12 @@ class Make extends Component {
 													{node.cs_content !== null &&
 														<div className="text" dangerouslySetInnerHTML={{__html:node.cs_content}} />
 													}
-													<Link to={`/${removePre(node.cs_learn_more_link)}`}>Learn More</Link>													
+													<span className="s-link">Learn More</span>													
+
 													{/* <a href="#" className="s-link">Learn More</a> */}
 												</div>
 											</div>
+											</Link>
 										</div>
 									))}
 								</div>
@@ -111,9 +114,11 @@ class Make extends Component {
 													<h3>{node.node.title}</h3>
 													{node.node.excerpt !== null &&
 														<div dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
-													}	
+														
+													}
+													<Link to={node.node.acf.technology_custom_link}>Learn More</Link>	
 													{/* {node.node.acf.technology_custom_link} */}
-													<Link to={node.node.acf.technology_custom_link}>Learn More</Link>												
+																									
 													{/* <a href="#">Learn More</a> */}
 												</div>
 											</div>
@@ -135,7 +140,7 @@ class Make extends Component {
 						<img src={Credentialsimage} className="main-image" alt="Crendetial main background"/>
 						<img src={Zectopus} className="center-image" alt="Credential zectopus"/>
 						{credential.map((node,index) => (
-							<div className={"creadi_wrap " + node.node.slug} key={index}>
+							<div className={"credi-logo-" + index + " creadi_wrap " + node.node.slug} key={index}>
 								{node.node.featured_media.source_url !== null &&
 									<img src={node.node.featured_media.source_url} alt={node.node.title}/>
 								}								
@@ -150,8 +155,8 @@ class Make extends Component {
 					<div className="recent-work">
 						<div className="container">
 							<div className="title text-center">
-								<h2>Our Recent Work</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+								<h2>{acfgen[2].css_title}</h2>
+								<p dangerouslySetInnerHTML={{__html: acfgen[2].css_content}} />
 							</div>
 							<div className="portfolio-list">
 								<div className="row">
@@ -182,6 +187,7 @@ class Make extends Component {
 				
 				</section>
 		{/* <Link to="/">Go back to the homepage</Link> */}
+		</div>
 	  </Layout>
 		)
 	}
@@ -191,7 +197,7 @@ class Make extends Component {
 export default Make
 
 export const query = graphql`{
-	allWordpressWpTechnology {
+	allWordpressWpTechnology(sort: {order: DESC, fields: date}) {
 		edges {
 		  node {
 			acf {

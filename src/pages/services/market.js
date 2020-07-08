@@ -18,6 +18,7 @@ class Market extends Component {
 			<Layout>
 				<SEO title="Market"/>
 				<Header headernavclass="darkheader" />
+				<div className="market-main">
 				<section>
 					<div className="page-banner market">
 						<div className="container">
@@ -106,14 +107,14 @@ class Market extends Component {
 				<div className="our-credientials">
 					<div className="container">
 					<div className="title text-center">
-						<h2>Our Credentials</h2>
+						<h2>Our Certifications</h2>
 					</div>
 					<div className="credientials-wrap text-center">
 						<div className="c-main">
 						<img src={Credentialsimage} className="main-image" alt="Credential main"/>
 						<img src={Zectopus} className="center-image" alt="Zectopus"/>
 						{creden.map((node,index) => (
-							<div className={"creadi_wrap " + node.node.slug} key={index}>
+							<div className={"credi-logo-" + index + " creadi_wrap " + node.node.slug} key={index}>
 								{node.node.featured_media.source_url !== null &&
 									<img src={node.node.featured_media.source_url} alt={node.node.title}/>
 								}								
@@ -159,6 +160,7 @@ class Market extends Component {
 					<AboutProject />
 				</section>
 				{/* <Link to="/">Go back to the homepage</Link> */}
+				</div>
 			</Layout>
 		)
 	}

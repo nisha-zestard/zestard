@@ -21,6 +21,7 @@ class Maintain extends Component {
 			<Layout>
 				<SEO title="Maintain"/>
 				<Header headernavclass="darkheader" />
+				<div className="maintain-main">
 				<section>
 					<div className="page-banner maintain">
 						<div className="container">
@@ -105,6 +106,7 @@ class Maintain extends Component {
 						</div>
 					</div>
 				</section>
+
 				<section>
 					<div className="hire-developers-section">
 						<div className="container">
@@ -148,14 +150,14 @@ class Maintain extends Component {
 					<div className="our-credientials">
 						<div className="container">
 							<div className="title text-center">
-								<h2>Our Credentials</h2>
+								<h2>Our Certifications</h2>
 							</div>
 							<div className="credientials-wrap text-center">
 								<div className="c-main">
 									<img src={Credentialsimage} className="main-image" alt="Credential"/>
 									<img src={Zectopus} className="center-image" alt="Zectopus"/>
 									{credent.map((node,index) => (
-										<div className={"creadi_wrap " + node.node.slug} key={index}>
+										<div className={"credi-logo-" + index + " creadi_wrap " + node.node.slug} key={index}>
 											{node.node.featured_media.source_url !== null &&
 												<img src={node.node.featured_media.source_url} alt={node.node.title} />
 											}											
@@ -201,6 +203,7 @@ class Maintain extends Component {
 					<AboutProject />
 				</section>
 				{/* <Link to="/">Go back to the homepage</Link> */}
+				</div>
 			</Layout>
 		)
 	}

@@ -17,6 +17,9 @@ $para-font: 'Open Sans',sans-serif;
 $para-font-color: #6e6e6e;
 $blog-font: 'PT Serif', serif;
 
+a:hover{
+    text-decoration: none;
+}
 /*=============Responsive Media Query Variables==================*/
 $extra-large-screen: "screen and (min-width: 1300px)";
 $medium-screen : "screen and (max-width: 1199px)";
@@ -25,6 +28,9 @@ $small-screen : "screen and (max-width: 767px)";
 $mobile-screen : "screen and (max-width: 575px)";
 $xs-mobile-screen : "screen and (max-width: 420px)";
 
+a:hover{
+    text-decoration: none;
+}
 body{
     font-size: 18px;
     line-height: 28px;

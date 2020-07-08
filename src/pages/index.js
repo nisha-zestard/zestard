@@ -32,21 +32,22 @@ class Home extends Component {
         const credential = data.allWordpressWpCredentials.edges;
         const recentpost = data.allWordpressPost.edges;
         const portfolio = data.allWordpressWpPortfolio.edges;
-        console.log(portfolio);
+
         var testisettings = {
             dots: true,
             infinite: true,
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1
-          };
-          var clilogosettings = {
+        };
+
+        var clilogosettings = {
             dots: true,
-            infinite: true,
+            infinite: false,
             speed: 500,
             autoplay: true,
             slidesToShow: 6,
-            slidesToScroll: 1,
+            slidesToScroll: 6,
             responsive: [
                 {
                   breakpoint: 1024,
@@ -73,8 +74,9 @@ class Home extends Component {
                   }
                 }
               ]
-          }; 
-          var clientlogoset = {
+        }; 
+
+        var clientlogoset = {
             dots: true,
             infinite: true,
             autoplay: true,
@@ -98,7 +100,7 @@ class Home extends Component {
                   }
                 }
             ]
-          }; 
+        }; 
           
   return(
   <Layout>
@@ -329,13 +331,15 @@ class Home extends Component {
                 </div>  
                 <ul>                
                     <Slider {...clilogosettings}>
-                        {credential.map((node,index) => (
-                            <li key={index}>
-                                <div className="box">
-                                    {node.node.featured_media.source_url !== null &&
+                        {credential.map((node,index) => (                            
+                            <li >
+                                
+                                    {node.node.featured_media !== null &&
+                                        <div className="box">
                                         <img src={node.node.featured_media.source_url} alt="cre-img" />
+                                        </div>
                                     }                                
-                                </div>
+                                                                
                             </li>
                         ))} 
                     </Slider>                   
@@ -380,7 +384,9 @@ export default Home
 
 export const query = graphql`
 {
+
     allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 231}}}}) {
+
         edges {
           node {
             title
@@ -425,7 +431,14 @@ export const query = graphql`
                             cs_content
                             cs_learn_more_link
                         }
-                    }                    
+                    }  
+                    ... on WordPressAcf_gen_case_study_section {
+                        id
+                        css_title
+                        css_content
+                        css_section_class
+                        css_select_case_studies
+                    }                  
                 }
                 home_content_modules_page {
                     home_oe_section_title
@@ -472,9 +485,12 @@ export const query = graphql`
           }
         }
       }
-      allWordpressWpCredentials {
+      allWordpressWpCredentials(sort: {order: ASC, fields: date}, filter: {acf: {hide_on_home_page: {eq: false}}}) {
         edges {
           node {
+            acf {
+                hide_on_home_page
+            }
             featured_media {
               source_url
             }
