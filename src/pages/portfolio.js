@@ -10,14 +10,14 @@ class Portfolio extends Component {
         const portcat = data.allWordpressWpPortfolioCategory.edges
         const portfoliolist = data.allWordpressWpPortfolio.edges
         const getpcid = (el) => { 
-            const pcategoryid = el.target.getAttribute("data-pcid");            
-            console.log('Category id ----->'+pcategoryid);
+            const pcategoryid = el.target.getAttribute("data-pcid"); 
             var setlid;
-            for(var i=0; i< portfoliolist.length; i++) {                
-                if(pcategoryid === portfoliolist[i].node.portfolio_category[0]){
+            for(var i=0; i< portfoliolist.length; i++) {     
+                console.log(portfoliolist[i].node.portfolio_category[0]);           
+                if(pcategoryid == portfoliolist[i].node.portfolio_category[0]){
                     var titlelist = portfoliolist[i].node.title
                     setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'block';
-                    // portlist.classList.toggle('selectedportfolio');
+                   // portlist.classList.toggle('selectedportfolio');
                 }
                 else {
                     setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'none';

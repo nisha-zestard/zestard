@@ -114,7 +114,7 @@ const handleOpen = (el) => {
                 <ul className="p-0 m-0">
                   {acf.social_media.map((node,index) => (
                     <li key={index}>  
-                      <a href={node.social_media_link} target="_blank" without rel="noopener noreferrer"><i className={node.social_media_icon}></i></a>
+                      <a href={node.social_media_link} target="_blank" rel="noopener noreferrer"><i className={node.social_media_icon}></i></a>
                     </li>
                   ))}
                 </ul>
@@ -182,12 +182,12 @@ const handleOpen = (el) => {
                 <ul className="p-0 m-0 d-flex justify-content-center">
                    <li>
                      {acf.external_links[0].external_image.source_url !== null &&
-                      <a href="https://zestardshop.com/" target="_blank" without rel="noopener noreferrer"><img src={acf.external_links[0].external_image.source_url} alt="Zestard shop logo" /></a>
+                      <a href="https://zestardshop.com/" target="_blank" rel="noopener noreferrer"><img src={acf.external_links[0].external_image.source_url} alt="Zestard shop logo" /></a>
                      }                    
                   </li>
                   <li>
                      {acf.external_links[1].external_image.source_url !== null &&
-                      <a href="https://apps.shopify.com/partners/zestard-technologies" target="_blank" without rel="noopener noreferrer"><img src={acf.external_links[1].external_image.source_url} alt="Shopify app logo" /> </a>
+                      <a href="https://apps.shopify.com/partners/zestard-technologies" target="_blank" rel="noopener noreferrer"><img src={acf.external_links[1].external_image.source_url} alt="Shopify app logo" /> </a>
                      }                    
                   </li>
                 </ul>
