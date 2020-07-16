@@ -294,7 +294,7 @@
                         margin: 0 0 10px; 
                     }
                 }
-                &.shopify, &.linkedin{
+                &.wp-engin, &.linkedin, &.yoast{
                     left: 0;
                     top: 30px;
                     @media #{$small-screen}{
@@ -302,7 +302,7 @@
                         top: inherit;
                     }
                 }
-                &.magento, &.semrush{
+                &.shopify, &.semrush, &.content-marketing-specialist{
                     right: 30px;
                     top: 0;
                     @media #{$small-screen}{
@@ -310,7 +310,7 @@
                         top: inherit;
                     }
                 }
-                &.contributor, &.google-adwords{
+                &.contributor, &.google-adwords, &.search-marketing-specialist{
                     bottom: 108px;
                     left: -40px;
                     @media #{$small-screen}{
@@ -318,7 +318,7 @@
                         bottom: inherit;
                     }
                 }
-                &.aurthorized, &.google-analytics{
+                &.aurthorized, &.google-analytics, &.hubspot-inbound-certified{
                     right: -80px;
                     bottom: 195px;
                     @media #{$tablet-screen}{
@@ -329,7 +329,7 @@
                         bottom: inherit;
                     }
                 }
-                &.wp-engin, &.hubspot{
+                &.magento, &.hubspot, &.google-analytics{
                     width: 200px;
                     height: 94px;
                     line-height: 95px;
