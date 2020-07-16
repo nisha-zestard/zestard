@@ -36,7 +36,7 @@ class ContactUs extends Component {
   allFieldsValid() {
     // retrieve all required fields
     // const fields = document.querySelectorAll('.form-field.validate');
-    const fields = ['fullname','email','phone','subject'];
+    const fields = ['fullname','email','phone','subject','message'];
     
     // build up the errors object to make one setState call at the end
     const errors = {};
@@ -56,13 +56,14 @@ class ContactUs extends Component {
           errors.email = "Please enter a valid email address";
         } 
       }
-      if (field === "phone") {
-        if(!value || value === '') {
-          errors.phone = "This field cannot be blank.";
-        } else if (!value.match(validPhoneRegex)) {
-          errors.phone = "Phone is invalid";
-        }
-      }
+      // if (field === "phone") {
+      //   if(!value || value === '') {
+      //     errors.phone = "This field cannot be blank.";
+      //   } 
+      //   else if (!value.match(validPhoneRegex)) {
+      //     errors.phone = "Phone is invalid";
+      //   }
+      // }
     }); 
    
     this.setState({ errors });
@@ -92,13 +93,14 @@ class ContactUs extends Component {
         'message': message  
       })
       .then((response) => {
+        console.log("response----"+response);
         this.setState({
           submitted: true,
           status: "Thank you. We've received your Inquiry. We'll get back to you soon."
         });
       })
       .catch((error) => {
-        console.log(error);
+        console.log("error---"+error);
       });
     } else {
       this.setState({
@@ -157,7 +159,7 @@ class ContactUs extends Component {
                             <label className="form-group">
                               Phone <span>*</span>
                               <input type="text" name="phone" id="phone" 
-                              className="form-control phone" onChange={this.handleChange} noValidate />
+                              className="form-control phone" onChange={this.handleChange} />
                               {this.state.errors.phone && 
                               <span className='error'>{this.state.errors.phone}</span>}
                             </label>
