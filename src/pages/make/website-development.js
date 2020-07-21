@@ -101,7 +101,7 @@ class WordpressDevelopment extends Component {
 													</div>
 													<div className="p-desc" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />														
 													<div className="know-more-btn">
-														{/* <Link to={`/${removePre(node.iwc_button_link)}`}>Know More</Link> */}
+														<Link to={`/${removePre(node.iwc_button_link)}`}>Know More</Link>
 													</div>
 												</div>
 											</div>
