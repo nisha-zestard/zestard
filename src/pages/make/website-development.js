@@ -169,6 +169,8 @@ export const query = graphql`
 					}
 					iwc_section_class
 					iwc_title
+					iwc_button_text
+                	iwc_button_link
 				  }
 				}
 				... on WordPressAcf_gen_cards_section {
