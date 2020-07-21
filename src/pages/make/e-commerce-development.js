@@ -10,6 +10,7 @@ class EcommerceDevelopment extends Component {
 	render() {	
 		const data = this.props.data  
 		const acf = data.wordpressPage.acf.gen_content_modules_page
+		const tellus = data.wordpressPage.acf
 		const banner = acf[0].iwc_layout_details[0]
 		const services = acf[1].cs_cards_details
 		const platform = acf[2].iwc_layout_details		
@@ -120,9 +121,7 @@ class EcommerceDevelopment extends Component {
 							</div>
 						</div>
 					</section>
-					<section>
-						<AboutProject />				
-					</section>
+					<AboutProject apsiwtch={tellus.use_common_contact_section} />
 				</div>
 	  		</Layout>
 		)
@@ -136,6 +135,14 @@ export const query = graphql`
 {
 	wordpressPage(wordpress_id: {eq: 1491}) {
 		acf {
+			use_common_contact_section
+			  tuabp_title
+			  tuabp_image {
+				source_url
+			  }
+			  tuabp_content
+			  tuabp_button_text
+			  tuabp_button_link
 		  gen_content_modules_page {
 			... on WordPressAcf_gen_image_with_content {
 			  id

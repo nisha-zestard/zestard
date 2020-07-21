@@ -66,6 +66,14 @@ export const query = graphql`
       header_mascot {
         source_url
       }
+      use_common_contact_section
+      tuabp_title
+      tuabp_image {
+      source_url
+      }
+      tuabp_content
+      tuabp_button_text
+      tuabp_button_link
     }
   }  
   allWordpressWpCulture(sort: {order: DESC, fields: date}) {
