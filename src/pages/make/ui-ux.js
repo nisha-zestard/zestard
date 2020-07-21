@@ -10,12 +10,12 @@ class EcommerceDevelopment extends Component {
 	render() {	
 		const data = this.props.data  
 		const acf = data.wordpressPage.acf.gen_content_modules_page
+		const tellus = data.wordpressPage.acf
 		const banner = acf[0].iwc_layout_details[0]
-		const services = acf[1].cs_cards_details
-		const platform = acf[2].iwc_layout_details		
+		const services = acf[1].cs_cards_details		
 		return(
 			<Layout>
-				<SEO title="E-commerce Development"/>
+				<SEO title="UI/UX Development"/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="ui-ux-development">
 					<section>
@@ -74,55 +74,14 @@ class EcommerceDevelopment extends Component {
 								</div>
 							</div>
 						</div>
-					</section>
-					<section>
-						<div className="platform-section">
-							<div className="container">
-								<h2 className="section-title text-center">Platforms We Work On</h2>
-								{platform.map((node,index) => (
-									<div className={"platform-wrap "+node.iwc_section_class}>
-										<div className="row">
-											{node.iwc_section_class === 'odd' &&
-												<div className="col-md-7 platform-image-wrap">
-													<div className="image text-center">
-														{node.iwc_image !== null &&
-															<img src={node.iwc_image.source_url} alt="Platform odd" />
-														}
-													</div>
-												</div>
-											}											
-											<div className="col-md-5 platform-content-wrap">
-												<div className="content-inner">
-													<div className="p-title d-flex align-items-center">
-														{node.iwc_icon !== null &&
-															<img src={node.iwc_icon.source_url} alt="Platform center" />
-														}
-														<h4>{node.iwc_title}</h4>
-													</div>
-													<div className="p-desc" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />														
-													<div className="know-more-btn">
-														<Link to={`/${removePre(node.iwc_button_link)}`}>Know More</Link>
-													</div>
-												</div>
-											</div>
-											{node.iwc_section_class === 'even' &&
-												<div className="col-md-7 platform-image-wrap">
-													<div className="image text-center">
-														{node.iwc_image !== null &&
-															<img src={node.iwc_image.source_url} alt="Platform even" />
-														}
-													</div>
-												</div>
-											}
-										</div>
-									</div>
-								))}
-							</div>
-						</div>
-					</section>
-					<section>
-						<AboutProject />				
-					</section>
+					</section>					
+					<AboutProject 
+					apsiwtch={tellus.use_common_contact_section} 
+					apimage={tellus.tuabp_image} 
+					aptitle={tellus.tuabp_title} 
+					apcontent={tellus.tuabp_content} 
+					apbuttontext={tellus.tuabp_button_text} 
+					apbuttonlink={tellus.tuabp_button_link} />
 				</div>
 	  		</Layout>
 		)
@@ -136,6 +95,14 @@ export const query = graphql`
 {
 	wordpressPage(wordpress_id: {eq: 7275}) {
 		acf {
+			use_common_contact_section
+			tuabp_title
+			tuabp_image {
+				source_url
+			}
+			tuabp_content
+			tuabp_button_text
+			tuabp_button_link
 		  gen_content_modules_page {
 			... on WordPressAcf_gen_image_with_content {
 			  id

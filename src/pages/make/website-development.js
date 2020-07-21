@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../../components/layout"
 import Header from "../../components/header";
 import SEO from "../../components/seo"
+import { removePre } from './../../util/common'
 import AboutProject from '../../components/aboutproject'
 
 class WordpressDevelopment extends Component {
@@ -10,9 +11,11 @@ class WordpressDevelopment extends Component {
 		const data = this.props.data  
 		const acf = data.allWordpressPage.edges[0].node.acf
 		const pagedata = acf.gen_content_modules_page
+		const platform = pagedata[2].iwc_layout_details
+		console.log(platform);
 		return(
 			<Layout>
-				<SEO title="E-commerce Development"/>
+				<SEO title="Website Development"/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="website-development">
 					<section>
@@ -25,7 +28,7 @@ class WordpressDevelopment extends Component {
 									<div className="breadcums-wrap">
 										<ul className="d-flex justify-content-center m-0 p-0">
 											<li><Link to="#">Home</Link></li>
-											<li><Link hrtoef="#">Services</Link></li>
+											<li><Link to="#">Services</Link></li>
 											<li><Link to="#">Website Development</Link></li>
 										</ul>
 									</div>
@@ -58,7 +61,7 @@ class WordpressDevelopment extends Component {
 								<div className="services-list">
 									<div className="row">
 									{pagedata[1].cs_cards_details.map((node,index) => (
-											<div className="col-md-6 col-lg-4">
+											<div className="col-md-6 col-lg-4" key={index}>
 												<div className="service-box">
 													<div className="ss-title">
 														<h2 dangerouslySetInnerHTML={{__html: node.cs_title}} />
@@ -72,10 +75,59 @@ class WordpressDevelopment extends Component {
 							</div>
 						</div>
 					</section>
+					<section>
+						<div className="platform-section">
+							<div className="container">
+								<h2 className="section-title text-center">Platforms We Work On</h2>
+								{platform.map((node,index) => (
+									<div className={"platform-wrap "+node.iwc_section_class} key={index}>
+										<div className="row">
+											{node.iwc_section_class === 'odd' &&
+												<div className="col-md-7 platform-image-wrap">
+													<div className="image text-center">
+														{node.iwc_image !== null &&
+															<img src={node.iwc_image.source_url} alt="Platform odd"/>
+														}
+													</div>
+												</div>
+											}											
+											<div className="col-md-5 platform-content-wrap">
+												<div className="content-inner">
+													<div className="p-title d-flex align-items-center">
+														{node.iwc_icon !== null &&
+															<img src={node.iwc_icon.source_url} alt="Platform center" />
+														}
+														<h4>{node.iwc_title}</h4>
+													</div>
+													<div className="p-desc" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />														
+													<div className="know-more-btn">
+														{/* <Link to={`/${removePre(node.iwc_button_link)}`}>Know More</Link> */}
+													</div>
+												</div>
+											</div>
+											{node.iwc_section_class === 'even' &&
+												<div className="col-md-7 platform-image-wrap">
+													<div className="image text-center">
+														{node.iwc_image !== null &&
+															<img src={node.iwc_image.source_url} alt="Plateform even" />
+														}
+													</div>
+												</div>
+											}
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
+					</section>
 				</div>
-				<section>
-					<AboutProject />				
-				</section>
+				<AboutProject 
+					apsiwtch={acf.use_common_contact_section} 
+					apimage={acf.tuabp_image} 
+					aptitle={acf.tuabp_title} 
+					apcontent={acf.tuabp_content} 
+					apbuttontext={acf.tuabp_button_text} 
+					apbuttonlink={acf.tuabp_button_link} />
 	  </Layout>
 		)
 	}
@@ -96,6 +148,14 @@ export const query = graphql`
 			  }
 			  header_page_title
 			  home_mascot_class
+			  use_common_contact_section
+			  tuabp_title
+			  tuabp_image {
+				source_url
+			  }
+			  tuabp_content
+			  tuabp_button_text
+			  tuabp_button_link
 			  gen_content_modules_page {
 				... on WordPressAcf_gen_image_with_content {
 				  id
@@ -104,6 +164,11 @@ export const query = graphql`
 					  source_url
 					}
 					iwc_sub_desc
+					iwc_icon {
+						source_url
+					}
+					iwc_section_class
+					iwc_title
 				  }
 				}
 				... on WordPressAcf_gen_cards_section {

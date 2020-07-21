@@ -10,12 +10,14 @@ class EcommerceDevelopment extends Component {
 	render() {	
 		const data = this.props.data  
 		const acf = data.wordpressPage.acf.gen_content_modules_page
+		const tellus = data.wordpressPage.acf
 		const banner = acf[0].iwc_layout_details[0]
 		const services = acf[1].cs_cards_details
-		const platform = acf[2].iwc_layout_details		
+		const platform = acf[2].iwc_layout_details	
+		console.log(data);	
 		return(
 			<Layout>
-				<SEO title="E-commerce Development"/>
+				<SEO title="Web Application Development"/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="web-application-development">
 					<section>
@@ -120,9 +122,15 @@ class EcommerceDevelopment extends Component {
 							</div>
 						</div>
 					</section>
-					<section>
-						<AboutProject />				
-					</section>
+					
+					<AboutProject 
+					apsiwtch={tellus.use_common_contact_section} 
+					apimage={tellus.tuabp_image} 
+					aptitle={tellus.tuabp_title} 
+					apcontent={tellus.tuabp_content} 
+					apbuttontext={tellus.tuabp_button_text} 
+					apbuttonlink={tellus.tuabp_button_link} />				
+					
 				</div>
 	  		</Layout>
 		)
@@ -136,6 +144,14 @@ export const query = graphql`
 {
 	wordpressPage(wordpress_id: {eq: 7279}) {
 		acf {
+			use_common_contact_section
+			tuabp_title
+			tuabp_image {
+				source_url
+			}
+			tuabp_content
+			tuabp_button_text
+			tuabp_button_link
 		  gen_content_modules_page {
 			... on WordPressAcf_gen_image_with_content {
 			  id
