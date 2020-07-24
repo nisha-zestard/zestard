@@ -13,7 +13,8 @@ class EcommerceDevelopment extends Component {
 		const tellus = data.wordpressPage.acf
 		const banner = acf[0].iwc_layout_details[0]
 		const services = acf[1].cs_cards_details
-		const platform = acf[2].iwc_layout_details		
+		const platform = acf[2].iwc_layout_details	
+		//console.log(data.wordpressPage.acf);	
 		return(
 			<Layout>
 				<SEO title="E-commerce Development"/>
@@ -62,7 +63,7 @@ class EcommerceDevelopment extends Component {
 								<div className="services-list">
 									<div className="row">
 										{services.map((node, index) => (
-											<div className="col-md-6 col-lg-4">
+											<div className="col-md-6 col-lg-4" key={index}>
 												<div className="service-box">
 													<div className="ss-title">
 														<h2 dangerouslySetInnerHTML={{__html: node.cs_title}} />
@@ -81,7 +82,7 @@ class EcommerceDevelopment extends Component {
 							<div className="container">
 								<h2 className="section-title text-center">Platforms We Work On</h2>
 								{platform.map((node,index) => (
-									<div className={"platform-wrap "+node.iwc_section_class}>
+									<div className={"platform-wrap "+node.iwc_section_class} key={index}>
 										<div className="row">
 											{node.iwc_section_class === 'odd' &&
 												<div className="col-md-7 platform-image-wrap">
@@ -121,7 +122,14 @@ class EcommerceDevelopment extends Component {
 							</div>
 						</div>
 					</section>
-					<AboutProject apsiwtch={tellus.use_common_contact_section} />
+					<AboutProject 
+					apsiwtch={tellus.use_common_contact_section} 
+					apimage={tellus.tuabp_image} 
+					aptitle={tellus.tuabp_title} 
+					apcontent={tellus.tuabp_content} 
+					apbuttontext={tellus.tuabp_button_text} 
+					apbuttonlink={tellus.tuabp_button_link} />
+					{/* <AboutProject apsiwtch={tellus.use_common_contact_section} /> */}
 				</div>
 	  		</Layout>
 		)
