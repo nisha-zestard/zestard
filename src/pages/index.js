@@ -354,8 +354,8 @@ class Home extends Component {
                                     <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
                                     <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.featured_media.date}</li>
                                 </ul>
-                                {node.node.acf.pf_features !== null &&
-                                    <div dangerouslySetInnerHTML={{ __html: node.node.acf.pf_features }}/>
+                                {node.node.excerpt !== null &&
+                                    <div dangerouslySetInnerHTML={{ __html: node.node.excerpt }}/>
                                 }                                
                                 <div className="button">
                                     <Link to={`/blog/${removePre(node.node.link)}`} className="read-more">Read More</Link>
@@ -385,7 +385,6 @@ export const query = graphql`
               source_url
             }
             acf {
-		pf_features
               pf_image_with_responsive {
                 source_url
               }
