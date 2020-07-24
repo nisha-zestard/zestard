@@ -354,7 +354,7 @@ class Home extends Component {
                                     <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
                                     <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.featured_media.date}</li>
                                 </ul>
-                                {node.node.excerpt !== null &&
+                                {node.node.acf.pf_features !== null &&
                                     <div dangerouslySetInnerHTML={{ __html: node.node.acf.pf_features }}/>
                                 }                                
                                 <div className="button">
