@@ -192,6 +192,17 @@ export default ReactjsDevelopment
 
 export const query = graphql`
 {
+	allWordpressWpTestimonials {
+        edges {
+          node {
+            featured_media {
+              source_url
+            }
+            title
+            content
+          }
+        }
+      }
 	allWordpressPage(filter: {wordpress_id: {eq: 7452}}) {
 		edges {
 			node {
