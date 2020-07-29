@@ -22,8 +22,8 @@
     h2 {
         color: $primary-color;
         font-family: $primary-font;
-        font-size: 36px;
-        line-height: 42px;
+        font-size: 30px;
+        line-height: 36px;
         text-align: left;
         font-weight: 700;
         margin: 0px 0px 20px 0px;
@@ -77,8 +77,8 @@
         font-family: $primary-font;
         font-weight: bold;
         font-style: normal;
-        font-size: 36px;
-        line-height: 42px;
+        font-size: 30px;
+        line-height: 36px;
         margin-bottom: 0px;
         margin-top: 0px;
         text-align: center;
@@ -95,8 +95,8 @@
         color: #7b7b7b;
         font-weight: normal;
         font-style: normal;
-        font-size: 18px;
-        line-height: 28px;
+        font-size: 15px;
+        line-height: 25px;
         margin-bottom: 50px;
         text-align: center;
         text-transform: capitalize;
@@ -125,9 +125,10 @@
             }
             .title {
                 color: $primary-color;
+                font-family: $primary-font;
                 font-weight: 600;
                 font-style: normal;
-                font-size: 26px;
+                font-size: 22px;
                 line-height: 30px;
                 margin-bottom: 0px;
                 margin-top: 0px;
@@ -209,9 +210,9 @@
         padding: 50px 0;
     }
     .project-title, h2 {
-        font-size: 35px;
+        font-size: 30px;
         color: #f1f7f9;
-        line-height: 40px;
+        line-height: 36px;
         text-align: left;
         font-weight: 600;
         margin-bottom: 30px;
@@ -237,10 +238,8 @@
         }
     }
     p {
-        font-size: 18px;
         font-family: 'Open sans', sans-serif;
         color: rgb(241, 247, 249);
-        line-height: 1.25;
         text-align: left;
         font-weight: 400;
         margin-bottom: 0px;
@@ -259,8 +258,8 @@
         font-family: $primary-font;
         font-weight: bold;
         font-style: normal;
-        font-size: 36px;
-        line-height: 42px;
+        font-size: 30px;
+        line-height: 36px;
         margin-bottom: 0px;
         margin-top: 0px;
         margin-bottom: 50px;
@@ -327,7 +326,7 @@
                  }
             }
             span {
-                font-size: 20px;
+                font-size: 18px;
                 color: #0e61cc;
                 line-height: 30px;
                 text-align: left;

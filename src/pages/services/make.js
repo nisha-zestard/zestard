@@ -67,16 +67,18 @@ class Make extends Component {
 										<div className="col-lg-3 col-md-6" key={index}>
 											<Link to={`/${removePre(node.cs_learn_more_link)}`}>
 											<div className="card service-wrap">
-												<div className="service-icon">
-													{node.cs_icon !== null &&
-														<img src={node.cs_icon.source_url} className="main-image" alt="Service icon" />
-													}
-													{node.cs_hover_icon.source_url !== null &&
-														<img src={node.cs_hover_icon.source_url} className="hover-image"  alt="Service hover icon" />
-													}
+												<div className="card-header d-flex">
+													<div className="service-icon">
+														{node.cs_icon !== null &&
+															<img src={node.cs_icon.source_url} className="main-image" alt="Service icon" />
+														}
+														{node.cs_hover_icon.source_url !== null &&
+															<img src={node.cs_hover_icon.source_url} className="hover-image"  alt="Service hover icon" />
+														}
+													</div>
+													<h2 className="s-title" dangerouslySetInnerHTML={{__html: node.cs_title}} />
 												</div>
 												<div className="card-body">
-													<h2 className="s-title" dangerouslySetInnerHTML={{__html: node.cs_title}} />
 													{node.cs_content !== null &&
 														<div className="text" dangerouslySetInnerHTML={{__html:node.cs_content}} />
 													}

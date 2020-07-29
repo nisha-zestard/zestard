@@ -5,7 +5,7 @@ $primary-font: 'Lato', sans-serif;
 $secondary-font: 'Open Sans', sans-serif;
 
 $primary-color: #00104b;
-$primary-light: #667093;
+$primary-light: #404040;
 $secondary-color: #2a0845;
 $black: #000;
 $white: #ffffff;
@@ -32,27 +32,25 @@ a:hover{
     text-decoration: none;
 }
 body{
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 15px;
+    line-height: 25px;
     color: $primary-light;
     font-family: $secondary-font;
     @media #{$small-screen}{
-        font-size: 16px;
-        line-height: 26px;
+        
     }
 }
 img{
     margin: 0;
 }
 @mixin heading{
-    font-size: 36px;
-    line-height: 42px;
+    font-size: 30px;
+    line-height: 36px;
     color: $primary-color;
     font-family: $primary-font;
     font-weight: 700;
     @media #{$tablet-screen}{
-        font-size: 32px;
-        line-height: 35px;
+        
     }
     @media #{$small-screen}{
         font-size: 28px;
@@ -69,7 +67,7 @@ img{
 }
 @mixin link($color){
     font:{
-        size: 18px;
+        size: 16px;
         family: $primary-font;
         weight: bold;
     }
@@ -78,10 +76,10 @@ img{
     padding-right: 17px;
     &:after{
         content: "\f101";
-        font: normal normal normal 22px/1 FontAwesome;
+        font: normal normal normal 18px/1 FontAwesome;
         position: absolute;
         right: 15px;
-        top: 0;
+        top: 2px;
         transition: all 0.5s;
         opacity: 0;
     }

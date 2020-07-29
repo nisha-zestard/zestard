@@ -65,7 +65,8 @@
     }
     .page-header{
         .title{
-            &:after {width: 73px;
+            &:after {
+            width: 73px;
             background: #33a2de;
             height: 5px;
             content: "";
@@ -189,7 +190,7 @@
 .partner-type {
     padding: 70px 0px;
     .title {
-        font-size: 36px;
+        font-size: 30px;
         font-family: $primary-font;
         color: $primary-color;
         line-height: 30px;
@@ -206,8 +207,6 @@
         display: block;
     }
     p {
-        font-size: 18px;
-        line-height: 34px;
         text-align: left;
         margin: 0px;
         font-weight: 400;
@@ -238,9 +237,7 @@
     }
     p {
         padding: 6px;
-        font-size: 18px;
         font-family: 'Open Sans', sans-serif;
-        line-height: 28px;
         text-align: left;
     }
 }
@@ -256,8 +253,6 @@
     p {
         padding: 0px;
         color: #fff;
-        font-size: 18px;
-        line-height: 28px;
         text-align: left;
     }
 }

@@ -31,8 +31,6 @@
         }
     }
     .content{
-        font-size: 18px;
-        line-height: 28px;
         padding: 0 130px;
         @media #{$medium-screen}{
             padding: 0;
@@ -74,15 +72,13 @@
                     }
                 }
                 .service-text{
-                    font-size: 18px;
-                    line-height: 28px;
                     margin-bottom: 30px;
                     @media #{$tablet-screen}{
                         line-height: 26px;
                     }
                 }
                 .service-link{
-                    @include theme-btn($bgcolor: $black, $font-size: 18px, $padding: 11px 44px, $border-radius: 7px);
+                    @include theme-btn($bgcolor: $black, $font-size: 17px, $padding: 10px 35px, $border-radius: 7px);
                 }
             }
         }
@@ -139,15 +135,12 @@
         }
         .hire-dev-text{
             p{
-                font-size: 18px;
-                line-height: 27px;
                 margin-bottom: 45px;
             }
             ul{
                 margin: 0 0 45px;
                 list-style: none;
                 li{
-                    font-size: 18px;
                     position: relative;
                     padding-left: 40px;
                     margin-bottom: 20px;
