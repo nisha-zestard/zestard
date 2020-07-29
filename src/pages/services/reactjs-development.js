@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../../components/layout"
 import Header from "../../components/header";
 import SEO from "../../components/seo"
+import Slider from "react-slick";
 import { removePre } from './../../util/common'
 import AboutProject from '../../components/aboutproject'
 
@@ -11,8 +12,17 @@ class ReactjsDevelopment extends Component {
 		const data = this.props.data  
 		const acf = data.allWordpressPage.edges[0].node.acf
 		const pagedata = acf.gen_content_modules_page
-		// const platform = pagedata[2].iwc_layout_details
-		console.log(acf);
+		const testimonial = data.allWordpressWpTestimonials.edges;
+		
+		var testisettings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1
+		};
+		
+		console.log(pagedata);
 		return(
 			<Layout>
 				<SEO title="Website Development"/>
@@ -75,6 +85,52 @@ class ReactjsDevelopment extends Component {
 							</div>
 						</div>
 					</section>
+					{/* Testimonials section */}
+					<section>
+						<div className="testimonials-section">
+							<div className="container">
+								<div className="title text-center">
+									<h2>Testimonials</h2>
+								</div>
+								<div className="container">
+									<div id="carouselTestimonial" className="carousel carousel-testimonial slide" data-ride="carousel">
+										<div className="carousel-inner">                        
+										<Slider ref={c => (this.slider = c)} {...testisettings}>
+											{testimonial.map((node,index) => (
+												<div className={index=0? 'carousel-item': 'carousel-item active'} key={index}>
+													<div className="row">
+														<div className="col-md-5">
+															<div className="testimonial-img">
+																{node.node.featured_media.source_url !== null &&                                                
+																	<img className="d-block w-100" src={node.node.featured_media.source_url} alt={node.node.title} />
+																}
+															</div>
+														</div>
+														<div className="col-md-7">
+															<h5 className="title">{node.node.title}</h5>
+															{node.node.content !== null &&
+																<div dangerouslySetInnerHTML={{ __html: node.node.content }} />
+															}                                            
+															<div className="next-pre">
+																<button className="button" onClick={this.previous}>
+																	<i className="fa fa-angle-left" aria-hidden="true"></i>
+																</button> 
+																<button className="button" onClick={this.next}>
+																	<i className="fa fa-angle-right" aria-hidden="true"></i>
+																</button> 
+															</div>
+														</div>
+													</div>
+												</div>
+											))}
+										</Slider>                            
+										</div>                        
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					
 					{/* <section>
 						<div className="platform-section">
 							<div className="container">
@@ -121,13 +177,13 @@ class ReactjsDevelopment extends Component {
 						</div>
 					</section> */}
 				</div>
-				{/* <AboutProject 
+				<AboutProject 
 					apsiwtch={acf.use_common_contact_section} 
 					apimage={acf.tuabp_image} 
 					aptitle={acf.tuabp_title} 
 					apcontent={acf.tuabp_content} 
 					apbuttontext={acf.tuabp_button_text} 
-					apbuttonlink={acf.tuabp_button_link} /> */}
+					apbuttonlink={acf.tuabp_button_link} />
 	  </Layout>
 		)
 	}
@@ -137,6 +193,17 @@ export default ReactjsDevelopment
 
 export const query = graphql`
 {
+	allWordpressWpTestimonials {
+        edges {
+          node {
+            featured_media {
+              source_url
+            }
+            title
+            content
+          }
+        }
+    }
 	allWordpressPage(filter: {wordpress_id: {eq: 7442}}) {
 		edges {
 			node {
