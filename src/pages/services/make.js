@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "./../../components/layout"
 import Header from "./../../components/header"
 import SEO from "./../../components/seo"
+import Slider from "react-slick";
 import { removePre } from './../../util/common'
 import Credentialsimage from "./../../assets/images/credientials-bg.png"
 import Zectopus from "./../../assets/images/zectopus.png"
@@ -17,6 +18,40 @@ class Make extends Component {
 		const credential = data.allWordpressWpCredentials.edges;
 		const portfolio = data.allWordpressWpPortfolio.edges;
 		
+		var clilogosettings = {
+            dots: true,
+            infinite: false,
+            speed: 500,
+            autoplay: true,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                  }
+                },
+                {
+                  breakpoint: 600,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+              ]
+        }; 
 		return(
 			<Layout>
 				<SEO title="Make"/>
@@ -113,7 +148,7 @@ class Make extends Component {
 														<div dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
 														
 													}
-													<Link to={node.node.acf.technology_custom_link}>Learn More</Link>	
+													<Link to={`/${removePre(node.node.acf.technology_custom_link)}`}>Learn More</Link>	
 												</div>
 											</div>
 										</div>
@@ -123,7 +158,30 @@ class Make extends Component {
 						</div>
 					</div>
 				</section>
+				{/* Credentials section */}
 				<section>
+					<div className="credentials-section">
+						<div className="container">
+							<div className="title text-center">
+								<h2>Our Credentials</h2>
+							</div>  
+							<ul>                
+								<Slider {...clilogosettings}>
+									{credential.map((node,index) => (                            
+										<li key={index}>                                
+												{node.node.featured_media !== null &&
+													<div className="box">
+													<img src={node.node.featured_media.source_url} alt="cre-img" />
+													</div>
+												}                           
+										</li>
+									))} 
+								</Slider>                   
+							</ul>
+						</div>
+					</div>
+				</section>
+				{/* <section>
 				<div className="our-credientials">
 					<div className="container">
 					<div className="title text-center">
@@ -144,7 +202,7 @@ class Make extends Component {
 					</div>
 					</div>
 				</div>
-				</section>
+				</section> */}
 				<section>
 					<div className="recent-work">
 						<div className="container">
