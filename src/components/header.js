@@ -17,9 +17,23 @@ class Header extends React.Component {
   componentDidMount() {    
     document.addEventListener('scroll', () => { 
       const stickyhead = document.getElementsByClassName('site-header')[0];  
+      const stickyid = document.getElementsByClassName('mobile-view')[0]; 
+      const shwmenu = document.getElementsByClassName('navbar-collapse')[0];      
+      const menudiv = document.getElementById("mobmenu");      
+      console.log(stickyid);
       const isTop = window.scrollY ;     
       if (isTop >= 100) { 
-        stickyhead.classList.add('sticky-header'); }
+        stickyhead.classList.add('sticky-header'); 
+        stickyid.classList.remove('show-mob-view');
+        shwmenu.classList.remove('show');
+        menudiv.classList.remove('mobmubtn');
+        if(menudiv.innerHTML === '<div></div><div></div><div></div>') {            
+          menudiv.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
+        }
+        else  {   
+          menudiv.innerHTML = "<div></div><div></div><div></div>";
+        } 
+      }
       else { 
         stickyhead.classList.remove('sticky-header');
     
