@@ -41,6 +41,9 @@
                         font-size: 15px;
                         line-height: 16px;
                         color: $primary-light;
+                        @media screen and (max-width: 362px){
+                            font-size: 12px; 
+                        }
                     }
                 }
             }
@@ -80,7 +83,7 @@
                 }
             }
             .ss-content{
-                min-height: 125px;
+                min-height: 190px;
                 @media screen and (max-width: 1309px){
                     min-height: 125px;
                 }
@@ -96,12 +99,21 @@
 }
 .platform-section{
     padding: 0 0 100px 0;
+    @media #{$small-screen}{
+        padding: 0 0 50px 0;
+    }
     .section-title{
         @include heading;
         margin-bottom: 90px;
+        @media #{$small-screen}{
+            margin-bottom: 50px;
+        }
     }
     .platform-wrap{
         margin-bottom: 100px;
+        @media #{$small-screen}{
+            margin-bottom: 50px;
+        }
         .platform-content-wrap{
             .content-inner{
                 .p-title{
@@ -128,6 +140,14 @@
                         @include theme-btn($bgcolor: $black, $font-size: 16px, $padding: 10px 30px, $border-radius: 7px);
                         font-weight: normal;
                     }
+                }
+            }
+        }
+        &.even{
+            .platform-content-wrap{
+                @media #{$small-screen} {
+                    display: flex;
+                    order: 2;
                 }
             }
         }

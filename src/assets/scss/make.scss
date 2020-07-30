@@ -74,6 +74,7 @@
                 .s-title{
                     @include sub-heading(18px);
                     margin-bottom: 30px;
+                    line-height: 25px;
                     min-height: 42px; 
                     display: flex;
                     align-items: center;
@@ -98,7 +99,7 @@
                     margin-bottom: 30px;
                     p{
                         color: $primary-light;
-                        min-height: 150px;
+                        min-height: 190px;
                         @media #{$medium-screen}{
                             min-height: 200px;
                         }
