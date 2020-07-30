@@ -379,6 +379,7 @@
     }
     .portfolio-list{
         .portfolio-wrap{
+            position: relative;
             @media #{$small-screen}{
                 margin-bottom: 30px;
             }
@@ -409,6 +410,11 @@
                     left: 30px;
                     padding-right: 15px;
                 }
+                @media #{$mobile-screen}{
+                    top: 15px;
+                    left: 15px;
+                    padding-right: 10px;
+                }
                 .sub-title{
                     font:{
                         size: 20px;
@@ -418,6 +424,10 @@
                     color: $white;
                     display: inline-block;
                     margin-bottom: 10px;
+                    @media #{$mobile-screen}{
+                        font-size: 16px;
+                        margin-bottom: 0;
+                    }
                 }
                 .portfolio-title{
                     @include heading;
@@ -429,6 +439,9 @@
                     margin-bottom: 45px;
                     @media #{$tablet-screen}{
                         margin-bottom: 20px;
+                    }
+                    @media #{$mobile-screen}{
+                        margin-bottom: 5px;
                     }
                 }
                 .portfolio-link{

@@ -21,6 +21,9 @@
                     margin: 0 8px;
                     position: relative;
                     line-height: 14px;
+                    @media #{$mobile-screen}{
+                        margin: 0 6px;
+                    }
                     &:after{
                         content: "";
                         width: 1px;
@@ -112,7 +115,10 @@
     .platform-wrap{
         margin-bottom: 100px;
         @media #{$small-screen}{
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            &:last-child{
+                margin-bottom: 0;
+            }
         }
         .platform-content-wrap{
             .content-inner{
