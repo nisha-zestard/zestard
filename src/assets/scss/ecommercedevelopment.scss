@@ -56,6 +56,9 @@
     }
     .services-list{
         padding: 0 80px;
+        @media #{$medium-screen}{
+            padding: 0;
+        }
         .service-box{
             background-color: $white;
             border-radius: 5px;
@@ -70,12 +73,21 @@
                     font-family: $primary-font;
                     margin-bottom: 20px;
                     font-weight: bold;
+                    min-height: 64px;
+                    @media #{$small-screen}{
+                        min-height: inherit;
+                    }
                 }
             }
             .ss-content{
+                min-height: 125px;
+                @media screen and (max-width: 1309px){
+                    min-height: 125px;
+                }
+                @media #{$small-screen}{
+                    min-height: inherit;
+                }
                 p{
-                    font-size: 18px;
-                    line-height: 30px;
                     margin: 0;
                 }
             }
@@ -83,7 +95,7 @@
     }
 }
 .platform-section{
-    padding: 100px 0 0;
+    padding: 0 0 100px 0;
     .section-title{
         @include heading;
         margin-bottom: 90px;
@@ -98,7 +110,7 @@
                         margin-right: 15px;
                     }
                     h4{
-                        font-size: 28px;
+                        font-size: 26px;
                         font-weight: 700;
                         color: $primary-color;
                         font-family: $primary-font;
@@ -108,14 +120,12 @@
                 .p-desc{
                     margin-bottom: 20px;
                     p{
-                        font-size: 18px;
-                        line-height: 30px;
                         margin: 0;
                     }
                 }
                 .know-more-btn{
                     a{
-                        @include theme-btn($bgcolor: $black, $font-size: 18px, $padding: 11px 44px, $border-radius: 7px);
+                        @include theme-btn($bgcolor: $black, $font-size: 16px, $padding: 10px 30px, $border-radius: 7px);
                         font-weight: normal;
                     }
                 }

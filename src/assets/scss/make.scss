@@ -14,7 +14,7 @@
         .title{
             span{
                 font:{
-                    size: 20px;
+                    size: 17px;
                     family: $primary-font;
                     weight: 700;
                 }
@@ -48,8 +48,6 @@
             }
             .content{
                 p{
-                    font-size: 18px;
-                    line-height: 28px;
                     margin: 0;
                     @media #{$medium-screen}{
                         line-height: 30px;
@@ -69,38 +67,43 @@
                 margin-bottom: 30px;
                 padding: 30px 15px;
             }
-            .service-icon{
-                position: relative;
-                margin-bottom: 25px;
-                min-height: 82px;
-                .hover-image{
-                    display: none;
-                }
-            }
-            .card-body{
+            .card-header{
                 padding: 0;
+                background-color: transparent;
+                border: 0;
                 .s-title{
                     @include sub-heading(18px);
                     margin-bottom: 30px;
                     min-height: 42px; 
                     display: flex;
                     align-items: center;
+                    width: calc(100% - 100px);
                     @media #{$medium-screen}{
                         font-size: 17px;
                     }
                 }
+                .service-icon{
+                    position: relative;
+                    margin-bottom: 25px;
+                    min-height: 82px;
+                    width: 100px;
+                    .hover-image{
+                        display: none;
+                    }
+                }
+            }
+            .card-body{
+                padding: 0;
                 .text{
                     margin-bottom: 30px;
                     p{
-                        font-size: 18px;
-                        line-height: 28px;
                         color: $primary-light;
-                        min-height: 252px;
+                        min-height: 150px;
                         @media #{$medium-screen}{
-                            min-height: 280px;
+                            min-height: 200px;
                         }
                         @media #{$tablet-screen}{
-                            min-height: 168px;
+                            min-height: 130px;
                         }
                         @media #{$small-screen}{
                             min-height: inherit; 
@@ -119,6 +122,11 @@
             }
             &:hover{
                 background: linear-gradient( -47deg, rgb(71,96,255) 0%, rgb(13,204,255) 100%);
+                .card-header{
+                    .s-title{
+                        color: $white;
+                    }
+                }
                 .card-body{
                     .s-title, .text p, .s-link{
                         color: $white;

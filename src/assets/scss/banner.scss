@@ -18,7 +18,7 @@
     .banner-content{
         h1{
             font:{
-                size: 50px;
+                size: 40px;
                 family: $primary-font;
                 weight: 700;
             }
@@ -41,9 +41,9 @@
             color: #cfdefb;
             font:{
                 family: $primary-font;
-                size: 22px;
+                size: 18px;
             }
-            line-height: 34px;
+            line-height: 32px;
             @media #{$tablet-screen}{
                 font-size: 20px;
                 line-height: 22px;
@@ -79,8 +79,8 @@
             color: $primary-color;
             text-transform: inherit;
             font-family: $primary-font;
-            font-size: 50px;
-            line-height: 65px;
+            font-size: 40px;
+            line-height: 50px;
             font-weight: 700;
             margin-bottom: 40px;
             @media #{$medium-screen}{
@@ -95,8 +95,8 @@
         }
         p{
             color: $primary-light;
-            font-size: 22px;
-            line-height: 34px;
+            font-size: 18px;
+            line-height: 30px;
             margin-bottom: 0;
             @media #{$medium-screen}{
                 font-size: 18px;
@@ -118,12 +118,12 @@
     }
 }
 .sub-service-baner{
-    padding: 80px 0 130px;
+    padding: 80px 0;
     .baner-content-wrap{
         .content-wrap{
             p{
-                font-size: 18px;
-                line-height: 34px;
+                font-size: 16px;
+                line-height: 32px;
                 margin-bottom: 30px;
                 &:last-child{
                     margin-bottom: 8;

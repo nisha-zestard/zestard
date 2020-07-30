@@ -19,7 +19,7 @@
                 h3 {
                     font-family: $primary-font;
                     font-weight: 500;
-                    font-size: 24px;
+                    font-size: 22px;
                     margin-bottom: 20px;
                     color: $primary-color;
                     margin-left: 0px;
@@ -32,8 +32,6 @@
             padding-right: 0px;
             margin-top: -0px;
             font-family: $secondary-font;
-            font-size: 18px;
-            line-height: 28px;
             text-align: justify;
             margin-bottom: 15px;
             a:hover{
@@ -101,8 +99,6 @@
                     color: #637381;
                     font-family: $secondary-font;
                     font-weight: 400;
-                    font-size: 18px;
-                    line-height: 28px;
                     display: block; /* or inline-block */
                     text-overflow: ellipsis;
                     word-wrap: break-word;
@@ -119,8 +115,8 @@
                     color: #23527c;
                     font-family: $secondary-font;
                     font-weight: 400;
-                    font-size: 18px;
-                    line-height: 28px;
+                    font-size: 17px;
+                    line-height: 26px;
                 }
             }
             .footer-blog {
@@ -169,10 +165,10 @@
     .blog-post{
         h1{
             margin-top: 0;
-            font-size: 44px;
+            font-size: 36px;
             font-weight: 900;
             text-align: left;
-            line-height: 58px;
+            line-height: 40px;
             padding-right: 15px;
             margin-bottom: 15px;
             color: $primary-color;
@@ -353,14 +349,14 @@
                     margin: 20px;
                 }
                 ul li, ol li{
-                    font-size: 18px !important;
+                    font-size: 15px !important;
                     line-height: 2;
                     font-family: $secondary-font;
                     strong {
                         color: $primary-color;
                         font-weight: bold;
-                        font-size: 18px !important;
-                        line-height: 28px;
+                        font-size: 15px !important;
+                        line-height: 25px;
                         font-family: $secondary-font;
                     }
                 }
@@ -381,8 +377,6 @@
                 }
                 p{
                     font-family: $secondary-font;
-                    font-size: 18px;
-                    line-height: 28px;
                     text-align: justify;
                     margin-bottom: 15px;
                     padding: 0px;
@@ -604,7 +598,7 @@
                 }
                 .card-description{
                     font-weight: 400;
-                    font-size: 16px;
+                    font-size: 15px;
                 }
                 .card-description{
                     a.moretag{
