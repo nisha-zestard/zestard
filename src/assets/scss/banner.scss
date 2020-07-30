@@ -119,6 +119,14 @@
 }
 .sub-service-baner{
     padding: 80px 0;
+    @media #{$mobile-screen}{
+        padding: 40px 0;
+    }
+    .baner-image-wrap{
+        @media #{$small-screen}{
+            margin-bottom: 30px;
+        }
+    }
     .baner-content-wrap{
         .content-wrap{
             p{

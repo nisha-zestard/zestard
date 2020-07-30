@@ -12,8 +12,8 @@
         }
     }
     p {
-        font-size: 15px;
-        line-height: 25px;
+        font-size: 16px;
+        line-height: 26px;
         margin-bottom: 0px;
         @media #{$small-screen} {
             font-size: 16px;
@@ -385,6 +385,9 @@
             margin: 35px auto 20px;
             position: relative;
             max-width: 320px;
+            @media screen and (max-width: 420px){
+                max-width: 240px;
+            }
             &::before {
                 content: "";
                 background-image: url('../../assets/images/left-quote.png');
@@ -407,6 +410,12 @@
                 bottom: -20px;
                 position: absolute;
                 z-index: -1;
+                @media screen and (max-width: 420px){
+                    width: 120px;
+                    height: 120px;
+                    right: -10px;
+                    bottom: -10px;
+                }
             }
         }
         .title {
