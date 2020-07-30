@@ -553,10 +553,15 @@
         .card {
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
         }
+        .rel-bog-wrap{
+            @media #{$small-screen}{
+                margin-bottom: 30px;
+            }
+        }
         .card-blog{
             border-radius: 0;
             overflow: hidden !important;
-            height: calc(100% - 60px);
+            height: auto;
             .card-image{
                 transition: .3s ease-in-out;
                 margin-bottom: 0px;
@@ -573,7 +578,13 @@
             }
             .content{
                 padding: 15px;
-                    h4{
+                @media #{$tablet-screen}{
+                    min-height: 330px;
+                }
+                @media #{$small-screen}{
+                    min-height: inherit;
+                }
+                h4{
                     margin-top: 5px;
                     line-height: 30px;
                     font-style: normal;
@@ -582,10 +593,10 @@
                     margin: 0px;
                     margin-bottom: 15px;
                     @media (min-width: 768px) and (max-width: 991px){
-                     font-size: 18px;
-                     line-height: 28px;
+                        font-size: 18px;
+                        line-height: 28px;
                     }
-                    }
+                }
                 .category{
                     a{
                         font-style: normal;
@@ -649,7 +660,7 @@
                     flex: 0 0 100%;
                     max-width: 100%;
                 }
-                @media screen and (max-width:768px){
+                @media screen and (max-width:767px){
                     flex: 0 0 50%;
                     max-width: 50%;
                 }
@@ -661,7 +672,7 @@
                     @media screen and (min-width:1024px){
                         text-align: right;
                     }
-                    @media screen and (max-width: 768px) and (min-width:401px) {
+                    @media screen and (max-width: 767px) and (min-width:401px) {
                         text-align: right;
                     }
                 }
