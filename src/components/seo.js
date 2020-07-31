@@ -71,7 +71,30 @@ function SEO({ description, lang, meta, title }) {
     >
       <script src="https://code.jquery.com/jquery-1.12.4.min.js" crossorigin="anonymous"></script>
       {/* <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script> */}
-      </Helmet>
+      <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Zestard Technologies",
+            "url": "https://www.zestard.com/",
+            "logo": "https://api.zestard.com/wp-content/uploads/2020/06/zestard-logo.png",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+917940320305",
+              "contactType": "customer service",
+              "areaServed": ["US","IN"],
+              "availableLanguage": "en"
+            },
+            "sameAs": [
+              "https://www.facebook.com/zestard",
+              "https://twitter.com/zestardtech",
+              "https://www.linkedin.com/company/zestard"
+            ]
+          }
+        `}
+      </script>
+    </Helmet>
   )
 }
 

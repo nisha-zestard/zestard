@@ -3,7 +3,7 @@ module.exports = {
     title: `Zestard Technologies`,
     description: `Offshore Website Design & Development Company | Zestard Technologies`,
     author: `@zestard`,
-    siteURL: 'https://zestard-new.netlify.app/',
+    siteURL: 'https://zestard-mmm.netlify.app',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,6 +18,19 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        configFile: 'robots-txt.config.js'
+      }
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://zestard-mmm.netlify.app`,
+        stripQueryString: true,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
@@ -26,7 +39,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-      icon: `src/assets/images/favicon-96x96.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/favicon-96x96.png`, // This path is relative to the root of the site.
       },
     },
     {
