@@ -12,7 +12,7 @@ class EcommerceDevelopment extends Component {
 		const acf = data.wordpressPage.acf.gen_content_modules_page
 		const tellus = data.wordpressPage.acf
 		const banner = acf[0].iwc_layout_details[0]
-		const services = acf[1].cs_cards_details
+		// const services = acf[1].cs_cards_details
 		const platform = acf[2].iwc_layout_details	
 		//console.log(data.wordpressPage.acf);	
 		return(
