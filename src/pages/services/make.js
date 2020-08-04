@@ -5,8 +5,8 @@ import Header from "./../../components/header"
 import SEO from "./../../components/seo"
 import Slider from "react-slick";
 import { removePre } from './../../util/common'
-import Credentialsimage from "./../../assets/images/credientials-bg.png"
-import Zectopus from "./../../assets/images/zectopus.png"
+// import Credentialsimage from "./../../assets/images/credientials-bg.png"
+// import Zectopus from "./../../assets/images/zectopus.png"
 import AboutProject from './../../components/aboutproject'
 
 class Make extends Component {

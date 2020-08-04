@@ -4,7 +4,7 @@ import Layout from "../../components/layout"
 import Header from "../../components/header";
 import SEO from "../../components/seo"
 import Slider from "react-slick";
-import { removePre } from './../../util/common'
+// import { removePre } from './../../util/common'
 import AboutProject from '../../components/aboutproject'
 
 class ReactjsDevelopment extends Component {

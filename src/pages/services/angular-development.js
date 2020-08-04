@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../../components/layout"
 import Header from "../../components/header";
 import SEO from "../../components/seo"
-import { removePre } from './../../util/common'
+// import { removePre } from './../../util/common'
 import Slider from "react-slick";
 import AboutProject from '../../components/aboutproject'
 
