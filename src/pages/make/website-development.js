@@ -12,7 +12,7 @@ class WordpressDevelopment extends Component {
 		const acf = data.allWordpressPage.edges[0].node.acf
 		const pagedata = acf.gen_content_modules_page
 		const platform = pagedata[2].iwc_layout_details
-		console.log(platform);
+		//console.log(platform);
 		return(
 			<Layout>
 				<SEO title="Website Development"/>

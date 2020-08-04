@@ -22,7 +22,7 @@ class ReactjsDevelopment extends Component {
             slidesToScroll: 1
 		};
 		// const platform = pagedata[2].iwc_layout_details
-		console.log(acf);
+		//console.log(acf);
 		return(
 			<Layout>
 				<SEO title="Website Development"/>

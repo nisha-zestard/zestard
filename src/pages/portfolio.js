@@ -13,7 +13,7 @@ class Portfolio extends Component {
             const pcategoryid = el.target.getAttribute("data-pcid"); 
             var setlid;
             for(var i=0; i< portfoliolist.length; i++) {     
-                console.log(portfoliolist[i].node.portfolio_category[0]);           
+                //console.log(portfoliolist[i].node.portfolio_category[0]);           
                 if(pcategoryid == portfoliolist[i].node.portfolio_category[0]){
                     var titlelist = portfoliolist[i].node.title
                     setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'block';

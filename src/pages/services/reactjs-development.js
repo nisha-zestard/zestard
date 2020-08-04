@@ -22,7 +22,7 @@ class ReactjsDevelopment extends Component {
             slidesToScroll: 1
 		};
 		
-		console.log(pagedata);
+		//console.log(pagedata);
 		return(
 			<Layout>
 				<SEO title="Website Development"/>

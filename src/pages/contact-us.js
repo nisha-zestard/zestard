@@ -9,7 +9,7 @@ import SEO from "../components/seo";
 import axios from 'axios'
 
 const validEmailRegex = RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/);
-const validPhoneRegex = RegExp(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/);
+// const validPhoneRegex = RegExp(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/);
 
 class ContactUs extends Component {
   
@@ -93,14 +93,14 @@ class ContactUs extends Component {
         'message': message  
       })
       .then((response) => {
-        console.log("response----"+response);
+        //console.log("response----"+response);
         this.setState({
           submitted: true,
           status: "Thank you. We've received your Inquiry. We'll get back to you soon."
         });
       })
       .catch((error) => {
-        console.log("error---"+error);
+        //console.log("error---"+error);
       });
     } else {
       this.setState({
