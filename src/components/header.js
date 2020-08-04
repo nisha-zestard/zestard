@@ -20,7 +20,7 @@ class Header extends React.Component {
       const stickyid = document.getElementsByClassName('mobile-view')[0]; 
       const shwmenu = document.getElementsByClassName('navbar-collapse')[0];      
       const menudiv = document.getElementById("mobmenu");      
-      console.log(stickyid);
+      //console.log(stickyid);
       const isTop = window.scrollY ;     
       if (isTop >= 100) { 
         stickyhead.classList.add('sticky-header'); 
