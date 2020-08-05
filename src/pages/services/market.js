@@ -1,8 +1,9 @@
 import React, { Component } from "react"
 import { graphql, Link } from "gatsby"
-import Credentialsimage from "./../../assets/images/credientials-bg.png"
-import Zectopus from "./../../assets/images/zectopus.png"
+// import Credentialsimage from "./../../assets/images/credientials-bg.png"
+// import Zectopus from "./../../assets/images/zectopus.png"
 import SEO from "./../../components/seo"
+import Slider from "react-slick";
 import Layout from "./../../components/layout"
 import Header from "./../../components/header"
 import AboutProject from './../../components/aboutproject'
@@ -12,8 +13,43 @@ class Market extends Component {
 		const data = this.props.data;
 		const page = data.allWordpressPage.edges[0].node.acf;
 		const genmodule = page.gen_content_modules_page;
-		const creden = data.allWordpressWpCredentials.edges;
+		const credential = genmodule[4].cred_logos_repeater;
 		const portfolio = data.allWordpressWpPortfolio.edges;
+		console.log(genmodule);
+		var clilogosettings = {
+            dots: true,
+            infinite: false,
+            speed: 500,
+            autoplay: true,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                  }
+                },
+                {
+                  breakpoint: 600,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+              ]
+        }; 
 		return(
 			<Layout>
 				<SEO title="Market"/>
@@ -103,7 +139,30 @@ class Market extends Component {
 						</div>
 					</div>
 				</section>
+				{/* Credentials section */}
 				<section>
+					<div className="credentials-section">
+						<div className="container">
+							<div className="title text-center">
+								<h2>Our Credentials</h2>
+							</div>  
+							<ul>                
+								<Slider {...clilogosettings}>
+									{credential.map((node,index) => (                            
+										<li key={index}>                                
+												{node.cred_logos_list.source_url !== null &&
+													<div className="box">
+													<img src={node.cred_logos_list.source_url} alt="cre-img" />
+													</div>
+												}                           
+										</li>
+									))} 
+								</Slider>                   
+							</ul>
+						</div>
+					</div>
+				</section>
+				{/* <section>
 				<div className="our-credientials">
 					<div className="container">
 					<div className="title text-center">
@@ -124,7 +183,7 @@ class Market extends Component {
 					</div>
 					</div>
 				</div>
-				</section>
+				</section> */}
 				<section>
 					<div className="recent-work">
 						<div className="container">
@@ -248,6 +307,14 @@ export const query = graphql`{
 				  css_content
 				  css_select_case_studies
 				  css_section_class
+				}
+				... on WordPressAcf_gen_credential_logos {
+					id
+					cred_logos_repeater {
+					  cred_logos_list {
+						source_url
+					  }
+					}
 				}
 			  }
 			}

@@ -15,9 +15,9 @@ class Make extends Component {
 		const pageacf = data.allWordpressPage.edges[0].node.acf;
 		const acfgen = pageacf.gen_content_modules_page;
 		const technology = data.allWordpressWpTechnology.edges;
-		const credential = data.allWordpressWpCredentials.edges;
+		const credential = acfgen[3].cred_logos_repeater;
 		const portfolio = data.allWordpressWpPortfolio.edges;
-		
+		console.log(acfgen);
 		var clilogosettings = {
             dots: true,
             infinite: false,
@@ -171,9 +171,9 @@ class Make extends Component {
 								<Slider {...clilogosettings}>
 									{credential.map((node,index) => (                            
 										<li key={index}>                                
-												{node.node.featured_media !== null &&
+												{node.cred_logos_list.source_url !== null &&
 													<div className="box">
-													<img src={node.node.featured_media.source_url} alt="cre-img" />
+													<img src={node.cred_logos_list.source_url} alt="cre-img" />
 													</div>
 												}                           
 										</li>
@@ -338,6 +338,14 @@ export const query = graphql`{
 				  css_select_case_studies
 				  css_section_class
 				}
+				... on WordPressAcf_gen_credential_logos {
+					id
+					cred_logos_repeater {
+					  cred_logos_list {
+						source_url
+					  }
+					}
+				}  
 			  }
 			}
 		  }

@@ -25,13 +25,14 @@ class Home extends Component {
         const data = this.props.data  
         const header = data.allWordpressPage.edges[0].node.acf;
         const clientlogo = data.allWordpressWpClients.edges;
+        
         const expertise = header.home_content_modules_page[0];
         const counter = data.wordpressAcfOptions.options;
         const testimonial = data.allWordpressWpTestimonials.edges;
-        const credential = data.allWordpressWpCredentials.edges;
+        const credential = header.gen_content_modules_page[3].cred_logos_repeater;
         const recentpost = data.allWordpressPost.edges;
         const portfolio = data.allWordpressWpPortfolio.edges;
-
+        console.log(credential);
         var testisettings = {
             dots: true,
             infinite: true,
@@ -43,7 +44,7 @@ class Home extends Component {
         var clilogosettings = {
             dots: true,
             infinite: false,
-            speed: 500,
+            speed: 1000,
             autoplay: true,
             slidesToShow: 6,
             slidesToScroll: 6,
@@ -162,35 +163,35 @@ class Home extends Component {
     </section>
     {/* Portfolio-section */}
     <section>
-	<div className="recent-work portfolio">
-		<div className="container">
-			<div className="title text-left">
-				<h2>Our Portfolio</h2>
-			</div>
-			<div className="portfolio-list">
-				<div className="row">
-                    {portfolio.map((node,index) => (
-                        <div className={node.node.title === "Jadeblue" ? 'col-md-12 full-col' : 'col-md-6 half-col'} key={index}>
-                            <div className="portfolio-wrap">
-                                <div className="portfolio-image">
-                                    {node.node.acf.pf_image_with_responsive.source_url !== null &&
-                                        <img src={node.node.acf.pf_image_with_responsive.source_url} alt={node.node.title} />
-                                    }                                    
-                                </div>
-                                <div className="portfolio-content">
-                                    <span className="sub-title">Web Platform</span>
-                                    <h2 className="portfolio-title">{node.node.title}</h2>
-                                    <p dangerouslySetInnerHTML={{ __html: node.node.excerpt }} />
-                                    <Link to="#" className="portfolio-link">Read more</Link>
+        <div className="recent-work portfolio">
+            <div className="container">
+                <div className="title text-left">
+                    <h2>Our Portfolio</h2>
+                </div>
+                <div className="portfolio-list">
+                    <div className="row">
+                        {portfolio.map((node,index) => (
+                            <div className={node.node.title === "Jadeblue" ? 'col-md-12 full-col' : 'col-md-6 half-col'} key={index}>
+                                <div className="portfolio-wrap">
+                                    <div className="portfolio-image">
+                                        {node.node.acf.pf_image_with_responsive.source_url !== null &&
+                                            <img src={node.node.acf.pf_image_with_responsive.source_url} alt={node.node.title} />
+                                        }                                    
+                                    </div>
+                                    {/* <div className="portfolio-content">
+                                        <span className="sub-title">Web Platform</span>
+                                        <h2 className="portfolio-title">{node.node.title}</h2>
+                                        <p dangerouslySetInnerHTML={{ __html: node.node.excerpt }} />
+                                        <Link to="#" className="portfolio-link">Read more</Link>
+                                    </div> */}
                                 </div>
                             </div>
-                        </div>
-                    ))}                   
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+                        ))}                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     {/* Clients-section */}
     <section>
         <div className="clients-section">
@@ -324,9 +325,9 @@ class Home extends Component {
                     <Slider {...clilogosettings}>
                         {credential.map((node,index) => (                            
                             <li key={index}>                                
-                                    {node.node.featured_media !== null &&
+                                    {node.cred_logos_list.source_url !== null &&
                                         <div className="box">
-                                        <img src={node.node.featured_media.source_url} alt="cre-img" />
+                                        <img src={node.cred_logos_list.source_url} alt="cre-img" />
                                         </div>
                                     }                           
                             </li>
@@ -427,7 +428,15 @@ export const query = graphql`
                         css_content
                         css_section_class
                         css_select_case_studies
-                    }                  
+                    }  
+                    ... on WordPressAcf_gen_credential_logos {
+                        id
+                        cred_logos_repeater {
+                          cred_logos_list {
+                            source_url
+                          }
+                        }
+                    }                
                 }
                 home_content_modules_page {
                     home_oe_section_title

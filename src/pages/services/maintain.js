@@ -12,9 +12,10 @@ class Maintain extends Component {
 	render() {
 		const data = this.props.data;
 		const page = data.allWordpressPage.edges[0].node.acf;
-		const genmodule = data.allWordpressPage.edges[0].node.acf.gen_content_modules_page;
-		const credent = data.allWordpressWpCredentials.edges;
+		const genmodule = page.gen_content_modules_page;
+		const credent = genmodule[3].cred_logos_repeater;
 		const portfolio = data.allWordpressWpPortfolio;
+		console.log(genmodule);
 		return(
 			<Layout>
 				<SEO title="Maintain"/>
@@ -150,9 +151,9 @@ class Maintain extends Component {
 									<img src={Credentialsimage} className="main-image" alt="Credential"/>
 									<img src={Zectopus} className="center-image" alt="Zectopus"/>
 									{credent.map((node,index) => (
-										<div className={"credi-logo-" + index + " creadi_wrap " + node.node.slug} key={index}>
-											{node.node.featured_media.source_url !== null &&
-												<img src={node.node.featured_media.source_url} alt={node.node.title} />
+										<div className={"credi-logo-" + index + " creadi_wrap "} key={index}>
+											{node.cred_logos_list.source_url !== null &&
+												<img src={node.cred_logos_list.source_url} alt={node.node.title} />
 											}											
 										</div>
 									))}
@@ -296,6 +297,14 @@ export const query = graphql`{
 					css_content
 					css_select_case_studies
 					css_section_class
+				}
+				... on WordPressAcf_gen_credential_logos {
+					id
+					cred_logos_repeater {
+					  cred_logos_list {
+						source_url
+					  }
+					}
 				}
 			  }
 			}
