@@ -11,7 +11,7 @@ class WordpressDevelopment extends Component {
 		const data = this.props.data  
 		const acf = data.allWordpressPage.edges[0].node.acf
 		const pagedata = acf.gen_content_modules_page
-		const platform = pagedata[2].iwc_layout_details
+		const platform = pagedata[1].iwc_layout_details
 		//console.log(platform);
 		return(
 			<Layout>
