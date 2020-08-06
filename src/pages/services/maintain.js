@@ -179,12 +179,12 @@ class Maintain extends Component {
 														<img src={node.node.acf.pf_image_with_responsive.source_url} alt="Maintain recent work"/>
 													}													
 												</div>
-												<div className="portfolio-content">
+												{/* <div className="portfolio-content">
 													<span className="sub-title">Web Platform</span>
 													<h2 className="portfolio-title">{node.node.title}</h2>
 													<div dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
 													<Link to="#" className="portfolio-link">Read more</Link>
-												</div>
+												</div> */}
 											</div>
 										</div>
 									))}
