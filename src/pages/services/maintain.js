@@ -153,7 +153,7 @@ class Maintain extends Component {
 									{credent.map((node,index) => (
 										<div className={"credi-logo-" + index + " creadi_wrap "} key={index}>
 											{node.cred_logos_list.source_url !== null &&
-												<img src={node.cred_logos_list.source_url} alt={node.node.title} />
+												<img src={node.cred_logos_list.source_url} alt="Credential logo" />
 											}											
 										</div>
 									))}
