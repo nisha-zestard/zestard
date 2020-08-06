@@ -57,7 +57,7 @@ class EcommerceDevelopment extends Component {
 					<section>
 						<div className="ecommerce-sercices-wrap">
 							<div className="container">
-								<h2 className="section-title text-center">Our Ecommerce Services</h2>
+								<h2 className="section-title text-center">Our UI UX Services</h2>
 								<div className="services-list">
 									<div className="row">
 										{services.map((node, index) => (

@@ -54,7 +54,7 @@ class WordpressDevelopment extends Component {
 							</div>
 						</div>
 					</section>
-					<section>
+					{/* <section>
 						<div className="ecommerce-sercices-wrap">
 							<div className="container">
 								<h2 className="section-title text-center">Our Website Services</h2>
@@ -74,7 +74,7 @@ class WordpressDevelopment extends Component {
 								</div>
 							</div>
 						</div>
-					</section>
+					</section> */}
 					<section>
 						<div className="platform-section">
 							<div className="container">
