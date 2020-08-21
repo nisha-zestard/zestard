@@ -3,10 +3,11 @@ import { graphql, Link } from "gatsby"
 import Layout from "./../../components/layout"
 import Header from "./../../components/header"
 import { removePre } from './../../util/common'
-import Credentialsimage from "./../../assets/images/credientials-bg.png"
-import Zectopus from "./../../assets/images/zectopus.png"
+// import Credentialsimage from "./../../assets/images/credientials-bg.png"
+// import Zectopus from "./../../assets/images/zectopus.png"
 import SEO from "./../../components/seo"
 import AboutProject from './../../components/aboutproject'
+import Slider from "react-slick";
 
 class Maintain extends Component {
 	render() {
@@ -16,6 +17,40 @@ class Maintain extends Component {
 		const credent = genmodule[3].cred_logos_repeater;
 		const portfolio = data.allWordpressWpPortfolio;
 		console.log(genmodule);
+		var clilogosettings = {
+            dots: true,
+            infinite: false,
+            speed: 500,
+            autoplay: true,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                  }
+                },
+                {
+                  breakpoint: 600,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+              ]
+        };
 		return(
 			<Layout>
 				<SEO title="Maintain"/>
@@ -140,28 +175,30 @@ class Maintain extends Component {
 						</div>
 					</div>
 				</section>
+				{/* Credentials section */}
 				<section>
-					<div className="our-credientials">
+					<div className="credentials-section">
 						<div className="container">
 							<div className="title text-center">
-								<h2>Our Certifications</h2>
-							</div>
-							<div className="credientials-wrap text-center">
-								<div className="c-main">
-									<img src={Credentialsimage} className="main-image" alt="Credential"/>
-									<img src={Zectopus} className="center-image" alt="Zectopus"/>
-									{credent.map((node,index) => (
-										<div className={"credi-logo-" + index + " creadi_wrap "} key={index}>
-											{node.cred_logos_list.source_url !== null &&
-												<img src={node.cred_logos_list.source_url} alt="Credential logo" />
-											}											
-										</div>
-									))}
-								</div>
-							</div>
+								<h2>Our Credentials</h2>
+							</div>  
+							<ul>                
+								<Slider {...clilogosettings}>
+									{credent.map((node,index) => (                            
+										<li key={index}>                                
+												{node.cred_logos_list.source_url !== null &&
+													<div className="box">
+													<img src={node.cred_logos_list.source_url} alt="cre-img" />
+													</div>
+												}                           
+										</li>
+									))} 
+								</Slider>                   
+							</ul>
 						</div>
 					</div>
 				</section>
+				
 				<section>
 					<div className="recent-work">
 						<div className="container">
