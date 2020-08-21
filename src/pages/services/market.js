@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 // import Credentialsimage from "./../../assets/images/credientials-bg.png"
 // import Zectopus from "./../../assets/images/zectopus.png"
 import SEO from "./../../components/seo"
