@@ -85,7 +85,7 @@ class Market extends Component {
 								<div className="title text-center">
 									<h2>{genmodule[0].pis_section_title}</h2>
 								</div>
-								<div className="text">
+								<div className="text text-center">
 									{genmodule[0].pis_content !== null &&
 										<div dangerouslySetInnerHTML={{__html: genmodule[0].pis_content}} />
 									}									
