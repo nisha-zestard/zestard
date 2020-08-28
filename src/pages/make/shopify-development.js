@@ -15,7 +15,7 @@ class EcommerceDevelopment extends Component {
 		const services = acf[1].cs_cards_details		
 		return(
 			<Layout>
-				<SEO title="UI/UX Development"/>
+				<SEO title="Shopify Development"/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="ui-ux-development">
 					<section>
