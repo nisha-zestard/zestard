@@ -12,7 +12,14 @@ class EcommerceDevelopment extends Component {
 		const acf = data.wordpressPage.acf.gen_content_modules_page
 		const tellus = data.wordpressPage.acf
 		const banner = acf[0].iwc_layout_details[0]
-		const services = acf[1].cs_cards_details		
+		const services = acf[1].cs_cards_details
+		var testisettings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        };		
 		return(
 			<Layout>
 				<SEO title="UI/UX Development"/>
@@ -74,7 +81,52 @@ class EcommerceDevelopment extends Component {
 								</div>
 							</div>
 						</div>
-					</section>					
+					</section>	
+					{/* Testimonials section */}
+    <section>
+        <div className="testimonials-section">
+            <div className="container">
+                <div className="title text-center">
+                    <h2>Testimonials</h2>
+                </div>
+                <div className="container">
+                    <div id="carouselTestimonial" className="carousel carousel-testimonial slide" data-ride="carousel">
+                        <div className="carousel-inner">                        
+                        <Slider ref={c => (this.slider = c)} {...testisettings}>
+                            {testimonial.map((node,index) => (
+                                <div className={index=0? 'carousel-item': 'carousel-item active'} key={index}>
+                                    <div className="row">
+                                        <div className="col-md-5">
+                                            <div className="testimonial-img">
+                                                {node.node.featured_media.source_url !== null &&                                                
+                                                    <img className="d-block w-100" src={node.node.featured_media.source_url} alt={node.node.title} />
+                                                }
+                                            </div>
+                                        </div>
+                                        <div className="col-md-7">
+                                            <h5 className="title">{node.node.title}</h5>
+                                            {node.node.content !== null &&
+                                                <div dangerouslySetInnerHTML={{ __html: node.node.content }} />
+                                            }                                            
+                                            <div className="next-pre">
+                                                <button className="button" onClick={this.previous}>
+                                                    <i className="fa fa-angle-left" aria-hidden="true"></i>
+                                                </button> 
+                                                <button className="button" onClick={this.next}>
+                                                    <i className="fa fa-angle-right" aria-hidden="true"></i>
+                                                </button> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </Slider>                            
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>				
 					<AboutProject 
 					apsiwtch={tellus.use_common_contact_section} 
 					apimage={tellus.tuabp_image} 
