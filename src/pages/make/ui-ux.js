@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "./../../components/layout"
 import Header from "../../components/header";
 import SEO from "./../../components/seo"
+import Slider from "react-slick";
 // import { removePre } from './../../util/common'
 import AboutProject from './../../components/aboutproject' 
 
@@ -12,6 +13,7 @@ class EcommerceDevelopment extends Component {
 		const acf = data.wordpressPage.acf.gen_content_modules_page
 		const tellus = data.wordpressPage.acf
 		const banner = acf[0].iwc_layout_details[0]
+		const testimonial = data.allWordpressWpTestimonials.edges;
 		const services = acf[1].cs_cards_details
 		var testisettings = {
             dots: true,
@@ -145,6 +147,17 @@ export default EcommerceDevelopment
 
 export const query = graphql`
 {
+	allWordpressWpTestimonials {
+        edges {
+          node {
+            featured_media {
+              source_url
+            }
+            title
+            content
+          }
+        }
+      }
 	wordpressPage(wordpress_id: {eq: 7275}) {
 		acf {
 			use_common_contact_section
