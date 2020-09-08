@@ -39,7 +39,7 @@ class EcommerceDevelopment extends Component {
 						</div>
 					</section>
 					<section>
-						<div className="sub-service-baner">
+						<div className="sub-service-baner ecommerce-development">
 							<div className="container">
 								<div className="row">
 									<div className="col-md-6 baner-image-wrap">
