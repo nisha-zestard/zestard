@@ -25,7 +25,7 @@ class ReactjsDevelopment extends Component {
 		//console.log(pagedata);
 		return(
 			<Layout>
-				<SEO title="Website Development"/>
+				<SEO title="ReactJs Development"/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="website-development">
 					<section>
