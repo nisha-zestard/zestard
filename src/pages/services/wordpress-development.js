@@ -25,7 +25,7 @@ class ReactjsDevelopment extends Component {
 		//console.log(acf);
 		return(
 			<Layout>
-				<SEO title="Website Development"/>
+				<SEO title="Wordpress Development"/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="website-development">
 					<section>
