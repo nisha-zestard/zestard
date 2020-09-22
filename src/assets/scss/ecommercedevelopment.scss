@@ -79,7 +79,6 @@
                     font-family: $primary-font;
                     margin-bottom: 20px;
                     font-weight: bold;
-                    min-height: 64px;
                     @media #{$small-screen}{
                         min-height: inherit;
                     }
@@ -95,6 +94,7 @@
                 }
                 p{
                     margin: 0;
+                    font-size: 14px;
                 }
             }
         }

@@ -1,4 +1,4 @@
-.maintain-main .our-credientials{
+    .maintain-main .our-credientials{
     background-image: url('../images/credientials-background.png');
 }
 .make-intro-section{
@@ -8,6 +8,19 @@
     }
     @media #{$small-screen}{
         padding: 30px 0;
+    }
+    .right-wrap{
+        position: relative;
+        padding: 15px 30px;
+        &:before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(-47deg, #0dccff 0%, #4760ff 100%);
+        }
     }
     .title{
         margin-bottom: 15px;
@@ -28,10 +41,6 @@
         }
     }
     .content{
-        padding: 0 130px;
-        @media #{$medium-screen}{
-            padding: 0;
-        }
     }
 }
 .maintain-services{
@@ -40,7 +49,7 @@
         padding: 0;
     }
     .maintain-service-wrap{
-        margin-bottom: 120px;
+        margin-bottom: 80px;
         @media #{$medium-screen}{
             margin-bottom: 80px;
         }
