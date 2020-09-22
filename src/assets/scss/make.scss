@@ -1,5 +1,5 @@
 .make-services{
-    padding: 150px 0;
+    padding: 80px 0;
     @media #{$medium-screen}{
         padding: 60px 0;
     }
@@ -99,7 +99,8 @@
                     margin-bottom: 30px;
                     p{
                         color: $primary-light;
-                        min-height: 190px;
+                        min-height: 165px;
+                        font-size: 14px;
                         @media #{$medium-screen}{
                             min-height: 200px;
                         }
@@ -152,6 +153,7 @@
     }
 }
 .technology{ 
+    padding-bottom: 80px;
     .title{
         margin-bottom: 70px;
         h2{
@@ -357,7 +359,8 @@
     }
 }
 .recent-work{
-    padding-bottom: 150px;
+    padding-bottom: 80px;
+    padding-top: 30px;
     @media #{$tablet-screen}{
         padding-bottom: 60px;
     }

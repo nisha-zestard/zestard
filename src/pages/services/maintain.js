@@ -80,15 +80,21 @@ class Maintain extends Component {
 					</div>
 				</section>
 				<section>
-					<div className="make-intro-section text-center">
+					<div className="make-intro-section text-left">
 						<div className="container">
-							<div className="title">
-								<h2>{genmodule[0].pis_section_title}</h2>
-							</div>
-							<div className="content">
-								{genmodule[0].pis_content !== null &&
-									<div dangerouslySetInnerHTML={{__html: genmodule[0].pis_content}} />
-								}								
+							<div className="row align-items-center">
+								<div class="col-lg-3">
+									<div className="title">
+										<h2>{genmodule[0].pis_section_title}</h2>
+									</div>
+								</div>
+								<div className="col-lg-9 right-wrap">
+									<div className="content">
+										{genmodule[0].pis_content !== null &&
+											<div dangerouslySetInnerHTML={{__html: genmodule[0].pis_content}} />
+										}								
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

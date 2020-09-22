@@ -201,9 +201,9 @@ class Header extends React.Component {
                     <li className="nave-item menu-item request-quote-mob"><Link to={`/${removePre(contactmenu.url)}`} className="btn-primary">Request a Quote</Link></li>
                   </ul>
                   </div>
-                  <div className="request-a-quote">
+                  {/* <div className="request-a-quote">
                     <Link to={`/${removePre(contactmenu.url)}`} className="btn-primary">Request a Quote</Link>
-                  </div>
+                  </div> */}
                 </Navbar>                
                 </div>
             </div>  
