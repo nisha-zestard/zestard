@@ -15,7 +15,7 @@ class Market extends Component {
 		const genmodule = page.gen_content_modules_page;
 		const credential = genmodule[4].cred_logos_repeater;
 		const portfolio = data.allWordpressWpPortfolio.edges;
-		console.log(genmodule);
+		
 		var clilogosettings = {
             dots: true,
             infinite: false,

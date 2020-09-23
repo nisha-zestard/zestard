@@ -16,7 +16,7 @@ class Maintain extends Component {
 		const genmodule = page.gen_content_modules_page;
 		const credent = genmodule[3].cred_logos_repeater;
 		const portfolio = data.allWordpressWpPortfolio;
-		console.log(genmodule);
+		
 		var clilogosettings = {
             dots: true,
             infinite: false,

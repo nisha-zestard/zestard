@@ -12,9 +12,6 @@ class ServiceTemplate extends Component {
       const data = this.props.data
       const acfData = data.allWordpressPage.edges[0].node.acf;
       const sertech = data.allWordpressPage.edges[0].node;
-    
-      
-     // console.log(data.allWordpressPage.edges[0].node);
       return (
         <>
         <SEO title="Services"/>
@@ -34,7 +31,7 @@ class ServiceTemplate extends Component {
                         serviceImage = {node.sl_service_image}
                         serviceName = {node.sl_service_name}
                         ServiceSubText = {node.sl_service_sub_text}
-                        serviceTitle = {node.sl_service_image.title}
+                        serviceTitle = {node.title}
                         serLink = {node.sl_service_page_link}
                         key = {index}
                        />

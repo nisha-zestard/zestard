@@ -9,7 +9,7 @@ import Benefiteicon from '../assets/images/benefite-icon.png';
 class TechnologyDetail extends Component {
     
     render() {
-        // console.log('asdas')
+       
         const {
                 techHeading,
                 techContent,

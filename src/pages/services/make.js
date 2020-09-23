@@ -17,7 +17,7 @@ class Make extends Component {
 		const technology = data.allWordpressWpTechnology.edges;
 		const credential = acfgen[3].cred_logos_repeater;
 		const portfolio = data.allWordpressWpPortfolio.edges;
-		console.log(acfgen);
+		
 		var clilogosettings = {
             dots: true,
             infinite: false,

@@ -22,7 +22,7 @@ class EcommerceDevelopment extends Component {
             slidesToShow: 1,
             slidesToScroll: 1
         };		
-		console.log(acf);
+		
 		return(
 			<Layout>
 				<SEO title="Shopify Development"/>
