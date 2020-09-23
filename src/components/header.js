@@ -36,12 +36,12 @@ class Header extends React.Component {
     // }));
   }
 
-  onMouseEnter() {
-    this.setState({dropdownOpen: true});
+  onMouseEnter(name) {
+    this.setState({ [name]: true});
   }
 
-  onMouseLeave() {
-    this.setState({dropdownOpen: false});
+  onMouseLeave(name) {
+    this.setState({ [name]: false});
   }
 //   constructor(props) {
 //     super(props);
@@ -190,7 +190,7 @@ class Header extends React.Component {
                 <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="nav navbar-nav">
                     <li className="nav-item menu-item">
-                    <Dropdown className="nav-item" group onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                    <Dropdown className="nav-item" id="basic-nav-dropdown" onMouseOver={() => this.onMouseEnter('company')} onMouseLeave={() => this.onMouseLeave('company')} isOpen={this.state.company} toggle={this.toggle}>
                       <DropdownToggle caret>{companymenu.title}</DropdownToggle>
                       <DropdownMenu>   
                         {companymenu.child_items.map((node, index) => (
@@ -201,7 +201,7 @@ class Header extends React.Component {
                    
                     </li>
                     <li className="nav-item menu-item">
-                      <Dropdown className="nav-item" onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                      <Dropdown className="nav-item" id="basic-nav-dropdown" onMouseOver={() => this.onMouseEnter('service')} onMouseLeave={() => this.onMouseLeave('service')} isOpen={this.state.service} toggle={this.toggle}>
                         <DropdownToggle caret>{servicmenu.title}</DropdownToggle>
                         <DropdownMenu>   
                           {servicmenu.child_items.map((node, index) => (
@@ -211,7 +211,7 @@ class Header extends React.Component {
                       </Dropdown>                   
                     </li> 
                     <li className="nav-item menu-item">
-                    <Dropdown className="nav-item" onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                    <Dropdown className="nav-item" id="basic-nav-dropdown" onMouseOver={() => this.onMouseEnter('work')} onMouseLeave={() => this.onMouseLeave('work')} isOpen={this.state.work} toggle={this.toggle}>
                         <DropdownToggle caret>{workmenu.title}</DropdownToggle>
                         <DropdownMenu>   
                         <DropdownItem tag={Link} to={`${workmenu.child_items[0].target === "" ? `/${removePre(workmenu.child_items[0].url)}` : workmenu.child_items[0].url}`}>{workmenu.child_items[0].title}</DropdownItem>
@@ -241,4 +241,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header
+export default Header;
