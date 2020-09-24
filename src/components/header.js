@@ -5,44 +5,87 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { removePre } from './../util/common';
 import { globalHistory as history } from '@reach/router';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 class Header extends React.Component {
+//   constructor(props){
+//     super(props);
+
+//     this.state = {
+//         isOpen: false
+//     }
+// }
+
+// toggle = () => {
+//     this.setState({isOpen: !this.state.isOpen})
+// }
   constructor(props) {
     super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.onMouseEnter = this.onMouseEnter.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
     this.state = {
-      isTop: true
+      dropdownOpen: false
     };
-    this.onScroll = this.onScroll.bind(this);
   }
-  componentDidMount() {    
-    document.addEventListener('scroll', () => { 
-      const stickyhead = document.getElementsByClassName('site-header')[0];  
-      const stickyid = document.getElementsByClassName('mobile-view')[0]; 
-      const shwmenu = document.getElementsByClassName('navbar-collapse')[0];      
-      const menudiv = document.getElementById("mobmenu");      
-      //console.log(stickyid);
-      const isTop = window.scrollY ;     
-      if (isTop >= 100) { 
-        stickyhead.classList.add('sticky-header'); 
-        stickyid.classList.remove('show-mob-view');
-        shwmenu.classList.remove('show');
-        menudiv.classList.remove('mobmubtn');
-        if(menudiv.innerHTML === '<div></div><div></div><div></div>') {            
-          menudiv.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
-        }
-        else  {   
-          menudiv.innerHTML = "<div></div><div></div><div></div>";
-        } 
-      }
-      else { 
-        stickyhead.classList.remove('sticky-header');
+  toggle() {
+    this.setState({dropdownOpen: !this.state.dropdownOpen})
+    // this.setState(prevState => ({
+    //   dropdownOpen: !prevState.dropdownOpen
+    // }));
+  }
+
+  onMouseEnter(name) {
+    this.setState({ [name]: true});
+  }
+
+  onMouseLeave(name) {
+    this.setState({ [name]: false});
+  }
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       isTop: true,
+//       isHovered: false
+//     };
+//     this.onScroll = this.onScroll.bind(this);
+//     this.handleHover = this.handleHover.bind(this);
+//   }
+//   handleHover(){
+//     this.setState(prevState => ({
+//         isHovered: !prevState.isHovered
+//     }));
+// }
+  // componentDidMount() {    
+  //   document.addEventListener('scroll', () => { 
+  //     const stickyhead = document.getElementsByClassName('site-header')[0];  
+  //     const stickyid = document.getElementsByClassName('mobile-view')[0]; 
+  //     const shwmenu = document.getElementsByClassName('navbar-collapse')[0];      
+  //     const menudiv = document.getElementById("mobmenu");      
+      
+  //     const isTop = window.scrollY ;     
+  //     if (isTop >= 100) { 
+  //       stickyhead.classList.add('sticky-header'); 
+  //       stickyid.classList.remove('show-mob-view');
+  //       shwmenu.classList.remove('show');
+  //       menudiv.classList.remove('mobmubtn');
+  //       if(menudiv.innerHTML === '<div></div><div></div><div></div>') {            
+  //         menudiv.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
+  //       }
+  //       else  {   
+  //         menudiv.innerHTML = "<div></div><div></div><div></div>";
+  //       } 
+  //     }
+  //     else { 
+  //       stickyhead.classList.remove('sticky-header');
     
-    }
-    });
-  }
-  onScroll(isTop) {
-    this.setState({ isTop });
-  }
+  //   }
+  //   });
+  // }
+  // onScroll(isTop) {
+  //   this.setState({ isTop });
+  // }
   render () {
     const {
       headernavclass,
@@ -86,6 +129,7 @@ class Header extends React.Component {
         }
       `}      
       render={(data) => {
+        const btnClass = this.state.isHovered ? "show" : "";
         const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
         const maninmenu = data.allWordpressMenusMenusItems.nodes[0].items;
         const darklogo = acfoptions.site_logo.source_url;
@@ -98,6 +142,7 @@ class Header extends React.Component {
         //const isBrowser = () => typeof window !== "undefined"
         const { location} = history
         const param = location.pathname;
+        
         const handleOpen = (el) => {  
           const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
         }       
@@ -124,6 +169,7 @@ class Header extends React.Component {
           }     
         }        
         return(
+          
           <header className="site-header">    
             <div className="container d-flex frex-wrap justify-content-space-between header-inner">
               <div className="site-branding">            
@@ -144,57 +190,37 @@ class Header extends React.Component {
                 <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="nav navbar-nav">
                     <li className="nav-item menu-item">
-                    <NavDropdown title={companymenu.title} id="basic-nav-dropdown"
-                      onMouseEnter = { (e) => handleOpen(e) } onMouseLeave = { (e) => handleClose(e) } >
-                        <ul>
+                    <Dropdown className="nav-item" id="basic-nav-dropdown" onMouseOver={() => this.onMouseEnter('company')} onMouseLeave={() => this.onMouseLeave('company')} isOpen={this.state.company} toggle={this.toggle}>
+                      <DropdownToggle caret>{companymenu.title}</DropdownToggle>
+                      <DropdownMenu>   
                         {companymenu.child_items.map((node, index) => (
-                          <li key={index}><Link to={`/${removePre(node.url)}`} key={index}>
-                            {node.title}
-                          </Link></li>
-                        ))}
-                        </ul>
-                    </NavDropdown>
+                          <DropdownItem tag={Link} to={`/${removePre(node.url)}`} key={index}>{node.title}</DropdownItem>
+                        ))}   
+                      </DropdownMenu>
+                    </Dropdown>
+                   
                     </li>
                     <li className="nav-item menu-item">
-                    <NavDropdown title={servicmenu.title} id="basic-nav-dropdown"
-                      onMouseEnter = { (e) => handleOpen(e) }
-                      onMouseLeave = { (e) => handleClose(e) }>
-                        <ul>
-                        {servicmenu.child_items.map((node, index) => (
-                          <li key={index}>
-                            <Link to={`/services/${removePre(node.url)}`} key={index}>
-                              {node.title}
-                            </Link>
-                          </li>
-                        ))}
-                        </ul>
-                    </NavDropdown>
+                      <Dropdown className="nav-item" id="basic-nav-dropdown" onMouseOver={() => this.onMouseEnter('service')} onMouseLeave={() => this.onMouseLeave('service')} isOpen={this.state.service} toggle={this.toggle}>
+                        <DropdownToggle caret>{servicmenu.title}</DropdownToggle>
+                        <DropdownMenu>   
+                          {servicmenu.child_items.map((node, index) => (
+                            <DropdownItem tag={Link} to={`/services/${removePre(node.url)}`} key={index}>{node.title}</DropdownItem>
+                          ))}   
+                        </DropdownMenu>
+                      </Dropdown>                   
                     </li> 
                     <li className="nav-item menu-item">
-                    <NavDropdown title={workmenu.title} id="basic-nav-dropdown"
-                      onMouseEnter = { (e) => handleOpen(e) }
-                      onMouseLeave = { (e) => handleClose(e) }>
-                        <ul>
-                        <li>
-                          <Link 
-                            to={`${workmenu.child_items[0].target === "" ? `/${removePre(workmenu.child_items[0].url)}` : workmenu.child_items[0].url}`} 
-                            target={workmenu.child_items[0].target} >{workmenu.child_items[0].title}
-                          </Link>
-                        </li>
-                        <li>
-                          <a
-                            href={workmenu.child_items[1].url} 
-                            target={workmenu.child_items[1].target} >{workmenu.child_items[1].title}
-                          </a>
-                        </li>
-                        <li>
-                          <a 
-                            href={workmenu.child_items[2].url} 
-                            target={workmenu.child_items[2].target} >{workmenu.child_items[2].title}
-                          </a>
-                        </li>                        
-                        </ul>                        
-                    </NavDropdown>
+                    <Dropdown className="nav-item" id="basic-nav-dropdown" onMouseOver={() => this.onMouseEnter('work')} onMouseLeave={() => this.onMouseLeave('work')} isOpen={this.state.work} toggle={this.toggle}>
+                        <DropdownToggle caret>{workmenu.title}</DropdownToggle>
+                        <DropdownMenu>   
+                        <DropdownItem tag={Link} to={`${workmenu.child_items[0].target === "" ? `/${removePre(workmenu.child_items[0].url)}` : workmenu.child_items[0].url}`}>{workmenu.child_items[0].title}</DropdownItem>
+                        <DropdownItem tag={Link} target={workmenu.child_items[1].target} to={workmenu.child_items[1].url}>{workmenu.child_items[1].title}</DropdownItem>
+                        <DropdownItem tag={Link} target={workmenu.child_items[2].target} to={workmenu.child_items[2].url}>{workmenu.child_items[2].title}</DropdownItem>
+                          
+                        </DropdownMenu>
+                      </Dropdown>  
+                    
                     </li>
                     <li className="nav-item menu-item"><Link to={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Link></li>
                     <li className="nav-item menu-item"><Nav.Link href={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Nav.Link></li>
@@ -215,4 +241,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header
+export default Header;

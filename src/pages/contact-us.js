@@ -93,7 +93,7 @@ class ContactUs extends Component {
         'message': message  
       })
       .then((response) => {
-        //console.log("response----"+response);
+        
         this.setState({
           submitted: true,
           status: "Thank you. We've received your Inquiry. We'll get back to you soon."

@@ -32,7 +32,7 @@ class Home extends Component {
         const credential = header.gen_content_modules_page[3].cred_logos_repeater;
         const recentpost = data.allWordpressPost.edges;
         const portfolio = data.allWordpressWpPortfolio.edges;
-        console.log(credential);
+        
         var testisettings = {
             dots: true,
             infinite: true,
