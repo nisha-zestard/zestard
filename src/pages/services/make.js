@@ -335,7 +335,6 @@ export const query = graphql`{
 				  id
 				  css_title
 				  css_content
-				  css_select_case_studies
 				  css_section_class
 				}
 				... on WordPressAcf_gen_credential_logos {

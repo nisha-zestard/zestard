@@ -254,7 +254,6 @@ export const query = graphql`
 				  ... on WordPressAcf_gen_case_study_section {
 					css_title
 					css_content
-					css_select_case_studies
 					css_section_class
 				  }
 				}
