@@ -9,10 +9,11 @@ class TermsOfUse extends Component {
   
     render() {
       const data = this.props.data
+      const seotd = data.wordpressPage
       const acfData = data.wordpressPage.acf;
       return (
         <Layout>
-        <SEO title={data.wordpressPage.title} />
+        <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
         <Header headernavclass="lightheader" />
             <div id="page" className="site">
                 <div id="content" className="site-content">
@@ -48,6 +49,10 @@ export const query = graphql`
     {
         wordpressPage(slug: {eq: "terms-of-use"}) {
             title
+            yoast_title
+            yoast_meta {
+                content
+            }
             acf {
               header_page_title
                 header_mascot {

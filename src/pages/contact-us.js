@@ -113,10 +113,11 @@ class ContactUs extends Component {
   render() {
     const data = this.props.data
     const acfData = data.wordpressPage.acf;
+    const seotd = data.wordpressPage
     
     return (
       <Layout>
-      <SEO title="Contact us"/>
+       <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
       <Header headernavclass="lightheader" />
         <div id="page" className="fffff">
           <div id="content" className="site-content contact">
@@ -205,6 +206,10 @@ export const query = graphql`
 {
   wordpressPage(wordpress_id: {eq: 57}) {
     title
+    yoast_title
+    yoast_meta {
+      content
+    }
     acf {
       header_page_title
       header_sub_text

@@ -10,6 +10,7 @@ import AboutProject from '../../components/aboutproject'
 class ReactjsDevelopment extends Component {
 	render() {		
 		const data = this.props.data  
+		const sertech = data.allWordpressPage.edges[0].node;
 		const acf = data.allWordpressPage.edges[0].node.acf
 		const pagedata = acf.gen_content_modules_page
 		const testimonial = data.allWordpressWpTestimonials.edges;
@@ -24,7 +25,7 @@ class ReactjsDevelopment extends Component {
 		//console.log(acf);
 		return(
 			<Layout>
-				<SEO title="AngularJs Development"/>
+				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content}/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="website-development">
 					<section>
@@ -128,52 +129,7 @@ class ReactjsDevelopment extends Component {
 								</div>
 							</div>
 						</div>
-					</section>
-					{/* <section>
-						<div className="platform-section">
-							<div className="container">
-								<h2 className="section-title text-center">Platforms We Work On</h2>
-								{platform.map((node,index) => (
-									<div className={"platform-wrap "+node.iwc_section_class} key={index}>
-										<div className="row">
-											{node.iwc_section_class === 'odd' &&
-												<div className="col-md-7 platform-image-wrap">
-													<div className="image text-center">
-														{node.iwc_image !== null &&
-															<img src={node.iwc_image.source_url} alt="Platform odd"/>
-														}
-													</div>
-												</div>
-											}											
-											<div className="col-md-5 platform-content-wrap">
-												<div className="content-inner">
-													<div className="p-title d-flex align-items-center">
-														{node.iwc_icon !== null &&
-															<img src={node.iwc_icon.source_url} alt="Platform center" />
-														}
-														<h4>{node.iwc_title}</h4>
-													</div>
-													<div className="p-desc" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />														
-													<div className="know-more-btn">
-														<Link to={`/${removePre(node.iwc_button_link)}`}>Know More</Link>
-													</div>
-												</div>
-											</div>
-											{node.iwc_section_class === 'even' &&
-												<div className="col-md-7 platform-image-wrap">
-													<div className="image text-center">
-														{node.iwc_image !== null &&
-															<img src={node.iwc_image.source_url} alt="Plateform even" />
-														}
-													</div>
-												</div>
-											}
-										</div>
-									</div>
-								))}
-							</div>
-						</div>
-					</section> */}
+					</section>					
 				</div>
 				<AboutProject 
 					apsiwtch={acf.use_common_contact_section} 
@@ -205,6 +161,10 @@ export const query = graphql`
 	allWordpressPage(filter: {wordpress_id: {eq: 7446}}) {
 		edges {
 			node {
+				yoast_title
+				yoast_meta {
+					content
+				}
 			  acf {
 				header_sub_text
 				header_section_title

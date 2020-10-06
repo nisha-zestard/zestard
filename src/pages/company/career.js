@@ -9,11 +9,12 @@ class Career extends Component {
   
     render() {
       const data = this.props.data
+      const seotd = data.wordpressPage
       const acfData = data.wordpressPage.acf;
       //const metadata = data.wordpressPage.yoast_meta[0].content;
       return (
         <Layout>
-        <SEO title="Career"/>
+        <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
         <Header headernavclass="lightheader" />
             <div id="page" className="site career">
                 <div id="content" className="site-content">
@@ -77,6 +78,10 @@ export const query = graphql`
     {
         wordpressPage(slug: {eq: "career"}) {
             title
+            yoast_title
+            yoast_meta {
+                content
+            }
             acf {
               header_page_title
               header_sub_text

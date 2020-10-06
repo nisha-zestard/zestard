@@ -10,6 +10,7 @@ import AboutProject from './../../components/aboutproject'
 class EcommerceDevelopment extends Component {
 	render() {	
 		const data = this.props.data  
+		const seotd = data.wordpressPage
 		const acf = data.wordpressPage.acf.gen_content_modules_page
 		const tellus = data.wordpressPage.acf
 		const banner = acf[0].iwc_layout_details[0]
@@ -25,7 +26,7 @@ class EcommerceDevelopment extends Component {
 		
 		return(
 			<Layout>
-				<SEO title="Shopify Development"/>
+				<SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="ui-ux-development">
 					<section>
@@ -160,6 +161,10 @@ export const query = graphql`
         }
       }
 	wordpressPage(wordpress_id: {eq: 7511}) {
+		yoast_title
+		yoast_meta {
+			content
+		}
 		acf {
 			use_common_contact_section
 			tuabp_title
