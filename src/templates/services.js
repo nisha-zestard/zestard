@@ -12,9 +12,10 @@ class ServiceTemplate extends Component {
       const data = this.props.data
       const acfData = data.allWordpressPage.edges[0].node.acf;
       const sertech = data.allWordpressPage.edges[0].node;
+      console.log(sertech);
       return (
         <>
-        <SEO title="Services"/>
+        <SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content}/>
         <Header headernavclass="lightheader" />
             <div id="page" className="site">
                 <div id="content" className="site-content">
@@ -56,6 +57,10 @@ query($id: Int!) {
   allWordpressPage(filter: {wordpress_id: {eq: $id}}) {
     edges {
       node {
+        yoast_title
+        yoast_meta {
+          content
+        }
         slug
         title
         wordpress_id

@@ -8,8 +8,8 @@ import SEO from "../../components/seo";
 import Testimonialcomma from "../../images/quote-icon.png"
 
 const breakpointColumnsObj = {
-    default: 3,
-    1025: 3,
+    default: 2,
+    1025: 2,
     768: 2,
     500: 1
   };
@@ -17,11 +17,12 @@ class Testimonials extends Component {
   
     render() {
       const data = this.props.data
+      const seotd = data.wordpressPage
       const acfData = data.wordpressPage.acf;
       //const metadata = data.wordpressPage.yoast_meta[0].content;
       return (
         <Layout>
-        <SEO title="Testimonial"/>
+        <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
         <Header headernavclass="lightheader" />
             <div id="page" className="site">
                 <div id="content" className="site-content">
@@ -70,6 +71,10 @@ export default Testimonials
 export const query = graphql`
     {
         wordpressPage(slug: {eq: "testimonials"}) {
+            yoast_title
+            yoast_meta {
+                content
+            }
             title
             acf {
               header_page_title

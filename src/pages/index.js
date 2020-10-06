@@ -25,7 +25,7 @@ class Home extends Component {
         const data = this.props.data  
         const header = data.allWordpressPage.edges[0].node.acf;
         const clientlogo = data.allWordpressWpClients.edges;
-        
+        const seotd = data.allWordpressPage.edges[0].node;
         const expertise = header.home_content_modules_page[0];
         const counter = data.wordpressAcfOptions.options;
         const testimonial = data.allWordpressWpTestimonials.edges;
@@ -104,7 +104,7 @@ class Home extends Component {
           
   return(
   <Layout>
-    <SEO title="Home" />
+    <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
     {/* banner-section  */}
     <Header headernavclass="lightheader" />
     <section>
@@ -396,6 +396,10 @@ export const query = graphql`
     allWordpressPage(filter: {wordpress_id: {eq: 2}}) {
         edges {
           node {
+            yoast_meta {
+                content
+              }
+              yoast_title
             acf {
                 header_section_title
                 header_page_title

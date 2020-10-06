@@ -10,10 +10,44 @@ class Culture extends Component {
   
     render() {
       const data = this.props.data
+      const seotd = data.wordpressPage
       const acfData = data.wordpressPage.acf;
+      const culturelist = data.allWordpressWpCulture.edges;
+      const culcat = data.allWordpressWpCultureCat.edges;
+
+      const getpcid = (el) => { 
+        const pcategoryid = el.target.getAttribute("culcat-id"); 
+        console.log(pcategoryid);
+        var setlid;
+        for(var i=0; i< culturelist.length; i++) {
+            if(pcategoryid == culturelist[i].node.culture_cat[0]){
+                var titlelist = culturelist[i].node.title
+                setlid = document.getElementsByClassName('culture-list')[i].style.display = 'block';
+               // portlist.classList.toggle('selectedportfolio');
+            }
+            else {
+                setlid = document.getElementsByClassName('culture-list')[i].style.display = 'none';
+            }
+        }
+    }
+    function allpid (){
+      const pcategoryid = "237"; 
+      setTimeout(function(){ 
+        const plist =document.getElementsByClassName('culture-list');
+      
+      for(var k=0; k < plist.length; k++) {
+          if(pcategoryid == culturelist[k].node.culture_cat[0]){ 
+        }
+        else{
+          plist[k].style.display = 'none'; 
+        }
+    }              
+      }, 1000);
+      
+  }
       return (
         <Layout>
-          <SEO title="Culture"/>
+          <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
           <Header headernavclass="lightheader" />
             <div id="page" className="">
                 <div id="content" className="site-content">
@@ -25,10 +59,17 @@ class Culture extends Component {
                         headerPageTitle={acfData.header_page_title}
                     />
                     {/* events */}
-                    <div className="container">
+                    <div className="container" onLoad={allpid()}>
                       <div className="row">
-                      {data.allWordpressWpCulture.edges.map(({ node }) => (
-                        <div className="col-lg-4 col-md-6 col-sm-6 culture-box-wrap" key={node.id}>
+                        <div className="year-list">
+                          <ul>
+                            {culcat.map((node,index) => (
+                              <li culcat-id={node.node.wordpress_id} key={index} onClick={ (e) => getpcid(e) }>{node.node.name}</li>                          
+                            ))}
+                          </ul>                        
+                        </div>
+                      {culturelist.map(({ node }) => (
+                        <div className="col-lg-4 col-md-6 col-sm-6 culture-box-wrap culture-list" key={node.id} data-id={node.culture_cat} >
                           <div className="events-wrapper card shadow-sm rounded">
                           {node.featured_media !== null && node.featured_media.source_url !== null &&
                             <div className="gallery-image" 
@@ -59,6 +100,10 @@ export const query = graphql`
 {
   wordpressPage(wordpress_id: {eq: 169}) {
     title
+    yoast_title
+    yoast_meta {
+      content
+    }
     acf {
       header_page_title
       header_sub_text
@@ -83,10 +128,21 @@ export const query = graphql`
         title
         slug
         link
+        culture_cat
+        date(formatString: "YYYY")
         featured_media {
           source_url
           wordpress_id
         }
+      }
+    }
+  }
+  allWordpressWpCultureCat {
+    edges {
+      node {
+        slug
+        name
+        wordpress_id
       }
     }
   }
