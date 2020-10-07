@@ -9,6 +9,7 @@ import AboutProject from '../../components/aboutproject'
 class WordpressDevelopment extends Component {
 	render() {		
 		const data = this.props.data  
+		const pagedetail = data.allWordpressPage.edges[0].node
 		const acf = data.allWordpressPage.edges[0].node.acf
 		const pagedata = acf.gen_content_modules_page
 		const platform = pagedata[1].iwc_layout_details
@@ -23,13 +24,13 @@ class WordpressDevelopment extends Component {
 							<div className="container">
 								<div className="breadcums-inner">
 									<div className="page-title">
-										<h1>Website Development</h1>
+										<h1>{pagedetail.title}</h1>
 									</div>
 									<div className="breadcums-wrap">
 										<ul className="d-flex justify-content-center m-0 p-0">
 											<li><Link to="#">Home</Link></li>
 											<li><Link to="#">Services</Link></li>
-											<li><Link to="#">Website Development</Link></li>
+											<li><Link to="#">{pagedetail.title}</Link></li>
 										</ul>
 									</div>
 								</div>
@@ -140,6 +141,7 @@ export const query = graphql`
 	allWordpressPage(filter: {wordpress_id: {eq: 7271}}) {
 		edges {
 		  node {
+			title
 			acf {
 			  header_sub_text
 			  header_section_title

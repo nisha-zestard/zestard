@@ -201,12 +201,6 @@ class Market extends Component {
 														<img src={node.node.acf.pf_image_with_responsive.source_url} alt={node.node.title}/>
 													}													
 												</div>
-												{/* <div className="portfolio-content">
-													<span className="sub-title">Web Platform</span>
-													<h2 className="portfolio-title">{node.node.title}</h2>
-													<p dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
-													<Link to="#" className="portfolio-link">Read more</Link>
-												</div> */}
 											</div>
 										</div>
 									))}

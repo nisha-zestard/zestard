@@ -32,13 +32,13 @@ class EcommerceDevelopment extends Component {
 							<div className="container">
 								<div className="breadcums-inner">
 									<div className="page-title">
-										<h1>UI/UX</h1>
+										<h1>{data.wordpressPage.title}</h1>
 									</div>
 									<div className="breadcums-wrap">
 										<ul className="d-flex justify-content-center m-0 p-0">
 											<li><Link to="#">Home</Link></li>
 											<li><Link to="#">Services</Link></li>
-											<li><Link to="#">UI/UX</Link></li>
+											<li><Link to="#">{data.wordpressPage.title}</Link></li>
 										</ul>
 									</div>
 								</div>
@@ -159,6 +159,7 @@ export const query = graphql`
         }
       }
 	wordpressPage(wordpress_id: {eq: 7275}) {
+		title
 		acf {
 			use_common_contact_section
 			tuabp_title

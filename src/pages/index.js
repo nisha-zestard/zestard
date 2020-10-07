@@ -32,7 +32,7 @@ class Home extends Component {
         const credential = header.gen_content_modules_page[3].cred_logos_repeater;
         const recentpost = data.allWordpressPost.edges;
         const portfolio = data.allWordpressWpPortfolio.edges;
-        
+        console.log(recentpost);
         var testisettings = {
             dots: true,
             infinite: true,
@@ -348,12 +348,12 @@ class Home extends Component {
                     {recentpost.map((node,index)=>(
                         <div className="col-md-6" key={index}>
                             <div className="box">
-                                {node.node.featured_media.source_url !== null &&
+                                {node.node.featured_media !== null && node.node.featured_media.source_url !== null &&
                                     <img src={node.node.featured_media.source_url} alt="top-img" />
                                 }                                
                                 <ul>
                                     <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
-                                    <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.featured_media.date}</li>
+                                    <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.date}</li>
                                 </ul>
                                 {node.node.excerpt !== null &&
                                     <div dangerouslySetInnerHTML={{ __html: node.node.excerpt }}/>
@@ -505,9 +505,9 @@ export const query = graphql`
             slug
             link
             excerpt
+            date(formatString: "MMMM DD, YYYY")
             featured_media {
-              source_url
-              date(formatString: "MMMM DD, YYYY")
+              source_url              
             }
             author {
               name
