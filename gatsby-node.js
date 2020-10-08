@@ -112,7 +112,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const CategoryPostsTemplate = path.resolve(`./src/templates/categoryPosts.js`)
   const AuthorPostsTemplate = path.resolve(`./src/templates/authorPosts.js`)
   const BlogEventTemplate = path.resolve(`./src/templates/blogEvent.js`)
-  const ServiceTemplate = path.resolve(`./src/templates/services.js`)
+  //const ServiceTemplate = path.resolve(`./src/templates/services.js`)
   const postTemplate = path.resolve(`./src/templates/blogpost.js`)
   const BlogPosts = path.resolve(`./src/templates/blog.js`)
   // We want to create a detailed page for each
@@ -128,18 +128,18 @@ exports.createPages = async ({ graphql, actions }) => {
       return newUrl;
     }
     
-    if(edge.node.path.indexOf('services') > -1) {
-      //console.log('Services origin path---->'+edge.node.path);
-      //console.log('Services path---->'+removePre(edge.node.path));
-      createPage({
-        path: `${removePre(edge.node.path)}`,
-        component: slash(ServiceTemplate),
-        context: {
-          id: edge.node.wordpress_id,
-        },
-      })
+    // if(edge.node.path.indexOf('services') > -1) {
+    //   //console.log('Services origin path---->'+edge.node.path);
+    //   //console.log('Services path---->'+removePre(edge.node.path));
+    //   createPage({
+    //     path: `${removePre(edge.node.path)}`,
+    //     component: slash(ServiceTemplate),
+    //     context: {
+    //       id: edge.node.wordpress_id,
+    //     },
+    //   })
       
-     }
+    //  }
   })
 
   // Creating pages for blog posts
