@@ -8,6 +8,7 @@ class Portfolio extends Component {
 
     getpcid = (el) => {
         const data = this.props.data;
+        const sertech = data.allWordpressPage.edges[0].node;
         const pcategoryid = parseInt(el.target.getAttribute("data-pcid"));
         const portfoliolist = data.allWordpressWpPortfolio.edges;
         var setlid;
@@ -42,11 +43,12 @@ class Portfolio extends Component {
 
     render() {
         const data = this.props.data
+        const sertech = data.allWordpressPage.edges[0].node;
         const portcat = data.allWordpressWpPortfolioCategory.edges
         const portfoliolist = data.allWordpressWpPortfolio.edges
         return(
             <Layout>
-                <SEO title="Portfolio" />
+                <SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content}/>
                 <Header headernavclass="lightheader" />
                 <div>
                     <section>
@@ -104,6 +106,17 @@ export default Portfolio
 
 export const query = graphql`
 {
+    allWordpressPage(filter: {wordpress_id: {eq: 85}}) {
+		edges {
+			node {
+				yoast_title
+				yoast_meta {
+					content
+				}
+			  
+			}
+		}
+	}
     allWordpressWpPortfolio {
         edges {
           node {

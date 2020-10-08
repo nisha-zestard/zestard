@@ -10,6 +10,7 @@ import AboutProject from '../../components/aboutproject'
 class ReactjsDevelopment extends Component {
 	render() {		
 		const data = this.props.data  
+		const sertech = data.allWordpressPage.edges[0].node;
 		const acf = data.allWordpressPage.edges[0].node.acf
 		const pagedata = acf.gen_content_modules_page
 		const testimonial = data.allWordpressWpTestimonials.edges;
@@ -25,7 +26,7 @@ class ReactjsDevelopment extends Component {
 		//console.log(pagedata);
 		return(
 			<Layout>
-				<SEO title="ReactJs Development"/>
+				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content}/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="website-development">
 					<section>
@@ -207,6 +208,10 @@ export const query = graphql`
 	allWordpressPage(filter: {wordpress_id: {eq: 7442}}) {
 		edges {
 			node {
+				yoast_title
+				yoast_meta {
+					content
+				}
 			  acf {
 				header_sub_text
 				header_section_title
