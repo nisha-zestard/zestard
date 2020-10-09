@@ -22,6 +22,29 @@ class Home extends Component {
       }
 
     render() {
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Zestard Technologies",
+            "url": "https://www.zestard.com/",
+            "logo": "https://phptasks.com/zestard-mmm/wp-content/uploads/2019/03/zestard-logo.png",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "info@zestard.com",
+              "telephone": "+1 4089404509",
+              "contactType": "customer service",
+              "areaServed": ["US","UK","IN"],
+              "availableLanguage": "en"
+            },
+            "sameAs": [
+              "https://www.facebook.com/zestard",
+              "https://www.linkedin.com/company/zestard",
+              "https://twitter.com/zestardtech",
+              "https://www.youtube.com/c/zestardtechnologies",
+              "https://www.instagram.com/zestard/"
+
+            ]
+          }
         const data = this.props.data  
         const header = data.allWordpressPage.edges[0].node.acf;
         const clientlogo = data.allWordpressWpClients.edges;
@@ -104,7 +127,7 @@ class Home extends Component {
           
   return(
   <Layout>
-    <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
+    <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content} schemaMarkup={schema}/>
     {/* banner-section  */}
     <Header headernavclass="lightheader" />
     <section>
