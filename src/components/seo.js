@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, schemaMarkup }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -69,31 +69,38 @@ function SEO({ description, lang, meta, title }) {
         },
       ].concat(meta)}
     >
+      {schemaMarkup &&
+        <script type="application/ld+json">{JSON.stringify(schemaMarkup)}</script>
+      }
       <script src="https://code.jquery.com/jquery-1.12.4.min.js" crossorigin="anonymous"></script>
       {/* <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script> */}
-      <script type="application/ld+json">
+      {/* <script type="application/ld+json">
         {`
           {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Zestard Technologies",
             "url": "https://www.zestard.com/",
-            "logo": "https://api.zestard.com/wp-content/uploads/2020/06/zestard-logo.png",
+            "logo": "https://phptasks.com/zestard-mmm/wp-content/uploads/2019/03/zestard-logo.png",
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+917940320305",
+              "email": "info@zestard.com",
+              "telephone": "+1 4089404509",
               "contactType": "customer service",
-              "areaServed": ["US","IN"],
+              "areaServed": ["US","UK","IN"],
               "availableLanguage": "en"
             },
             "sameAs": [
               "https://www.facebook.com/zestard",
+              "https://www.linkedin.com/company/zestard",
               "https://twitter.com/zestardtech",
-              "https://www.linkedin.com/company/zestard"
+              "https://www.youtube.com/c/zestardtechnologies",
+              "https://www.instagram.com/zestard/"
+
             ]
           }
         `}
-      </script>
+      </script> */}
     </Helmet>
   )
 }
