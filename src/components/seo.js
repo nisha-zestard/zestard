@@ -45,7 +45,7 @@ function SEO({ description, lang, meta, title, schemaMarkup }) {
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: `We deliver robust E-commerce Stores & marketing solutions to grow your online business. 350+ Online Stores, 800+ Projects Delivered, 95% Repeat Clients.`,
         },
         {
           property: `og:type`,
