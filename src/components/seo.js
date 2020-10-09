@@ -49,23 +49,27 @@ function SEO({ description, lang, meta, title, schemaMarkup }) {
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: `Zestard Technologies`,
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: `@zestardtech`,
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: `Full Service E-Commerce Agency | Zestard Technologies`,
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: `content="We deliver robust E-commerce Stores & marketing solutions to grow your online business. 350+ Online Stores, 800+ Projects Delivered, 95% Repeat Clients.`,
+        },
+        {
+          name: `twitter:image`,
+          content: `https://phptasks.com/zestard-mmm/wp-content/uploads/2019/03/zestard-logo.png`,
         },
       ].concat(meta)}
     >
