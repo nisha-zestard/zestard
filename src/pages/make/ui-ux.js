@@ -1,68 +1,32 @@
-import React, { Component } from "react"
-import { graphql, Link } from "gatsby"
-import Layout from "./../../components/layout"
+import React, { Component } from "react";
+import { graphql } from "gatsby";
+import Layout from "./../../components/layout";
 import Header from "../../components/header";
-import SEO from "./../../components/seo"
-import Slider from "react-slick";
-// import { removePre } from './../../util/common'
-import AboutProject from './../../components/aboutproject' 
+import SEO from "../../components/seo";
+import Testimonials from "../../components/TestiMonials";
+import AboutProject from "../../components/aboutproject";
+import ServiceDetailHeader from "../../components/ServiceDetailHeader";
+import ServiceBasicDetail from "../../components/ServiceBasicDetail";
 
 class EcommerceDevelopment extends Component {
 	render() {	
-		const data = this.props.data  
-		const acf = data.wordpressPage.acf.gen_content_modules_page
-		const tellus = data.wordpressPage.acf
-		const banner = acf[0].iwc_layout_details[0]
+		const data = this.props.data;
+		const acf = data.wordpressPage.acf.gen_content_modules_page;
+		const tellus = data.wordpressPage.acf;
+		const banner = acf[0].iwc_layout_details[0];
 		const testimonial = data.allWordpressWpTestimonials.edges;
-		const services = acf[1].cs_cards_details
-		var testisettings = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1
-        };		
+		const services = acf[1].cs_cards_details;
+			
 		return(
 			<Layout>
 				<SEO title="UI/UX Development"/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="ui-ux-development">
-					<section>
-						<div className="sub-services-breadcums">
-							<div className="container">
-								<div className="breadcums-inner">
-									<div className="page-title">
-										<h1>UI/UX</h1>
-									</div>
-									<div className="breadcums-wrap">
-										<ul className="d-flex justify-content-center m-0 p-0">
-											<li><Link to="#">Home</Link></li>
-											<li><Link to="#">Services</Link></li>
-											<li><Link to="#">UI/UX</Link></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
-					<section>
-						<div className="sub-service-baner">
-							<div className="container">
-								<div className="row">
-									<div className="col-md-6 baner-image-wrap">
-										<div className="image-wrap">
-											{banner.iwc_image !== null &&
-												<img src={banner.iwc_image.source_url} alt="Service banner" />
-											}											
-										</div>
-									</div>
-									<div className="col-md-6 baner-content-wrap">
-										<div className="content-wrap" dangerouslySetInnerHTML={{__html: banner.iwc_sub_desc}} />
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
+					<ServiceDetailHeader title={'UI/UX'} />
+          			<ServiceBasicDetail
+						headerMascot={banner.iwc_image}
+						serviceDeail={banner}
+					/>
 					<section>
 						<div className="ecommerce-sercices-wrap">
 							<div className="container">
@@ -85,50 +49,7 @@ class EcommerceDevelopment extends Component {
 						</div>
 					</section>	
 					{/* Testimonials section */}
-    <section>
-        <div className="testimonials-section">
-            <div className="container">
-                <div className="title text-center">
-                    <h2>Testimonials</h2>
-                </div>
-                <div className="container">
-                    <div id="carouselTestimonial" className="carousel carousel-testimonial slide" data-ride="carousel">
-                        <div className="carousel-inner">                        
-                        <Slider ref={c => (this.slider = c)} {...testisettings}>
-                            {testimonial.map((node,index) => (
-                                <div className={index=0? 'carousel-item': 'carousel-item active'} key={index}>
-                                    <div className="row">
-                                        <div className="col-md-5">
-                                            <div className="testimonial-img">
-                                                {node.node.featured_media !== null && node.node.featured_media.source_url !== null &&                                                
-                                                    <img className="d-block w-100" src={node.node.featured_media.source_url} alt={node.node.title} />
-                                                }
-                                            </div>
-                                        </div>
-                                        <div className="col-md-7">
-                                            <h5 className="title">{node.node.title}</h5>
-                                            {node.node.content !== null &&
-                                                <div dangerouslySetInnerHTML={{ __html: node.node.content }} />
-                                            }                                            
-                                            <div className="next-pre">
-                                                <button className="button" onClick={this.previous}>
-                                                    <i className="fa fa-angle-left" aria-hidden="true"></i>
-                                                </button> 
-                                                <button className="button" onClick={this.next}>
-                                                    <i className="fa fa-angle-right" aria-hidden="true"></i>
-                                                </button> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </Slider>                            
-                        </div>                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>				
+					<Testimonials testimonial={testimonial} />
 					<AboutProject 
 					apsiwtch={tellus.use_common_contact_section} 
 					apimage={tellus.tuabp_image} 
@@ -143,7 +64,7 @@ class EcommerceDevelopment extends Component {
 
 }
 
-export default EcommerceDevelopment
+export default EcommerceDevelopment;
 
 export const query = graphql`
 {

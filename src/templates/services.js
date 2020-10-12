@@ -70,7 +70,6 @@ query($id: Int!) {
           sl_content_module_page {
             sl_service_name
             sl_service_sub_text
-            sl_service_page_link
             sl_service_image {
               source_url
               title
@@ -90,12 +89,6 @@ query($id: Int!) {
             tech_service_name
             tech_service_description
           }
-        }
-        childWordPressAcfTechPortfolio {
-          tech_portfolio_heading
-          tech_portfolio_sub_heading
-          tech_portfolio_link
-          tech_portfolio_item2
         }
         childWordPressAcfTechKeyBenefits {
           tech_keyb_heading

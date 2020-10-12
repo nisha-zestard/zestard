@@ -3,6 +3,9 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Header from "../components/header";
 import SEO from "../components/seo";
+import Testimonials from '../components/TestiMonials';
+import Credentails from '../components/Credentails';
+import OurClients from "../components/OurClients";
 import Slider from "react-slick";
 import Counterbg from "../images/counter-bg.png"
 import { removePre } from './../util/common'
@@ -32,49 +35,7 @@ class Home extends Component {
         const credential = header.gen_content_modules_page[3].cred_logos_repeater;
         const recentpost = data.allWordpressPost.edges;
         const portfolio = data.allWordpressWpPortfolio.edges;
-        
-        var testisettings = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1
-        };
-
-        var clilogosettings = {
-            dots: true,
-            infinite: false,
-            speed: 1000,
-            autoplay: true,
-            slidesToShow: 6,
-            slidesToScroll: 6,
-            responsive: [
-                {
-                  breakpoint: 1024,
-                  settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                  }
-                },
-                {
-                  breakpoint: 600,
-                  settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2
-                  }
-                },
-                {
-                  breakpoint: 480,
-                  settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                  }
-                }
-              ]
-        }; 
+    
 
         var clientlogoset = {
             dots: true,
@@ -193,37 +154,7 @@ class Home extends Component {
         </div>
     </section>
     {/* Clients-section */}
-    <section>
-        <div className="clients-section">
-            <div className="container">
-                <div className="title text-center">
-                    <h2>Our Clients</h2>
-                </div>
-                <div className="clients-logos mob-client d-md-none d-sm-block"> 
-                    <Slider ref={c => (this.slider = c)} {...clientlogoset}>
-                        {clientlogo.map((node,index) => (
-                            <div key={index}>
-                                {node.node.featured_media.source_url !== null &&
-                                <img src={node.node.featured_media.source_url} alt="c-logo-img" />
-                            }
-                            </div>
-                        ))}
-                    </Slider>                    
-                </div>
-                <div className="clients-logos desk-client d-md-block d-none">
-                    <ul>                    
-                        {clientlogo.map((node,index) => (
-                            <li key={index}>
-                                {node.node.featured_media.source_url !== null &&
-                                    <img src={node.node.featured_media.source_url} alt="c-logo-img" />
-                                }                                
-                            </li>
-                        ))}                    
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+    <OurClients clients={clientlogo} />
     {/* expertise-section */}
     <section>
         <div className="expertise-section">
@@ -270,73 +201,11 @@ class Home extends Component {
         </div>
     </section>
     {/* Testimonials section */}
-    <section>
-        <div className="testimonials-section">
-            <div className="container">
-                <div className="title text-center">
-                    <h2>Testimonials</h2>
-                </div>
-                <div className="container">
-                    <div id="carouselTestimonial" className="carousel carousel-testimonial slide" data-ride="carousel">
-                        <div className="carousel-inner">                        
-                        <Slider ref={c => (this.slider = c)} {...testisettings}>
-                            {testimonial.map((node,index) => (
-                                <div className={index=0? 'carousel-item': 'carousel-item active'} key={index}>
-                                    <div className="row">
-                                        <div className="col-md-5">
-                                            <div className="testimonial-img">
-                                                {node.node.featured_media !== null && node.node.featured_media.source_url !== null &&                                                
-                                                    <img className="d-block w-100" src={node.node.featured_media.source_url} alt={node.node.title} />
-                                                }
-                                            </div>
-                                        </div>
-                                        <div className="col-md-7">
-                                            <h5 className="title">{node.node.title}</h5>
-                                            {node.node.content !== null &&
-                                                <div dangerouslySetInnerHTML={{ __html: node.node.content }} />
-                                            }                                            
-                                            <div className="next-pre">
-                                                <button className="button" onClick={this.previous}>
-                                                    <i className="fa fa-angle-left" aria-hidden="true"></i>
-                                                </button> 
-                                                <button className="button" onClick={this.next}>
-                                                    <i className="fa fa-angle-right" aria-hidden="true"></i>
-                                                </button> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </Slider>                            
-                        </div>                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <Testimonials testimonial={testimonial} />
+
     {/* Credentials section */}
-    <section>
-        <div className="credentials-section">
-            <div className="container">
-                <div className="title text-center">
-                    <h2>Our Credentials</h2>
-                </div>  
-                <ul>                
-                    <Slider {...clilogosettings}>
-                        {credential.map((node,index) => (                            
-                            <li key={index}>                                
-                                    {node.cred_logos_list.source_url !== null &&
-                                        <div className="box">
-                                        <img src={node.cred_logos_list.source_url} alt="cre-img" />
-                                        </div>
-                                    }                           
-                            </li>
-                        ))} 
-                    </Slider>                   
-                </ul>
-            </div>
-        </div>
-    </section>
+    <Credentails credentials={credential} slidesToShow={6} />
+    
     {/* News & Blog section */}
     <section>
         <div className="news-Blog-section">
@@ -348,12 +217,15 @@ class Home extends Component {
                     {recentpost.map((node,index)=>(
                         <div className="col-md-6" key={index}>
                             <div className="box">
-                                {node.node.featured_media.source_url !== null &&
+                                {(node.node.featured_media !== null && node.node.featured_media.source_url !== null) &&
                                     <img src={node.node.featured_media.source_url} alt="top-img" />
-                                }                                
+                                }
+                                                             
                                 <ul>
                                     <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
-                                    <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.featured_media.date}</li>
+                                    {(node.node.featured_media !== null) &&
+                                        <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.featured_media.date}</li>
+                                    }
                                 </ul>
                                 {node.node.excerpt !== null &&
                                     <div dangerouslySetInnerHTML={{ __html: node.node.excerpt }}/>
