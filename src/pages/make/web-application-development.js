@@ -70,6 +70,7 @@ export default EcommerceDevelopment;
 export const query = graphql`
 {
 	wordpressPage(wordpress_id: {eq: 7279}) {
+		title
 		acf {
 			use_common_contact_section
 			tuabp_title

@@ -9,6 +9,7 @@ class Partnership extends Component {
   
     render() {
       const data = this.props.data
+      const seotd = data.wordpressPage
       const acfData = data.wordpressPage.acf;
       const offshore = data.wordpressPage.acf.gen_content_modules_page[0];
       const referral = data.wordpressPage.acf.gen_content_modules_page[2];
@@ -16,7 +17,7 @@ class Partnership extends Component {
       //const metadata = data.wordpressPage.yoast_meta[0].content;
       return (
         <Layout>
-          <SEO title="Partnership"/>
+          <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
           <Header headernavclass="lightheader" />
           <div id="page" className="site ">
             <div id="content" className="site-content">
@@ -98,6 +99,10 @@ export const query = graphql`
 {
   wordpressPage(wordpress_id: {eq: 103}) {
     title
+    yoast_title
+    yoast_meta {
+      content
+    }
     acf {
       header_page_title
       header_sub_text

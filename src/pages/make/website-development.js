@@ -67,6 +67,7 @@ export const query = graphql`
 	allWordpressPage(filter: {wordpress_id: {eq: 7271}}) {
 		edges {
 		  node {
+			title
 			acf {
 			  header_sub_text
 			  header_section_title

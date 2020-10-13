@@ -80,6 +80,7 @@ export const query = graphql`
         }
       }
 	wordpressPage(wordpress_id: {eq: 7275}) {
+		title
 		acf {
 			use_common_contact_section
 			tuabp_title

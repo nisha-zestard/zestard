@@ -25,47 +25,43 @@ class Home extends Component {
       }
 
     render() {
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Zestard Technologies",
+            "url": "https://www.zestard.com/",
+            "logo": "https://phptasks.com/zestard-mmm/wp-content/uploads/2019/03/zestard-logo.png",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "info@zestard.com",
+              "telephone": "+1 4089404509",
+              "contactType": "customer service",
+              "areaServed": ["US","UK","IN"],
+              "availableLanguage": "en"
+            },
+            "sameAs": [
+              "https://www.facebook.com/zestard",
+              "https://www.linkedin.com/company/zestard",
+              "https://twitter.com/zestardtech",
+              "https://www.youtube.com/c/zestardtechnologies",
+              "https://www.instagram.com/zestard/"
+
+            ]
+          }
         const data = this.props.data  
         const header = data.allWordpressPage.edges[0].node.acf;
         const clientlogo = data.allWordpressWpClients.edges;
-        
+        const seotd = data.allWordpressPage.edges[0].node;
         const expertise = header.home_content_modules_page[0];
         const counter = data.wordpressAcfOptions.options;
         const testimonial = data.allWordpressWpTestimonials.edges;
         const credential = header.gen_content_modules_page[3].cred_logos_repeater;
         const recentpost = data.allWordpressPost.edges;
         const portfolio = data.allWordpressWpPortfolio.edges;
-    
-
-        var clientlogoset = {
-            dots: true,
-            infinite: true,
-            autoplay: true,
-            speed: 500,
-            slidesToShow: 3,
-            arrow: false,
-            slidesToScroll: 1,
-            responsive: [
-                {
-                    breakpoint: 500,
-                    settings: {
-                      slidesToShow: 2,
-                      slidesToScroll: 1, 
-                    }
-                  },
-                {
-                  breakpoint: 420,
-                  settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1, 
-                  }
-                }
-            ]
-        }; 
           
   return(
   <Layout>
-    <SEO title="Home" />
+    <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content} schemaMarkup={schema}/>
     {/* banner-section  */}
     <Header headernavclass="lightheader" />
     <section>
@@ -268,6 +264,10 @@ export const query = graphql`
     allWordpressPage(filter: {wordpress_id: {eq: 2}}) {
         edges {
           node {
+            yoast_meta {
+                content
+              }
+              yoast_title
             acf {
                 header_section_title
                 header_page_title
@@ -373,9 +373,9 @@ export const query = graphql`
             slug
             link
             excerpt
+            date(formatString: "MMMM DD, YYYY")
             featured_media {
-              source_url
-              date(formatString: "MMMM DD, YYYY")
+              source_url              
             }
             author {
               name

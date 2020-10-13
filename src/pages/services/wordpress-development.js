@@ -14,13 +14,14 @@ class ReactjsDevelopment extends Component {
 		const data = this.props.data  
 		const acf = data.allWordpressPage.edges[0].node.acf
 		const pagedata = acf.gen_content_modules_page
+		const sertech = data.allWordpressPage.edges[0].node;
 		const testimonial = data.allWordpressWpTestimonials.edges;
 		
 		// const platform = pagedata[2].iwc_layout_details
 		//console.log(acf);
 		return(
 			<Layout>
-				<SEO title="Wordpress Development"/>
+				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content}/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="website-development">
 					<ServiceDetailHeader title={pagedata[0].iwc_layout_details[0].iwc_title} />
@@ -127,6 +128,10 @@ export const query = graphql`
 	allWordpressPage(filter: {wordpress_id: {eq: 7452}}) {
 		edges {
 			node {
+				yoast_title
+				yoast_meta {
+				content
+				}
 			  acf {
 				header_sub_text
 				header_section_title

@@ -1,34 +1,36 @@
 import React, { Component } from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout";
-// import Header from "../components/header";
+import Header from "../components/header";
 import SEO from "../components/seo";
 
 class Portfolio extends Component {
 
     getpcid = (el) => {
         const data = this.props.data;
+        const sertech = data.allWordpressPage.edges[0].node;
         const pcategoryid = parseInt(el.target.getAttribute("data-pcid"));
         const portfoliolist = data.allWordpressWpPortfolio.edges;
         var setlid;
         for(var i=0; i< portfoliolist.length; i++) {    
             var test = portfoliolist[i].node.portfolio_category;
-            console.log(pcategoryid);
-            console.log(test.includes(pcategoryid));
-            // if (test.indexOf(pcategoryid) !== -1) {
-            //     console.log("In array....");
-            // } else {
-            //     console.log("Not in array....");
-            // }
-            console.log(test);
-            if(pcategoryid == portfoliolist[i].node.portfolio_category[0]){
-                var titlelist = portfoliolist[i].node.title
-                setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'block';
-               // portlist.classList.toggle('selectedportfolio');
+            const catindex = test.indexOf(pcategoryid);
+            //console.log(pcategoryid);
+            // console.log(test.includes(pcategoryid));
+            //console.log(test.indexOf(pcategoryid));
+            //console.log(test);
+            if(catindex > -1){
+                console.log(portfoliolist[i].node.portfolio_category[catindex]);
+                if(pcategoryid == portfoliolist[i].node.portfolio_category[catindex]){
+                    var titlelist = portfoliolist[i].node.title
+                    console.log(titlelist);
+                    setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'block';
+                }                
             }
             else {
                 setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'none';
             }
+            
         }
     }
 
@@ -41,12 +43,13 @@ class Portfolio extends Component {
 
     render() {
         const data = this.props.data
+        const sertech = data.allWordpressPage.edges[0].node;
         const portcat = data.allWordpressWpPortfolioCategory.edges
         const portfoliolist = data.allWordpressWpPortfolio.edges
         return(
             <Layout>
-                <SEO title="Portfolio" />
-                {/* <Header headernavclass="lightheader" /> */}
+                <SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content}/>
+                <Header headernavclass="lightheader" />
                 <div>
                     <section>
                         <div className="sub-services-breadcums">
@@ -103,6 +106,17 @@ export default Portfolio
 
 export const query = graphql`
 {
+    allWordpressPage(filter: {wordpress_id: {eq: 85}}) {
+		edges {
+			node {
+				yoast_title
+				yoast_meta {
+					content
+				}
+			  
+			}
+		}
+	}
     allWordpressWpPortfolio {
         edges {
           node {
