@@ -294,7 +294,7 @@
     .counter-wraper {
         background-position: center;
         background-size: cover;
-        padding: 100px 0px;
+        padding: 50px 0px;
         @media #{$medium-screen}{
             padding: 80px 0;
         }
@@ -371,7 +371,7 @@
     }
 }
 .testimonials-section {
-    padding: 100px 0px 30px;
+    padding: 50px 0px 30px;
     @media #{$tablet-screen}{
         padding: 60px 0 10px;
     }
@@ -464,7 +464,7 @@
     }
 }
 .credentials-section {
-    padding: 100px 0px;
+    padding: 50px 0px;
     @media #{$tablet-screen}{
         padding: 60px 0;
     }
@@ -536,9 +536,9 @@
     }
 }
 .news-Blog-section {
-    padding: 100px 0px;
+    padding: 50px 0 100px;
     @media #{$tablet-screen}{
-        padding: 60px 0;
+        padding: 50px 0;
     }
     .title {
         h2 {
