@@ -17,13 +17,10 @@ class Culture extends Component {
 
       const getpcid = (el) => { 
         const pcategoryid = el.target.getAttribute("culcat-id"); 
-        console.log(pcategoryid);
         var setlid;
         for(var i=0; i< culturelist.length; i++) {
             if(pcategoryid == culturelist[i].node.culture_cat[0]){
-                var titlelist = culturelist[i].node.title
                 setlid = document.getElementsByClassName('culture-list')[i].style.display = 'block';
-               // portlist.classList.toggle('selectedportfolio');
             }
             else {
                 setlid = document.getElementsByClassName('culture-list')[i].style.display = 'none';

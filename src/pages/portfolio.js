@@ -8,22 +8,15 @@ class Portfolio extends Component {
 
     getpcid = (el) => {
         const data = this.props.data;
-        const sertech = data.allWordpressPage.edges[0].node;
         const pcategoryid = parseInt(el.target.getAttribute("data-pcid"));
         const portfoliolist = data.allWordpressWpPortfolio.edges;
         var setlid;
         for(var i=0; i< portfoliolist.length; i++) {    
             var test = portfoliolist[i].node.portfolio_category;
             const catindex = test.indexOf(pcategoryid);
-            //console.log(pcategoryid);
-            // console.log(test.includes(pcategoryid));
-            //console.log(test.indexOf(pcategoryid));
-            //console.log(test);
             if(catindex > -1){
                 console.log(portfoliolist[i].node.portfolio_category[catindex]);
-                if(pcategoryid == portfoliolist[i].node.portfolio_category[catindex]){
-                    var titlelist = portfoliolist[i].node.title
-                    console.log(titlelist);
+                if(pcategoryid == portfoliolist[i].node.portfolio_category[catindex]){                                      
                     setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'block';
                 }                
             }
@@ -44,8 +37,7 @@ class Portfolio extends Component {
     render() {
         const data = this.props.data
         const sertech = data.allWordpressPage.edges[0].node;
-        const portcat = data.allWordpressWpPortfolioCategory.edges
-        const portfoliolist = data.allWordpressWpPortfolio.edges
+        const portcat = data.allWordpressWpPortfolioCategory.edges        
         return(
             <Layout>
                 <SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content}/>

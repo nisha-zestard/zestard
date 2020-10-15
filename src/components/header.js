@@ -2,23 +2,12 @@ import React from "react"
 import { graphql, Link, StaticQuery } from "gatsby";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+//import NavDropdown from 'react-bootstrap/NavDropdown';
 import { removePre } from './../util/common';
 import { globalHistory as history } from '@reach/router';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 class Header extends React.Component {
-//   constructor(props){
-//     super(props);
-
-//     this.state = {
-//         isOpen: false
-//     }
-// }
-
-// toggle = () => {
-//     this.setState({isOpen: !this.state.isOpen})
-// }
   constructor(props) {
     super(props);
 
@@ -31,9 +20,6 @@ class Header extends React.Component {
   }
   toggle() {
     this.setState({dropdownOpen: !this.state.dropdownOpen})
-    // this.setState(prevState => ({
-    //   dropdownOpen: !prevState.dropdownOpen
-    // }));
   }
 
   onMouseEnter(name) {
@@ -43,49 +29,6 @@ class Header extends React.Component {
   onMouseLeave(name) {
     this.setState({ [name]: false});
   }
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       isTop: true,
-//       isHovered: false
-//     };
-//     this.onScroll = this.onScroll.bind(this);
-//     this.handleHover = this.handleHover.bind(this);
-//   }
-//   handleHover(){
-//     this.setState(prevState => ({
-//         isHovered: !prevState.isHovered
-//     }));
-// }
-  // componentDidMount() {    
-  //   document.addEventListener('scroll', () => { 
-  //     const stickyhead = document.getElementsByClassName('site-header')[0];  
-  //     const stickyid = document.getElementsByClassName('mobile-view')[0]; 
-  //     const shwmenu = document.getElementsByClassName('navbar-collapse')[0];      
-  //     const menudiv = document.getElementById("mobmenu");      
-      
-  //     const isTop = window.scrollY ;     
-  //     if (isTop >= 100) { 
-  //       stickyhead.classList.add('sticky-header'); 
-  //       stickyid.classList.remove('show-mob-view');
-  //       shwmenu.classList.remove('show');
-  //       menudiv.classList.remove('mobmubtn');
-  //       if(menudiv.innerHTML === '<div></div><div></div><div></div>') {            
-  //         menudiv.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
-  //       }
-  //       else  {   
-  //         menudiv.innerHTML = "<div></div><div></div><div></div>";
-  //       } 
-  //     }
-  //     else { 
-  //       stickyhead.classList.remove('sticky-header');
-    
-  //   }
-  //   });
-  // }
-  // onScroll(isTop) {
-  //   this.setState({ isTop });
-  // }
   render () {
     const {
       headernavclass,
@@ -129,7 +72,6 @@ class Header extends React.Component {
         }
       `}      
       render={(data) => {
-        const btnClass = this.state.isHovered ? "show" : "";
         const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
         const maninmenu = data.allWordpressMenusMenusItems.nodes[0].items;
         const darklogo = acfoptions.site_logo.source_url;
@@ -139,21 +81,9 @@ class Header extends React.Component {
         const workmenu = maninmenu[2];
         const blogmenu = maninmenu[3];
         const contactmenu = maninmenu[4];
-        //const isBrowser = () => typeof window !== "undefined"
         const { location} = history
-        const param = location.pathname;
+        const param = location.pathname;        
         
-        const handleOpen = (el) => {  
-          const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
-        }       
-        const handleClose = (el) => {        
-          const target = el.currentTarget.getElementsByClassName('dropdown-menu');
-          if(target.length > 0) {
-            const test = target[0].closest('.dropdown-menu');
-              test.classList.remove('show');
-              test.classList.remove('showmobmnu');
-          }
-        }
         const handleClicko = (el) => { 
           const navbarmenu = document.getElementsByClassName('mobile-view')[0];
           navbarmenu.classList.toggle('show-mob-view');
