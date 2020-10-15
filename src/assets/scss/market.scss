@@ -169,6 +169,20 @@
                     }
                 }
             }
+            &:nth-child(4){
+                .links-earned-wrap{
+                    img{
+                        margin-top: 7px;
+                    }
+                }
+            }
+            &:last-child{
+                .links-earned-wrap{
+                    img{
+                        margin-top: -7px;
+                    }
+                }
+            }
         }
     }
 }
