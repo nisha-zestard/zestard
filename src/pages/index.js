@@ -90,13 +90,10 @@ class Home extends Component {
         <div className="our-service">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-6">
-                        <div className="title">
+                    <div className="col-lg-12">
+                        <div className="title text-center">
                             <h2>{header.gen_content_modules_page[0].pis_section_title}</h2>
                         </div>
-                    </div>
-                    <div className="col-lg-6">
-                        <p>{header.gen_content_modules_page[0].pis_content}</p>
                     </div>
                 </div>
                 <div className="services-inner">
@@ -122,7 +119,7 @@ class Home extends Component {
     <section>
         <div className="recent-work portfolio">
             <div className="container">
-                <div className="title text-left">
+                <div className="title text-center">
                     <h2>Our Portfolio</h2>
                 </div>
                 <div className="portfolio-list">
