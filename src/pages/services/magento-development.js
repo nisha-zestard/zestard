@@ -1,13 +1,15 @@
-import React, { Component } from "react"
-import { graphql, Link } from "gatsby"
-import Layout from "../../components/layout"
+import React, { Component } from "react";
+import { graphql } from "gatsby";
+import Layout from "../../components/layout";
 import Header from "../../components/header";
-import SEO from "../../components/seo"
-import Slider from "react-slick";
+import SEO from "../../components/seo";
+import Testimonials from "../../components/TestiMonials";
 // import { removePre } from './../../util/common'
-import AboutProject from '../../components/aboutproject'
+import AboutProject from "../../components/aboutproject";
+import ServiceDetailHeader from "../../components/ServiceDetailHeader";
+import ServiceBasicDetail from "../../components/ServiceBasicDetail";
 
-class ReactjsDevelopment extends Component {
+class MagentoDevelopment extends Component {
 	render() {		
 		const data = this.props.data  
 		const sertech = data.allWordpressPage.edges[0].node;
@@ -16,55 +18,17 @@ class ReactjsDevelopment extends Component {
 		// const platform = pagedata[2].iwc_layout_details
 		const testimonial = data.allWordpressWpTestimonials.edges;
 		
-		var testisettings = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1
-		};
 		//console.log(acf);
 		return(
 			<Layout>
 				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content}/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="website-development">
-					<section>
-						<div className="sub-services-breadcums">
-							<div className="container">
-								<div className="breadcums-inner">
-									<div className="page-title">
-										<h1>{pagedata[0].iwc_layout_details[0].iwc_title}</h1>
-									</div>
-									<div className="breadcums-wrap">
-										<ul className="d-flex justify-content-center m-0 p-0">
-											<li><Link to="#">Home</Link></li>
-											<li><Link to="#">Services</Link></li>
-											<li><Link to="#">{pagedata[0].iwc_layout_details[0].iwc_title}</Link></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
-					<section>
-						<div className="sub-service-baner">
-							<div className="container">
-								<div className="row">
-									<div className="col-md-6 baner-image-wrap">
-										<div className="image-wrap">
-											{acf.header_mascot !== null &&
-												<img src={pagedata[0].iwc_layout_details[0].iwc_image.source_url} alt="" />
-											}											
-										</div>
-									</div>
-									<div className="col-md-6 baner-content-wrap">
-										<div className="content-wrap" dangerouslySetInnerHTML={{__html: pagedata[0].iwc_layout_details[0].iwc_sub_desc}} />											
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
+					<ServiceDetailHeader title={pagedata[0].iwc_layout_details[0].iwc_title} />
+					<ServiceBasicDetail
+						headerMascot={acf.header_mascot}
+						serviceDeail={pagedata[0].iwc_layout_details[0]}
+					/>
 					<section>
 						<div className="ecommerce-sercices-wrap">
 							<div className="container">
@@ -87,50 +51,52 @@ class ReactjsDevelopment extends Component {
 						</div>
 					</section>
 					{/* Testimonials section */}
-					<section>
-						<div className="testimonials-section">
+					<Testimonials testimonial={testimonial} />
+					{/* <section>
+						<div className="platform-section">
 							<div className="container">
-								<div className="title text-center">
-									<h2>Testimonials</h2>
-								</div>
-								<div className="container">
-									<div id="carouselTestimonial" className="carousel carousel-testimonial slide" data-ride="carousel">
-										<div className="carousel-inner">                        
-										<Slider ref={c => (this.slider = c)} {...testisettings}>
-											{testimonial.map((node,index) => (
-												<div className={index=0? 'carousel-item': 'carousel-item active'} key={index}>
-													<div className="row">
-														<div className="col-md-5">
-															<div className="testimonial-img">
-																{node.node.featured_media !== null && node.node.featured_media.source_url !== null &&                                                
-																	<img className="d-block w-100" src={node.node.featured_media.source_url} alt={node.node.title} />
-																}
-															</div>
-														</div>
-														<div className="col-md-7">
-															<h5 className="title">{node.node.title}</h5>
-															{node.node.content !== null &&
-																<div dangerouslySetInnerHTML={{ __html: node.node.content }} />
-															}                                            
-															<div className="next-pre">
-																<button className="button" onClick={this.previous}>
-																	<i className="fa fa-angle-left" aria-hidden="true"></i>
-																</button> 
-																<button className="button" onClick={this.next}>
-																	<i className="fa fa-angle-right" aria-hidden="true"></i>
-																</button> 
-															</div>
-														</div>
+								<h2 className="section-title text-center">Platforms We Work On</h2>
+								{platform.map((node,index) => (
+									<div className={"platform-wrap "+node.iwc_section_class} key={index}>
+										<div className="row">
+											{node.iwc_section_class === 'odd' &&
+												<div className="col-md-7 platform-image-wrap">
+													<div className="image text-center">
+														{node.iwc_image !== null &&
+															<img src={node.iwc_image.source_url} alt="Platform odd"/>
+														}
 													</div>
 												</div>
-											))}
-										</Slider>                            
-										</div>                        
+											}											
+											<div className="col-md-5 platform-content-wrap">
+												<div className="content-inner">
+													<div className="p-title d-flex align-items-center">
+														{node.iwc_icon !== null &&
+															<img src={node.iwc_icon.source_url} alt="Platform center" />
+														}
+														<h4>{node.iwc_title}</h4>
+													</div>
+													<div className="p-desc" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />														
+													<div className="know-more-btn">
+														<Link to={`/${removePre(node.iwc_button_link)}`}>Know More</Link>
+													</div>
+												</div>
+											</div>
+											{node.iwc_section_class === 'even' &&
+												<div className="col-md-7 platform-image-wrap">
+													<div className="image text-center">
+														{node.iwc_image !== null &&
+															<img src={node.iwc_image.source_url} alt="Plateform even" />
+														}
+													</div>
+												</div>
+											}
+										</div>
 									</div>
-								</div>
+								))}
 							</div>
 						</div>
-					</section>
+					</section> */}
 				</div>
 				<AboutProject 
 					apsiwtch={acf.use_common_contact_section} 
@@ -144,7 +110,7 @@ class ReactjsDevelopment extends Component {
 	}
 
 }
-export default ReactjsDevelopment
+export default MagentoDevelopment
 
 export const query = graphql`
 {

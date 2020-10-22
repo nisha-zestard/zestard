@@ -1,13 +1,14 @@
-import React, { Component } from "react"
-import { graphql, Link } from "gatsby"
-import Layout from "./../../components/layout"
-import Header from "./../../components/header"
-import { removePre } from './../../util/common'
-// import Credentialsimage from "./../../assets/images/credientials-bg.png"
-// import Zectopus from "./../../assets/images/zectopus.png"
-import SEO from "./../../components/seo"
-import AboutProject from './../../components/aboutproject'
-import Slider from "react-slick";
+import React, { Component } from "react";
+import { graphql, Link } from "gatsby";
+import Layout from "./../../components/layout";
+import Header from "./../../components/header";
+import { removePre } from "./../../util/common";
+import SEO from "./../../components/seo";
+import AboutProject from "./../../components/aboutproject";
+import Credentials from "../../components/Credentails";
+import OurRecentWork from '../../components/OurRecentWork';
+import ServiceHero from "../../components/ServiceHero";
+import ServiceIntro from "../../components/ServiceIntro";
 
 class Maintain extends Component {
 	render() {
@@ -15,87 +16,26 @@ class Maintain extends Component {
 		const page = data.allWordpressPage.edges[0].node.acf;
 		const genmodule = page.gen_content_modules_page;
 		const credent = genmodule[3].cred_logos_repeater;
-		const portfolio = data.allWordpressWpPortfolio;
+		const portfolio = data.allWordpressWpPortfolio.edges;
 		
-		var clilogosettings = {
-            dots: true,
-            infinite: false,
-            speed: 500,
-            autoplay: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            responsive: [
-                {
-                  breakpoint: 1024,
-                  settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                  }
-                },
-                {
-                  breakpoint: 600,
-                  settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2
-                  }
-                },
-                {
-                  breakpoint: 480,
-                  settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                  }
-                }
-              ]
-        };
 		return(
 			<Layout>
 				<SEO title="Maintain"/>
 				<Header headernavclass="darkheader" />
 				<div className="maintain-main">
-				<section>
-					<div className="page-banner maintain">
-						<div className="container">
-							<div className="row">
-								<div className="col-md-6 banner-content-wrap d-flex align-items-center">
-									<div className="banner-content">
-										<h1 dangerouslySetInnerHTML={{__html: page.header_section_title}} />
-										{page.header_sub_text !== null &&
-											<p dangerouslySetInnerHTML={{__html: page.header_sub_text}} />
-										}										
-									</div>
-								</div>
-								<div className="col-md-6 banner-image-wrap">
-									<div className="banner-image">
-										{page.header_mascot.source_url !== null &&
-											<img src={page.header_mascot.source_url} alt="Maintain banner"/>
-										}										
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+				<ServiceHero
+					title={page.header_section_title}
+					subText={page.header_sub_text}
+					image={page.header_mascot.source_url}
+					background={"linear-gradient(47deg,#2a0845 1%,#6441a5)"}
+				/>
 				<section>
 					<div className="make-intro-section text-left">
 						<div className="container">
-							<div className="row align-items-center">
-								<div class="col-lg-3">
-									<div className="title">
-										<h2>{genmodule[0].pis_section_title}</h2>
-									</div>
-								</div>
-								<div className="col-lg-9 right-wrap">
-									<div className="content">
-										{genmodule[0].pis_content !== null &&
-											<div dangerouslySetInnerHTML={{__html: genmodule[0].pis_content}} />
-										}								
-									</div>
-								</div>
-							</div>
+							<ServiceIntro
+								sectionTitle={genmodule[0].pis_section_title}
+								content={genmodule[0].pis_content}
+							/>
 						</div>
 					</div>
 				</section>
@@ -182,60 +122,12 @@ class Maintain extends Component {
 					</div>
 				</section>
 				{/* Credentials section */}
-				<section>
-					<div className="credentials-section">
-						<div className="container">
-							<div className="title text-center">
-								<h2>Our Credentials</h2>
-							</div>  
-							<ul>                
-								<Slider {...clilogosettings}>
-									{credent.map((node,index) => (                            
-										<li key={index}>                                
-												{node.cred_logos_list.source_url !== null &&
-													<div className="box">
-													<img src={node.cred_logos_list.source_url} alt="cre-img" />
-													</div>
-												}                           
-										</li>
-									))} 
-								</Slider>                   
-							</ul>
-						</div>
-					</div>
-				</section>
-				
-				<section>
-					<div className="recent-work">
-						<div className="container">
-							<div className="title text-center">
-								<h2>{genmodule[2].css_title}</h2>
-								<div dangerouslySetInnerHTML={{__html: genmodule[2].css_content}} />
-							</div>
-							<div className="portfolio-list">
-								<div className="row">
-									{portfolio.edges.map((node,index) => (
-										<div className="col-md-6" key={index}>
-											<div className="portfolio-wrap">
-												<div className="portfolio-image">
-													{node.node.acf.pf_image_with_responsive.source_url !== null &&
-														<img src={node.node.acf.pf_image_with_responsive.source_url} alt="Maintain recent work"/>
-													}													
-												</div>
-												{/* <div className="portfolio-content">
-													<span className="sub-title">Web Platform</span>
-													<h2 className="portfolio-title">{node.node.title}</h2>
-													<div dangerouslySetInnerHTML={{__html: node.node.excerpt}} />
-													<Link to="#" className="portfolio-link">Read more</Link>
-												</div> */}
-											</div>
-										</div>
-									))}
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+				<Credentials credentials={credent} slidesToShow={5} />
+				<OurRecentWork
+					title={genmodule[2].css_title}
+					content={genmodule[2].css_content}
+					portfolio={portfolio}
+				/>
 				<AboutProject apsiwtch={page.use_common_contact_section} />
 				</div>
 			</Layout>
@@ -243,7 +135,7 @@ class Maintain extends Component {
 	}
 }
 
-export default Maintain
+export default Maintain;
 
 export const query = graphql`{
 	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 233}}}}, limit: 2) {
