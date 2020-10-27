@@ -302,3 +302,110 @@
         border-color: #9fcb29;
     }
 }
+
+
+/*===========================Contact Us New======================
+
+================================================================*/
+.contact-us{
+    margin-top: 120px;
+    margin-bottom: 100px;
+    .contact-detail-wraper{
+        .title-wrap{
+            margin-bottom: 50px;
+            h2{
+                font-size: 45px;
+                font-family: $primary-font;
+                color: #253976;
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-bottom: 25px;
+            }
+            p{
+                font-size: 20px;
+                line-height: 24px;
+                font-weight: 600;
+                color: #253976;
+                margin: 0;
+                max-width: 600px;
+                @media #{$medium-screen}{
+                    max-width: 100%;
+                }
+            }
+        }
+        .contact-details{
+            ul{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                li{
+                    margin-bottom: 30px;
+                    h3{
+                        font-family: $primary-font;
+                        font-size: 20px;
+                        line-height: 24px;
+                        font-weight: 600;
+                        color: #253976;
+                    }
+                    p, a, address{
+                        font-family: $primary-font;
+                        font-size: 20px;
+                        line-height: 24px;
+                        font-weight: 600;
+                        color: #253976;
+                        margin: 0;
+                        span{
+                            display: inline-block;
+                            padding-right: 10px;
+                        }
+                        a{
+                            color: #253976;
+                        }
+                    }
+                    address{
+                        line-height: 28px;
+                        max-width: 560px;
+                        @media #{$medium-screen}{
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .contact-form{
+        padding: 30px;
+        box-shadow: 0px 0px 16px 0px rgba(169, 169, 169, 0.35);
+        .title{
+            font-family: $primary-font;
+            color: #253976;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 50px;
+        }
+        .form-wrap{
+            form{
+                .form-field{
+                    margin-bottom: 30px;
+                    .form-control{
+                        background-color: transparent;
+                        border: 1px solid #c0c0c0;
+                        width: 100%;
+                        font-size: 15px;
+                        &:focus{
+                            box-shadow: none;
+                            outline: none;
+                        }
+                    }
+                    .btn-primary{
+                        @include theme-btn;
+                        background: $primary-color;
+                        padding: 15px 40px;
+                        text-transform: uppercase;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}   
