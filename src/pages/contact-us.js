@@ -47,7 +47,7 @@ class ContactUs extends Component {
     // check for empty data
       if (!value || value === '') {
         errors[field] = "This field cannot be blank.";
-      } 
+      }  
       // check for matching regEx
       if (field === "email") {
         if(!value || value === '') {
