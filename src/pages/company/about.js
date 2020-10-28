@@ -4,12 +4,18 @@ import React, { Component } from "react"
 import Header from "../../components/header";
 import Layout from "../../components/layout"
 import SEO from "../../components/seo";
-
+import Valueicon from "../../assets/images/values-icon.png"
+import Testimonials from "../../components/TestiMonials";
+import AboutProject from "../../components/aboutproject";
 
 class About extends Component {
   
     render() {
-
+        const data = this.props.data
+        const page = data.allWordpressPage.edges[0].node
+        const testimonial = data.allWordpressWpTestimonials.edges;
+        const tellus = data.allWordpressPage.edges[0].node.acf;
+        console.log(page);
       return (
         <Layout>
             <SEO title="About"/>
@@ -37,23 +43,11 @@ class About extends Component {
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-6 about-content">
-                                   <div className="description">
-                                       <p>Zestard Technologies is an E-commerce focused agency mainly working on
-                                        Shopify, WordPress, and Magento as a Core Expertise. We are known for our
-                                        business consultation services and assist our customers with designing and
-                                        implementing the right E-commerce strategy. </p>
-                                        <p>Zestard has designed and developed more than 320 E-commerce websites.
-                                        Zestard has worked with more than 23 Global Brands having presence in
-                                        multiple countries with revenue of more than $50M individually. </p>
-                                        <p>Zestard has an expert pool of Digital Marketing Professionals who are
-                                        known for earning high quality links (higher DA) & high traffic backlinks
-                                        using content marketing & outreach techniques. 
-                                        </p>
-                                   </div>
+                                   <div className="description" dangerouslySetInnerHTML = {{ __html: page.childWordPressAcfGenImageWithContent.iwc_layout_details[0].iwc_sub_desc }} />                                   
                                 </div>
                                 <div className="col-md-6 about-image">
                                     <div className="about-image">
-
+                                        <img src={page.childWordPressAcfGenImageWithContent.iwc_layout_details[0].iwc_image.source_url} />
                                     </div>
                                 </div>
                             </div>
@@ -63,61 +57,23 @@ class About extends Component {
                 <section>
                     <div className="our-values">
                         <div className="container">
-                            <h2 className="title text-center">Our Values</h2>
-                            <div className="our-values-inner">
+                            <h2 className="title text-center">{page.childWordPressAcfGenCardsSection.cs_section_title}</h2>
+                            <div className="our-values-inner" >
                                 <div className="row">
-                                    <div className="col-md-6 our-values-box-wrapper">
+                                    {page.childWordPressAcfGenCardsSection.cs_cards_details.map((node,index)=>(
+                                        <div className="col-md-6 our-values-box-wrapper" key={index}>
                                         <div className="our-values-box">
                                             <div className="icon">
-
+                                                <img src={Valueicon} />
                                             </div>
                                             <div className="descriptions">
-                                                <h3>Integrity</h3>
-                                                <p>Our team of IT professionals and digital marketing experts are
-                                                trained in varied disciplines but imparted integrity, honesty, and
-                                                discipline right from the time they become part of Zestard family.</p>
+                                                <h3>{node.cs_title}</h3>
+                                                <div dangerouslySetInnerHTML = {{ __html: node.cs_content}} />
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-md-6 our-values-box-wrapper">
-                                        <div className="our-values-box">
-                                            <div className="icon">
-
-                                            </div>
-                                            <div className="descriptions">
-                                                <h3>Quality</h3>
-                                                <p>It is our stringent quality measures  and commitment to qualitative
-                                                deliverables that have helped establish ourselves in the market with
-                                                a number of retained customers and clients.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6 our-values-box-wrapper">
-                                        <div className="our-values-box">
-                                            <div className="icon">
-
-                                            </div>
-                                            <div className="descriptions">
-                                                <h3>Transparency</h3>
-                                                <p>With constant communication, routine work reports, and regular
-                                                updates from our side, we ensure complete transparency in our
-                                                strategies, development approach, and progress to our clients.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6 our-values-box-wrapper">
-                                        <div className="our-values-box">
-                                            <div className="icon">
-
-                                            </div>
-                                            <div className="descriptions">
-                                                <h3>Customer Delight</h3>
-                                                <p>Our stickler attitude to accuracy and precision, especially in meeting
-                                                the requirements of our clients has time and again ensured consistent
-                                                customer delight and satisfaction.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    ))}
+                                    
                                 </div>
                             </div>
                         </div>
@@ -126,12 +82,16 @@ class About extends Component {
                 <section>
                     <div className="platforms-we-support">
                         <div className="container">
-                            <h2 className="title text-center">Platforms we support</h2>
+                            <h2 className="title text-center">{page.childWordPressAcfPlatformLogos.pl_title}</h2>
                             <div className="platforms-inner">
                                 <ul className="d-flex m-0 p-0 platforms-list">
+                                {page.childWordPressAcfPlatformLogos.pl_logos_list.map((node,index)=>(
                                     <li>
-                                        <a href="javascript:;"></a>
+                                        {node.pl_logos.source_url !== null &&
+                                            <a href="#"><img src={node.pl_logos.source_url} /></a>
+                                        }                                        
                                     </li>
+                                ))}
                                 </ul>
                             </div>
                         </div>
@@ -141,36 +101,15 @@ class About extends Component {
                     <div className="success-counter">
                         <div className="container">
                             <ul className="d-flex p-0 counter-list">
-                                <li>
-                                    <div className="counter-box">
-                                        <h3>9+</h3>
-                                        <p>Years Experience</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="counter-box">
-                                        <h3>350+</h3>
-                                        <p>E-Commerce Stores</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="counter-box">
-                                        <h3>30+</h3>
-                                        <p>Specialized Solutions</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="counter-box">
-                                        <h3>800+</h3>
-                                        <p>Projects Delivered</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="counter-box">
-                                        <h3>40+</h3>
-                                        <p>Employees</p> 
-                                    </div>
-                                </li>
+                                {page.childWordPressAcfCounter.counter_list.map((node,index)=>(
+                                    <li>
+                                        <div className="counter-box">
+                                            <h3>{node.cuntr_number}</h3>
+                                            <p>{node.cuntr_text}</p>
+                                        </div>
+                                    </li>
+                                ))}
+                                
                             </ul>
                         </div>
                     </div>
@@ -181,43 +120,33 @@ class About extends Component {
                             <h2 className="title text-center">Our Credentials</h2>
                             <div className="our-credentials-wraper">
                                 <div className="row">
-                                    <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                        <div className="our-credentials-box text-center">
-                                            <div className="image">
-
+                                    {page.childWordPressAcfGenCredentialLogos.cred_logos_repeater.map((node,index)=>(
+                                        <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                            <div className="our-credentials-box text-center">
+                                                <div className="image">
+                                                    {node.cred_logos_list.source_url !== null &&
+                                                        <img src={node.cred_logos_list.source_url} />
+                                                    }                                                    
+                                                </div>
+                                                <h3 className="c-title">{node.cred_logos_title}</h3>
                                             </div>
-                                            <h3 className="c-title">TOP ECOMMERCE DEVELOPERS BY CLUTCH</h3>
                                         </div>
-                                    </div>
-                                    <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                        <div className="our-credentials-box text-center">
-                                            <div className="image">
-
-                                            </div>
-                                            <h3 className="c-title">SHOPIFY EXPERTS</h3>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                        <div className="our-credentials-box text-center">
-                                            <div className="image">
-
-                                            </div>
-                                            <h3 className="c-title">40+ MAGENTO EXTENSIONS</h3>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                        <div className="our-credentials-box text-center">
-                                            <div className="image">
-
-                                            </div>
-                                            <h3 className="c-title">17+ SHOPIFY APPS & 10,000+ APP INSTALLATIONS</h3>
-                                        </div>
-                                    </div>
+                                    ))}                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
+                {/* Testimonials section */}
+					<Testimonials testimonial={testimonial} />
+
+                    <AboutProject
+            apsiwtch={tellus.use_common_contact_section}
+            apimage={tellus.tuabp_image}
+            aptitle={tellus.tuabp_title}
+            apcontent={tellus.tuabp_content}
+            apbuttontext={tellus.tuabp_button_text}
+            apbuttonlink={tellus.tuabp_button_link} />
             </div>
         </Layout>
         )
@@ -226,3 +155,71 @@ class About extends Component {
 }
 export default About
 
+export const query = graphql`
+{
+    allWordpressWpTestimonials {
+        edges {
+          node {
+            featured_media {
+              source_url
+            }
+            title
+            content
+          }
+        }
+    }
+    allWordpressPage(filter: {wordpress_id: {eq: 7775}}) {
+        edges {
+          node {
+            acf {
+                use_common_contact_section
+                tuabp_title
+                tuabp_image {
+                  source_url
+                }
+                tuabp_content
+                tuabp_button_text
+                tuabp_button_link
+            }
+            childWordPressAcfGenImageWithContent {
+              iwc_layout_details {
+                iwc_image {
+                  source_url
+                }
+                iwc_sub_desc
+              }
+            }
+            childWordPressAcfGenCardsSection {
+              cs_section_title
+              cs_cards_details {
+                cs_title
+                cs_content
+              }
+            }
+            childWordPressAcfPlatformLogos {
+              pl_title
+              pl_logos_list {
+                pl_logos {
+                  source_url
+                }
+              }
+            }
+            childWordPressAcfCounter {
+              counter_list {
+                cuntr_number
+                cuntr_text
+              }
+            }
+            childWordPressAcfGenCredentialLogos {
+              cred_logos_repeater {
+                cred_logos_list {
+                  source_url
+                }
+                cred_logos_title
+              }
+            }
+          }
+        }
+    }
+}
+`
