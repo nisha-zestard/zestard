@@ -18,11 +18,10 @@ class Contact extends Component {
                     <div className="contact-wrapper">
                         <div className="container">
                             <div className="row">
-                                <div className="col-md-7">
+                                <div className="col-lg-7">
                                     <div className="contact-detail-wraper"dangerouslySetInnerHTML = {{ __html: acfoption.cd_content }} />
-                                    
                                 </div>
-                                <div className="col-md-5">
+                                <div className="col-lg-5">
                                     <div className="contact-form">
                                         <h2 className="title">Talk to Ecommerce Experts</h2>
                                         <div className="form-wrap">
