@@ -264,6 +264,12 @@
         background-color: #fcfcfc;
         padding: 30px 0;
         margin-bottom: 100px;
+        @media #{$tablet-screen}{
+            margin-bottom: 50px;
+        }
+        @media #{$mobile-screen}{
+            margin-bottom: 30px;
+        }
         .pagetitle-wrap{
             h1{
                 font-family: $primary-font;
@@ -307,12 +313,29 @@
     }
     .who-we-are{
         padding-bottom: 100px;
+        @media #{$tablet-screen}{
+           padding-bottom: 50px;
+        }
+        @media #{$mobile-screen}{
+            padding-bottom: 30px;
+        }
+        .about-content{
+            @media #{$tablet-screen}{
+                order: 2;
+            }
+        }
     }
     .our-values{
         padding-bottom: 80px;
+        @media #{$tablet-screen}{
+            padding-bottom: 30px;
+        }
         .title{
             @include heading;
             margin-bottom: 50px;
+            @media #{$mobile-screen}{
+                margin-bottom: 25px;
+            }
         }
         .our-values-inner{
             .our-values-box-wrapper{
@@ -324,21 +347,43 @@
                     box-shadow: 0px 2px 9px 0px rgba(102, 102, 102, 0.28);
                     padding: 30px;
                     margin-bottom: 20px;
+                    @media #{$mobile-screen}{
+                        padding: 15px;
+                    }
                     .icon{
                         width: 70px;
+                        @media #{$mobile-screen}{
+                            width: 55px;
+                        }
                     }
                     .descriptions{
                         width: calc(100% - 70px);
+                        @media #{$mobile-screen}{
+                            width: calc(100% - 55px);
+                        }
                         h3{
                             font-family: $primary-font;
                             color: $primary-color;
                             font-size: 26px;
                             margin-bottom: 25px;
                             font-weight: 700;
+                            @media #{$tablet-screen}{
+                                font-size: 22px;
+                                margin-bottom: 15px;
+                            }
                         }
                         p{
                             line-height: 30px;
                             margin: 0;
+                            @media #{$medium-screen}{
+                                min-height: 180px;
+                            }
+                            @media #{$tablet-screen}{
+                                min-height: 270px;
+                            }
+                            @media #{$small-screen}{
+                                min-height: inherit;
+                            }
                         }
                     }
                 }
@@ -346,29 +391,75 @@
         }
     }
     .platforms-we-support{
+        padding-bottom: 50px;
+        @media #{$mobile-screen}{
+            padding-bottom: 30px;
+        }
         .title{
             @include heading;
             margin-bottom: 50px;
+            @media #{$mobile-screen}{
+                margin-bottom: 25px;
+            }
         }
         .platforms-inner{
             ul{
                 list-style: none;
+                align-items: center;
+                flex-wrap: wrap;
+                @media #{$tablet-screen}{
+                    justify-content: center;
+                }
+                li{
+                    width: 20%;
+                    text-align: center;
+                    @media #{$tablet-screen}{
+                        width: 33.333%;
+                        margin-bottom: 25px;
+                    }
+                    @media #{$small-screen}{
+                        width: 50%;
+                    }
+                    @media #{$xs-mobile-screen}{
+                        width: 100%;
+                    }
+                    img{
+                        max-width: 100%;
+                    }
+                }
             }
         }
     }
     .success-counter{
         background-color: #f4fbff;
         padding: 50px 0;
+        @media #{$mobile-screen}{
+            padding: 30px 0;
+        }
         .counter-list{ 
             list-style: none;
             flex-wrap: wrap;
             margin: 0 -10px;
+            @media #{$tablet-screen}{
+                justify-content: center;
+            }
             li{
                 width: 20%;
                 padding: 0 10px;
                 text-align: center;
+                @media #{$tablet-screen}{
+                    width: 33.333%;
+                    margin-bottom: 25px;
+                }
+                @media #{$small-screen}{
+                    width: 50%;
+                }
+                @media #{$xs-mobile-screen}{
+                    width: 100%;
+                }
                 .counter-box{
                     h3{
+                        font-family: 'Graphik';
                         font-size: 75px;
                         font-weight: bold;
                         background: linear-gradient( 122deg, rgb(91,134,229) 0%, rgb(54,209,220) 100%);
@@ -376,6 +467,15 @@
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
                         margin-bottom: 10px;
+                        @media #{$medium-screen}{
+                            font-size: 60px;
+                        }
+                        @media #{$tablet-screen}{
+                            font-size: 50px;
+                        }
+                        @media #{$small-screen}{
+                            font-size: 42px;
+                        }
                     }
                     p{
                         color: $black;
@@ -388,9 +488,15 @@
     }
     .our-credentials{
         padding: 50px 0;
+        @media #{$mobile-screen}{
+            padding: 30px 0;
+        }
         .title{
             @include heading;
             margin-bottom: 50px;
+            @media #{$mobile-screen}{
+                margin-bottom: 25px;
+            }
         }
         .our-credentials-wraper{
             .our-credentials-box{
@@ -399,6 +505,7 @@
                 .image{
                     max-width: 100%;
                     margin-bottom: 15px;
+                    min-height: 125px;
                 }
                 .c-title{
                     font-family: $primary-font;
@@ -411,5 +518,8 @@
                 }
             }
         }
+    }
+    .testimonials-section{
+        padding-top: 0;
     }
 }

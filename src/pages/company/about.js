@@ -42,10 +42,10 @@ class About extends Component {
                     <div className="who-we-are">
                         <div className="container">
                             <div className="row">
-                                <div className="col-md-6 about-content">
+                                <div className="col-lg-6 about-content">
                                    <div className="description" dangerouslySetInnerHTML = {{ __html: page.childWordPressAcfGenImageWithContent.iwc_layout_details[0].iwc_sub_desc }} />                                   
                                 </div>
-                                <div className="col-md-6 about-image">
+                                <div className="col-lg-6 about-image">
                                     <div className="about-image">
                                         <img src={page.childWordPressAcfGenImageWithContent.iwc_layout_details[0].iwc_image.source_url} />
                                     </div>
