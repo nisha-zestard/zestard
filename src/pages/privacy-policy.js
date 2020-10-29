@@ -10,9 +10,12 @@ class PrivacyPolicy extends Component {
     render() {
       const data = this.props.data
       const acfData = data.wordpressPage.acf;
+      const sertech = data.wordpressPage
+    
+
       return (
         <Layout>
-        <SEO title={data.wordpressPage.title} />
+        <SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
         <Header headernavclass="lightheader" />
             <div id="page" className="site">
                 <div id="content" className="site-content">
@@ -48,6 +51,10 @@ export const query = graphql`
     {
         wordpressPage(slug: {eq: "privacy-policy"}) {
             title
+            yoast_title
+                    yoast_meta {
+                        content
+                    }
             acf {
               header_page_title
                 header_mascot {
@@ -58,6 +65,10 @@ export const query = graphql`
         allWordpressPage(filter: {slug: {eq: "privacy-policy"}}) {
             edges {
                 node {
+                    yoast_title
+                    yoast_meta {
+                        content
+                    }
                     id
                     title
                     content

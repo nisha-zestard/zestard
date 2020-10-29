@@ -17,10 +17,11 @@ class Maintain extends Component {
 		const genmodule = page.gen_content_modules_page;
 		const credent = genmodule[3].cred_logos_repeater;
 		const portfolio = data.allWordpressWpPortfolio.edges;
+		const sertech = data.allWordpressPage.edges[0].node;
 		
 		return(
 			<Layout>
-				<SEO title="Maintain"/>
+				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
 				<Header headernavclass="darkheader" />
 				<div className="maintain-main">
 				<ServiceHero
@@ -169,6 +170,10 @@ export const query = graphql`{
 	allWordpressPage(filter: {wordpress_id: {eq: 6981}}) {
 		edges {
 		  node {
+			yoast_title
+			yoast_meta {
+				content
+			}
 			acf {
 			  home_mascot_class
 			  header_sub_text
