@@ -14,10 +14,11 @@ class WordpressDevelopment extends Component {
 		const acf = data.allWordpressPage.edges[0].node.acf;
 		const pagedata = acf.gen_content_modules_page;
 		const platform = pagedata[1].iwc_layout_details;
+		const sertech = data.allWordpressPage.edges[0].node;
 
 		return (
 			<Layout>
-				<SEO title="Website Development" />
+				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
 				<Header headernavclass="lightheader" />
 				<div id="page" className="website-development">
 					<ServiceDetailHeader title={'Website Development'} />
@@ -68,6 +69,10 @@ export const query = graphql`
 		edges {
 		  node {
 			title
+			yoast_title
+			yoast_meta {
+				content
+			}
 			acf {
 			  header_sub_text
 			  header_section_title

@@ -16,10 +16,11 @@ class EcommerceDevelopment extends Component {
 		const banner = acf[0].iwc_layout_details[0];
 		const testimonial = data.allWordpressWpTestimonials.edges;
 		const services = acf[1].cs_cards_details;
-			
+		const sertech = data.wordpressPage
+		
 		return(
 			<Layout>
-				<SEO title="UI/UX Development"/>
+				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
 				<Header headernavclass="lightheader" />
 				<div id="page" className="ui-ux-development">
 					<ServiceDetailHeader title={'UI/UX'} />
@@ -81,6 +82,10 @@ export const query = graphql`
       }
 	wordpressPage(wordpress_id: {eq: 7275}) {
 		title
+		yoast_title
+		yoast_meta {
+			content
+		}
 		acf {
 			use_common_contact_section
 			tuabp_title

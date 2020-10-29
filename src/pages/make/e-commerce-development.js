@@ -16,10 +16,11 @@ class EcommerceDevelopment extends Component {
 		const banner = acf[0].iwc_layout_details[0];
 		// const services = acf[1].cs_cards_details
 		const platform = acf[2].iwc_layout_details;
-
+		const sertech = data.wordpressPage
+		console.log(data);
 		return (
 			<Layout>
-				<SEO title="E-commerce Development" />
+				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
 				<Header headernavclass="lightheader" />
 				<div id="page" className="ecommerce-development">
 					<ServiceDetailHeader title={'E-commerce Development'} />
@@ -70,6 +71,10 @@ export const query = graphql`
 {
 	wordpressPage(wordpress_id: {eq: 1491}) {
 		title
+		yoast_title
+		yoast_meta {
+			content
+		}
 		acf {
 			use_common_contact_section
 			  tuabp_title
