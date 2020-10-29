@@ -16,10 +16,11 @@ class EcommerceDevelopment extends Component {
     const banner = acf[0].iwc_layout_details[0];
     const services = acf[1].cs_cards_details;
     const testimonial = data.allWordpressWpTestimonials.edges;
+    const sertech = data.wordpressPage  
 
     return (
       <Layout>
-        <SEO title="Shopify Development" />
+        <SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
         <Header headernavclass="lightheader" />
         <div id="page" className="ui-ux-development">
           <ServiceDetailHeader title={'Shopify development'} />

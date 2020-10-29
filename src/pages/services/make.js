@@ -18,10 +18,11 @@ class Make extends Component {
 		const technology = data.allWordpressWpTechnology.edges;
 		const credential = acfgen[3].cred_logos_repeater;
 		const portfolio = data.allWordpressWpPortfolio.edges;
-
+		const sertech = data.allWordpressPage.edges[0].node;
+		
 		return (
 			<Layout>
-				<SEO title="Make" />
+				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
 				<Header headernavclass="darkheader" />
 				<div className="make-main">
 					<ServiceHero
@@ -122,7 +123,7 @@ export default Make;
 export const query = graphql`{
 	allWordpressWpTechnology(sort: {order: DESC, fields: date}) {
 		edges {
-		  node {
+		  node {			
 			acf {
 				technology_custom_link
 			}
@@ -138,6 +139,7 @@ export const query = graphql`{
 	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 232}}}}, limit: 2) {
         edges {
           node {
+
             title
             excerpt
             link
@@ -166,6 +168,10 @@ export const query = graphql`{
 	allWordpressPage(filter: {wordpress_id: {eq: 6956}}) {
 		edges {
 		  node {
+			yoast_title
+			yoast_meta {
+				content
+			}
 			acf {
 			  home_mascot_class
 			  header_section_title
