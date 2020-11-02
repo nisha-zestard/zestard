@@ -20,6 +20,20 @@ $blog-font: 'PT Serif', serif;
 a:hover{
     text-decoration: none;
 }
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('../fonts/Graphik-Semibold.eot');
+    src: url('../fonts/Graphik-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Graphik-Semibold.woff2') format('woff2'),
+        url('../fonts/Graphik-Semibold.woff') format('woff'),
+        url('../fonts/Graphik-Semibold.ttf') format('truetype'),
+        url('../fonts/Graphik-Semibold.svg#Graphik-Semibold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
 /*=============Responsive Media Query Variables==================*/
 $extra-large-screen: "screen and (min-width: 1300px)";
 $medium-screen : "screen and (max-width: 1199px)";

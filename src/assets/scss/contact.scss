@@ -310,64 +310,81 @@
 .contact-us{
     margin-top: 120px;
     margin-bottom: 100px;
+    @media #{$tablet-screen}{
+       margin: 90px 0 50px;
+    }
     .contact-detail-wraper{
-        .title-wrap{
-            margin-bottom: 50px;
-            h2{
-                font-size: 45px;
-                font-family: $primary-font;
-                color: #253976;
-                font-weight: 700;
-                text-transform: uppercase;
-                margin-bottom: 25px;
+        h2{
+            font-size: 45px;
+            font-family: $primary-font;
+            color: #253976;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            @media #{$tablet-screen}{
+                font-size: 36px;
             }
-            p{
-                font-size: 20px;
-                line-height: 24px;
-                font-weight: 600;
-                color: #253976;
-                margin: 0;
-                max-width: 600px;
-                @media #{$medium-screen}{
-                    max-width: 100%;
-                }
+            @media #{$mobile-screen}{
+                font-size: 30px;
             }
         }
-        .contact-details{
-            ul{
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                li{
-                    margin-bottom: 30px;
-                    h3{
-                        font-family: $primary-font;
-                        font-size: 20px;
-                        line-height: 24px;
-                        font-weight: 600;
-                        color: #253976;
+        p{
+            font-size: 20px;
+            line-height: 24px;
+            font-weight: 600;
+            color: #253976;
+            margin: 0;
+            max-width: 600px;
+            @media #{$medium-screen}{
+                max-width: 100%;
+            }
+            @media #{$mobile-screen}{
+                font-size: 18px;
+            }
+        }
+        ul{
+            list-style: none;
+            margin: 50px 0 0 0;
+            padding: 0;
+            @media #{$mobile-screen}{
+                margin: 30px 0 0 0;
+            }
+            li{
+                margin-bottom: 30px;
+                h3{
+                    font-family: $primary-font;
+                    font-size: 20px;
+                    line-height: 24px;
+                    font-weight: 600;
+                    color: #253976;
+                }
+                p, a, address{
+                    font-family: $primary-font;
+                    font-size: 20px;
+                    line-height: 24px;
+                    font-weight: 600;
+                    color: #253976;
+                    margin: 0;
+                    @media #{$mobile-screen}{
+                        font-size: 18px;
                     }
-                    p, a, address{
-                        font-family: $primary-font;
-                        font-size: 20px;
-                        line-height: 24px;
-                        font-weight: 600;
-                        color: #253976;
-                        margin: 0;
-                        span{
-                            display: inline-block;
-                            padding-right: 10px;
-                        }
-                        a{
-                            color: #253976;
-                        }
+                    span{
+                        display: inline-block;
+                        padding-right: 10px;
                     }
-                    address{
-                        line-height: 28px;
-                        max-width: 560px;
-                        @media #{$medium-screen}{
-                            max-width: 100%;
-                        }
+                    a{
+                        color: #253976;
+                        border-bottom: 2px solid #9da2b9;
+                    }
+                }
+                p{
+                    
+                }
+                address{
+                    line-height: 28px;
+                    max-width: 560px;
+                    @media #{$medium-screen}{
+                        max-width: 100%;
                     }
                 }
             }
@@ -382,6 +399,10 @@
             font-size: 28px;
             font-weight: 600;
             margin-bottom: 50px;
+            @media #{$mobile-screen}{
+                font-size: 25px;
+                margin-bottom: 30px;
+            }
         }
         .form-wrap{
             form{

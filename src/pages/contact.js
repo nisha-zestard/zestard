@@ -92,6 +92,7 @@ class Contact extends Component {
     }
   }
 
+
   render() {
     const data = this.props.data
     const acfoption = data.allWordpressAcfOptions.edges[0].node.options
@@ -148,6 +149,7 @@ class Contact extends Component {
                               </div>
                             </form>
                           }
+
                         </div>
                     </div>
                   </div>
