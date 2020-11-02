@@ -111,6 +111,7 @@ class Contact extends Component {
                   <div className="col-md-5">
                     <div className="contact-form">
                       <h2 className="title">Talk to Ecommerce Experts</h2>
+                      <h3 className={this.state.submitted === true ? 'mail-send' : this.state.submitted === false ? 'mail-failed' : '' } >{this.state.status}</h3>
                         <div className="form-wrap">
                           {this.state.submitted === false && 
                             <form method="post" action="#" className="frm_forms" onSubmit={this.handleSubmit} noValidate>
