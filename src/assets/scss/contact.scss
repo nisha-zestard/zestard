@@ -404,6 +404,14 @@
                 margin-bottom: 30px;
             }
         }
+        .mail-failed, .mail-send{ 
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #FF0000;
+        }
+        .mail-send{
+            color: #4BB543;
+        }
         .form-wrap{
             form{
                 .form-field{
@@ -417,6 +425,10 @@
                             box-shadow: none;
                             outline: none;
                         }
+                    }
+                    .error{
+                        color: #FF0000;
+                        font-size: 13px;
                     }
                     .btn-primary{
                         @include theme-btn;
