@@ -102,6 +102,23 @@ class Contact extends Component {
         <SEO title="Contact"/>
           <Header headernavclass="lightheader" />
           <div id="page" className="site-page contact-us">
+          <section className="page-title">
+                    <div className="container">
+                        <div className="pagetitle-wrap text-center">
+                            <h1>Contact us</h1>
+                            <div className="breadcums">
+                                <ul className="d-flex justify-content-center m-0 p-0">
+                                    <li>
+                                        <a href="#">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Contact us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             <div className="contact-wrapper">
               <div className="container">
                 <div className="row">
