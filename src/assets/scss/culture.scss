@@ -32,7 +32,19 @@
         }
     }
 }
-
+.year-list{
+    ul{
+        margin: 0;
+        padding: 45px 0 0;
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        li{
+            margin: 0 15px;
+            cursor: pointer;
+        }
+    }
+}
 .events-wrapper {
     height: calc(100% - 60px);
     margin: 30px auto;
