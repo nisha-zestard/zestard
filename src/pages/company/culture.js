@@ -58,7 +58,7 @@ class Culture extends Component {
                     {/* events */}
                     <div className="container" onLoad={allpid()}>
                       <div className="row">
-                        <div className="year-list">
+                        <div className="col-sm-12 year-list">
                           <ul>
                             {culcat.map((node,index) => (
                               <li culcat-id={node.node.wordpress_id} key={index} onClick={ (e) => getpcid(e) }>{node.node.name}</li>                          
