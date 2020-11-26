@@ -7,6 +7,7 @@ import AboutProject from "../../components/aboutproject";
 import ServiceDetailHeader from "../../components/ServiceDetailHeader";
 import ServiceBasicDetail from "../../components/ServiceBasicDetail";
 import PlatformWeWork from "../../components/PlatformWeWork";
+import OurRecentWork from "../../components/OurRecentWork";
 
 class EcommerceDevelopment extends Component {
 	render() {
@@ -16,8 +17,9 @@ class EcommerceDevelopment extends Component {
 		const banner = acf[0].iwc_layout_details[0];
 		// const services = acf[1].cs_cards_details
 		const platform = acf[2].iwc_layout_details;
+		const portfolio = data.allWordpressWpPortfolio.edges;
 		const sertech = data.wordpressPage
-		console.log(data);
+		console.log(acf);
 		return (
 			<Layout>
 				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
@@ -50,6 +52,11 @@ class EcommerceDevelopment extends Component {
 						</div>
 					</section> */}
 					<PlatformWeWork platform={platform} />
+					<OurRecentWork
+						title={acf[3].css_title}
+						content={acf[3].css_content}
+						portfolio={portfolio}
+					/>
 					<AboutProject
 						apsiwtch={tellus.use_common_contact_section}
 						apimage={tellus.tuabp_image}
@@ -69,6 +76,24 @@ export default EcommerceDevelopment;
 
 export const query = graphql`
 {
+	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 232}}}}, limit: 2) {
+        edges {
+          node {
+
+            title
+            excerpt
+            link
+            featured_media {
+              source_url
+            }
+            acf {
+              pf_image_with_responsive {
+                source_url
+              }
+            }
+          }
+        }
+    }
 	wordpressPage(wordpress_id: {eq: 1491}) {
 		title
 		yoast_title
@@ -107,6 +132,12 @@ export const query = graphql`
 				cs_title
 				cs_content
 			  }
+			}
+			... on WordPressAcf_gen_case_study_section {
+				id
+				css_title
+				css_content
+				css_section_class
 			}
 		  }
 		}

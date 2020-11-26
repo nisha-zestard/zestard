@@ -7,6 +7,7 @@ import AboutProject from "../../components/aboutproject";
 import ServiceDetailHeader from "../../components/ServiceDetailHeader";
 import ServiceBasicDetail from "../../components/ServiceBasicDetail";
 import PlatformWeWork from "../../components/PlatformWeWork";
+import OurRecentWork from "../../components/OurRecentWork";
 
 class WordpressDevelopment extends Component {
 	render() {
@@ -15,6 +16,7 @@ class WordpressDevelopment extends Component {
 		const pagedata = acf.gen_content_modules_page;
 		const platform = pagedata[1].iwc_layout_details;
 		const sertech = data.allWordpressPage.edges[0].node;
+		const portfolio = data.allWordpressWpPortfolio.edges;
 
 		return (
 			<Layout>
@@ -48,6 +50,11 @@ class WordpressDevelopment extends Component {
 						</div>
 					</section> */}
 					<PlatformWeWork platform={platform} />
+					<OurRecentWork
+						title={pagedata[2].css_title}
+						content={pagedata[2].css_content}
+						portfolio={portfolio}
+					/>
 				</div>
 				<AboutProject
 					apsiwtch={acf.use_common_contact_section}
@@ -65,6 +72,24 @@ export default WordpressDevelopment;
 
 export const query = graphql`
 {
+	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 232}}}}, limit: 2) {
+        edges {
+          node {
+
+            title
+            excerpt
+            link
+            featured_media {
+              source_url
+            }
+            acf {
+              pf_image_with_responsive {
+                source_url
+              }
+            }
+          }
+        }
+    }
 	allWordpressPage(filter: {wordpress_id: {eq: 7271}}) {
 		edges {
 		  node {
@@ -116,6 +141,12 @@ export const query = graphql`
 					cs_content
 					cs_learn_more_link
 				  }
+				}
+				... on WordPressAcf_gen_case_study_section {
+					id
+					css_title
+					css_content
+					css_section_class
 				}
 			  }
 			}

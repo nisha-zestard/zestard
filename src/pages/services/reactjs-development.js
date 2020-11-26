@@ -8,6 +8,7 @@ import Testimonials from "../../components/TestiMonials";
 import AboutProject from "../../components/aboutproject";
 import ServiceDetailHeader from "../../components/ServiceDetailHeader";
 import ServiceBasicDetail from "../../components/ServiceBasicDetail";
+import OurRecentWork from "../../components/OurRecentWork";
 
 class ReactjsDevelopment extends Component {
 	render() {		
@@ -16,6 +17,7 @@ class ReactjsDevelopment extends Component {
 		const acf = data.allWordpressPage.edges[0].node.acf
 		const pagedata = acf.gen_content_modules_page
 		const testimonial = data.allWordpressWpTestimonials.edges;
+		const portfolio = data.allWordpressWpPortfolio.edges;
 
 		
 		return(
@@ -97,6 +99,11 @@ class ReactjsDevelopment extends Component {
 							</div>
 						</div>
 					</section> */}
+					<OurRecentWork
+						title={pagedata[2].css_title}
+						content={pagedata[2].css_content}
+						portfolio={portfolio}
+					/>
 				</div>
 				<AboutProject 
 					apsiwtch={acf.use_common_contact_section} 
@@ -114,6 +121,24 @@ export default ReactjsDevelopment
 
 export const query = graphql`
 {
+	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 232}}}}, limit: 2) {
+        edges {
+          node {
+
+            title
+            excerpt
+            link
+            featured_media {
+              source_url
+            }
+            acf {
+              pf_image_with_responsive {
+                source_url
+              }
+            }
+          }
+        }
+    }
 	allWordpressWpTestimonials {
         edges {
           node {
