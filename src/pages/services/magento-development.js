@@ -8,6 +8,7 @@ import Testimonials from "../../components/TestiMonials";
 import AboutProject from "../../components/aboutproject";
 import ServiceDetailHeader from "../../components/ServiceDetailHeader";
 import ServiceBasicDetail from "../../components/ServiceBasicDetail";
+import OurRecentWork from "../../components/OurRecentWork";
 
 class MagentoDevelopment extends Component {
 	render() {		
@@ -17,6 +18,7 @@ class MagentoDevelopment extends Component {
 		const pagedata = acf.gen_content_modules_page
 		// const platform = pagedata[2].iwc_layout_details
 		const testimonial = data.allWordpressWpTestimonials.edges;
+		const portfolio = data.allWordpressWpPortfolio.edges;
 		
 		//console.log(acf);
 		return(
@@ -97,7 +99,13 @@ class MagentoDevelopment extends Component {
 							</div>
 						</div>
 					</section> */}
+					<OurRecentWork
+						title={pagedata[2].css_title}
+						content={pagedata[2].css_content}
+						portfolio={portfolio}
+					/>
 				</div>
+				
 				<AboutProject 
 					apsiwtch={acf.use_common_contact_section} 
 					apimage={acf.tuabp_image} 
@@ -122,6 +130,24 @@ export const query = graphql`
             }
             title
             content
+          }
+        }
+	}
+	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 232}}}}, limit: 2) {
+        edges {
+          node {
+
+            title
+            excerpt
+            link
+            featured_media {
+              source_url
+            }
+            acf {
+              pf_image_with_responsive {
+                source_url
+              }
+            }
           }
         }
     }

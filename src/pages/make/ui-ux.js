@@ -7,6 +7,7 @@ import Testimonials from "../../components/TestiMonials";
 import AboutProject from "../../components/aboutproject";
 import ServiceDetailHeader from "../../components/ServiceDetailHeader";
 import ServiceBasicDetail from "../../components/ServiceBasicDetail";
+import OurRecentWork from "../../components/OurRecentWork";
 
 class EcommerceDevelopment extends Component {
 	render() {	
@@ -17,6 +18,7 @@ class EcommerceDevelopment extends Component {
 		const testimonial = data.allWordpressWpTestimonials.edges;
 		const services = acf[1].cs_cards_details;
 		const sertech = data.wordpressPage
+		const portfolio = data.allWordpressWpPortfolio.edges;
 		
 		return(
 			<Layout>
@@ -51,6 +53,11 @@ class EcommerceDevelopment extends Component {
 					</section>	
 					{/* Testimonials section */}
 					<Testimonials testimonial={testimonial} />
+					<OurRecentWork
+						title={acf[3].css_title}
+						content={acf[3].css_content}
+						portfolio={portfolio}
+					/>
 					<AboutProject 
 					apsiwtch={tellus.use_common_contact_section} 
 					apimage={tellus.tuabp_image} 
@@ -79,7 +86,25 @@ export const query = graphql`
             content
           }
         }
-      }
+	  }
+	  allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 232}}}}, limit: 2) {
+        edges {
+          node {
+
+            title
+            excerpt
+            link
+            featured_media {
+              source_url
+            }
+            acf {
+              pf_image_with_responsive {
+                source_url
+              }
+            }
+          }
+        }
+    }
 	wordpressPage(wordpress_id: {eq: 7275}) {
 		title
 		yoast_title
@@ -118,6 +143,12 @@ export const query = graphql`
 				cs_title
 				cs_content
 			  }
+			}
+			... on WordPressAcf_gen_case_study_section {
+				id
+				css_title
+				css_content
+				css_section_class
 			}
 		  }
 		}

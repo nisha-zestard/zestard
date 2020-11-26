@@ -4,6 +4,7 @@ import React, { Component } from "react"
 import Header from "../../components/header";
 import Layout from "../../components/layout"
 import SEO from "../../components/seo";
+import PageHeader from './../../components/page-header';
 import Valueicon from "../../assets/images/values-icon.png"
 import Testimonials from "../../components/TestiMonials";
 import AboutProject from "../../components/aboutproject";
@@ -21,7 +22,13 @@ class About extends Component {
             <SEO title="About"/>
             <Header headernavclass="lightheader" />
             <div id="page" className="site-page about-us">
-                <section className="page-title">
+            <PageHeader
+                        headerMascot = {tellus.header_mascot}
+                        headerSubText = {tellus.header_sub_text}
+                        headerSectionTitle={tellus.header_section_title}
+                        headerPageTitle={tellus.header_page_title}
+                    />
+                {/* <section className="page-title">
                     <div className="container">
                         <div className="pagetitle-wrap text-center">
                             <h1>About Zestard</h1>
@@ -37,7 +44,7 @@ class About extends Component {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
                 <section>
                     <div className="who-we-are">
                         <div className="container">
@@ -79,7 +86,7 @@ class About extends Component {
                         </div>
                     </div>
                 </section>
-                <section>
+                {/* <section>
                     <div className="platforms-we-support">
                         <div className="container">
                             <h2 className="title text-center">{page.childWordPressAcfPlatformLogos.pl_title}</h2>
@@ -113,7 +120,7 @@ class About extends Component {
                             </ul>
                         </div>
                     </div>
-                </section>
+                </section> */}
                 <section>
                     <div className="our-credentials">
                         <div className="container">
@@ -172,6 +179,12 @@ export const query = graphql`
         edges {
           node {
             acf {
+                header_page_title
+                header_sub_text
+                header_section_title
+                header_mascot {
+                    source_url
+                }
                 use_common_contact_section
                 tuabp_title
                 tuabp_image {
