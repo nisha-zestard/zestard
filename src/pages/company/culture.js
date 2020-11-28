@@ -72,7 +72,7 @@ class Culture extends Component {
                             <div className="gallery-image" 
                             style={{backgroundImage:`url(${node.featured_media.source_url})`}}>
                               <div className="view-more">
-                                <Link to={`/${removePre(node.link)}/`}>View All</Link>
+                                <Link to={`/${removePre(node.link)}`}>View All</Link>
                               </div>
                             </div>
                           }
