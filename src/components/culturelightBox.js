@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import Masonry from 'react-masonry-css';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
+import Modal from 'react-bootstrap/Modal'
+import ImageGallery from 'react-image-gallery';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+
 const breakpointColumnsObj = {
   default: 3,
   1025: 3,
@@ -35,6 +40,7 @@ export default class CultureLightbox extends Component {
         e.preventDefault()
         this.setState({ showLightbox: true, selectedImage: image, selIndex: index })
     }
+    
     handleImageClick(i){
       this.setState({ photoIndex: i, isOpen: true })
     }
@@ -69,7 +75,10 @@ export default class CultureLightbox extends Component {
 
   render() {
     const { EventImages } = this.props;
-    const { photoIndex, isOpen } = this.state;
+    const { photoIndex, isOpen, showLightbox, selIndex } = this.state;
+    
+    const images = [];     
+    
     
     return (      
       <Fragment>
@@ -88,7 +97,7 @@ export default class CultureLightbox extends Component {
             ))}
           </Masonry>
 
-          {(isOpen && EventImages.length > 0) && (
+          {/* {(isOpen && EventImages.length > 0) && (
           <Lightbox
             mainSrc={EventImages[photoIndex].source_url}
             nextSrc={EventImages[(photoIndex + 1) % EventImages.length].source_url}
@@ -105,6 +114,42 @@ export default class CultureLightbox extends Component {
               })
             }
           />
+        )} */}
+        {showLightbox && (
+        <Modal show={showLightbox} onKeyUp={e => this.handleKeyDown(e)} >
+        <div className="slbElement">
+          <div className="slbOverlay"></div>
+          <div className="slbWrapOuter">
+            <div className="slbWrap">
+              <div className="slbContentOuter">
+                <div className="slbContent">
+                  <div className="slbImageWrap">                    
+                  <Carousel>
+                    {EventImages.map((image, i) => (                     
+                      <div>
+                      <img src={image.source_url} alt="img" loading="lazy" className="slbImage"/>
+                      </div>                    
+                    ))}
+                    </Carousel>
+                  </div>
+                </div>
+                <button type="button" title="Close" className="slbCloseBtn "
+                  onClick={this.closeModal}>×</button>
+                <div className="slbArrows">
+                  <button type="button" title="Previous" className="prev slbArrow"
+                   onClick={this.goBack} disabled={selIndex === 0}>
+                      <i className='fas fa-caret-left'></i>
+                   </button>
+                  <button type="button" title="Next" className="next slbArrow"
+                   onClick={this.goForward} disabled={selIndex === EventImages.length - 1}>
+                     <i className='fas fa-caret-right'></i>
+                   </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </Modal>
         )}
         </div>      
         
