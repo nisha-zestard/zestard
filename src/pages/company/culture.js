@@ -121,6 +121,11 @@ export const query = graphql`
   allWordpressWpCulture(sort: {order: DESC, fields: date}) {
     edges {
       node {
+        acf {
+          el_gallery {
+            mime_type            
+          }
+        }
         id
         title
         slug
