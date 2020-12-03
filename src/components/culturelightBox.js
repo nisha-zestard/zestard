@@ -7,6 +7,7 @@ import Modal from 'react-bootstrap/Modal'
 import ImageGallery from 'react-image-gallery';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import ReactPlayer from 'react-player';
 
 const breakpointColumnsObj = {
   default: 3,
@@ -77,7 +78,8 @@ export default class CultureLightbox extends Component {
     const { EventImages } = this.props;
     const { photoIndex, isOpen, showLightbox, selIndex } = this.state;
     
-    const images = [];     
+    const images = [];  
+    console.log(EventImages);   
     
     
     return (      
@@ -89,7 +91,19 @@ export default class CultureLightbox extends Component {
                 <div className="culture-wrapper card">
                   <div className="speaks">                    
                     <div className="previewButton" key={i} type="button" onClick={e => this.handleClick(e, image, i) }>
-                      <img className="img-responsive" alt="Culture" loading="lazy" src={image.source_url} onClick={e => this.handleImageClick(i) } />                           
+                      {image.source_url.match(/\.(jpeg|jpg|png|gif)$/) != null && 
+                        <img className="img-responsive" alt="Culture" loading="lazy" src={image.source_url} onClick={e => this.handleImageClick(i) } />                           
+                      }
+                      {image.source_url.match(/\.(mp4|mov|mpeg|webm)$/) != null && 
+                        <ReactPlayer
+                          url={image.source_url}
+                          volume='1'
+                          muted
+                          width='100%'
+                          playing={true}
+                        />
+                        }
+                      
                     </div>                              
                   </div>
                 </div>
@@ -127,7 +141,20 @@ export default class CultureLightbox extends Component {
                   <Carousel>
                     {EventImages.map((image, i) => (                     
                       <div>
-                      <img src={image.source_url} alt="img" loading="lazy" className="slbImage"/>
+                        
+                        {image.source_url.match(/\.(jpeg|jpg|png|gif)$/) != null && 
+                        <img src={image.source_url} alt="img" loading="lazy" className="slbImage"/>
+                        } 
+                        {image.source_url.match(/\.(mp4|mov|mpeg|webm)$/) != null && 
+                        <ReactPlayer
+                          url={image.source_url}
+                          volume='1'
+                          muted
+                          width='100%'
+                          playing={true}
+                        />
+                        }
+                      {/* <img src={image.source_url} alt="img" loading="lazy" className="slbImage"/> */}
                       </div>                    
                     ))}
                     </Carousel>
@@ -151,8 +178,7 @@ export default class CultureLightbox extends Component {
         </div>
         </Modal>
         )}
-        </div>      
-        
+        </div>  
       </Fragment>
     );
   }

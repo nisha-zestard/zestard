@@ -6,7 +6,7 @@ import SEO from "../components/seo";
 import Testimonials from '../components/TestiMonials';
 import Credentails from '../components/Credentails';
 import OurClients from "../components/OurClients";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import Counterbg from "../images/counter-bg.png"
 import { removePre } from './../util/common'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
