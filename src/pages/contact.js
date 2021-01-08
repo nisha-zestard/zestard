@@ -3,6 +3,8 @@ import { graphql } from "gatsby"
 import Layout from "./../components/layout"
 import SEO from "../components/seo";
 import Header from "./../components/header";
+import PageHeader from './../components/page-header';
+import Testimonials from '../components/TestiMonials';
 import axios from 'axios'
 
 const validEmailRegex = RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/);
@@ -95,14 +97,23 @@ class Contact extends Component {
 
   render() {
     const data = this.props.data
+    const acfData = data.wordpressPage.acf;
     const acfoption = data.allWordpressAcfOptions.edges[0].node.options
+    const testimonial = data.allWordpressWpTestimonials.edges;
     
     return (
       <Layout>
         <SEO title="Contact"/>
           <Header headernavclass="lightheader" />
           <div id="page" className="site-page contact-us">
-          <section className="page-title">
+            {/* page header */}
+            <PageHeader
+              headerMascot = {acfData.header_mascot}
+              headerSubText = {acfData.header_sub_text}
+              headerSectionTitle={acfData.header_section_title}
+              headerPageTitle={acfData.header_page_title}
+            />
+          {/* <section className="page-title">
                     <div className="container">
                         <div className="pagetitle-wrap text-center">
                             <h1>Contact us</h1>
@@ -118,60 +129,70 @@ class Contact extends Component {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
             <div className="contact-wrapper">
               <div className="container">
                 <div className="row">
                   
-                  <div className="col-md-5">
+                  <div className="col-md-12">
                     <div className="contact-form">
-                      <h2 className="title">Talk to Ecommerce Experts</h2>
+                      {/* <h2 className="title">Talk to Ecommerce Experts</h2> */}
                       <h3 className={this.state.submitted === true ? 'mail-send' : this.state.submitted === false ? 'mail-failed' : '' } >{this.state.status}</h3>
                         <div className="form-wrap">
                           {this.state.submitted === false && 
                             <form method="post" action="#" className="frm_forms" onSubmit={this.handleSubmit} noValidate>
                               <div className="form-field">
-                                <input type="text" name="fullname" id="fullname"  className="form-control" placeholder="Full Name*" onChange={this.handleChange} noValidate/>
+                                <label>Full Name</label>
+                                <input type="text" name="fullname" id="fullname"  className="form-control" placeholder="eg. John Doe" onChange={this.handleChange} noValidate/>
                                   {this.state.errors.fullname && 
                                       <span className='error'>{this.state.errors.fullname}</span>
                                   }
                               </div>
                               <div className="form-field">
-                                <input type="email" name="email" id="email"  className="form-control" placeholder="Email*" onChange={this.handleChange} noValidate />
+                              <label>Email</label>
+                                <input type="email" name="email" id="email"  className="form-control" placeholder="eg. john@corporate-email.com" onChange={this.handleChange} noValidate />
                                   {this.state.errors.email && 
                                       <span className='error'>{this.state.errors.email}</span>
                                   }
                               </div>
                               <div className="form-field">
-                                <input type="text" name="phone" id="phone"  className="form-control" placeholder="Phone*" onChange={this.handleChange} />
+                              <label>Phone</label>
+                                <input type="text" name="phone" id="phone"  className="form-control" placeholder="eg. 63957 15773" onChange={this.handleChange} />
                                   {this.state.errors.phone && 
                                       <span className='error'>{this.state.errors.phone}</span>
                                   }
                               </div>
                               <div className="form-field">
-                                <input type="text" name="subject" id="subject"  className="form-control" placeholder="Subject*" onChange={this.handleChange} />
+                              <label>Subject</label>
+                                <input type="text" name="subject" id="subject"  className="form-control" placeholder="eg. redesign website" onChange={this.handleChange} />
                                   {this.state.errors.subject && 
                                       <span className='error'>{this.state.errors.subject}</span>
                                   }
                               </div>
                               <div className="form-field">
-                                <textarea name="message" id="message" rows="5" className="form-control" placeholder="Message*" onChange={this.handleChange} noValidate ></textarea>
+                              <label>Message</label>
+                                <textarea name="message" id="message" rows="5" className="form-control" placeholder="Your message here" onChange={this.handleChange} noValidate ></textarea>
                                   {this.state.errors.message && 
                                       <span className='error'>{this.state.errors.message}</span>
                                   }
                               </div>
                               <div className="form-field">
-                                <button className="btn-primary" type="submit">Submit</button>
+                                <button className="btn-primary" type="submit">Send</button>
                               </div>
                             </form>
                           }
 
                         </div>
                     </div>
+
+                    {/* Testimonials section */}
+                  <Testimonials testimonial={testimonial} />
                   </div>
-                  <div className="col-md-7">
+
+                  
+                  {/* <div className="col-md-7">
                       <div className="contact-detail-wraper"dangerouslySetInnerHTML = {{ __html: acfoption.cd_content }} />                                    
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -192,6 +213,34 @@ export const query = graphql`
           cd_content
         }
       }
+    }
+  }
+  allWordpressWpTestimonials {
+    edges {
+      node {
+        featured_media {
+          source_url
+        }
+        title
+        content
+      }
+    }
+  }
+  wordpressPage(wordpress_id: {eq: 57}) {
+    title
+    yoast_title
+    yoast_meta {
+      content
+    }
+    acf {
+      header_page_title
+      header_sub_text
+      header_section_title
+      header_mascot {
+        source_url
+      }
+      contact_content_right
+      contact_form_area
     }
   }
 }
