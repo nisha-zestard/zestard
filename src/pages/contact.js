@@ -131,10 +131,7 @@ class Contact extends Component {
                     </div>
                 </section> */}
             <div className="contact-wrapper">
-              <div className="container">
-                <div className="row">
-                  
-                  <div className="col-md-12">
+                <div className="container">
                     <div className="contact-form">
                       {/* <h2 className="title">Talk to Ecommerce Experts</h2> */}
                       <h3 className={this.state.submitted === true ? 'mail-send' : this.state.submitted === false ? 'mail-failed' : '' } >{this.state.status}</h3>
@@ -182,6 +179,7 @@ class Contact extends Component {
                             </form>
                           }
 
+                        </div>  
                         </div>
                     </div>
 
@@ -194,9 +192,6 @@ class Contact extends Component {
                       <div className="contact-detail-wraper"dangerouslySetInnerHTML = {{ __html: acfoption.cd_content }} />                                    
                   </div> */}
                 </div>
-              </div>
-            </div>
-          </div>
       </Layout>
     )
   }

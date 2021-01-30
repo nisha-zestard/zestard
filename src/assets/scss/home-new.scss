@@ -1,3 +1,4 @@
+/*=================New Home Page===================*/
 .our-service {
     padding: 0 0 100px;
     @media #{$tablet-screen}{
@@ -83,10 +84,19 @@
 }
 .recent-work.portfolio{
     padding: 0 0 100px;
+    @media #{$tablet-screen}{
+        padding: 0 0 80px;              
+    }
+    @media #{$small-screen}{
+        padding: 0 0 30px;             
+    }
     .portfolio-wrap{
         width: 100%;
         position: relative;
         margin-bottom: 0;
+        @media #{$small-screen}{
+            margin-bottom: 20px;
+        }
         .portfolio-image{
             img{
                 width: 100%;
@@ -142,6 +152,13 @@
     }
 }
 .clients-section {
+    padding: 100px 0 0;
+    @media #{$tablet-screen}{
+        padding: 80px 0 0;
+    }
+    @media #{$small-screen}{
+        padding: 50px 0 0;
+    }
     .title {
         h2 {
             @include heading;
@@ -149,8 +166,8 @@
         }
     }
     .clients-logos {
-        border-bottom: 1px solid #dfdfdf;
-        padding-bottom: 70px;
+        border-bottom: 0;
+        padding-bottom: 50px;
         @media #{$tablet-screen}{
             padding-bottom: 60px;
         }
@@ -209,7 +226,7 @@
     }
 }
 .expertise-section {
-    padding: 100px 0;
+    padding: 0 0 100px;
     @media #{$small-screen}{
         padding: 50px 0;
     }
@@ -233,6 +250,7 @@
             width: 170px;
             padding: 14px 10px;
             margin-top: 20px;
+            border-right: 0;
         }
     }
     .experience-wrap {
@@ -372,7 +390,8 @@
     }
 }
 .testimonials-section {
-    padding: 50px 0px 30px;
+    padding: 80px 0;
+    background: #f9f9f9;
     @media #{$tablet-screen}{
         padding: 60px 0 10px;
     }
