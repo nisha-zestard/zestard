@@ -65,9 +65,11 @@ class Home extends Component {
         console.log(header);
           
   return(
-  <Layout>
+  <Layout> 
+    <div className="home-new">
     <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content} schemaMarkup={schema}/>
     {/* banner-section  */}
+
     <Header headernavclass="darkheader" />
     <ServiceHero
       title={newbann.gen_left_description}
@@ -228,7 +230,7 @@ class Home extends Component {
     {/* Credentials section */}
     {/* <Credentails credentials={credential} slidesToShow={6} /> */}
     
-    
+   </div> 
   </Layout>
 )}}
 export default Home
