@@ -178,11 +178,13 @@
             list-style: none;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-start;
             li {
                 display: flex;
                 align-items: center;
-                margin: 0 33px;
+                width: 25%;
+                padding: 0 15px;
+                margin: 0;
                 justify-content: center;
                 padding-bottom: 30px;
                 @media screen and (max-width: 1309px){
@@ -192,18 +194,6 @@
                     max-width: 213px;
                      width: 100%;
                      margin: 0;
-                }
-                &:nth-child(7) {
-                    @media screen and (min-width: 1200px) {
-                        justify-content: flex-end;
-                        padding-right: 10px;
-                    }
-                }
-                &:last-child {
-                    @media screen and (min-width: 1200px) {
-                        justify-content: flex-start;
-                        padding-left: 20px;
-                    }
                 }
             }
         }
@@ -227,7 +217,32 @@
     }
 }
 .expertise-section {
-    padding: 0 0 100px;
+    padding: 80px 0 100px;
+    position: relative;
+    &:after{
+        content: "";
+        width: 300px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: -20px;
+        background: url('./../images/right-circle.png');
+        background-repeat: no-repeat;
+        z-index: -1;
+        background-position: right top;
+    }
+    &:before{
+        content: "";
+        width: 120px;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: -20px;
+        background: url('./../images/left-circle.png');
+        background-repeat: no-repeat;
+        background-position: left top;
+        z-index: -1;
+    }
     @media #{$small-screen}{
         padding: 50px 0;
     }
