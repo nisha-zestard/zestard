@@ -61,8 +61,8 @@ class Home extends Component {
         const portfolio = data.allWordpressWpPortfolio.edges;
         const newbann = header.gen_content_modules_page[4];
         
-        console.log(newbann);
-        console.log(header);
+       // console.log(newbann);
+        console.log(recentpost);
           
   return(
   <Layout> 
@@ -174,14 +174,18 @@ class Home extends Component {
                                 }
                                                              
                                 <ul>
-                                    <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
+                                    
                                     {(node.node.featured_media !== null) &&
-                                        <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.featured_media.date}</li>
+                                      <li><img src={node.node.featured_media.source_url} /></li>
+                                        
                                     }
+                                    <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
+                                    <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.featured_media.date}</li>
+                                    <li>{node.node.title}</li>
                                 </ul>
-                                {node.node.excerpt !== null &&
+                                {/* {node.node.excerpt !== null &&
                                     <div dangerouslySetInnerHTML={{ __html: node.node.excerpt }}/>
-                                }                                
+                                }                                 */}
                                 <div className="button">
                                     <Link to={`/blog/${removePre(node.node.link)}`} className="read-more">Read More</Link>
                                 </div>
@@ -368,7 +372,7 @@ export const query = graphql`
           }
         }
       }
-      allWordpressPost(sort: {order: DESC, fields: date}, limit: 2) {
+      allWordpressPost(sort: {order: DESC, fields: date}, limit: 3) {
         edges {
           node {
             content
@@ -379,6 +383,7 @@ export const query = graphql`
             featured_media {
               source_url              
             }
+            title
             author {
               name
             }
