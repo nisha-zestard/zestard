@@ -174,18 +174,10 @@ class Home extends Component {
                                 }
                                                              
                                 <ul>
-                                    
-                                    {(node.node.featured_media !== null) &&
-                                      <li><img src={node.node.featured_media.source_url} /></li>
-                                        
-                                    }
                                     <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
                                     <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.featured_media.date}</li>
                                     <li>{node.node.title}</li>
-                                </ul>
-                                {/* {node.node.excerpt !== null &&
-                                    <div dangerouslySetInnerHTML={{ __html: node.node.excerpt }}/>
-                                }                                 */}
+                                </ul>                          */}
                                 <div className="button">
                                     <Link to={`/blog/${removePre(node.node.link)}`} className="read-more">Read More</Link>
                                 </div>
