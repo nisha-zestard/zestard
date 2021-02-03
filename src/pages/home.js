@@ -167,20 +167,26 @@ class Home extends Component {
                 </div>
                 <div className="row">
                     {recentpost.map((node,index)=>(
-                        <div className="col-md-6" key={index}>
+                        <div className="col-md-4" key={index}>
                             <div className="box">
-                                {(node.node.featured_media !== null && node.node.featured_media.source_url !== null) &&
-                                    <img src={node.node.featured_media.source_url} alt="top-img" />
-                                }
-                                                             
+                                <div class="blog-image">
+                                    {(node.node.featured_media !== null && node.node.featured_media.source_url !== null) &&
+                                        <img src={node.node.featured_media.source_url} alt="top-img" />
+                                    }   
+                                </div>                       
                                 <ul>
+
+                                    
                                     <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
                                     <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.featured_media.date}</li>
-                                    <li>{node.node.title}</li>
-                                </ul>                          */}
-                                <div className="button">
+                                </ul>
+                               
+                                <div className="blog-title">
+                                    <h2><Link to={`/blog/${removePre(node.node.link)}`} className="read-more">{node.node.title}</Link></h2>
+         </div>
+                                {/* <div className="button">
                                     <Link to={`/blog/${removePre(node.node.link)}`} className="read-more">Read More</Link>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     ))}
