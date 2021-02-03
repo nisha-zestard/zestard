@@ -66,6 +66,9 @@
         margin-bottom: 20px;
         margin-top: 0px;
         padding-bottom: 10px;
+        @media screen and (max-width: 1309px){
+            font-size: 36px;
+        }
         &:after {
             width: 73px;
             background: #33a2de;
@@ -88,6 +91,7 @@
         font-size: 17px;
         line-height: 25px;
         margin-top: 8px;
+        min-height: 75px;
     }
 }
 

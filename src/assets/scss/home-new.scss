@@ -204,12 +204,14 @@
                 }
                 .slick-arrow{
                     display: none !important;
-                }
+                } 
                 .slick-dots{
                     display: flex !important;
+                    justify-content: center;
                     li{
                         width: 10px;
                         margin: 0 5px;
+                        padding: 0 3px;
                     }
                 }
             }
@@ -589,6 +591,7 @@
         border: 1px solid #eaeaea;
         @media #{$small-screen}{
             margin-bottom: 20px;
+            height: auto;
         }
         .blog-image{
             padding-top: 50%;
