@@ -42,6 +42,10 @@
         li{
             margin: 0 15px;
             cursor: pointer;
+            &.active{
+                color: #1f98ea;
+                font-weight: 600;
+            }
         }
     }
 }
