@@ -175,18 +175,15 @@ class Home extends Component {
                                     }   
                                 </div>                       
                                 <ul>
-                                    {/* {(node.node.featured_media !== null) &&
-                                      <li><img src={node.node.featured_media.source_url} /></li>
-                                    } */}
+
+                                    
                                     <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
                                     <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.featured_media.date}</li>
                                 </ul>
-                                {/* {node.node.excerpt !== null &&
-                                    <div dangerouslySetInnerHTML={{ __html: node.node.excerpt }}/>
-                                }                                 */}
+                               
                                 <div className="blog-title">
                                     <h2><Link to={`/blog/${removePre(node.node.link)}`} className="read-more">{node.node.title}</Link></h2>
-                                </div>
+         </div>
                                 {/* <div className="button">
                                     <Link to={`/blog/${removePre(node.node.link)}`} className="read-more">Read More</Link>
                                 </div> */}
