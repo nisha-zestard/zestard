@@ -14,13 +14,23 @@ class Culture extends Component {
       const acfData = data.wordpressPage.acf;
       const culturelist = data.allWordpressWpCulture.edges;
       const culcat = data.allWordpressWpCultureCat.edges;
+      const revcatarray = culcat.reverse();
+       
+       
+      // console.log(culcat.reverse());
 
       const getpcid = (el) => { 
         const pcategoryid = el.target.getAttribute("culcat-id"); 
+       
+        //console.log(pcategoryid);
+       // pcategoryid.classList.toggle('active');
         var setlid;
         for(var i=0; i< culturelist.length; i++) {
+          console.log(culturelist[i].node.culture_cat[0]);
             if(pcategoryid == culturelist[i].node.culture_cat[0]){
                 setlid = document.getElementsByClassName('culture-list')[i].style.display = 'block';
+                
+                //pcategoryid.classList.add('active');
             }
             else {
                 setlid = document.getElementsByClassName('culture-list')[i].style.display = 'none';
@@ -28,12 +38,13 @@ class Culture extends Component {
         }
     }
     function allpid (){
-      const pcategoryid = "237"; 
+      const pcategoryid = revcatarray[0].node.wordpress_id; 
       setTimeout(function(){ 
         const plist =document.getElementsByClassName('culture-list');
-      
+        
       for(var k=0; k < plist.length; k++) {
           if(pcategoryid == culturelist[k].node.culture_cat[0]){ 
+            
         }
         else{
           plist[k].style.display = 'none'; 
@@ -60,8 +71,8 @@ class Culture extends Component {
                       <div className="row">
                         <div className="col-sm-12 year-list">
                           <ul>
-                            {culcat.map((node,index) => (
-                              <li culcat-id={node.node.wordpress_id} key={index} onClick={ (e) => getpcid(e) }>{node.node.name}</li>                          
+                            {revcatarray.map((node,index) => (
+                              <li culcat-id={node.node.wordpress_id} className="cat-year-list" key={index} onClick={ (e) => getpcid(e) } className={ index == '0' ? 'active': ''}>{node.node.name}</li>                          
                             ))}
                           </ul>                        
                         </div>
