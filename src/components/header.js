@@ -104,7 +104,7 @@ class Header extends React.Component {
             <div className="container d-flex frex-wrap justify-content-space-between header-inner">
               <div className="site-branding">            
                 {acfoptions.site_logo !== null && acfoptions.light_site_logo !== null &&              
-                  <Link to="/"><img id="main-logo" src={param === '/services/make/' ? lightlogo : location.pathname === '/services/market/' ? lightlogo : location.pathname === '/services/maintain/' ? lightlogo : location.pathname === '/home' ? lightlogo : darklogo} alt="Site Logo" /></Link>                                
+                  <Link to="/"><img id="main-logo" src={param === '/services/make/' ? lightlogo : location.pathname === '/services/market/' ? lightlogo : location.pathname === '/services/maintain/' ? lightlogo : location.pathname === '/home/' ? lightlogo : darklogo} alt="Site Logo" /></Link>                                
                 }  
                 {acfoptions.site_logo !== null &&             
                   <Link to="/"><img src={darklogo} id="dark-sticky-logo" alt="Site Logo" /></Link>                                
