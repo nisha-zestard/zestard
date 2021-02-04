@@ -62,7 +62,7 @@ class Home extends Component {
         const newbann = header.gen_content_modules_page[4];
         
        // console.log(newbann);
-        console.log(recentpost);
+        //console.log(clientlogo);
           
   return(
   <Layout> 
@@ -169,7 +169,7 @@ class Home extends Component {
                     {recentpost.map((node,index)=>(
                         <div className="col-md-4" key={index}>
                             <div className="box">
-                                <div class="blog-image">
+                                <div className="blog-image">
                                     {(node.node.featured_media !== null && node.node.featured_media.source_url !== null) &&
                                         <img src={node.node.featured_media.source_url} alt="top-img" />
                                     }   

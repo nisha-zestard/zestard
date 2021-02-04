@@ -37,6 +37,7 @@ const OurClients = (props) => {
             }
         ]
     }; 
+    console.log(props);
 
     return (
         <section>
@@ -46,10 +47,11 @@ const OurClients = (props) => {
                     <h2>Our Clients</h2>
                 </div>
                 <div className="clients-logos mob-client d-md-none d-sm-block"> 
+                
                     <Slider ref={slides} {...clientlogoset}>
                         {props.clients.map((node,index) => (
                             <div key={index}>
-                                {node.node.featured_media.source_url !== null &&
+                                {node.node.featured_media !== null && node.node.featured_media.source_url !== null &&
                                 <img src={node.node.featured_media.source_url} alt="c-logo-img" />
                             }
                             </div>
@@ -60,7 +62,7 @@ const OurClients = (props) => {
                     <ul>                    
                         {props.clients.map((node,index) => (
                             <li key={index}>
-                                {node.node.featured_media.source_url !== null &&
+                                {node.node.featured_media !== null && node.node.featured_media.source_url !== null &&
                                     <img src={node.node.featured_media.source_url} alt="c-logo-img" />
                                 }                                
                             </li>
