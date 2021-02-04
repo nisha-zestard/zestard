@@ -37,6 +37,7 @@ const OurClients = (props) => {
             }
         ]
     }; 
+    console.log(props);
 
     return (
         <section>
@@ -46,6 +47,7 @@ const OurClients = (props) => {
                     <h2>Our Clients</h2>
                 </div>
                 <div className="clients-logos mob-client d-md-none d-sm-block"> 
+                
                     <Slider ref={slides} {...clientlogoset}>
                         {props.clients.map((node,index) => (
                             <div key={index}>
