@@ -86,7 +86,7 @@
 .recent-work.portfolio{
     padding: 0 0 100px;
     @media #{$tablet-screen}{
-        padding: 0 0 80px;              
+        padding: 0 0 25px;              
     }
     @media #{$small-screen}{
         padding: 0 0 30px;             
@@ -164,6 +164,9 @@
         h2 {
             @include heading;
             margin-bottom: 50px;
+            @media #{$small-screen}{
+                margin-bottom: 30px;
+            }
         }
     }
     .clients-logos {
@@ -187,14 +190,6 @@
                 margin: 0;
                 justify-content: center;
                 padding-bottom: 30px;
-                @media screen and (max-width: 1309px){
-                    margin: 0 20px;
-                }
-                @media screen and (max-width: 1199px){
-                    max-width: 213px;
-                     width: 100%;
-                     margin: 0;
-                }
             }
         }
         &.mob-client{
@@ -205,6 +200,10 @@
                 .slick-arrow{
                     display: none !important;
                 } 
+                .slick-track{
+                    display: flex;
+                    align-items: center;
+                }
                 .slick-dots{
                     display: flex !important;
                     justify-content: center;
@@ -212,6 +211,18 @@
                         width: 10px;
                         margin: 0 5px;
                         padding: 0 3px;
+                        button{
+                            &:before{
+                                font-size: 8px;
+                            }
+                        }
+                        &.slick-active{
+                            button{
+                                &:before{
+                                    color: #1f98ea;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -244,9 +255,15 @@
         background-repeat: no-repeat;
         background-position: left top;
         z-index: -1;
+        @media #{$tablet-screen}{
+            opacity: 0;
+        }
     }
     @media #{$small-screen}{
         padding: 50px 0;
+    }
+    @media #{$mobile-screen}{
+        padding: 15px 0 30px;
     }
     .title {
         @media #{$tablet-screen}{
@@ -269,6 +286,10 @@
             padding: 14px 10px;
             margin-top: 20px;
             border-right: 0;
+            @media #{$tablet-screen}{
+                width: 120px;
+                padding: 10px 10px;
+            }
         }
     }
     .experience-wrap {
@@ -362,6 +383,10 @@
                 flex-wrap: wrap;
                 justify-content: center;
                 align-content: center;
+                @media #{$medium-screen}{
+                    width: 180px;
+                    height: 180px;
+                }
                 @media #{$tablet-screen}{
                    margin: 0 10px 20px;
                    width: 200px;
@@ -372,8 +397,8 @@
                     height: 150px;
                  }
                  @media screen and (max-width: 369px){
-                     width: 180px;
-                     height: 180px;
+                     width: 125px;
+                     height: 125px;
                  }
                 h2 {
                     font-size: 46px;
@@ -384,6 +409,10 @@
                     width: 100%;
                     @media #{$tablet-screen}{
                         font-size: 36px;
+                    }
+                    @media #{$small-screen}{
+                        font-size: 28px;
+                        margin-bottom: 10px;
                     }
                     span {
                         font-size: 35px;
@@ -400,7 +429,12 @@
                     font-weight: bold;
                     text-transform: uppercase;
                     @media #{$small-screen}{
-                        font-size: 16px;
+                        font-size: 14px;
+                        line-height: 22px;
+                    }
+                    @media screen and (max-width: 369px){
+                        font-size: 13px;
+                        line-height: 18px;
                     }
                 }
             }
@@ -411,7 +445,10 @@
     padding: 80px 0;
     background: #f9f9f9;
     @media #{$tablet-screen}{
-        padding: 60px 0 10px;
+        padding: 50px 0;
+    }
+    @media #{$mobile-screen}{
+        padding: 30px 0;
     }
     .title {
         h2 {
@@ -578,6 +615,9 @@
     @media #{$tablet-screen}{
         padding: 50px 0;
     }
+    @media #{$mobile-screen}{
+        padding: 30px 0;
+    }
     .title {
         h2 {
             @include heading;
@@ -650,6 +690,12 @@
                 color: #404040;
                 font-weight: 600;
                 margin: 0;
+                @media #{$tablet-screen}{
+                    font-size: 18px;
+                }
+                @media #{$mobile-screen}{
+                    font-size: 17px;
+                }
                 a{
                     color: #404040;
                 }

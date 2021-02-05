@@ -82,6 +82,9 @@
             font-size: 34px;
             line-height: 42px;
         }
+        @media #{$mobile-screen}{
+            font-size: 28px;
+        }
     }
     .sub-title {
         font-family: $para-font;
@@ -92,6 +95,10 @@
         line-height: 25px;
         margin-top: 8px;
         min-height: 75px;
+        @media #{$mobile-screen}{
+            font-size: 15px;
+            line-height: 22px;
+        }
     }
 }
 

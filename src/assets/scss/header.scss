@@ -39,8 +39,8 @@
                padding: 0;
                margin-right: 10px;
                 div{
-                    width: 35px;
-                    height: 5px;
+                    width: 30px;
+                    height: 3px;
                     background-color: $primary-color;
                     margin: 6px 0;
                 }
@@ -68,12 +68,19 @@
                 }
                 @media #{$mobile-screen}{
                     top: 67px;
+                    height: calc(100% - 67px);
+                    position: fixed;
+                    overflow: scroll;
+                    padding-bottom: 50px
                 }
                 .nav{
                     margin: 0;
                     @media #{$tablet-screen}{
                         border-bottom: 1px solid #ccc;
                         padding: 0 0 15px;
+                        @media #{$mobile-screen}{
+                            padding: 0;
+                        }
                     }
                     li{
                         display: inline-block;
@@ -103,10 +110,15 @@
                         &.request-quote-mob{
                             display: none;
                             @media #{$mobile-screen}{
-                                display: inline-block;
+                                display: block;
+                                padding: 0;
+                                position: fixed;
+                                bottom: 0;
+                                width: 100%;
+                                text-align: center;
                             }
                             .btn-primary{
-                                display: inline-block;
+                                display: block;
                                 background: #1e2129;
                                 color: $white !important;
                                 font:{
@@ -137,6 +149,15 @@
                             &:hover{
                                 text-decoration: none;
                             }
+                            &:focus{
+                                outline: none;
+                                box-shadow: none;
+                            }
+                        }
+                        @media #{$mobile-screen}{
+                            a, .btn{
+                                font-weight: 600;
+                            }
                         }
                         .btn{
                             background-color: transparent;
@@ -163,17 +184,19 @@
                             margin: 0;
                             background: $white;
                             width: 180px;
-                            border-radius: 0;
+                            border-radius: 0; 
                             z-index: 9999;
                             border: 0;
                             box-shadow: 0 4px 18px 0 rgba(0,0,0,.12), 0 7px 10px -5px rgba(0,0,0,.15);
                             padding: 13px 0;
                             @media screen and (max-width: 991px){
-                                position: inherit;
+                                position: inherit !important;
                                 top: inherit;
                                 background: transparent;
                                 box-shadow: none;
                                 padding-bottom: 0;
+                                transform: inherit !important;
+                                margin: 0;
                             }
                             a{
                                 color: $primary-color;
@@ -190,6 +213,9 @@
                                 }
                                 @media #{$tablet-screen}{
                                     color: $primary-light !important; 
+                                }
+                                @media #{$mobile-screen} {
+                                    font-weight: 500;
                                 }
                                 &:active{
                                     color: #fff;
@@ -248,6 +274,12 @@
                     @media screen and (max-width: 991px){
                         padding: 20px;
                         border-top: 1px solid #ccc;
+                        margin: 0;
+                        &.request-quote-mob{
+                            @media #{$mobile-screen}{
+                                padding: 0;
+                            }
+                        }
                     }
                     a{
                         color: $primary-color;
@@ -287,6 +319,11 @@
                         color: $primary-color;
                         background-color: #fff;
                         margin: 0;
+                        &.request-quote-mob{
+                            @media #{$mobile-screen}{
+                                padding: 0;
+                            }
+                        }
                     }
                     &.has-submenu{
                         &:after{
@@ -309,7 +346,7 @@
                         @media screen and (max-width: 991px){
                             background: transparent;
                             width: 100%;
-                            margin-top: 20px;
+                            margin-top: 0;
                         }
                     }
                 }
@@ -403,5 +440,11 @@
                 }
             }
         }
+    }
+}
+body{
+    &.menu-open{
+        height: 100vh;
+        overflow: hidden;
     }
 }
