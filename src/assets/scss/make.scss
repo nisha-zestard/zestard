@@ -370,9 +370,11 @@
     }
     .title{
         margin-bottom: 50px;
+        @media #{$small-screen}{
+            margin-bottom: 30px;
+        }
         h2{
             @include heading;
-            margin-bottom: 25px;
         }
         p{
             margin: 0 150px; 
