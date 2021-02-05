@@ -37,8 +37,7 @@ const OurClients = (props) => {
             }
         ]
     }; 
-    console.log(props);
-
+    
     return (
         <section>
         <div className="clients-section">

@@ -85,8 +85,10 @@ class Header extends React.Component {
         const param = location.pathname;        
         
         const handleClicko = (el) => { 
+          document.body.classList.toggle("menu-open");
           const navbarmenu = document.getElementsByClassName('mobile-view')[0];
           navbarmenu.classList.toggle('show-mob-view');
+
           const shwmenu = document.getElementsByClassName('navbar-collapse')[0];
           shwmenu.classList.toggle('show');
           const menudiv = document.getElementById("mobmenu");
