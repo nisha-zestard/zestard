@@ -29,7 +29,7 @@ class PostTemplate extends Component {
     const data = this.props.data
     const post = this.props.data.wordpressPost    
     // console.log(post.yoast_json_ld[0].wordpress__graph[2].description);
-    // const allpostauthor = this.props.data.allWordpressPost
+    // const allpostauthor = this.props.data.allWpPost
     
     return (
       <Layout>
@@ -114,7 +114,7 @@ class PostTemplate extends Component {
                             </div>
                             {/* related posts */}
                             <BlogPostFooter 
-                                allPost = {data.allWordpressPost}/>
+                                allPost = {data.allWpPost}/>
                         </div>
                     </main>
                 </div>
@@ -149,7 +149,7 @@ export const pageQuery = graphql`
             slug
         }
     }
-    allWordpressPost(limit: 3, filter: {categories: {elemMatch: {slug: {eq: $cat}}}, id: {ne: $id}}) {
+    allWpPost(limit: 3, filter: {categories: {elemMatch: {slug: {eq: $cat}}}, id: {ne: $id}}) {
         edges {
             node {
                 id

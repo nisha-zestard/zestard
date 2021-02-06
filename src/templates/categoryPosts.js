@@ -16,7 +16,7 @@ class CategoryPostsTemplate extends Component {
     const parameters = path.split('/');
     const len = parameters.length
     const catName = parameters[len-2]
-    const data1 = data.allWordpressPost;
+    const data1 = data.allWpPost;
     return (
       <Layout>
       <SEO title={`${catName} Archives`} />
@@ -47,7 +47,7 @@ class CategoryPostsTemplate extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-md-8 blog-posts-wrap">
-                    {data.allWordpressPost.edges.map(node => (
+                    {data.allWpPost.edges.map(node => (
                       <div key={node.node.id}>
                         <article id="post-{node.id}"
                         className="post-{node.id} post type-post status-publish format-standard has-post-thumbnail hentry category-design category-tips-and-tricks card">
@@ -122,7 +122,7 @@ export default CategoryPostsTemplate
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    allWordpressPost(filter: {categories: {elemMatch: {slug: {eq: $slug}}}}) {
+    allWpPost(filter: {categories: {elemMatch: {slug: {eq: $slug}}}}) {
       edges {
         node {
           id

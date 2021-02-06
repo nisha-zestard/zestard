@@ -17,9 +17,9 @@ class Testimonials extends Component {
   
     render() {
       const data = this.props.data
-      const seotd = data.wordpressPage
-      const acfData = data.wordpressPage.acf;
-      //const metadata = data.wordpressPage.yoast_meta[0].content;
+      const seotd = data.wpPage
+      const acfData = data.wpPage.acf;
+      //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>
         <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
@@ -70,7 +70,7 @@ export default Testimonials
 
 export const query = graphql`
     {
-        wordpressPage(slug: {eq: "testimonials"}) {
+        wpPage(slug: {eq: "testimonials"}) {
             yoast_title
             yoast_meta {
                 content

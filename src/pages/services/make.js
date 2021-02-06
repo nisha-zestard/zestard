@@ -13,12 +13,12 @@ import ServiceIntro from "../../components/ServiceIntro";
 class Make extends Component {
 	render() {
 		const data = this.props.data;
-		const pageacf = data.allWordpressPage.edges[0].node.acf;
+		const pageacf = data.allWpPage.edges[0].node.acf;
 		const acfgen = pageacf.gen_content_modules_page;
 		const technology = data.allWordpressWpTechnology.edges;
 		const credential = acfgen[3].cred_logos_repeater;
 		const portfolio = data.allWordpressWpPortfolio.edges;
-		const sertech = data.allWordpressPage.edges[0].node;
+		const sertech = data.allWpPage.edges[0].node;
 		
 		return (
 			<Layout>
@@ -165,7 +165,7 @@ export const query = graphql`{
 		  }
 		}
 	  }
-	allWordpressPage(filter: {wordpress_id: {eq: 6956}}) {
+	allWpPage(filter: {wordpress_id: {eq: 6956}}) {
 		edges {
 		  node {
 			yoast_title

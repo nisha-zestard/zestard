@@ -9,8 +9,8 @@ class PrivacyPolicy extends Component {
   
     render() {
       const data = this.props.data
-      const acfData = data.wordpressPage.acf;
-      const sertech = data.wordpressPage
+      const acfData = data.wpPage.acf;
+      const sertech = data.wpPage
     
 
       return (
@@ -26,7 +26,7 @@ class PrivacyPolicy extends Component {
                     headerSectionTitle={acfData.header_section_title}
                     headerPageTitle={acfData.header_page_title}
                 />
-                {data.allWordpressPage.edges.map(({ node }, index) => (
+                {data.allWpPage.edges.map(({ node }, index) => (
                     <div className="container" key={index}>
                         <div id="primary" className="content-area">
                             <main id="main" className="site-main">
@@ -49,7 +49,7 @@ export default PrivacyPolicy
 
 export const query = graphql`
     {
-        wordpressPage(slug: {eq: "privacy-policy"}) {
+        wpPage(slug: {eq: "privacy-policy"}) {
             title
             yoast_title
                     yoast_meta {
@@ -62,7 +62,7 @@ export const query = graphql`
                 }
             }
         }
-        allWordpressPage(filter: {slug: {eq: "privacy-policy"}}) {
+        allWpPage(filter: {slug: {eq: "privacy-policy"}}) {
             edges {
                 node {
                     yoast_title

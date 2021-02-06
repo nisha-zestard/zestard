@@ -36,8 +36,8 @@ class Culture extends Component {
 
   render() {
     const data = this.props.data
-    const seotd = data.wordpressPage
-    const acfData = data.wordpressPage.acf
+    const seotd = data.wpPage
+    const acfData = data.wpPage.acf
     const culturelist = data.allWordpressWpCulture.edges
     const culcat = data.allWordpressWpCultureCat.edges
 
@@ -128,7 +128,7 @@ export default Culture
 
 export const query = graphql`
   {
-    wordpressPage(wordpress_id: { eq: 169 }) {
+    wpPage(wordpress_id: { eq: 169 }) {
       title
       yoast_title
       yoast_meta {

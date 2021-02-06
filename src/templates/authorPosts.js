@@ -10,7 +10,7 @@ class AuthorPostsTemplate extends Component {
   
   render() {
     const data = this.props.data
-    const authorName = data.allWordpressPost.edges[0].node.author.name
+    const authorName = data.allWpPost.edges[0].node.author.name
     return (
       <Layout>
       <SEO title={`${authorName}, Author`} />
@@ -35,7 +35,7 @@ class AuthorPostsTemplate extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-md-8 blog-posts-wrap">
-                    {data.allWordpressPost.edges.map(node => (
+                    {data.allWpPost.edges.map(node => (
                       <div key={node.node.id}>
                         <article id="post-{node.id}"
                         className="post-{node.id} post type-post status-publish format-standard has-post-thumbnail hentry category-design category-tips-and-tricks card">
@@ -112,7 +112,7 @@ export default AuthorPostsTemplate
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    allWordpressPost(filter: {author: {slug: {eq: $slug}}}) {
+    allWpPost(filter: {author: {slug: {eq: $slug}}}) {
       edges {
         node {
           id

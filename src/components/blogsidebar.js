@@ -8,7 +8,7 @@ import { removePre, removeSpecialSymbols } from './../util/common'
 const BlogSidebar =   () => {
   const data = useStaticQuery(graphql`
     query {
-      allWordpressPost(limit: 5, sort: {fields: date, order: DESC}) {
+      allWpPost(limit: 5, sort: {fields: date, order: DESC}) {
         edges {
           node {
             id
@@ -28,7 +28,7 @@ const BlogSidebar =   () => {
         <div className="card">
           <h2 className="widget-title">Recent Posts</h2>
           <ul>
-            {data.allWordpressPost.edges.map(({ node }) => (
+            {data.allWpPost.edges.map(({ node }) => (
               <li key={node.id}>
               <Link to={`/blog/${removePre(node.link)}`}>{`${removeSpecialSymbols(node.title)}`}</Link>
               </li>
