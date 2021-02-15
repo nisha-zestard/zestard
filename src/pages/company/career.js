@@ -9,9 +9,9 @@ class Career extends Component {
   
     render() {
       const data = this.props.data
-      const seotd = data.wordpressPage
-      const acfData = data.wordpressPage.acf;
-      //const metadata = data.wordpressPage.yoast_meta[0].content;
+      const seotd = data.wpPage
+      const acfData = data.wpPage.acf;
+      //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>
         <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
@@ -76,7 +76,7 @@ export default Career
 
 export const query = graphql`
     {
-        wordpressPage(slug: {eq: "career"}) {
+        wpPage(slug: {eq: "career"}) {
             title
             yoast_title
             yoast_meta {

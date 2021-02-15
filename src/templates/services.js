@@ -10,8 +10,8 @@ class ServiceTemplate extends Component {
   
     render() {
       const data = this.props.data
-      const acfData = data.allWordpressPage.edges[0].node.acf;
-      const sertech = data.allWordpressPage.edges[0].node;
+      const acfData = data.allWpPage.edges[0].node.acf;
+      const sertech = data.allWpPage.edges[0].node;
       return (
         <>
         <SEO title="Services"/>
@@ -53,7 +53,7 @@ export default ServiceTemplate
 
 export const query = graphql`
 query($id: Int!) {
-  allWordpressPage(filter: {wordpress_id: {eq: $id}}) {
+  allWpPage(filter: {wordpress_id: {eq: $id}}) {
     edges {
       node {
         slug

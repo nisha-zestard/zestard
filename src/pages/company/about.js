@@ -13,9 +13,9 @@ class About extends Component {
   
     render() {
         const data = this.props.data
-        const page = data.allWordpressPage.edges[0].node
+        const page = data.allWpPage.edges[0].node
         const testimonial = data.allWordpressWpTestimonials.edges;
-        const tellus = data.allWordpressPage.edges[0].node.acf;
+        const tellus = data.allWpPage.edges[0].node.acf;
         console.log(page);
       return (
         <Layout>
@@ -175,7 +175,7 @@ export const query = graphql`
           }
         }
     }
-    allWordpressPage(filter: {wordpress_id: {eq: 7775}}) {
+    allWpPage(filter: {wordpress_id: {eq: 7775}}) {
         edges {
           node {
             acf {

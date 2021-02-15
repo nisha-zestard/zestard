@@ -97,7 +97,7 @@ class Contact extends Component {
 
   render() {
     const data = this.props.data
-    const acfData = data.wordpressPage.acf;
+    const acfData = data.wpPage.acf;
     const acfoption = data.allWordpressAcfOptions.edges[0].node.options
     const testimonial = data.allWordpressWpTestimonials.edges;
     
@@ -221,7 +221,7 @@ export const query = graphql`
       }
     }
   }
-  wordpressPage(wordpress_id: {eq: 57}) {
+  wpPage(wordpress_id: {eq: 57}) {
     title
     yoast_title
     yoast_meta {

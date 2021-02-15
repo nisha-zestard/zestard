@@ -37,7 +37,7 @@ class Header extends React.Component {
       <StaticQuery
       query={graphql`
         query {       
-          wordpressPage {
+          wpPage {
             id
           }
           allWordpressAcfOptions {

@@ -50,14 +50,14 @@ class Home extends Component {
             ]
           }
         const data = this.props.data  
-        const header = data.allWordpressPage.edges[0].node.acf;
+        const header = data.allWpPage.edges[0].node.acf;
         const clientlogo = data.allWordpressWpClients.edges;
-        const seotd = data.allWordpressPage.edges[0].node;
+        const seotd = data.allWpPage.edges[0].node;
         const expertise = header.home_content_modules_page[0];
         const counter = data.wordpressAcfOptions.options;
         const testimonial = data.allWordpressWpTestimonials.edges;
         const credential = header.gen_content_modules_page[3].cred_logos_repeater;
-        const recentpost = data.allWordpressPost.edges;
+        const recentpost = data.allWpPost.edges;
         const portfolio = data.allWordpressWpPortfolio.edges;
         const newbann = header.gen_content_modules_page[4];
         console.log(expertise)
@@ -213,7 +213,7 @@ export const query = graphql`
           }
         }
       }
-    allWordpressPage(filter: {wordpress_id: {eq: 2}}) {
+    allWpPage(filter: {wordpress_id: {eq: 2}}) {
         edges {
           node {
             yoast_meta {
@@ -325,7 +325,7 @@ export const query = graphql`
           }
         }
       }
-      allWordpressPost(sort: {order: DESC, fields: date}, limit: 3) {
+      allWpPost(sort: {order: DESC, fields: date}, limit: 3) {
         edges {
           node {
             content

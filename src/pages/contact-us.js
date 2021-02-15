@@ -112,8 +112,8 @@ class ContactUs extends Component {
 
   render() {
     const data = this.props.data
-    const acfData = data.wordpressPage.acf;
-    const seotd = data.wordpressPage
+    const acfData = data.wpPage.acf;
+    const seotd = data.wpPage
     
     return (
       <Layout>
@@ -204,7 +204,7 @@ export default ContactUs
 
 export const query = graphql`
 {
-  wordpressPage(wordpress_id: {eq: 57}) {
+  wpPage(wordpress_id: {eq: 57}) {
     title
     yoast_title
     yoast_meta {

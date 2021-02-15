@@ -13,8 +13,8 @@ import OurRecentWork from "../../components/OurRecentWork";
 class ReactjsDevelopment extends Component {
 	render() {		
 		const data = this.props.data  
-		const sertech = data.allWordpressPage.edges[0].node;
-		const acf = data.allWordpressPage.edges[0].node.acf
+		const sertech = data.allWpPage.edges[0].node;
+		const acf = data.allWpPage.edges[0].node.acf
 		const pagedata = acf.gen_content_modules_page
 		const testimonial = data.allWordpressWpTestimonials.edges;
 		const portfolio = data.allWordpressWpPortfolio.edges;
@@ -149,7 +149,7 @@ export const query = graphql`
           }
         }
     }
-	allWordpressPage(filter: {wordpress_id: {eq: 7446}}) {
+	allWpPage(filter: {wordpress_id: {eq: 7446}}) {
 		edges {
 			node {
 				yoast_title

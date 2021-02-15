@@ -9,8 +9,8 @@ class TermsOfUse extends Component {
   
     render() {
       const data = this.props.data
-      const seotd = data.wordpressPage
-      const acfData = data.wordpressPage.acf;
+      const seotd = data.wpPage
+      const acfData = data.wpPage.acf;
       return (
         <Layout>
         <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
@@ -24,7 +24,7 @@ class TermsOfUse extends Component {
                     headerSectionTitle={acfData.header_section_title}
                     headerPageTitle={acfData.header_page_title}
                 />
-                {data.allWordpressPage.edges.map(({ node }, index) => (
+                {data.allWpPage.edges.map(({ node }, index) => (
                     <div className="container" key={index}>
                         <div id="primary" className="content-area">
                             <main id="main" className="site-main">
@@ -47,7 +47,7 @@ export default TermsOfUse
 
 export const query = graphql`
     {
-        wordpressPage(slug: {eq: "terms-of-use"}) {
+        wpPage(slug: {eq: "terms-of-use"}) {
             title
             yoast_title
             yoast_meta {
@@ -60,7 +60,7 @@ export const query = graphql`
                 }
             }
         }
-        allWordpressPage(filter: {slug: {eq: "terms-of-use"}}) {
+        allWpPage(filter: {slug: {eq: "terms-of-use"}}) {
             edges {
                 node {
                     id

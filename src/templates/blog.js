@@ -15,7 +15,7 @@ class BlogList extends Component {
     const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/page/${(currentPage - 1).toString()}`
     const nextPage = `/blog/page/${(currentPage + 1).toString()}`
     const data = this.props.data
-    // const post = data.allWordpressPost;
+    // const post = data.allWpPost;
     //console.log(post);
     
     return (
@@ -42,7 +42,7 @@ class BlogList extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-md-8 blog-posts-wrap">
-                    {data.allWordpressPost.edges.map(({ node }) => (
+                    {data.allWpPost.edges.map(({ node }) => (
                       <div key={node.id}>
                         <article id="post-{node.id}"
                         className="post-{node.id} post type-post status-publish format-standard has-post-thumbnail hentry category-design category-tips-and-tricks card">
@@ -153,7 +153,7 @@ export default BlogList
 
 export const pageQuery = graphql`
   query($skip: Int! , $limit: Int!) {
-    allWordpressPost(
+    allWpPost(
         limit: $limit,
         skip: $skip,
         sort: {order: DESC, fields: date}

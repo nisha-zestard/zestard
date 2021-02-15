@@ -9,12 +9,12 @@ class Partnership extends Component {
   
     render() {
       const data = this.props.data
-      const seotd = data.wordpressPage
-      const acfData = data.wordpressPage.acf;
-      const offshore = data.wordpressPage.acf.gen_content_modules_page[0];
-      const referral = data.wordpressPage.acf.gen_content_modules_page[2];
-      const reseller = data.wordpressPage.childWordPressAcfGenLeftImageAndRightDescription;
-      //const metadata = data.wordpressPage.yoast_meta[0].content;
+      const seotd = data.wpPage
+      const acfData = data.wpPage.acf;
+      const offshore = data.wpPage.acf.gen_content_modules_page[0];
+      const referral = data.wpPage.acf.gen_content_modules_page[2];
+      const reseller = data.wpPage.childWordPressAcfGenLeftImageAndRightDescription;
+      //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>
           <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
@@ -97,7 +97,7 @@ export default Partnership
 
 export const query = graphql`
 {
-  wordpressPage(wordpress_id: {eq: 103}) {
+  wpPage(wordpress_id: {eq: 103}) {
     title
     yoast_title
     yoast_meta {

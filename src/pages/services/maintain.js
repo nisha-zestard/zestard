@@ -13,11 +13,11 @@ import ServiceIntro from "../../components/ServiceIntro";
 class Maintain extends Component {
 	render() {
 		const data = this.props.data;
-		const page = data.allWordpressPage.edges[0].node.acf;
+		const page = data.allWpPage.edges[0].node.acf;
 		const genmodule = page.gen_content_modules_page;
 		const credent = genmodule[3].cred_logos_repeater;
 		const portfolio = data.allWordpressWpPortfolio.edges;
-		const sertech = data.allWordpressPage.edges[0].node;
+		const sertech = data.allWpPage.edges[0].node;
 		
 		return(
 			<Layout>
@@ -167,7 +167,7 @@ export const query = graphql`{
 		  }
 		}
 	}
-	allWordpressPage(filter: {wordpress_id: {eq: 6981}}) {
+	allWpPage(filter: {wordpress_id: {eq: 6981}}) {
 		edges {
 		  node {
 			yoast_title

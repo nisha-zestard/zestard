@@ -12,13 +12,13 @@ class AboutUs extends Component {
   
     render() {
       const data = this.props.data
-      const seotd = data.wordpressPage
-      const acfData = data.wordpressPage.acf;
-      //const metadata = data.wordpressPage.yoast_meta[0].content;
-      const whoweare = data.wordpressPage.childWordPressAcfGenRightVideoAndLeftDescription;
-      const ourValues = data.wordpressPage.childWordPressAcfGenGridBoxes;
+      const seotd = data.wpPage
+      const acfData = data.wpPage.acf;
+      //const metadata = data.wpPage.yoast_meta[0].content;
+      const whoweare = data.wpPage.childWordPressAcfGenRightVideoAndLeftDescription;
+      const ourValues = data.wpPage.childWordPressAcfGenGridBoxes;
       const industry = data.allWordpressAcfOptions.nodes[0].options;
-      const whychoose = data.wordpressPage.childWordPressAcfGenLeftIconAndRightDescription;
+      const whychoose = data.wpPage.childWordPressAcfGenLeftIconAndRightDescription;
       //const footer = data.wordpressAcfOptions.options;
 
       return (
@@ -185,7 +185,7 @@ export const query = graphql`
       }
     }
   }
-  wordpressPage(wordpress_id: {eq: 163}) {
+  wpPage(wordpress_id: {eq: 163}) {
     yoast_title
     yoast_meta {
       content

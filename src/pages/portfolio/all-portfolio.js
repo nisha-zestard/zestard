@@ -9,8 +9,8 @@ class Portfolio extends Component {
   
     render() {
       const data = this.props.data
-      const acfData = data.wordpressPage.acf;
-      //const metadata = data.wordpressPage.yoast_meta[0].content;
+      const acfData = data.wpPage.acf;
+      //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>
             <SEO title="Portfolio"/>
@@ -59,7 +59,7 @@ export default Portfolio
 
 export const query = graphql`
 {
-    wordpressPage(slug: {eq: "work"}) {
+    wpPage(slug: {eq: "work"}) {
         title
         acf {
             header_page_title

@@ -36,7 +36,7 @@ class Portfolio extends Component {
 
     render() {
         const data = this.props.data
-        const sertech = data.allWordpressPage.edges[0].node;
+        const sertech = data.allWpPage.edges[0].node;
         const portcat = data.allWordpressWpPortfolioCategory.edges        
         return(
             <Layout>
@@ -98,7 +98,7 @@ export default Portfolio
 
 export const query = graphql`
 {
-    allWordpressPage(filter: {wordpress_id: {eq: 85}}) {
+    allWpPage(filter: {wordpress_id: {eq: 85}}) {
 		edges {
 			node {
 				yoast_title
