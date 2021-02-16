@@ -55,10 +55,10 @@ class Home extends Component {
         const seotd = data.allWpPage.edges[0].node;
         const expertise = header.home_content_modules_page[0];
         const counter = data.wordpressAcfOptions.options;
-        const testimonial = data.allWordpressWpTestimonials.edges;
+        const testimonial = data.allWpCptuiTechnology.edges;
         const credential = header.gen_content_modules_page[3].cred_logos_repeater;
         const recentpost = data.allWpPost.edges;
-        const portfolio = data.allWordpressWpPortfolio.edges;
+        const portfolio = data.allWpCptuiPortfolio.edges;
         const newbann = header.gen_content_modules_page[4];
         console.log(expertise)
           
@@ -194,151 +194,118 @@ export default Home
 
 export const query = graphql`
 {
-
-    allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 231}}}}) {
-
+      allWpPage(filter: {databaseId: {eq: 2}}) {
         edges {
           node {
-            title
-            excerpt
-            link
-            featured_media {
-              source_url
+            seo {
+              title
+              metaDesc
             }
-            acf {
-              pf_image_with_responsive {
-                source_url
+            acfHeader {
+              headerPageTitle
+              headerSectionTitle
+              headerSubText
+              homeMascotClass
+              headerMascot {
+                sourceUrl
+              }
+            }
+            acfGeneralLayout {
+              genContentModules {
+                ... on WpPage_Acfgenerallayout_GenContentModules_GenRightImageAndLeftDescription {
+                  genTwoSecImage {
+                    sourceUrl
+                  }
+                  genLeftDescription
+                }
+                ... on WpPage_Acfgenerallayout_GenContentModules_OurRecentWork {
+                  orwTitle
+                  orwPortfolioList {
+                    ... on WpCptui_portfolio {
+                      id
+                      acfPortfolioLayout {
+                        pfImageWithResponsive {
+                          sourceUrl
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            acfHomeLayout {
+              homeContentModules {
+                ... on WpPage_Acfhomelayout_HomeContentModules_HomeOurExpertise {
+                  homeOeSectionTitle
+                  homeOeContent
+                  homeOeReadMoreLink
+                  homeOeRightIcons {
+                    homeOeIcons {
+                      sourceUrl
+                    }
+                    homeOeRpLinks
+                  }
+                }
               }
             }
           }
         }
       }
-    allWpPage(filter: {wordpress_id: {eq: 2}}) {
+      allWpCptuiTechnology {
+        nodes {
+          title
+          content
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
+        }
+      }
+      allWpCptuiClient {
         edges {
           node {
-            yoast_meta {
-                content
+            featuredImage {
+              node {
+                sourceUrl
               }
-              yoast_title
-            acf {
-                header_section_title
-                header_page_title
-                header_sub_text
-                home_mascot_class
-                header_mascot {
-                    source_url
-                }                
-                gen_content_modules_page {
-                    ... on WordPressAcf_gen_page_intro_section {
-                        id
-                        pis_section_title
-                        pis_content
-                        pis_section_class
-                    }
-                    ... on WordPressAcf_gen_cards_section {
-                        id
-                        cs_cards_details {
-                            cs_icon {
-                            source_url
-                            }
-                            cs_title
-                            cs_content
-                            cs_learn_more_link
-                        }
-                    }  
-                    ... on WordPressAcf_gen_case_study_section {
-                        id
-                        css_title
-                        css_content
-                        css_section_class
-                    }  
-                    ... on WordPressAcf_gen_credential_logos {
-                      id
-                      cred_logos_repeater {
-                        cred_logos_list {
-                          source_url
-                        }
-                      }
-                    }
-                    ... on WordPressAcf_gen_right_image_and_left_description {
-                      id
-                      gen_left_description
-                      gen_two_sec_image {
-                        source_url
-                      }
-                    }                
+            }
+          }
+        }
+      }
+      allWp {
+        edges {
+          node {
+            counterSettings {
+              acfCounterSettings {
+                csSectionClass
+                csCounterDetails {
+                  csLabel
+                  csNumber
                 }
-                home_content_modules_page {
-                    home_oe_section_title
-                    home_oe_content
-                    home_oe_read_more_link
-                    home_oe_right_icons {
-                        home_oe_rp_links
-                        home_oe_icons {
-                            source_url
-                        }
-                    }
-                }
+              }
             }
           }
         }
       }
-      allWordpressWpClients {
+      allWpPost(filter: {}, sort: {fields: date, order: DESC}) {
         edges {
           node {
-            featured_media {
-              source_url
-            }
             title
-          }
-        }
-      }
-      wordpressAcfOptions {
-        options {
-          cs_section_class
-          cs_counter_details {
-            cs_label
-            cs_number
-          }
-        }
-      }
-      allWordpressWpTestimonials {
-        edges {
-          node {
-            featured_media {
-              source_url
-            }
-            title
-            content
-          }
-        }
-      }
-      allWordpressWpCredentials(sort: {order: ASC, fields: date}, filter: {acf: {hide_on_home_page: {eq: false}}}) {
-        edges {
-          node {
-            acf {
-                hide_on_home_page
-            }
-            featured_media {
-              source_url
-            }
-          }
-        }
-      }
-      allWpPost(sort: {order: DESC, fields: date}, limit: 3) {
-        edges {
-          node {
-            content
             slug
+            content
             link
             excerpt
-            date(formatString: "MMMM DD, YYYY")
-            featured_media {
-              source_url              
-            }
-            title
+            date(formatString: "MM DD, YYYY")
             author {
-              name
+              node {
+                name
+              }
+            }
+            featuredImage {
+              node {
+                sourceUrl
+              }
             }
           }
         }

@@ -14,7 +14,7 @@ class Market extends Component {
 		const page = data.allWpPage.edges[0].node.acf;
 		const genmodule = page.gen_content_modules_page;
 		const credential = genmodule[4].cred_logos_repeater;
-		const portfolio = data.allWordpressWpPortfolio.edges;
+		const portfolio = data.allWpCptuiPortfolio.edges;
 		const sertech = data.allWpPage.edges[0].node;
 		
 		return(
@@ -128,103 +128,112 @@ class Market extends Component {
 export default Market;
 
 export const query = graphql`{
-	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 234}}}}, limit: 2) {
+	allWpCptuiPortfolio(filter: {tags: {nodes: {elemMatch: {databaseId: {eq: 232}}}}}, limit: 2) {
         edges {
           node {
             title
             excerpt
             link
-            featured_media {
-              source_url
-            }
-            acf {
-              pf_image_with_responsive {
-                source_url
-              }
-            }
+            featuredImage {
+				node {
+				  sourceUrl
+				}
+			}
+			acfPortfolioLayout {
+				pfImageWithResponsive {
+				  sourceUrl
+				}
+			  }            
           }
         }
     }
-	allWordpressWpCredentials(filter: {credentials_category: {eq: 218}}) {
+	
+	allWpPage(filter: {databaseId: {eq: 6968}}) {
 		edges {
 		  node {
-			featured_media {
-			  source_url
-			}
 			title
-			slug
-		  }
-		}
-	}
-	allWpPage(filter: {wordpress_id: {eq: 6968}}) {
-		edges {
-		  node {
-			yoast_title
-			yoast_meta {
-				content
+			seo {
+				title
+				metaDesc
 			}
-			acf {
-			  home_mascot_class
-			  header_sub_text
-			  header_section_title
-			  header_mascot {
-				source_url
-			  }
-			  use_common_contact_section
-				tuabp_title
-				tuabp_image {
-				source_url
+			acfHeader {
+				headerPageTitle
+				headerSectionTitle
+				headerSubText
+				homeMascotClass
+				headerMascot {
+					sourceUrl
 				}
-				tuabp_content
-				tuabp_button_text
-				tuabp_button_link
-			  gen_content_modules_page {
-				... on WordPressAcf_gen_page_intro_section {
-				  id
-				  pis_section_title
-				  pis_content
-				  pis_section_class
+			}
+			acfGeneralLayout {
+				genBoxHeading
+          		genBoxDescription
+			  genContentModules {
+				... on WpPage_Acfgenerallayout_GenContentModules_PageBanner {
+				  fieldGroupName
+				  pbBgImage {
+					sourceUrl
+				  }
+				  pgTitle
+				  pgDescription
 				}
-				... on WordPressAcf_gen_cards_section {
-				  id
-				  cs_cards_details {
-					cs_icon {
-					  source_url
+				... on WpPage_Acfgenerallayout_GenContentModules_GenGridBoxes {
+				  genGridBoxTitle
+				  genGridBoxesRep {
+					genIconGb {
+					  sourceUrl
 					}
-					cs_hover_icon{
-					  source_url
+					genHoverIconGb {
+					  sourceUrl
 					}
-					cs_title
-					cs_content
+					genTitleGb
+					genDescriptionGb
 				  }
 				}
-				... on WordPressAcf_gen_links_section {
-				  id
-				  ls_section_class
-				  ls_section_title
-				  ls_link_images {
-					ls_image {
-					  source_url
+				... on WpPage_Acfgenerallayout_GenContentModules_ClientLogo {
+				  clTitle
+				  logoRepeater {
+					clrImgLogo {
+					  sourceUrl
 					}
 				  }
 				}
-				... on WordPressAcf_gen_case_study_section {
-				  id
-				  css_title
-				  css_content
-				  css_section_class
-				}
-				... on WordPressAcf_gen_credential_logos {
-					id
-					cred_logos_repeater {
-					  cred_logos_list {
-						source_url
+				... on WpPage_Acfgenerallayout_GenContentModules_CredentialList {
+				  listCredential {
+					... on WpCptui_credential {
+					  id
+					  featuredImage {
+						node {
+						  sourceUrl
+						}
 					  }
 					}
+				  }
+				}
+				... on WpPage_Acfgenerallayout_GenContentModules_OurRecentWork {
+				  orwTitle
+				  orwSubTitle
+				  orwPortfolioList {
+					... on WpCptui_portfolio {
+					  id
+					  acfPortfolioLayout {
+						pfImageWithResponsive {
+						  sourceUrl
+						}
+					  }
+					  title
+					}
+				  }
+				}
+				... on WpPage_Acfgenerallayout_GenContentModules_ContactUsForProject {
+				  ccfpTitle
+				  ccfpSubTitle
+				  ccfpButtonText
+				  ccfpButtonLink
 				}
 			  }
 			}
 		  }
 		}
-	}
+	  }
 }`

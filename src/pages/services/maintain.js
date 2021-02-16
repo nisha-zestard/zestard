@@ -16,7 +16,7 @@ class Maintain extends Component {
 		const page = data.allWpPage.edges[0].node.acf;
 		const genmodule = page.gen_content_modules_page;
 		const credent = genmodule[3].cred_logos_repeater;
-		const portfolio = data.allWordpressWpPortfolio.edges;
+		const portfolio = data.allWpCptuiPortfolio.edges;
 		const sertech = data.allWpPage.edges[0].node;
 		
 		return(
@@ -139,115 +139,93 @@ class Maintain extends Component {
 export default Maintain;
 
 export const query = graphql`{
-	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 233}}}}, limit: 2) {
-        edges {
-          node {
-            title
-            excerpt
-            link
-            featured_media {
-              source_url
-            }
-            acf {
-              pf_image_with_responsive {
-                source_url
-              }
-            }
-          }
-        }
-      }
-	allWordpressWpCredentials(filter: {credentials_category: {eq: 219}}) {
+	
+	allWpPage(filter: {databaseId: {eq: 6956}}) {
 		edges {
 		  node {
-			featured_media {
-			  source_url
+			seo {
+				title
+				metaDesc
 			}
-			title
-			slug
-		  }
-		}
-	}
-	allWpPage(filter: {wordpress_id: {eq: 6981}}) {
-		edges {
-		  node {
-			yoast_title
-			yoast_meta {
-				content
+			acfHeader {
+				headerPageTitle
+				headerSectionTitle
+				headerSubText
+				homeMascotClass
+				headerMascot {
+					sourceUrl
+				}
 			}
-			acf {
-			  home_mascot_class
-			  header_sub_text
-			  header_section_title
-			  header_mascot {
-				source_url
+			acfMaintainLayout {
+			  maintainImage {
+				sourceUrl
 			  }
-			  use_common_contact_section
-				tuabp_title
-				tuabp_image {
-				source_url
+			  maintainTitle
+			  maintainContent
+			  maintainListRepeater {
+				maintainList
+			  }
+			  maintainButtonText
+			  maintainButtonLink
+			}
+			acfGeneralLayout {
+				genBoxHeading
+          		genBoxDescription
+			  genContentModules {
+				... on WpPage_Acfgenerallayout_GenContentModules_PageBanner {
+				  pbBgImage {
+					sourceUrl
+				  }
+				  pgTitle
+				  pgDescription
 				}
-				tuabp_content
-				tuabp_button_text
-				tuabp_button_link
-			  maintain_image {
-				source_url
-			  }
-			  maintain_title
-			  maintain_content
-			  maintain_list_repeater {
-				maintain_list
-			  }
-			  maintain_button_text
-			  maintain_button_link
-			  gen_content_modules_page {
-				... on WordPressAcf_gen_page_intro_section {
-				  id
-				  pis_section_class
-				  pis_page_title
-				  pis_section_title
-				  pis_content
-				}
-				... on WordPressAcf_gen_image_with_content {
-				  id
-				  iwc_layout_details {
-					iwc_image {
-					  source_url
+				... on WpPage_Acfgenerallayout_GenContentModules_ImageWithContent {
+				  iwcMainTitle
+				  iwcRepeater {
+					iwcImage {
+					  sourceUrl
 					}
-					iwc_title
-					iwc_sub_desc
-					iwc_button_text
-					iwc_button_link
-					iwc_section_class
+					iwcTitle
+					iwcDescription
+					iwcButtonText
+					iwcButtonLink
 				  }
 				}
-				... on WordPressAcf_gen_cards_section {
-				  id
-				  cs_cards_details {
-					cs_icon {
-					  source_url
-					}
-					cs_title
-					cs_content
-					cs_learn_more_link
-				  }
-				}
-				... on WordPressAcf_gen_case_study_section {
-					id
-					css_title
-					css_content
-					css_section_class
-				}
-				... on WordPressAcf_gen_credential_logos {
-					id
-					cred_logos_repeater {
-					  cred_logos_list {
-						source_url
+				... on WpPage_Acfgenerallayout_GenContentModules_CredentialList {
+				  listCredential {
+					... on WpCptui_credential {
+					  id
+					  featuredImage {
+						node {
+						  sourceUrl
+						}
 					  }
 					}
+				  }
+				}
+				... on WpPage_Acfgenerallayout_GenContentModules_OurRecentWork {
+				  orwTitle
+				  orwSubTitle
+				  orwPortfolioList {
+					... on WpCptui_portfolio {
+					  id
+					  acfPortfolioLayout {
+						pfImageWithResponsive {
+						  sourceUrl
+						}
+					  }
+					}
+				  }
+				}
+				... on WpPage_Acfgenerallayout_GenContentModules_ContactUsForProject {
+				  ccfpTitle
+				  ccfpSubTitle
+				  ccfpButtonText
+				  ccfpButtonLink
 				}
 			  }
 			}
 		  }
 		}
-	}
+	  }
 }`

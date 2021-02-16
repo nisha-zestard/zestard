@@ -97,42 +97,29 @@ export default Partnership
 
 export const query = graphql`
 {
-  wpPage(wordpress_id: {eq: 103}) {
+  wpPage(databaseId: {eq: 103}) {
     title
-    yoast_title
-    yoast_meta {
-      content
+    seo {
+      title
+      metaDesc
     }
-    acf {
-      header_page_title
-      header_sub_text
-      header_section_title
-      header_mascot {
-        source_url
+    acfHeader {
+      headerPageTitle
+      headerSectionTitle
+      headerSubText
+      homeMascotClass
+      headerMascot {
+        sourceUrl
       }
-      use_common_contact_section
-      tuabp_title
-      tuabp_image {
-      source_url
-      }
-      tuabp_content
-      tuabp_button_text
-      tuabp_button_link
-      gen_content_modules_page {
-        ... on WordPressAcf_gen_right_image_and_left_description {
-          gen_left_description
-          gen_left_heading
-          gen_two_sec_image {
-            source_url
+    }
+    acfGeneralLayout {
+      genContentModules {
+        ... on WpPage_Acfgenerallayout_GenContentModules_GenRightImageAndLeftDescription {
+          genTwoSecImage {
+            sourceUrl
           }
+          genLeftDescription
         }
-      }
-    }
-    childWordPressAcfGenLeftImageAndRightDescription {
-      gen_right_heading
-      gen_right_description
-      gen_two_sec_image {
-        source_url
       }
     }
   }

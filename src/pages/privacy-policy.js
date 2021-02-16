@@ -48,31 +48,27 @@ class PrivacyPolicy extends Component {
 export default PrivacyPolicy
 
 export const query = graphql`
-    {
-        wpPage(slug: {eq: "privacy-policy"}) {
-            title
-            yoast_title
-                    yoast_meta {
-                        content
-                    }
-            acf {
-              header_page_title
-                header_mascot {
-                    source_url
-                }
-            }
-        }
-        allWpPage(filter: {slug: {eq: "privacy-policy"}}) {
+    {        
+        allWpPage(filter: {databaseId: {eq: 1664}}) {
             edges {
                 node {
-                    yoast_title
-                    yoast_meta {
-                        content
+                    seo {
+                        title
+                        metaDesc
+                    }
+                    acfHeader {
+                        headerPageTitle
+                        headerSectionTitle
+                        headerSubText
+                        homeMascotClass
+                        headerMascot {
+                            sourceUrl
+                        }
                     }
                     id
                     title
                     content
-                    wordpress_id
+                    databaseId
                 }
             }
           }

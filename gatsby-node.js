@@ -59,13 +59,13 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }  
-      allWordpressWpCulture {
+      allWpCptuiCulture {
         edges {
           node {
             title
             slug
             id
-            wordpress_id
+            databaseId
             featured_media {
               source_url
             }
@@ -78,7 +78,7 @@ exports.createPages = async ({ graphql, actions }) => {
             slug
             title
             path
-            wordpress_id
+            databaseId
           }
         }
       }
@@ -86,7 +86,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   const { allWpPost,  
-          allWpUser, allWordpressWpCulture,
+          allWpUser, allWpCptuiCulture,
           allWpPage} = result.data
 
   if (result.errors) {
@@ -136,12 +136,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // creating pages for blog events
 
-  allWordpressWpCulture.edges.forEach(edge => {
+  allWpCptuiCulture.edges.forEach(edge => {
     createPage({
       path: `/culture/${edge.node.slug}/`,
       component: slash(BlogEventTemplate),
       context: {
-        id: edge.node.wordpress_id,
+        id: edge.node.databaseId,
       },
     })
   })

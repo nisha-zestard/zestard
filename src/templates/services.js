@@ -53,12 +53,12 @@ export default ServiceTemplate
 
 export const query = graphql`
 query($id: Int!) {
-  allWpPage(filter: {wordpress_id: {eq: $id}}) {
+  allWpPage(filter: {databaseId: {eq: $id}}) {
     edges {
       node {
         slug
         title
-        wordpress_id
+        databaseId
         acf {
           header_page_title
           header_sub_text
@@ -73,14 +73,9 @@ query($id: Int!) {
             sl_service_image {
               source_url
               title
-              wordpress_id
+              databaseId
             }
           }
-        }
-        childWordPressAcfTechAboutTechnology {
-          tech_about_heading
-          tech_about_content
-          tech_about_right_content
         }
         childWordPressAcfTechServices {
           tech_services_heading
@@ -88,12 +83,6 @@ query($id: Int!) {
           tech_services_list {
             tech_service_name
             tech_service_description
-          }
-        }
-        childWordPressAcfTechKeyBenefits {
-          tech_keyb_heading
-          tech_key_features_repeater {
-            tech_key_features
           }
         }
       }

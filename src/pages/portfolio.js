@@ -9,7 +9,7 @@ class Portfolio extends Component {
     getpcid = (el) => {
         const data = this.props.data;
         const pcategoryid = parseInt(el.target.getAttribute("data-pcid"));
-        const portfoliolist = data.allWordpressWpPortfolio.edges;
+        const portfoliolist = data.allWpCptuiPortfolio.edges;
         var setlid;
         for(var i=0; i< portfoliolist.length; i++) {    
             var test = portfoliolist[i].node.portfolio_category;
@@ -37,7 +37,7 @@ class Portfolio extends Component {
     render() {
         const data = this.props.data
         const sertech = data.allWpPage.edges[0].node;
-        const portcat = data.allWordpressWpPortfolioCategory.edges        
+        const portcat = data.allWpCptuiPortfolioCategory.edges        
         return(
             <Layout>
                 <SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content}/>
@@ -65,14 +65,14 @@ class Portfolio extends Component {
                                 <ul>
                                     <li onClick={ (e) => this.allpid(e) }>All</li>
                                     {portcat.map((node,index) => (
-                                        <li data-pcid={node.node.wordpress_id} key={index} onClick={ (e) => this.getpcid(e) }>{node.node.name}</li>
+                                        <li data-pcid={node.node.databaseId} key={index} onClick={ (e) => this.getpcid(e) }>{node.node.name}</li>
                                     ))}
                                 </ul>
                             </div>
                         </div>
                         <div className="portfolio-boxes">
                             <div className="all-portfolio-list">
-                                {data.allWordpressWpPortfolio.edges.map((node,index) => (
+                                {data.allWpCptuiPortfolio.edges.map((node,index) => (
                                     <div className="portfoliolist" key={index} data-id={node.node.portfolio_category} onLoad={ (e) => this.allpid(e) }>                                        
                                         <div className="project">
                                             {node.node.featured_media !== null && node.node.featured_media.source_url !== null && 
@@ -98,39 +98,27 @@ export default Portfolio
 
 export const query = graphql`
 {
-    allWpPage(filter: {wordpress_id: {eq: 85}}) {
+    allWpPage(filter: {databaseId: {eq: 85}}) {
 		edges {
 			node {
-				yoast_title
-				yoast_meta {
-					content
-				}
-			  
+				seo {
+                    title
+                    metaDesc
+                }
 			}
 		}
 	}
-    allWordpressWpPortfolio {
+    allWpCptuiPortfolio {
         edges {
           node {
             title
-            portfolio_category
-            acf {
-                pf_category_name
+            featuredImage {
+              node {
+                sourceUrl
+              }
             }
-            featured_media {
-                source_url
-            }            
           }
         }
-    }
-    allWordpressWpPortfolioCategory(filter: {count: {ne: 0}}) {
-        edges {
-          node {
-            slug
-            wordpress_id
-            name
-          }
-        }
-    }
+      }
 }
 `

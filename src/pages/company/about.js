@@ -14,7 +14,7 @@ class About extends Component {
     render() {
         const data = this.props.data
         const page = data.allWpPage.edges[0].node
-        const testimonial = data.allWordpressWpTestimonials.edges;
+        const testimonial = data.allWpCptuiTechnology.edges;
         const tellus = data.allWpPage.edges[0].node.acf;
         console.log(page);
       return (
@@ -164,75 +164,74 @@ export default About
 
 export const query = graphql`
 {
-    allWordpressWpTestimonials {
+    allWpCptuiTechnology {
+        nodes {
+          title
+          content
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
+        }
+      }
+      allWpPage(filter: {databaseId: {eq: 7775}}) {
         edges {
           node {
-            featured_media {
-              source_url
-            }
             title
-            content
-          }
-        }
-    }
-    allWpPage(filter: {wordpress_id: {eq: 7775}}) {
-        edges {
-          node {
-            acf {
-                header_page_title
-                header_sub_text
-                header_section_title
-                header_mascot {
-                    source_url
-                }
-                use_common_contact_section
-                tuabp_title
-                tuabp_image {
-                  source_url
-                }
-                tuabp_content
-                tuabp_button_text
-                tuabp_button_link
+            seo {
+              title
+              metaDesc
             }
-            childWordPressAcfGenImageWithContent {
-              iwc_layout_details {
-                iwc_image {
-                  source_url
-                }
-                iwc_sub_desc
+            acfHeader {
+              headerPageTitle
+              headerSectionTitle
+              headerSubText
+              homeMascotClass
+              headerMascot {
+                sourceUrl
               }
             }
-            childWordPressAcfGenCardsSection {
-              cs_section_title
-              cs_cards_details {
-                cs_title
-                cs_content
-              }
-            }
-            childWordPressAcfPlatformLogos {
-              pl_title
-              pl_logos_list {
-                pl_logos {
-                  source_url
+            acfGeneralLayout {
+              genContentModules {
+                ... on WpPage_Acfgenerallayout_GenContentModules_PageBanner {
+                  pgTitle
+                  pgDescription
+                  pbBgImage {
+                    sourceUrl
+                  }
                 }
-              }
-            }
-            childWordPressAcfCounter {
-              counter_list {
-                cuntr_number
-                cuntr_text
-              }
-            }
-            childWordPressAcfGenCredentialLogos {
-              cred_logos_repeater {
-                cred_logos_list {
-                  source_url
+                ... on WpPage_Acfgenerallayout_GenContentModules_GenLeftImageAndRightDescription {
+                  genRightDescription
+                  genTwoSecImage {
+                    sourceUrl
+                  }
                 }
-                cred_logos_title
+                ... on WpPage_Acfgenerallayout_GenContentModules_GenGridBoxes {
+                  genGridBoxTitle
+                  genGridBoxesRep {
+                    genTitleGb
+                    genDescriptionGb
+                  }
+                }
+                ... on WpPage_Acfgenerallayout_GenContentModules_ClientLogo {
+                  clTitle
+                  logoRepeater {
+                    clrImgLogo {
+                      sourceUrl
+                    }
+                  }
+                }
+                ... on WpPage_Acfgenerallayout_GenContentModules_ContactUsForProject {
+                  ccfpTitle
+                  ccfpSubTitle
+                  ccfpButtonText
+                  ccfpButtonLink
+                }
               }
             }
           }
         }
-    }
+      }
 }
 `

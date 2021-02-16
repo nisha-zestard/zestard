@@ -6,50 +6,41 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 const Footer = () => {
   const data = useStaticQuery(graphql`
   query {
-    allWordpressMenusMenusItems(filter: {wordpress_id: {eq: 7}}) {
+    
+    allWp {
       edges {
         node {
-          name
-          items {
-            title
-            url
-          }
-        }
-      }
-    }
-    allWordpressAcfOptions {
-      edges {
-        node {
-          options {
-            light_site_logo {
-              source_url
-            }
-            contact_email
-            phone_number
-            star_image {
-              source_url
-            }
-            contact_number
-            star_content
-            menu_title_with_links {
-              menu_title
-              menu_link
-              inner_links {
-                inner_title
-                inner_indi_link
+          themeGeneralSettings {
+            acfGeneralThemeSettings {
+              contactEmail
+              phoneNumber
+              socialMedia {
+                socialMediaLink
+                socialMediaIcon
+                socialMediaName
               }
             }
-            social_media {
-              social_media_icon
-              social_media_link
-              social_media_name
-            }
-            copyrigth
-            external_links {
-              external_image {
-                source_url
+            acfFooter {
+              starImage {
+                sourceUrl
               }
-              external_link
+              contactNumber
+              copyrigth
+              starContent
+              menuTitleWithLinks {
+                menuTitle
+                menuLink
+                innerLinks {
+                  innerTitle
+                  innerIndiLink
+                }
+              }
+              externalLinks {
+                externalLink
+                externalImage {
+                  sourceUrl
+                }
+              }
             }
           }
         }

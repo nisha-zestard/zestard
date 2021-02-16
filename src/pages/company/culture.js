@@ -16,9 +16,9 @@ class Culture extends Component {
 
   componentDidMount() {
     const data = this.props.data
-    const culturelist = data.allWordpressWpCulture.edges
+    const culturelist = data.allWpCptuiCulture.edges
 
-    const pcategoryid = data.allWordpressWpCultureCat.edges[0].node.wordpress_id
+    const pcategoryid = data.allWpCptuiCultureCat.edges[0].node.databaseId
 
     const plist = document.getElementsByClassName("culture-list")
     for (var k = 0; k < plist.length; k++) {
@@ -38,8 +38,8 @@ class Culture extends Component {
     const data = this.props.data
     const seotd = data.wpPage
     const acfData = data.wpPage.acf
-    const culturelist = data.allWordpressWpCulture.edges
-    const culcat = data.allWordpressWpCultureCat.edges
+    const culturelist = data.allWpCptuiCulture.edges
+    const culcat = data.allWpCptuiCultureCat.edges
 
     const getpcid = (el, index) => {
       const pcategoryid = el.target.getAttribute("culcat-id")
@@ -77,7 +77,7 @@ class Culture extends Component {
                   <ul>
                     {culcat.map((node, index) => (
                       <li
-                        culcat-id={node.node.wordpress_id}
+                        culcat-id={node.node.databaseId}
                         className="cat-year-list"
                         key={index}
                         onClick={(e) => getpcid(e, index)}
@@ -128,56 +128,40 @@ export default Culture
 
 export const query = graphql`
   {
-    wpPage(wordpress_id: { eq: 169 }) {
+    wpPage(databaseId: { eq: 169 }) {
       title
-      yoast_title
-      yoast_meta {
-        content
+      seo {
+        title
+        metaDesc
       }
-      acf {
-        header_page_title
-        header_sub_text
-        header_section_title
-        header_mascot {
-          source_url
+      acfHeader {
+        headerPageTitle
+        headerSectionTitle
+        headerSubText
+        homeMascotClass
+        headerMascot {
+          sourceUrl
         }
-        use_common_contact_section
-        tuabp_title
-        tuabp_image {
-          source_url
-        }
-        tuabp_content
-        tuabp_button_text
-        tuabp_button_link
       }
     }
-    allWordpressWpCulture(sort: { order: DESC, fields: date }) {
+    allWpCptuiCulture(sort: {order: DESC, fields: date}) {
       edges {
         node {
-          acf {
-            el_gallery {
-              mime_type
+          acfEventslayout {
+            elGallery {
+              mimeType
             }
           }
           id
           title
-          slug
           link
-          culture_cat
-          date(formatString: "YYYY")
-          featured_media {
-            source_url
-            wordpress_id
-          }
-        }
-      }
-    }
-    allWordpressWpCultureCat(sort: { fields: wordpress_id, order: DESC }) {
-      edges {
-        node {
           slug
-          name
-          wordpress_id
+          date(formatString: "YYYY")
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
         }
       }
     }

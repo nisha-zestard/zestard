@@ -43,6 +43,17 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // Remote schema query type. This is an arbitrary name.
+        typeName: "WPGraphQL",
+        // Field name under which it will be available. Used in your Gatsby query. This is also an arbitrary name.
+        fieldName: "wpcontent",
+        // GraphQL endpoint, relative to your WordPress home URL.
+        url: "http://phptasks.com/zestard-mmm/graphql",
+      },
+    },
+    {
       resolve: "gatsby-source-wordpress",
       options: {
         /*
@@ -61,6 +72,13 @@ module.exports = {
           requestConcurrency: 50, // currently set to 15
           previewRequestConcurrency: 20, // currently set to 5
         },
+        includedRoutes: [
+          "/*/*/posts",
+          "/*/*/pages",
+          "/*/*/media",
+          "/*/*/menus",
+          "/*/*/portfolio"
+        ],
         // If useACF is true, then the source plugin will try to import the WordPress ACF Plugin contents.
         // This feature is untested for sites hosted on wordpress.com.
         // Defaults to true.
@@ -81,12 +99,12 @@ module.exports = {
         // },
       }
     },
-    {
-      resolve: `gatsby-source-wordpress-experimental`,
-      options: {
-        url: `http://phptasks.com/zestard-mmm/graphql`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-wordpress-experimental`,
+    //   options: {
+    //     url: `http://phptasks.com/zestard-mmm/graphql`,
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

@@ -16,7 +16,7 @@ class WordpressDevelopment extends Component {
 		const pagedata = acf.gen_content_modules_page;
 		const platform = pagedata[1].iwc_layout_details;
 		const sertech = data.allWpPage.edges[0].node;
-		const portfolio = data.allWordpressWpPortfolio.edges;
+		const portfolio = data.allWpCptuiPortfolio.edges;
 
 		return (
 			<Layout>
@@ -72,85 +72,61 @@ export default WordpressDevelopment;
 
 export const query = graphql`
 {
-	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 232}}}}, limit: 2) {
-        edges {
-          node {
-
-            title
-            excerpt
-            link
-            featured_media {
-              source_url
-            }
-            acf {
-              pf_image_with_responsive {
-                source_url
-              }
-            }
-          }
-        }
-    }
-	allWpPage(filter: {wordpress_id: {eq: 7271}}) {
+	allWpPage(filter: {databaseId: {eq: 7271}}) {
 		edges {
-		  node {
-			title
-			yoast_title
-			yoast_meta {
-				content
-			}
-			acf {
-			  header_sub_text
-			  header_section_title
-			  header_mascot {
-				source_url
-			  }
-			  header_page_title
-			  home_mascot_class
-			  use_common_contact_section
-			  tuabp_title
-			  tuabp_image {
-				source_url
-			  }
-			  tuabp_content
-			  tuabp_button_text
-			  tuabp_button_link
-			  gen_content_modules_page {
-				... on WordPressAcf_gen_image_with_content {
-				  id
-				  iwc_layout_details {
-					iwc_image {
-					  source_url
-					}
-					iwc_sub_desc
-					iwc_icon {
-						source_url
-					}
-					iwc_section_class
-					iwc_title
-					iwc_button_text
-                	iwc_button_link
-				  }
+			node {
+				seo {
+					title
+					metaDesc
 				}
-				... on WordPressAcf_gen_cards_section {
-				  id
-				  cs_cards_details {
-					cs_icon {
-						source_url
+				acfHeader {
+					headerPageTitle
+					headerSectionTitle
+					headerSubText
+					homeMascotClass
+					headerMascot {
+						sourceUrl
 					}
-					cs_title
-					cs_content
-					cs_learn_more_link
-				  }
 				}
-				... on WordPressAcf_gen_case_study_section {
-					id
-					css_title
-					css_content
-					css_section_class
-				}
-			  }
+				acfGeneralLayout {
+					genContentModules {
+					  ... on WpPage_Acfgenerallayout_GenContentModules_GenLeftImageAndRightDescription {
+						genTwoSecImage {
+						  sourceUrl
+						}
+						genRightHeading
+						genRightDescription
+					  }
+					  ... on WpPage_Acfgenerallayout_GenContentModules_GenGridBoxes {
+						genGridBoxTitle
+						genGridBoxesRep {
+						  genButtonText
+						  genDescriptionGb
+						}
+					  }
+					  ... on WpPage_Acfgenerallayout_GenContentModules_OurRecentWork {
+						orwTitle
+						orwSubTitle
+						orwPortfolioList {
+						  ... on WpCptui_portfolio {
+							id
+							acfPortfolioLayout {
+							  pfImageWithResponsive {
+								sourceUrl
+							  }
+							}
+						  }
+						}
+					  }
+					  ... on WpPage_Acfgenerallayout_GenContentModules_ContactUsForProject {
+						ccfpTitle
+						ccfpSubTitle
+						ccfpButtonText
+						ccfpButtonLink
+					  }
+					}
+				  }			  
 			}
 		  }
-		}
-	}
+	  }
 }`

@@ -18,17 +18,13 @@ class AboutProject extends React.Component {
       <StaticQuery
       query={graphql`
         query {
-          allWordpressAcfOptions {
+          allWp {
             edges {
               node {
-                options {
-                  cta_mod_class
-                  cta_mod_title
-                  cta_mod_content
-                  cta_mod_button_text
-                  cta_mod_button_link
-                  cta_mod_mascot_image {
-                    source_url
+                ctaSettings {
+                  acfCTAModule {
+                    ctaModLink
+                    ctaModDescription
                   }
                 }
               }

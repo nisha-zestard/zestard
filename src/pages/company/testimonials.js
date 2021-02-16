@@ -40,7 +40,7 @@ class Testimonials extends Component {
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column"
                     >
-                    {data.allWordpressWpTestimonials.edges.map(({ node }) => (
+                    {data.allWpCptuiTechnology.edges.map(({ node }) => (
                     <div className="grid-item" key={node.id}>
                         <div className="testimonial-wrapper card">
                             <div className="speaks">
@@ -71,29 +71,22 @@ export default Testimonials
 export const query = graphql`
     {
         wpPage(slug: {eq: "testimonials"}) {
-            yoast_title
-            yoast_meta {
-                content
-            }
             title
-            acf {
-              header_page_title
-              header_sub_text
-              header_section_title
-                header_mascot {
-                    source_url
+            seo {
+                title
+                metaDesc
+              }
+            acfHeader {
+                headerPageTitle
+                headerSectionTitle
+                headerSubText
+                homeMascotClass
+                headerMascot {
+                  sourceUrl
                 }
-                use_common_contact_section
-                tuabp_title
-                tuabp_image {
-                source_url
-                }
-                tuabp_content
-                tuabp_button_text
-                tuabp_button_link
             }
         }
-        allWordpressWpTestimonials {
+        allWpCptuiTechnology {
             edges {
                 node {
                     id

@@ -154,7 +154,7 @@ export const pageQuery = graphql`
             node {
                 id
                 title
-                wordpress_id
+                databaseId
                 date(formatString: "l")
                 slug
                 excerpt

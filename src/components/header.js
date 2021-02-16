@@ -37,34 +37,15 @@ class Header extends React.Component {
       <StaticQuery
       query={graphql`
         query {       
-          wpPage {
-            id
-          }
-          allWordpressAcfOptions {
+          allWp {
             edges {
               node {
-                options {
-                  site_logo {
-                    source_url
+                themeGeneralSettings {
+                  acfGeneralThemeSettings {
+                    siteLogo {
+                      sourceUrl
+                    }
                   }
-                  light_site_logo {
-                    source_url
-                  }
-                }
-              }
-            }
-          }
-          allWordpressMenusMenusItems(filter: {wordpress_id: {eq: 207}}) {
-            nodes {
-              name
-              items {
-                title
-                url
-                child_items {
-                  title
-                  url
-                  wordpress_id
-                  target
                 }
               }
             }

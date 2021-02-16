@@ -17,7 +17,7 @@ class EcommerceDevelopment extends Component {
 		const banner = acf[0].iwc_layout_details[0];
 		// const services = acf[1].cs_cards_details
 		const platform = acf[2].iwc_layout_details;
-		const portfolio = data.allWordpressWpPortfolio.edges;
+		const portfolio = data.allWpCptuiPortfolio.edges;
 		const sertech = data.wpPage
 		console.log(acf);
 		return (
@@ -76,70 +76,61 @@ export default EcommerceDevelopment;
 
 export const query = graphql`
 {
-	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 232}}}}, limit: 2) {
-        edges {
-          node {
-
-            title
-            excerpt
-            link
-            featured_media {
-              source_url
-            }
-            acf {
-              pf_image_with_responsive {
-                source_url
-              }
-            }
-          }
-        }
-    }
-	wpPage(wordpress_id: {eq: 1491}) {
-		title
-		yoast_title
-		yoast_meta {
-			content
-		}
-		acf {
-			use_common_contact_section
-			  tuabp_title
-			  tuabp_image {
-				source_url
-			  }
-			  tuabp_content
-			  tuabp_button_text
-			  tuabp_button_link
-		  gen_content_modules_page {
-			... on WordPressAcf_gen_image_with_content {
-			  id
-			  iwc_layout_details {
-				iwc_title
-				iwc_image {
-				  source_url
+	allWpPage(filter: {databaseId: {eq: 1491}}) {
+		edges {
+			node {
+				seo {
+					title
+					metaDesc
 				}
-				iwc_icon {
-					source_url
-				  }
-				iwc_sub_desc
-				iwc_section_class
-				iwc_button_text
-                iwc_button_link
-			  }
-			}
-			... on WordPressAcf_gen_cards_section {
-			  id
-			  cs_cards_details {
-				cs_title
-				cs_content
-			  }
-			}
-			... on WordPressAcf_gen_case_study_section {
-				id
-				css_title
-				css_content
-				css_section_class
+				acfHeader {
+					headerPageTitle
+					headerSectionTitle
+					headerSubText
+					homeMascotClass
+					headerMascot {
+						sourceUrl
+					}
+				}
+				acfGeneralLayout {
+					genContentModules {
+					  ... on WpPage_Acfgenerallayout_GenContentModules_GenLeftImageAndRightDescription {
+						genTwoSecImage {
+						  sourceUrl
+						}
+						genRightHeading
+						genRightDescription
+					  }
+					  ... on WpPage_Acfgenerallayout_GenContentModules_GenGridBoxes {
+						genGridBoxTitle
+						genGridBoxesRep {
+						  genButtonText
+						  genDescriptionGb
+						}
+					  }
+					  ... on WpPage_Acfgenerallayout_GenContentModules_OurRecentWork {
+						orwTitle
+						orwSubTitle
+						orwPortfolioList {
+						  ... on WpCptui_portfolio {
+							id
+							acfPortfolioLayout {
+							  pfImageWithResponsive {
+								sourceUrl
+							  }
+							}
+						  }
+						}
+					  }
+					  ... on WpPage_Acfgenerallayout_GenContentModules_ContactUsForProject {
+						ccfpTitle
+						ccfpSubTitle
+						ccfpButtonText
+						ccfpButtonLink
+					  }
+					}
+				  }			  
 			}
 		  }
-		}
-	  }  
+	  }
 }`

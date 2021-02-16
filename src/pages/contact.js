@@ -99,7 +99,7 @@ class Contact extends Component {
     const data = this.props.data
     const acfData = data.wpPage.acf;
     const acfoption = data.allWordpressAcfOptions.edges[0].node.options
-    const testimonial = data.allWordpressWpTestimonials.edges;
+    const testimonial = data.allWpCptuiTechnology.edges;
     
     return (
       <Layout>
@@ -201,41 +201,36 @@ export default Contact
 
 export const query = graphql`
 {
-  allWordpressAcfOptions {
-    edges {
-      node {
-        options {
-          cd_content
-        }
-      }
-    }
-  }
-  allWordpressWpTestimonials {
-    edges {
-      node {
-        featured_media {
-          source_url
-        }
-        title
-        content
-      }
-    }
-  }
-  wpPage(wordpress_id: {eq: 57}) {
-    title
-    yoast_title
-    yoast_meta {
+  
+  allWpCptuiTechnology {
+    nodes {
+      title
       content
-    }
-    acf {
-      header_page_title
-      header_sub_text
-      header_section_title
-      header_mascot {
-        source_url
+      featuredImage {
+        node {
+          sourceUrl
+        }
       }
-      contact_content_right
-      contact_form_area
+    }
+  }
+  allWpPage(filter: {databaseId: {eq: 57}}) {
+    edges {
+      node {
+        title
+        seo {
+          title
+          metaDesc
+        }
+        acfHeader {
+          headerPageTitle
+          headerSectionTitle
+          headerSubText
+          homeMascotClass
+          headerMascot {
+            sourceUrl
+          }
+        }
+      }
     }
   }
 }

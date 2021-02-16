@@ -78,39 +78,32 @@ export const query = graphql`
     {
         wpPage(slug: {eq: "career"}) {
             title
-            yoast_title
-            yoast_meta {
-                content
-            }
-            acf {
-              header_page_title
-              header_sub_text
-              header_section_title
-              header_mascot {
-                source_url
+            seo {
+                title
+                metaDesc
               }
-                use_common_contact_section
-                tuabp_title
-                tuabp_image {
-                source_url
+              acfHeader {
+                headerPageTitle
+                headerSectionTitle
+                headerSubText
+                homeMascotClass
+                headerMascot {
+                  sourceUrl
                 }
-                tuabp_content
-                tuabp_button_text
-                tuabp_button_link
-            }
+              }
         }
-        allWordpressWpCareer {
+        allWpCptuiCareer {
             edges {
-                node {
-                    title
-                    id
-                    acf {
-                        career_no_of_openings
-                        cr_experience
-                        cr_job_profile
-                      }
+              node {
+                id
+                title
+                acfCareerLayout {
+                  crNoOfVacancies
+                  crExperience
+                  crJobProfile
                 }
+              }
             }
-        }
+          }
     }
 `

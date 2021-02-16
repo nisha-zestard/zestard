@@ -16,8 +16,8 @@ class ReactjsDevelopment extends Component {
 		const sertech = data.allWpPage.edges[0].node;
 		const acf = data.allWpPage.edges[0].node.acf
 		const pagedata = acf.gen_content_modules_page
-		const testimonial = data.allWordpressWpTestimonials.edges;
-		const portfolio = data.allWordpressWpPortfolio.edges;
+		const testimonial = data.allWpCptuiTechnology.edges;
+		const portfolio = data.allWpCptuiPortfolio.edges;
 
 		
 		return(
@@ -121,94 +121,94 @@ export default ReactjsDevelopment
 
 export const query = graphql`
 {
-	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 232}}}}, limit: 2) {
+	allWpCptuiPortfolio(filter: {tags: {nodes: {elemMatch: {databaseId: {eq: 232}}}}}, limit: 2) {
         edges {
           node {
-
             title
             excerpt
             link
-            featured_media {
-              source_url
-            }
-            acf {
-              pf_image_with_responsive {
-                source_url
-              }
-            }
+            featuredImage {
+				node {
+				  sourceUrl
+				}
+			}
+			acfPortfolioLayout {
+				pfImageWithResponsive {
+				  sourceUrl
+				}
+			  }            
           }
         }
     }
-	allWordpressWpTestimonials {
+	allWpCptuiTechnology {
         edges {
           node {
-            featured_media {
-              source_url
-            }
+			featuredImage {
+				node {
+				  sourceUrl
+				}
+			  }            
             title
             content
           }
         }
-    }
-	allWpPage(filter: {wordpress_id: {eq: 7442}}) {
+	}
+	allWpPage(filter: {databaseId: {eq: 7442}}) {
 		edges {
-			node {
-				yoast_title
-				yoast_meta {
-					content
+		  node {
+			title
+			seo {
+				title
+				metaDesc
+			}
+			acfHeader {
+				headerPageTitle
+				headerSectionTitle
+				headerSubText
+				homeMascotClass
+				headerMascot {
+					sourceUrl
 				}
-			  acf {
-				header_sub_text
-				header_section_title
-				header_mascot {
-				  source_url
+			}
+			acfGeneralLayout {
+			  genContentModules {
+				... on WpPage_Acfgenerallayout_GenContentModules_GenLeftImageAndRightDescription {
+				  genTwoSecImage {
+					sourceUrl
+				  }
+				  genRightDescription
 				}
-				header_page_title
-				home_mascot_class
-				use_common_contact_section
-				tuabp_title
-				tuabp_image {
-				  source_url
+				... on WpPage_Acfgenerallayout_GenContentModules_GenGridBoxes {
+				  genGridBoxTitle
+				  genGridBoxesRep {
+					genTitleGb
+					genDescriptionGb
+				  }
 				}
-				tuabp_content
-				tuabp_button_text
-				tuabp_button_link
-				gen_content_modules_page {
-				  ... on WordPressAcf_gen_image_with_content {
-					id
-					iwc_layout_details {
-					  iwc_image {
-						source_url
+				... on WpPage_Acfgenerallayout_GenContentModules_OurRecentWork {
+				  orwTitle
+				  orwSubTitle
+				  orwPortfolioList {
+					... on WpCptui_portfolio {
+					  title
+					  databaseId
+					  acfPortfolioLayout {
+						pfImageWithResponsive {
+						  sourceUrl
+						}
 					  }
-					  iwc_sub_desc
-					  iwc_icon {
-						source_url
-					  }
-					  iwc_section_class
-					  iwc_title
 					}
 				  }
-				  ... on WordPressAcf_gen_cards_section {
-					id
-					cs_section_title
-					  cs_section_class
-					cs_cards_details {
-					  cs_icon {
-						source_url
-					  }
-					  cs_title
-					  cs_content
-					  cs_learn_more_link
-					}
-				  }
-				  ... on WordPressAcf_gen_case_study_section {
-					css_title
-					css_content
-					css_section_class
-				  }
+				}
+				... on WpPage_Acfgenerallayout_GenContentModules_ContactUsForProject {
+				  ccfpTitle
+				  ccfpSubTitle
+				  ccfpButtonText
+				  ccfpButtonLink
 				}
 			  }
 			}
 		  }
+		}
 	  }
 }`
