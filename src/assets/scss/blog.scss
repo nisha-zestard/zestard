@@ -25,6 +25,7 @@
         font-family: $secondary-font;
         font-size: 45px;
         font-weight: 600;
+        margin: 0;
         @media #{$small-screen}{
             font-size: 32px;
         }
@@ -60,7 +61,7 @@
                 color: $primary-color;
             }
             @media only screen and (max-width: 575px) {
-                font-size: 18px;
+                font-size: 20px;
                 line-height: 1.2;
                 margin-bottom: 10px;
             }

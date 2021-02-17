@@ -109,6 +109,9 @@
                     .service-main-title{
                         @include heading;
                         margin-bottom: 30px;
+                        @media #{$small-screen}{
+                            margin: 0;
+                        }
                     }
                     p{
                         margin: 0
