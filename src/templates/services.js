@@ -59,32 +59,16 @@ query($id: Int!) {
         slug
         title
         databaseId
-        acf {
-          header_page_title
-          header_sub_text
-          header_section_title
-          header_mascot {
-            source_url
-          }
-          
-          sl_content_module_page {
-            sl_service_name
-            sl_service_sub_text
-            sl_service_image {
-              source_url
-              title
-              databaseId
-            }
+        acfHeader {
+          headerPageTitle
+          headerSectionTitle
+          headerSubText
+          homeMascotClass
+          headerMascot {
+            sourceUrl
           }
         }
-        childWordPressAcfTechServices {
-          tech_services_heading
-          tech_sub_heading
-          tech_services_list {
-            tech_service_name
-            tech_service_description
-          }
-        }
+        
       }
     }
   }

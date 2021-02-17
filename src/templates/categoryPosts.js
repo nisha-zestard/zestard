@@ -122,26 +122,33 @@ export default CategoryPostsTemplate
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    allWpPost(filter: {categories: {elemMatch: {slug: {eq: $slug}}}}) {
+    allWpPost(filter: {categories: {nodes: {elemMatch: {slug: {eq: $slug}}}}}) {
       edges {
         node {
           id
           title
           slug
-          link
           date(fromNow: true)
           excerpt
+          link
           author {
-            name
-            slug
-            link
+            node {
+              name
+              slug
+              uri
+            }
           }
-          featured_media {
-            source_url
+          featuredImage {
+            node {
+              sourceUrl
+            }
           }
           categories {
-            name
-            slug            
+            nodes {
+              name
+              link
+              slug
+            }
           }
         }
       }

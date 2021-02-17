@@ -45,9 +45,11 @@ exports.createPages = async ({ graphql, actions }) => {
             date
             excerpt
             categories {
-              slug
-              name
-            }
+              nodes {
+                slug
+                name
+              }
+            }            
           }
         }
       }
@@ -66,8 +68,10 @@ exports.createPages = async ({ graphql, actions }) => {
             slug
             id
             databaseId
-            featured_media {
-              source_url
+            featuredImage {
+              node {
+                sourceUrl
+              }
             }
           }
         }
@@ -77,7 +81,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             slug
             title
-            path
+            link
             databaseId
           }
         }

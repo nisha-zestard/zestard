@@ -15,15 +15,15 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.next = this.next.bind(this);
-        this.previous = this.previous.bind(this);
+        // this.next = this.next.bind(this);
+        // this.previous = this.previous.bind(this);
       }
-      next() {
-        this.slider.slickNext();
-      }
-      previous() {
-        this.slider.slickPrev();
-      }
+      // next() {
+      //   this.slider.slickNext();
+      // }
+      // previous() {
+      //   this.slider.slickPrev();
+      // }
 
     render() {
         const schema = {
@@ -49,30 +49,35 @@ class Home extends Component {
 
             ]
           }
-        const data = this.props.data  
-        const header = data.allWpPage.edges[0].node.acf;
-        const clientlogo = data.allWordpressWpClients.edges;
-        const seotd = data.allWpPage.edges[0].node;
-        const expertise = header.home_content_modules_page[0];
-        const counter = data.wordpressAcfOptions.options;
-        const testimonial = data.allWpCptuiTechnology.edges;
-        const credential = header.gen_content_modules_page[3].cred_logos_repeater;
-        const recentpost = data.allWpPost.edges;
-        const portfolio = data.allWpCptuiPortfolio.edges;
-        const newbann = header.gen_content_modules_page[4];
-        console.log(expertise)
+        const data = this.props.data
+       
+        console.log(data);
+         const header = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[0];
+         const clientlogo = data.allWpCptuiClient.edges;
+         const seotd = data.allWpPage.edges[0].node.seo;
+         const expertise = data.allWpPage.edges[0].node.acfHomeLayout.homeContentModules[0];
+         const counter = data.allWp.edges[0].node.counterSettings.acfCounterSettings.csCounterDetails;
+         const testimonial = data.allWpCptuiTestimonial.edges;
+        // const credential = header.gen_content_modules_page[3].cred_logos_repeater;
+         const recentpost = data.allWpPost.edges;
+        const portfolio = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[1].orwPortfolioList;
+        // const newbann = header.gen_content_modules_page[4];
+       
+        
           
   return(
   <Layout> 
     <div className="home-new">
-    <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content} schemaMarkup={schema}/>
+    
+    <SEO title={seotd.title} description={seotd.metaDesc} schemaMarkup={schema}/>
     {/* banner-section  */}
+    
 
     <Header headernavclass="darkheader" />
     <ServiceHero
-      title={newbann.gen_left_description}
-      subText=""
-      image={newbann.gen_two_sec_image.source_url}
+      title=""
+      subText={header.genLeftDescription}
+      image={header.genTwoSecImage.sourceUrl}
       background={"linear-gradient(-47deg, #0784a5, #03168e)"}
     />
 
@@ -89,11 +94,11 @@ class Home extends Component {
                 <div className="portfolio-list">
                     <div className="row">
                         {portfolio.map((node,index) => (
-                            <div className={node.node.title === "Jadeblue" ? 'col-md-12 full-col' : 'col-md-6 half-col'} key={index}>
+                            <div className={node.title === "Jadeblue" ? 'col-md-12 full-col' : 'col-md-6 half-col'} key={index}>
                                 <div className="portfolio-wrap">
                                     <div className="portfolio-image">
-                                        {node.node.acf.pf_image_with_responsive.source_url !== null &&
-                                            <img src={node.node.acf.pf_image_with_responsive.source_url} alt={node.node.title} />
+                                        {node.acfPortfolioLayout.pfImageWithResponsive.sourceUrl !== null &&
+                                            <img src={node.acfPortfolioLayout.pfImageWithResponsive.sourceUrl} alt={node.title} />
                                         }                                    
                                     </div>
                                 </div>
@@ -112,18 +117,18 @@ class Home extends Component {
                 <div className="row">
                     <div className="col-lg-4">
                         <div className="title">
-                            <h2>{expertise.home_oe_section_title}</h2>
-                            <p>{expertise.home_oe_content}</p>
-                            <Link to={`/services/${removePre(expertise.home_oe_read_more_link)}`} className="btn r-more">read more</Link>
+                            <h2>{expertise.homeOeSectionTitle}</h2>
+                            <p>{expertise.homeOeContent}</p>
+                            <Link to={`/services${removePre(expertise.homeOeReadMoreLink)}`} className="btn r-more">read more</Link>
                         </div>
                     </div>
                     <div className="col-lg-8">
                         <div className="experience-wrap">
                             <ul>
-                                {expertise.home_oe_right_icons.map((node,index) => (
+                                {expertise.homeOeRightIcons.map((node,index) => (
                                     <li key={index}>
-                                        {node.home_oe_icons.source_url !== null &&
-                                        <Link to={`/${removePre(node.home_oe_rp_links)}`}><img src={node.home_oe_icons.source_url} alt="f-logo-img" /></Link>
+                                        {node.homeOeIcons.sourceUrl !== null &&
+                                        <Link to={`/${removePre(node.homeOeRpLinks)}`}><img src={node.homeOeIcons.sourceUrl} alt="f-logo-img" /></Link>
                                         }                                        
                                     </li>
                                 ))}                                
@@ -141,10 +146,10 @@ class Home extends Component {
             <div className="container">
                 <div className="counter-wraper">
                     <ul className="row">
-                        {counter.cs_counter_details.map((node,index) => (
+                        {counter.map((node,index) => (
                             <li className="box" key={index}>
-                                <h2>{node.cs_number}<span>+</span></h2>
-                                <p>{node.cs_label}</p>
+                                <h2>{node.csNumber}<span>+</span></h2>
+                                <p>{node.csLabel}</p>
                             </li>
                         ))}                        
                     </ul>
@@ -168,12 +173,12 @@ class Home extends Component {
                 <div className="col-md-4" key={index}>
                   <div className="box">
                     <div className="blog-image">
-                        {(node.node.featured_media !== null && node.node.featured_media.source_url !== null) &&
-                            <img src={node.node.featured_media.source_url} alt="top-img" />
+                        {node.node.featuredImage !== null  &&
+                            <img src={node.node.featuredImage.node.sourceUrl} alt="top-img" />
                         }   
                     </div>                       
                     <ul>
-                        <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
+                        <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.node.name}</li>
                         <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.date}</li>
                     </ul>
                     
@@ -223,6 +228,7 @@ export const query = graphql`
                   orwPortfolioList {
                     ... on WpCptui_portfolio {
                       id
+                      title
                       acfPortfolioLayout {
                         pfImageWithResponsive {
                           sourceUrl
@@ -246,6 +252,19 @@ export const query = graphql`
                     homeOeRpLinks
                   }
                 }
+              }
+            }
+          }
+        }
+      }
+      allWpCptuiTestimonial {
+        edges {
+          node {
+            title
+            content
+            featuredImage {
+              node {
+                sourceUrl
               }
             }
           }
@@ -288,7 +307,7 @@ export const query = graphql`
           }
         }
       }
-      allWpPost(filter: {}, sort: {fields: date, order: DESC}) {
+      allWpPost(limit: 3, sort: {fields: date, order: DESC}) {
         edges {
           node {
             title
@@ -296,7 +315,7 @@ export const query = graphql`
             content
             link
             excerpt
-            date(formatString: "MM DD, YYYY")
+            date(formatString: "MMMM DD, YYYY")
             author {
               node {
                 name

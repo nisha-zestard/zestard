@@ -64,8 +64,10 @@ export const pageQuery = graphql`
           slug
           id
           databaseId
-          featured_media {
-            source_url
+          featuredImage {
+            node {
+              sourceUrl
+            }
           }
         }
       }

@@ -152,34 +152,31 @@ export default BlogList
 
 
 export const pageQuery = graphql`
-  query($skip: Int! , $limit: Int!) {
-    allWpPost(
-        limit: $limit,
-        skip: $skip,
-        sort: {order: DESC, fields: date}
-      ) {
+  query {
+    allWpPost(sort: {order: DESC, fields: date}) {
       edges {
         node {
           id
           title
           slug
           date(fromNow: true)
-          type
           excerpt
-          link
           author {
-            name
-            slug
-            link
-          }
-          featured_media {
-            source_url
-            author {
+            node {
               name
+              slug
+              description
+            }
+          }
+          featuredImage {
+            node {
+              sourceUrl
             }
           }
           categories {
-            name
+            nodes {
+              name
+            }
           }
         }
       }

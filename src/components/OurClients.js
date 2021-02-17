@@ -50,8 +50,8 @@ const OurClients = (props) => {
                     <Slider ref={slides} {...clientlogoset}>
                         {props.clients.map((node,index) => (
                             <div key={index}>
-                                {node.node.featured_media !== null && node.node.featured_media.source_url !== null &&
-                                <img src={node.node.featured_media.source_url} alt="c-logo-img" />
+                                {node.node.featuredImage.node !== null && node.node.featuredImage.node.sourceUrl !== null &&
+                                <img src={node.node.featuredImage.node.sourceUrl} alt="c-logo-img" />
                             }
                             </div>
                         ))}
@@ -61,8 +61,8 @@ const OurClients = (props) => {
                     <ul>                    
                         {props.clients.map((node,index) => (
                             <li key={index}>
-                                {node.node.featured_media !== null && node.node.featured_media.source_url !== null &&
-                                    <img src={node.node.featured_media.source_url} alt="c-logo-img" />
+                                {node.node.featuredImage.node !== null && node.node.featuredImage.node.sourceUrl !== null &&
+                                    <img src={node.node.featuredImage.node.sourceUrl} alt="c-logo-img" />
                                 }                                
                             </li>
                         ))}                    
