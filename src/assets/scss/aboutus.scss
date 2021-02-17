@@ -313,6 +313,9 @@
     }
     .who-we-are{
         padding: 100px 0;
+        @media #{$medium-screen}{
+            padding: 80px 0;
+        }
         @media #{$tablet-screen}{
            padding: 50px 0;
         }
@@ -506,6 +509,9 @@
                     max-width: 100%;
                     margin-bottom: 15px;
                     min-height: 125px;
+                    @media #{$mobile-screen}{
+                        min-height: inherit;
+                    }
                 }
                 .c-title{
                     font-family: $primary-font;
