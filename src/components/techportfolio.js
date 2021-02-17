@@ -31,8 +31,10 @@ function TechPortfolio(props) {
                 title
                 databaseId
                 slug
-                featured_media {
-                  source_url
+                featuredImage {
+                  node {
+                    sourceUrl
+                  }
                 }
               }
             }

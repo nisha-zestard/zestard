@@ -112,7 +112,7 @@ export default AuthorPostsTemplate
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    allWpPost(filter: {author: {slug: {eq: $slug}}}) {
+    allWpPost(filter: {author: {node: {slug: {eq: $slug}}}}) {
       edges {
         node {
           id
@@ -122,15 +122,23 @@ export const pageQuery = graphql`
           excerpt
           link
           author {
-            name
-            slug
-            link
+            node {
+              name
+              slug
+              uri
+            }
           }
-          featured_media {
-            source_url
+          featuredImage {
+            node {
+              sourceUrl
+            }
           }
           categories {
-            name
+            nodes {
+              name
+              link
+              slug
+            }
           }
         }
       }

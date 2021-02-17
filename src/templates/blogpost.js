@@ -134,35 +134,38 @@ export default PostTemplate
 
 export const pageQuery = graphql`
   query($id: String!, $cat: String! ) {
-    wordpressPost(id: { eq: $id }) {
+    wpPost(id: {eq: $id}) {
         title
         date(locale: "")
         content
         author {
-          name
-          description
-          avatar_urls {
-            wordpress_24
+          node {
+            name
+            description
           }
         }
         categories {
+          nodes {
             slug
+          }
         }
     }
-    allWpPost(limit: 3, filter: {categories: {elemMatch: {slug: {eq: $cat}}}, id: {ne: $id}}) {
+    allWpPost(limit: 3, filter: {categories: {nodes: {elemMatch: {slug: {eq: $cat}, id: {ne: $id}}}}}) {
         edges {
-            node {
-                id
-                title
-                databaseId
-                date(formatString: "l")
-                slug
-                excerpt
-                link
-                featured_media {
-                    source_url
-                }
+          node {
+            id
+            title
+            databaseId
+            date(formatString: "1")
+            slug
+            excerpt
+            link
+            featuredImage {
+              node {
+                sourceUrl
+              }
             }
+          }
         }
     }
   }

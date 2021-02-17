@@ -45,6 +45,9 @@ class Header extends React.Component {
                     siteLogo {
                       sourceUrl
                     }
+                    lightSiteLogo {
+                      sourceUrl
+                    }
                   }
                 }
               }
@@ -53,47 +56,48 @@ class Header extends React.Component {
         }
       `}      
       render={(data) => {
-        const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
-        const maninmenu = data.allWordpressMenusMenusItems.nodes[0].items;
-        const darklogo = acfoptions.site_logo.source_url;
-        const lightlogo = acfoptions.light_site_logo.source_url;
-        const companymenu = maninmenu[0];
-        const servicmenu = maninmenu[1];
-        const workmenu = maninmenu[2];
-        const blogmenu = maninmenu[3];
-        const contactmenu = maninmenu[4];
-        const { location} = history
-        const param = location.pathname;        
+       
+         const acfoptions = data.allWp.edges[0].node.themeGeneralSettings;
+        // const maninmenu = data.allWordpressMenusMenusItems.nodes[0].items;
+         const darklogo = acfoptions.acfGeneralThemeSettings.siteLogo.sourceUrl;
+         const lightlogo = acfoptions.acfGeneralThemeSettings.lightSiteLogo.sourceUrl;
+        // const companymenu = maninmenu[0];
+        // const servicmenu = maninmenu[1];
+        // const workmenu = maninmenu[2];
+        // const blogmenu = maninmenu[3];
+        // const contactmenu = maninmenu[4];
+         const { location} = history
+         const param = location.pathname;        
         
-        const handleClicko = (el) => { 
-          document.body.classList.toggle("menu-open");
-          const navbarmenu = document.getElementsByClassName('mobile-view')[0];
-          navbarmenu.classList.toggle('show-mob-view');
+        // const handleClicko = (el) => { 
+        //   document.body.classList.toggle("menu-open");
+        //   const navbarmenu = document.getElementsByClassName('mobile-view')[0];
+        //   navbarmenu.classList.toggle('show-mob-view');
 
-          const shwmenu = document.getElementsByClassName('navbar-collapse')[0];
-          shwmenu.classList.toggle('show');
-          const menudiv = document.getElementById("mobmenu");
-          menudiv.classList.toggle('mobmubtn');
-          if(menudiv.innerHTML === '<div></div><div></div><div></div>') {            
-            menudiv.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
-          }
-          else  {   
-            menudiv.innerHTML = "<div></div><div></div><div></div>";
-          }     
-        }        
+        //   const shwmenu = document.getElementsByClassName('navbar-collapse')[0];
+        //   shwmenu.classList.toggle('show');
+        //   const menudiv = document.getElementById("mobmenu");
+        //   menudiv.classList.toggle('mobmubtn');
+        //   if(menudiv.innerHTML === '<div></div><div></div><div></div>') {            
+        //     menudiv.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
+        //   }
+        //   else  {   
+        //     menudiv.innerHTML = "<div></div><div></div><div></div>";
+        //   }     
+        // }        
         return(
           
           <header className="site-header">    
             <div className="container d-flex frex-wrap justify-content-space-between header-inner">
               <div className="site-branding">            
-                {acfoptions.site_logo !== null && acfoptions.light_site_logo !== null &&              
+                {acfoptions.acfGeneralThemeSettings.siteLogo !== null && acfoptions.acfGeneralThemeSettings.lightSiteLogo !== null &&              
                   <Link to="/"><img id="main-logo" src={param === '/services/make/' ? lightlogo : location.pathname === '/services/market/' ? lightlogo : location.pathname === '/services/maintain/' ? lightlogo : location.pathname === '/' ? lightlogo : darklogo} alt="Site Logo" /></Link>                                
                 }  
-                {acfoptions.site_logo !== null &&             
+                {acfoptions.acfGeneralThemeSettings.siteLogo !== null &&             
                   <Link to="/"><img src={darklogo} id="dark-sticky-logo" alt="Site Logo" /></Link>                                
                 } 
               </div>
-              <div className="menu-wraper d-flex">
+              {/* <div className="menu-wraper d-flex">
                 <Navbar bg="default" expand="lg" id={headernavclass} className="mobile-view site-nav navbar d-flex justify-content-end align-items-center">
                 <button id="mobmenu" className="navbar-toggler" type="button" onClick={handleClicko} data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <div></div>
@@ -140,11 +144,8 @@ class Header extends React.Component {
                     <li className="nave-item menu-item request-quote-mob"><Link to={`/${removePre(contactmenu.url)}`} className="btn-primary">Request a Quote</Link></li>
                   </ul>
                   </div>
-                  {/* <div className="request-a-quote">
-                    <Link to={`/${removePre(contactmenu.url)}`} className="btn-primary">Request a Quote</Link>
-                  </div> */}
                 </Navbar>                
-                </div>
+                </div> */}
             </div>  
         </header>
         )  
