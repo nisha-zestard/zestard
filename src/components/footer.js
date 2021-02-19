@@ -6,7 +6,14 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 const Footer = () => {
   const data = useStaticQuery(graphql`
   query {
-    
+    allWpMenuItem(filter: {menu: {node: {slug: {eq: "footer-menu"}}}}) {
+      edges {
+        node {
+          label
+          url
+        }
+      }
+    }
     allWp {
       edges {
         node {
@@ -52,19 +59,21 @@ const Footer = () => {
   }
 `)
 
- //const foomenu = data.allWordpressMenusMenusItems.edges[0].node.items;
+ const foomenu = data.allWpMenuItem.edges;
  const acf = data.allWp.edges[0].node.themeGeneralSettings;
-// const handleOpen = (el) => {  
-//   const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
-// }       
-// const handleClose = (el) => {        
-//   const target = el.currentTarget.getElementsByClassName('dropdown-menu');
-//   if(target.length > 0) {
-//     const test = target[0].closest('.dropdown-menu');
-//       test.classList.remove('show');
-//       test.classList.remove('showmobmnu');
-//   }
-// }
+ const foocusmenu = acf.acfFooter.menuTitleWithLinks;
+ console.log(acf.acfFooter.menuTitleWithLinks);
+const handleOpen = (el) => {  
+  const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
+}       
+const handleClose = (el) => {        
+  const target = el.currentTarget.getElementsByClassName('dropdown-menu');
+  if(target.length > 0) {
+    const test = target[0].closest('.dropdown-menu');
+      test.classList.remove('show');
+      test.classList.remove('showmobmnu');
+  }
+}
   return(
     <footer className="site-footer">
     <div className="main-footer">
@@ -100,7 +109,7 @@ const Footer = () => {
                       <img src={acf.acfFooter.starImage.sourceUrl} alt="Company rating"/>
                     }                    
                   </div>
-                  <p className="m-0">{acf.star_content}</p>
+                  <p className="m-0">{acf.acfFooter.starContent}</p>
                 </div>
               </div>
               <div className="socials">
@@ -117,34 +126,34 @@ const Footer = () => {
           <div className="col-lg-8">
             <div className="footer-col-right">
               <div className="f-right-top">
-                {/* <div className="row">
-                  {acf.menu_title_with_links.map((node,index) => (
-                    <div className="col-sm-4 footer-col" key={index}>
+                <div className="row">
+                  {foocusmenu.map((node,index) => (
+                    <div className="col-sm-4 footer-col" >
                       <div className="footer-col-inner">
-                        <h3 className="s-title"><Link to={`/${removePre(node.menu_link)}`}>{node.menu_title}</Link></h3>
+                        <h3 className="s-title"><Link to={`/${removePre(node.menuLink)}`}>{node.menuTitle}</Link></h3>
                         <ul className="m-0 p-0 s-list">
-                          {node.inner_links.map((node,index) => (
-                            <li key={index}><Link to={`/${removePre(node.inner_indi_link)}`}>{node.inner_title}</Link></li>
+                          {node.innerLinks.map((node,index) => (
+                            <li key={index}><Link to={`/${removePre(node.innerIndiLink)}`}>{node.innerTitle}</Link></li>
                           ))}
                         </ul>
                       </div>
                       <div className="footer-col-inner mobilefooddmenu">                        
-                        <NavDropdown title={node.menu_title} id="basic-nav-dropdown"
+                        <NavDropdown title={node.menuTitle} id="basic-nav-dropdown"
                           onMouseEnter = { (e) => handleOpen(e) } onMouseLeave = { (e) => handleClose(e) } >
                             <ul className="m-0 p-0 s-list">
-                              {node.inner_links.map((node,index) => (
-                                <li key={index}><a href={node.inner_indi_link}>{node.inner_title}</a></li>
+                              {node.innerLinks.map((node,index) => (
+                                <li key={index}><a href={node.innerIndiLink}>{node.innerTitle}</a></li>
                               ))}
                             </ul>
                         </NavDropdown>                       
                       </div>
                   </div>
-                  ))}
-                   <div className="col-sm-4 footer-col last-col">
+                   ))}
+                   {/* <div className="col-sm-4 footer-col last-col">
                       <div className="footer-col-inner">
                         <ul className="m-0 p-0 s-list"> 
-                          {foomenu.map((node,index) => (
-                            <li key={index}><Link to={`/${removePre(node.url)}`}>{node.title}</Link></li>
+                          {foocusmenu.map((node,index) => (
+                            <li key={index}><Link to={`/${removePre(node.menuLink)}`}>{node.menuTitle}</Link></li>
                           ))}
                         </ul>                      
                       </div>
@@ -158,16 +167,16 @@ const Footer = () => {
                             </ul>
                         </NavDropdown>                          
                       </div>
-                   </div>
-                </div> */}
+                   </div> */}
+                </div>
               </div>
               <div className="f-right-bottom">
               <h3 className="s-title">Quick Links</h3>
-                {/* <ul className="f-menu m-0 p-0 d-flex">
+                <ul className="f-menu m-0 p-0 d-flex">
                   {foomenu.map((node,index) => (
-                    <li key={index}><Link to={`/${removePre(node.url)}`}>{node.title}</Link></li>
+                    <li key={index}><Link to={`/${removePre(node.node.url)}`}>{node.node.label}</Link></li>
                   ))}
-                </ul> */}
+                </ul>
               </div>
               <div className="footer-creadientials">
                 <ul className="p-0 m-0 d-flex justify-content-center">

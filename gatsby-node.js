@@ -116,12 +116,13 @@ exports.createPages = async ({ graphql, actions }) => {
   // Creating pages for blog posts
 
   allWpPost.edges.forEach(edge => {
+    console.log(edge.node.categories)
     createPage({
       path: `/blog/${edge.node.slug}/`,
       component: slash(postTemplate),
       context: {
         id: edge.node.id,
-        cat: edge.node.categories[0].slug
+        cat: edge.node.categories.nodes[0].slug
       },
     })
   })

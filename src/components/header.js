@@ -53,38 +53,52 @@ class Header extends React.Component {
               }
             }
           }
+          allWpMenuItem(filter: {menu: {node: {name: {eq: "main-menu"}}}, parentDatabaseId: {eq: 0}}) {
+            edges {
+              node {
+                label                
+                childItems {
+                  nodes {
+                    label
+                    url
+                    target
+                  }
+                }
+              }
+            }
+          }
         }
       `}      
       render={(data) => {
-       
+       //console.log(data)
          const acfoptions = data.allWp.edges[0].node.themeGeneralSettings;
-        // const maninmenu = data.allWordpressMenusMenusItems.nodes[0].items;
+         const maninmenu = data.allWpMenuItem.edges;
          const darklogo = acfoptions.acfGeneralThemeSettings.siteLogo.sourceUrl;
          const lightlogo = acfoptions.acfGeneralThemeSettings.lightSiteLogo.sourceUrl;
-        // const companymenu = maninmenu[0];
-        // const servicmenu = maninmenu[1];
-        // const workmenu = maninmenu[2];
-        // const blogmenu = maninmenu[3];
-        // const contactmenu = maninmenu[4];
+         const companymenu = maninmenu[0];
+         const servicmenu = maninmenu[1];
+         const workmenu = maninmenu[2];
+         const blogmenu = maninmenu[3];
+         const contactmenu = maninmenu[4];
          const { location} = history
          const param = location.pathname;        
         
-        // const handleClicko = (el) => { 
-        //   document.body.classList.toggle("menu-open");
-        //   const navbarmenu = document.getElementsByClassName('mobile-view')[0];
-        //   navbarmenu.classList.toggle('show-mob-view');
+        const handleClicko = (el) => { 
+          document.body.classList.toggle("menu-open");
+          const navbarmenu = document.getElementsByClassName('mobile-view')[0];
+          navbarmenu.classList.toggle('show-mob-view');
 
-        //   const shwmenu = document.getElementsByClassName('navbar-collapse')[0];
-        //   shwmenu.classList.toggle('show');
-        //   const menudiv = document.getElementById("mobmenu");
-        //   menudiv.classList.toggle('mobmubtn');
-        //   if(menudiv.innerHTML === '<div></div><div></div><div></div>') {            
-        //     menudiv.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
-        //   }
-        //   else  {   
-        //     menudiv.innerHTML = "<div></div><div></div><div></div>";
-        //   }     
-        // }        
+          const shwmenu = document.getElementsByClassName('navbar-collapse')[0];
+          shwmenu.classList.toggle('show');
+          const menudiv = document.getElementById("mobmenu");
+          menudiv.classList.toggle('mobmubtn');
+          if(menudiv.innerHTML === '<div></div><div></div><div></div>') {            
+            menudiv.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
+          }
+          else  {   
+            menudiv.innerHTML = "<div></div><div></div><div></div>";
+          }     
+        }        
         return(
           
           <header className="site-header">    
@@ -97,7 +111,8 @@ class Header extends React.Component {
                   <Link to="/"><img src={darklogo} id="dark-sticky-logo" alt="Site Logo" /></Link>                                
                 } 
               </div>
-              {/* <div className="menu-wraper d-flex">
+
+              <div className="menu-wraper d-flex">
                 <Navbar bg="default" expand="lg" id={headernavclass} className="mobile-view site-nav navbar d-flex justify-content-end align-items-center">
                 <button id="mobmenu" className="navbar-toggler" type="button" onClick={handleClicko} data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <div></div>
@@ -108,10 +123,10 @@ class Header extends React.Component {
                   <ul className="nav navbar-nav">
                     <li className="nav-item menu-item">
                     <Dropdown className="nav-item" id="basic-nav-dropdown" onMouseOver={() => this.onMouseEnter('company')} onMouseLeave={() => this.onMouseLeave('company')} isOpen={this.state.company} toggle={this.toggle}>
-                      <DropdownToggle caret>{companymenu.title}</DropdownToggle>
+                      <DropdownToggle caret>{companymenu.node.label}</DropdownToggle>
                       <DropdownMenu>   
-                        {companymenu.child_items.map((node, index) => (
-                          <DropdownItem tag={Link} to={`/${removePre(node.url)}`} key={index}>{node.title}</DropdownItem>
+                        {companymenu.node.childItems.nodes.map((node, index) => (
+                          <DropdownItem tag={Link} to={`/${removePre(node.url)}`} key={index}>{node.label}</DropdownItem>
                         ))}   
                       </DropdownMenu>
                     </Dropdown>
@@ -119,33 +134,33 @@ class Header extends React.Component {
                     </li>
                     <li className="nav-item menu-item">
                       <Dropdown className="nav-item" id="basic-nav-dropdown" onMouseOver={() => this.onMouseEnter('service')} onMouseLeave={() => this.onMouseLeave('service')} isOpen={this.state.service} toggle={this.toggle}>
-                        <DropdownToggle caret>{servicmenu.title}</DropdownToggle>
+                        <DropdownToggle caret>{servicmenu.node.label}</DropdownToggle>
                         <DropdownMenu>   
-                          {servicmenu.child_items.map((node, index) => (
-                            <DropdownItem tag={Link} to={`/services/${removePre(node.url)}`} key={index}>{node.title}</DropdownItem>
+                          {servicmenu.node.childItems.nodes.map((node, index) => (
+                            <DropdownItem tag={Link} to={`/services/${removePre(node.url)}`} key={index}>{node.label}</DropdownItem>
                           ))}   
                         </DropdownMenu>
                       </Dropdown>                   
                     </li> 
                     <li className="nav-item menu-item">
                     <Dropdown className="nav-item" id="basic-nav-dropdown" onMouseOver={() => this.onMouseEnter('work')} onMouseLeave={() => this.onMouseLeave('work')} isOpen={this.state.work} toggle={this.toggle}>
-                        <DropdownToggle caret>{workmenu.title}</DropdownToggle>
+                        <DropdownToggle caret>{workmenu.node.label}</DropdownToggle>
                         <DropdownMenu>   
-                        <DropdownItem tag={Link} to={`${workmenu.child_items[0].target === "" ? `/${removePre(workmenu.child_items[0].url)}` : workmenu.child_items[0].url}`}>{workmenu.child_items[0].title}</DropdownItem>
-                        <DropdownItem tag={Link} target={workmenu.child_items[1].target} to={workmenu.child_items[1].url}>{workmenu.child_items[1].title}</DropdownItem>
-                        <DropdownItem tag={Link} target={workmenu.child_items[2].target} to={workmenu.child_items[2].url}>{workmenu.child_items[2].title}</DropdownItem>
+                        <DropdownItem tag={Link} to={`${workmenu.node.childItems.nodes[0].target === "" ? `/${removePre(workmenu.node.childItems.nodes[0].url)}` : workmenu.node.childItems.nodes[0].url}`}>{workmenu.node.childItems.nodes[0].label}</DropdownItem>
+                        <DropdownItem tag={Link} target="_blank" to={workmenu.node.childItems.nodes[1].url}>{workmenu.node.childItems.nodes[1].label}</DropdownItem>
+                        <DropdownItem tag={Link} target="_blank" to={workmenu.node.childItems.nodes[2].url}>{workmenu.node.childItems.nodes[2].label}</DropdownItem>
                           
                         </DropdownMenu>
                       </Dropdown>  
                     
                     </li>
-                    <li className="nav-item menu-item"><Link to={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Link></li>
-                    <li className="nav-item menu-item"><Nav.Link href={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Nav.Link></li>
-                    <li className="nave-item menu-item request-quote-mob"><Link to={`/${removePre(contactmenu.url)}`} className="btn-primary">Request a Quote</Link></li>
+                    <li className="nav-item menu-item"><Link to={`/${removePre(blogmenu.node.url)}`}>{blogmenu.node.label}</Link></li>
+                    <li className="nav-item menu-item"><Nav.Link href={`/${removePre(contactmenu.node.url)}`}>{contactmenu.node.label}</Nav.Link></li>
+                    <li className="nave-item menu-item request-quote-mob"><Link to={`/${removePre(contactmenu.node.url)}`} className="btn-primary">Request a Quote</Link></li>
                   </ul>
                   </div>
                 </Navbar>                
-                </div> */}
+                </div>
             </div>  
         </header>
         )  
