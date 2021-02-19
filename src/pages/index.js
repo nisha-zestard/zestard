@@ -50,8 +50,6 @@ class Home extends Component {
             ]
           }
         const data = this.props.data
-       
-        console.log(data);
          const header = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[0];
          const clientlogo = data.allWpCptuiClient.edges;
          const seotd = data.allWpPage.edges[0].node.seo;
