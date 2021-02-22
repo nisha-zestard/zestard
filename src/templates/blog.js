@@ -15,8 +15,8 @@ class BlogList extends Component {
     const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/page/${(currentPage - 1).toString()}`
     const nextPage = `/blog/page/${(currentPage + 1).toString()}`
     const data = this.props.data
-    // const post = data.allWpPost;
-    //console.log(post);
+    console.log(data);
+    const postdata = data.allWpPost.edges;
     
     return (
       <Layout>
@@ -42,7 +42,7 @@ class BlogList extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-md-8 blog-posts-wrap">
-                    {data.allWpPost.edges.map(({ node }) => (
+                    {postdata.map(({ node }) => (
                       <div key={node.id}>
                         <article id="post-{node.id}"
                         className="post-{node.id} post type-post status-publish format-standard has-post-thumbnail hentry category-design category-tips-and-tricks card">
@@ -50,15 +50,14 @@ class BlogList extends Component {
                             <div className="col-md-12 col-sm-12">
                               <div className="card-image">
                                 <Link to={`/blog/${removePre(node.link)}`} className="post-thumbnail">
-                                {node.featured_media !== null &&
-                                  <img src={node.featured_media.source_url} alt="" loading="lazy" />
+                                {node.featuredImage !== null &&
+                                  <img src={node.featuredImage.node.sourceUrl} alt="" loading="lazy" />
                                 }
                                 </Link>
                               </div>
                               <div className="section-desc">
                                 <header className="entry-header">
-                                  <h2 className="card-title entry-title">
-                                    {/* <Link to={`/${removePre(node.link)}`}>{node.title}</Link> */}
+                                  <h2 className="card-title entry-title">                                   
                                     <Link to={`/blog/${removePre(node.link)}`}>{removeSpecialSymbols(node.title)}</Link>
                                   </h2>
                                 </header>
@@ -70,10 +69,10 @@ class BlogList extends Component {
                                     <div className="col-md-8 col-sm-8">
                                       <div className="author">
                                         <div>By 
-                                        <Link to={`/${removePre(node.author.link)}`} className="vcard author">
+                                        <Link to={`/author/${removePre(node.author.node.uri)}`} className="vcard author">
                                           <strong className="fn">
                                             {node.author !== null &&
-                                            <span>  {node.author.name}</span>
+                                            <span>  {node.author.node.name}</span>
                                             } 
                                           </strong>
                                         </Link>,
@@ -95,7 +94,9 @@ class BlogList extends Component {
                         </article>
                       </div>
                     ))}
-                    {/* Pagination */}
+                    
+
+
                     <div className="post-pagination">
                       <ul className="page-num">
                         {!isFirst && (
@@ -131,7 +132,9 @@ class BlogList extends Component {
                     </div>
                     <div className="col-md-4 blog-sidebar-wrapper col-md-offset-0">
                       <div>
-                      {/* blogpage sidebar */}
+                      
+
+                      
                       <aside id="secondary" className="widget-area">
                         <BlogSidebar />
                       </aside>
@@ -152,8 +155,8 @@ export default BlogList
 
 
 export const pageQuery = graphql`
-  query {
-    allWpPost(sort: {order: DESC, fields: date}) {
+  query($skip: Int! , $limit: Int!) {
+    allWpPost(sort: {order: DESC, fields: date}, skip: $skip, limit: $limit) {
       edges {
         node {
           id
@@ -161,8 +164,10 @@ export const pageQuery = graphql`
           slug
           date(fromNow: true)
           excerpt
+          link
           author {
             node {
+              uri
               name
               slug
               description

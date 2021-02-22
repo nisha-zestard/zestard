@@ -20,11 +20,11 @@ class AboutProject extends React.Component {
         query {
           allWp {
             edges {
-              node {
+              previous {
                 ctaSettings {
                   acfCTAModule {
-                    ctaModLink
                     ctaModDescription
+                    ctaModLink
                   }
                 }
               }
@@ -33,10 +33,10 @@ class AboutProject extends React.Component {
         }
       `}      
       render={(data) => {             
-        const ctamodul = data.allWordpressAcfOptions.edges[0].node.options;
+       // const ctamodul = data.allWordpressAcfOptions.edges[0].node.options;
         return(
           <section>
-            {apsiwtch === true &&
+            {/* {apsiwtch === true &&
               <div className="footer-contactus text-center">
                   <div className="container">
                     <div className="footer-contactus-inner">
@@ -55,8 +55,8 @@ class AboutProject extends React.Component {
                       </div>
                   </div>
               </div>
-            }
-            {apsiwtch === false &&
+            } */}
+            {/* {apsiwtch === false && */}
               <div className="footer-contactus text-center">
                 <div className="container">
                     <div className="footer-contactus-inner">
@@ -75,7 +75,7 @@ class AboutProject extends React.Component {
                     </div>
                 </div>
               </div>
-            }
+            {/*  } */}
             
           </section>
         )  

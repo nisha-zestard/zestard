@@ -22,9 +22,9 @@ const BlogPostFooter = (props) => {
           {allPost.edges.map(({ node }) => (
             <div className="col-md-4 rel-bog-wrap" key={node.id}>
               <div className="card card-blog">
-                {node.featured_media !== null &&
+                {node.featuredImage !== null &&
                   <Link to={`/blog/${removePre(node.link)}`} className="post-thumbnail">
-                    <img src={node.featured_media.source_url} alt="img" className="card-image" loading="lazy" />
+                    <img src={node.featuredImage.node.sourceUrl} alt="img" className="card-image" loading="lazy" />
                   </Link>
                 }
                 <div className="content">

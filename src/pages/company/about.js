@@ -16,7 +16,7 @@ class About extends Component {
         const page = data.allWpPage.edges[0].node
         const testimonial = data.allWpCptuiTechnology.edges;
         const tellus = data.allWpPage.edges[0].node.acf;
-        console.log(page);
+        //console.log(page);
       return (
         <Layout>
             <SEO title="About"/>

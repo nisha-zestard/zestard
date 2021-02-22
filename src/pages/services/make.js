@@ -9,56 +9,60 @@ import Credentials from "../../components/Credentails";
 import OurRecentWork from "../../components/OurRecentWork";
 import ServiceHero from "../../components/ServiceHero";
 import ServiceIntro from "../../components/ServiceIntro";
+import CommonContactImage from '../../assets/images/Mascot.png';
 
 class Make extends Component {
 	render() {
 		const data = this.props.data;
-		const pageacf = data.allWpPage.edges[0].node.acf;
-		const acfgen = pageacf.gen_content_modules_page;
-		const technology = data.allWordpressWpTechnology.edges;
-		const credential = acfgen[3].cred_logos_repeater;
-		const portfolio = data.allWpCptuiPortfolio.edges;
-		const sertech = data.allWpPage.edges[0].node;
+		
+		const pageacf = data.allWpPage.edges[0].node.acfHeader;
+		const acfgen = data.allWpPage.edges[0].node.acfGeneralLayout;
+		const acfconmod = acfgen.genContentModules
+		
+		const technology = data.allWpCptuiTechnology.edges;
+		const credential = acfconmod[2].listCredential;
+		const portfolio = acfconmod[3];
+		const sertech = data.allWpPage.edges[0].node.seo;
 		
 		return (
 			<Layout>
-				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
+				<SEO title={sertech.title} description={sertech.metaDesc} />
 				<Header headernavclass="darkheader" />
 				<div className="make-main">
 					<ServiceHero
-						title={pageacf.header_section_title}
-						subText={pageacf.header_sub_text}
-						image={pageacf.header_mascot.source_url}
+						title={pageacf.headerSectionTitle}
+						subText={pageacf.headerSubText}
+						image={pageacf.headerMascot.sourceUrl}
 						background={"linear-gradient(-47deg, #0784a5, #03168e)"}
 					/>
 					<section>
 						<div className="make-services">
 							<div className="container">
 								<ServiceIntro
-									title={acfgen[0].pis_page_title}
-									sectionTitle={acfgen[0].pis_section_title}
-									content={acfgen[0].pis_content}
+									title={acfgen.genBoxHeading}
+									sectionTitle=""
+									content={acfgen.genBoxDescription}
 								/>
 								<div className="services-list">
 									<div className="row">
-										{acfgen[1].cs_cards_details.map((node, index) => (
+										{acfconmod[1].genGridBoxesRep.map((node, index) => (
 											<div className="col-lg-3 col-md-6" key={index}>
-												<Link to={`/${removePre(node.cs_learn_more_link)}`}>
+												<Link to={`${removePre(node.genButtonLink)}`}>
 													<div className="card service-wrap">
 														<div className="card-header d-flex">
 															<div className="service-icon">
-																{node.cs_icon !== null &&
-																	<img src={node.cs_icon.source_url} className="main-image" alt="Service icon" />
+																{node.genIconGb.sourceUrl !== null &&
+																	<img src={node.genIconGb.sourceUrl} className="main-image" alt="Service icon" />
 																}
-																{node.cs_hover_icon.source_url !== null &&
-																	<img src={node.cs_hover_icon.source_url} className="hover-image" alt="Service hover icon" />
+																{node.genHoverIconGb.sourceUrl !== null &&
+																	<img src={node.genHoverIconGb.sourceUrl} className="hover-image" alt="Service hover icon" />
 																}
 															</div>
-															<h2 className="s-title" dangerouslySetInnerHTML={{ __html: node.cs_title }} />
+															<h2 className="s-title" dangerouslySetInnerHTML={{ __html: node.genTitleGb }} />
 														</div>
 														<div className="card-body">
-															{node.cs_content !== null &&
-																<div className="text" dangerouslySetInnerHTML={{ __html: node.cs_content }} />
+															{node.genDescriptionGb !== null &&
+																<div className="text" dangerouslySetInnerHTML={{ __html: node.genDescriptionGb }} />
 															}
 															<span className="s-link">Learn More</span>
 														</div>
@@ -83,8 +87,8 @@ class Make extends Component {
 											<div className="col-md-6 technology-outer-wrap" key={index}>
 												<div className="technology-wrap">
 													<div className="icon-wrap">
-														{node.node.featured_media.source_url !== null &&
-															<img src={node.node.featured_media.source_url} alt={node.node.title + " Technology Logo"} />
+														{node.node.featuredImage.node.sourceUrl !== null &&
+															<img src={node.node.featuredImage.node.sourceUrl} alt={node.node.title + " Technology Logo"} />
 														}
 													</div>
 													<div className="content-wrap">
@@ -93,7 +97,7 @@ class Make extends Component {
 															<div dangerouslySetInnerHTML={{ __html: node.node.excerpt }} />
 
 														}
-														<Link to={`/${removePre(node.node.acf.technology_custom_link)}`}>Learn More</Link>
+														<Link to={`/${removePre(node.node.acfTechnologyCustomLink.technologyCustomLink)}`}>Learn More</Link>
 													</div>
 												</div>
 											</div>
@@ -106,11 +110,28 @@ class Make extends Component {
 					{/* Credentials section */}
 					<Credentials credentials={credential} slidesToShow={5} />
 					<OurRecentWork
-						title={acfgen[2].css_title}
-						content={acfgen[2].css_content}
-						portfolio={portfolio}
+						title={portfolio.orwTitle}
+						content={portfolio.orwSubTitle}
+						portfolio={portfolio.orwPortfolioList}
 					/>
-					<AboutProject apsiwtch={pageacf.use_common_contact_section} />
+
+					<div className="footer-contactus text-center">
+						<div className="container">
+							<div className="footer-contactus-inner">
+								<div className="contcta-image">								
+									<img src={CommonContactImage} alt="Tell us about your project banner"/>								                      
+								</div>
+								<div className="content">
+									<h2>{acfconmod[4].ccfpTitle}</h2>
+									{acfconmod[4].ccfpSubTitle !== null &&
+									<div style={{marginBottom: '40px'}} dangerouslySetInnerHTML={{__html: acfconmod[4].ccfpSubTitle}} />
+									}                        
+									<Link to={`/${removePre(acfconmod[4].ccfpButtonLink)}`} className="start-pro-btn">{acfconmod[4].ccfpButtonText}</Link>
+								</div>
+							</div>
+						</div>
+					</div>
+					{/* <AboutProject apsiwtch={acfconmod[4]} /> */}
 				</div>
 			</Layout>
 		)
@@ -178,6 +199,8 @@ export const query = graphql`{
 					}
 					genTitleGb
 					genDescriptionGb
+					genButtonText
+                	genButtonLink
 				  }
 				}
 				... on WpPage_Acfgenerallayout_GenContentModules_ClientLogo {
