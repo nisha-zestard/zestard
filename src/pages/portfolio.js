@@ -15,7 +15,7 @@ class Portfolio extends Component {
             var test = portfoliolist[i].node.portfolio_category;
             const catindex = test.indexOf(pcategoryid);
             if(catindex > -1){
-                console.log(portfoliolist[i].node.portfolio_category[catindex]);
+                //console.log(portfoliolist[i].node.portfolio_category[catindex]);
                 if(pcategoryid == portfoliolist[i].node.portfolio_category[catindex]){                                      
                     setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'block';
                 }                

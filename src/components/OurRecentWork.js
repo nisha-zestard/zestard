@@ -15,8 +15,8 @@ const OurRecentWork = (props) => {
                                 <div className="col-md-6" key={index}>
                                     <div className="portfolio-wrap">
                                         <div className="portfolio-image">
-                                            {node.node.acf.pf_image_with_responsive.source_url !== null &&
-                                                <img src={node.node.acf.pf_image_with_responsive.source_url} alt="Maintain recent work"/>
+                                            {node.acfPortfolioLayout.pfImageWithResponsive.sourceUrl !== null &&
+                                                <img src={node.acfPortfolioLayout.pfImageWithResponsive.sourceUrl} alt="Maintain recent work"/>
                                             }													
                                         </div>
                                     </div>

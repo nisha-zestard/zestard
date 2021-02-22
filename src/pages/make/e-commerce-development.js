@@ -19,7 +19,7 @@ class EcommerceDevelopment extends Component {
 		const platform = acf[2].iwc_layout_details;
 		const portfolio = data.allWpCptuiPortfolio.edges;
 		const sertech = data.wpPage
-		console.log(acf);
+		//acf);
 		return (
 			<Layout>
 				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
