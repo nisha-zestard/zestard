@@ -399,6 +399,7 @@
         }
     }
     .portfolio-list{
+        margin: 0;
         .portfolio-wrap{
             position: relative;
             @media #{$small-screen}{
