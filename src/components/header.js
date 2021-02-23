@@ -70,7 +70,7 @@ class Header extends React.Component {
         }
       `}      
       render={(data) => {
-       //console.log(data)
+       
          const acfoptions = data.allWp.edges[0].node.themeGeneralSettings;
          const maninmenu = data.allWpMenuItem.edges;
          const darklogo = acfoptions.acfGeneralThemeSettings.siteLogo.sourceUrl;
@@ -81,8 +81,8 @@ class Header extends React.Component {
          const blogmenu = maninmenu[3];
          const contactmenu = maninmenu[4];
          const { location} = history
-         const param = location.pathname;        
-        
+         const param = location.pathname;    
+      
         const handleClicko = (el) => { 
           document.body.classList.toggle("menu-open");
           const navbarmenu = document.getElementsByClassName('mobile-view')[0];
@@ -126,7 +126,7 @@ class Header extends React.Component {
                       <DropdownToggle caret>{companymenu.node.label}</DropdownToggle>
                       <DropdownMenu>   
                         {companymenu.node.childItems.nodes.map((node, index) => (
-                          <DropdownItem tag={Link} to={`/${removePre(node.url)}`} key={index}>{node.label}</DropdownItem>
+                          <DropdownItem tag={Link} to={`/company/${removePre(node.url)}`} key={index}>{node.label}</DropdownItem>
                         ))}   
                       </DropdownMenu>
                     </Dropdown>
@@ -137,7 +137,7 @@ class Header extends React.Component {
                         <DropdownToggle caret>{servicmenu.node.label}</DropdownToggle>
                         <DropdownMenu>   
                           {servicmenu.node.childItems.nodes.map((node, index) => (
-                            <DropdownItem tag={Link} to={`/services/${removePre(node.url)}`} key={index}>{node.label}</DropdownItem>
+                            <DropdownItem tag={Link} to={`/services${removePre(node.url)}`} key={index}>{node.label}</DropdownItem>
                           ))}   
                         </DropdownMenu>
                       </Dropdown>                   
