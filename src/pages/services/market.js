@@ -11,21 +11,22 @@ import ServiceHero from '../../components/ServiceHero';
 class Market extends Component {	
 	render() {
 		const data = this.props.data;
-		const page = data.allWpPage.edges[0].node.acf;
-		const genmodule = page.gen_content_modules_page;
-		const credential = genmodule[4].cred_logos_repeater;
-		const portfolio = data.allWpCptuiPortfolio.edges;
-		const sertech = data.allWpPage.edges[0].node;
+		
+		const pagedata = data.allWpPage.edges[0].node;
+		const bannerdata = pagedata.acfHeader
+		const genmodule = pagedata.acfGeneralLayout;
+		const credential =genmodule.genContentModules[3].listCredential;
+		const sertech = data.allWpPage.edges[0].node.seo;
 		
 		return(
 			<Layout>
-				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
+				<SEO title={sertech.title} description={sertech.metaDesc} />
 				<Header headernavclass="darkheader" />
 				<div className="market-main">
 				<ServiceHero
-					title={page.header_section_title}
-					subText={page.header_sub_text}
-					image={page.header_mascot.source_url}
+					title={bannerdata.headerSectionTitle}
+					subText={bannerdata.headerSubText}
+					image={bannerdata.headerMascot.sourceUrl}
 					background={"linear-gradient(128deg,#002757 50%,#37d5d6)"}
 				/>
 				<section>
@@ -33,33 +34,38 @@ class Market extends Component {
 						<div className="container">
 							<div className="top-content">
 								<div className="title text-center">
-									<h2>{genmodule[0].pis_section_title}</h2>
+									<h2>{genmodule.genBoxHeading}</h2>
 								</div>
 								<div className="text text-center">
-									{genmodule[0].pis_content !== null &&
-										<div dangerouslySetInnerHTML={{__html: genmodule[0].pis_content}} />
+									{genmodule.genBoxDescription !== null &&
+										<div dangerouslySetInnerHTML={{__html: genmodule.genBoxDescription}} />
 									}									
 								</div>
 							</div>
 							<div className="market-services-list">
 								<div className="row">
-									{genmodule[1].cs_cards_details.map((node,index) => (
+									<div className="col-md-6 col-lg-4 m-ser-wrap">
+										<div className="m-ser-wrap-inner">
+											<h2 className="service-main-title">{genmodule.genContentModules[1].genGridBoxTitle}</h2>
+											<div className="m-ser-text"></div>
+										</div>
+									</div>
+									{genmodule.genContentModules[1].genGridBoxesRep.map((node,index) => (
 										<div className="col-md-6 col-lg-4 m-ser-wrap" key={index}>
 											<div className="m-ser-wrap-inner">
-												{node.cs_icon !== null &&
+												{node.genIconGb !== null &&
 													<div className="m-ser-icon">
-														{node.cs_icon !== null &&
-															<img src={node.cs_icon.source_url} className="ser-icon" alt=""/>
+														{node.genIconGb !== null &&
+															<img src={node.genIconGb.sourceUrl} className="ser-icon-hover" alt=""/>
 														}
-														{node.cs_hover_icon !== null &&
-															<img src={node.cs_hover_icon.source_url} className="ser-icon-hover" alt=""/>
-														}
-														
+														{node.genHoverIconGb !== null &&
+															<img src={node.genHoverIconGb.sourceUrl} className="ser-icon" alt=""/>
+														}														
 													</div>
 												}												
-												<h2 className={index === 0 ? 'service-main-title' : 'm-ser-title'}>{node.cs_title}</h2>
-												{node.cs_content !== null &&
-													<div className="m-ser-text" dangerouslySetInnerHTML={{__html: node.cs_content}} />
+												<h2 className="m-ser-title">{node.genTitleGb}</h2>
+												{node.genDescriptionGb !== null &&
+													<div className="m-ser-text" dangerouslySetInnerHTML={{__html: node.genDescriptionGb}} />
 												}												
 											</div>
 										</div>
@@ -73,14 +79,14 @@ class Market extends Component {
 					<div className="links-earned">
 						<div className="container">
 							<div className="title text-center">
-								<h2>{genmodule[2].ls_section_title}</h2>
+								<h2>{genmodule.genContentModules[2].clTitle}</h2>
 							</div>
 							<ul className="links-earned-list">
-								{genmodule[2].ls_link_images.map((node,index) => (
+								{genmodule.genContentModules[2].logoRepeater.map((node,index) => (
 									<li key={index}>
 										<div className="links-earned-wrap">
-											{node.ls_image.source_url !== null &&
-												<img src={node.ls_image.source_url} alt="Links earned"/>
+											{node.clrImgLogo.sourceUrl !== null &&
+												<img src={node.clrImgLogo.sourceUrl} alt="Links earned"/>
 											}											
 										</div>
 									</li>
@@ -91,34 +97,13 @@ class Market extends Component {
 				</section>
 				{/* Credentials section */}
 				<Credentials credentials={credential} slidesToShow={5} />
-				{/* <section>
-				<div className="our-credientials">
-					<div className="container">
-					<div className="title text-center">
-						<h2>Our Certifications</h2>
-					</div>
-					<div className="credientials-wrap text-center">
-						<div className="c-main">
-						<img src={Credentialsimage} className="main-image" alt="Credential main"/>
-						<img src={Zectopus} className="center-image" alt="Zectopus"/>
-						{creden.map((node,index) => (
-							<div className={"credi-logo-" + index + " creadi_wrap " + node.node.slug} key={index}>
-								{node.node.featured_media.source_url !== null &&
-									<img src={node.node.featured_media.source_url} alt={node.node.title}/>
-								}								
-							</div>
-						))}						
-						</div>
-					</div>
-					</div>
-				</div>
-				</section> */}
+				
 				<OurRecentWork
-					title={genmodule[3].css_title}
-					content={genmodule[3].css_content}
-					portfolio={portfolio}
+					title={genmodule.genContentModules[4].orwTitle}
+					content={genmodule.genContentModules[4].orwSubTitle}
+					portfolio={genmodule.genContentModules[4].orwPortfolioList}
 				/>
-				<AboutProject apsiwtch={page.use_common_contact_section} />
+				<AboutProject comcontact={genmodule.genContentModules[5]} />
 				</div>
 			</Layout>
 		)

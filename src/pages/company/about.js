@@ -13,39 +13,26 @@ class About extends Component {
   
     render() {
         const data = this.props.data
-        const page = data.allWpPage.edges[0].node
-        const testimonial = data.allWpCptuiTechnology.edges;
-        const tellus = data.allWpPage.edges[0].node.acf;
-        //console.log(page);
+        const seodata = data.allWpPage.edges[0].node.seo;
+        const bannerdata = data.allWpPage.edges[0].node.acfHeader;
+        const pagedata = data.allWpPage.edges[0].node.acfGeneralLayout;
+        // const page = data.allWpPage.edges[0].node
+        // const testimonial = data.allWpCptuiTechnology.edges;
+        // const tellus = data.allWpPage.edges[0].node.acf;
+        console.log(pagedata);
       return (
         <Layout>
-            <SEO title="About"/>
+            <SEO title={seodata.title}/>
             <Header headernavclass="lightheader" />
             <div id="page" className="site-page about-us">
-            <PageHeader
-                        headerMascot = {tellus.header_mascot}
-                        headerSubText = {tellus.header_sub_text}
-                        headerSectionTitle={tellus.header_section_title}
-                        headerPageTitle={tellus.header_page_title}
-                    />
-                {/* <section className="page-title">
-                    <div className="container">
-                        <div className="pagetitle-wrap text-center">
-                            <h1>About Zestard</h1>
-                            <div className="breadcums">
-                                <ul className="d-flex justify-content-center m-0 p-0">
-                                    <li>
-                                        <a href="#">Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">About us</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section> */}
-                <section>
+                <PageHeader
+                    headerMascot = {bannerdata.headerMascot.sourceUrl}
+                    headerSubText = {bannerdata.headerSubText}
+                    headerSectionTitle=""
+                    headerPageTitle={bannerdata.headerPageTitle}
+                />
+                
+                {/* <section>
                     <div className="who-we-are">
                         <div className="container">
                             <div className="row">
@@ -60,8 +47,8 @@ class About extends Component {
                             </div>
                         </div>
                     </div>
-                </section>
-                <section>
+                </section> */}
+                {/* <section>
                     <div className="our-values">
                         <div className="container">
                             <h2 className="title text-center">{page.childWordPressAcfGenCardsSection.cs_section_title}</h2>
@@ -85,7 +72,7 @@ class About extends Component {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
                 {/* <section>
                     <div className="platforms-we-support">
                         <div className="container">
@@ -121,7 +108,7 @@ class About extends Component {
                         </div>
                     </div>
                 </section> */}
-                <section>
+                {/* <section>
                     <div className="our-credentials">
                         <div className="container">
                             <h2 className="title text-center">Our Credentials</h2>
@@ -143,17 +130,17 @@ class About extends Component {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
                 {/* Testimonials section */}
-					<Testimonials testimonial={testimonial} />
+					{/* <Testimonials testimonial={testimonial} /> */}
 
-                    <AboutProject
+                    {/* <AboutProject
             apsiwtch={tellus.use_common_contact_section}
             apimage={tellus.tuabp_image}
             aptitle={tellus.tuabp_title}
             apcontent={tellus.tuabp_content}
             apbuttontext={tellus.tuabp_button_text}
-            apbuttonlink={tellus.tuabp_button_link} />
+            apbuttonlink={tellus.tuabp_button_link} /> */}
             </div>
         </Layout>
         )
@@ -191,6 +178,7 @@ export const query = graphql`
               headerMascot {
                 sourceUrl
               }
+
             }
             acfGeneralLayout {
               genContentModules {
@@ -201,8 +189,8 @@ export const query = graphql`
                     sourceUrl
                   }
                 }
-                ... on WpPage_Acfgenerallayout_GenContentModules_GenLeftImageAndRightDescription {
-                  genRightDescription
+                ... on WpPage_Acfgenerallayout_GenContentModules_GenRightImageAndLeftDescription {
+                  genLeftDescription
                   genTwoSecImage {
                     sourceUrl
                   }

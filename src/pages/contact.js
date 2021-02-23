@@ -97,39 +97,23 @@ class Contact extends Component {
 
   render() {
     const data = this.props.data
-    const acfData = data.wpPage.acf;
-    const acfoption = data.allWordpressAcfOptions.edges[0].node.options
-    const testimonial = data.allWpCptuiTechnology.edges;
+    const seodata = data.allWpPage.edges[0].node.seo;
+    const bannerdata = data.allWpPage.edges[0].node.acfHeader;
+    const testimonial = data.allWpCptuiTestimonial.edges;
     
     return (
       <Layout>
-        <SEO title="Contact"/>
+        <SEO title={seodata.title} />
           <Header headernavclass="lightheader" />
           <div id="page" className="site-page contact-us">
             {/* page header */}
             <PageHeader
-              headerMascot = {acfData.header_mascot}
-              headerSubText = {acfData.header_sub_text}
-              headerSectionTitle={acfData.header_section_title}
-              headerPageTitle={acfData.header_page_title}
+              headerMascot = {bannerdata.headerMascot.sourceUrl}
+              headerSubText = {bannerdata.headerSubText}
+              headerSectionTitle={bannerdata.headerSectionTitle}
+              headerPageTitle={bannerdata.headerPageTitle}
             />
-          {/* <section className="page-title">
-                    <div className="container">
-                        <div className="pagetitle-wrap text-center">
-                            <h1>Contact us</h1>
-                            <div className="breadcums">
-                                <ul className="d-flex justify-content-center m-0 p-0">
-                                    <li>
-                                        <a href="#">Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Contact us</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section> */}
+         
             <div className="contact-wrapper">
                 <div className="container">
                     <div className="contact-form">
@@ -187,10 +171,6 @@ class Contact extends Component {
                   <Testimonials testimonial={testimonial} />
                   </div>
 
-                  
-                  {/* <div className="col-md-7">
-                      <div className="contact-detail-wraper"dangerouslySetInnerHTML = {{ __html: acfoption.cd_content }} />                                    
-                  </div> */}
                 </div>
       </Layout>
     )
@@ -202,18 +182,20 @@ export default Contact
 export const query = graphql`
 {
   
-  allWpCptuiTechnology {
-    nodes {
-      title
-      content
-      featuredImage {
-        node {
-          sourceUrl
+  allWpCptuiTestimonial {
+    edges {
+      node {
+        title
+        content
+        featuredImage {
+          node {
+            sourceUrl
+          }
         }
       }
     }
   }
-  allWpPage(filter: {databaseId: {eq: 57}}) {
+  allWpPage(filter: {databaseId: {eq: 7808}}) {
     edges {
       node {
         title

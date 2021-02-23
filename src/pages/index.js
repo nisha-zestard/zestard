@@ -15,15 +15,15 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 class Home extends Component {
     constructor(props) {
         super(props);
-        // this.next = this.next.bind(this);
-        // this.previous = this.previous.bind(this);
+        this.next = this.next.bind(this);
+        this.previous = this.previous.bind(this);
       }
-      // next() {
-      //   this.slider.slickNext();
-      // }
-      // previous() {
-      //   this.slider.slickPrev();
-      // }
+      next() {
+        this.slider.slickNext();
+      }
+      previous() {
+        this.slider.slickPrev();
+      }
 
     render() {
         const schema = {

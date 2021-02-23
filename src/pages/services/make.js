@@ -13,12 +13,10 @@ import CommonContactImage from '../../assets/images/Mascot.png';
 
 class Make extends Component {
 	render() {
-		const data = this.props.data;
-		
+		const data = this.props.data;		
 		const pageacf = data.allWpPage.edges[0].node.acfHeader;
 		const acfgen = data.allWpPage.edges[0].node.acfGeneralLayout;
-		const acfconmod = acfgen.genContentModules
-		
+		const acfconmod = acfgen.genContentModules;		
 		const technology = data.allWpCptuiTechnology.edges;
 		const credential = acfconmod[2].listCredential;
 		const portfolio = acfconmod[3];

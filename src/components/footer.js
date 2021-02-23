@@ -62,7 +62,7 @@ const Footer = () => {
  const foomenu = data.allWpMenuItem.edges;
  const acf = data.allWp.edges[0].node.themeGeneralSettings;
  const foocusmenu = acf.acfFooter.menuTitleWithLinks;
- //console.log(acf.acfFooter.menuTitleWithLinks);
+ 
 const handleOpen = (el) => {  
   const target = el.currentTarget.getElementsByClassName('dropdown-menu');   
 }       
