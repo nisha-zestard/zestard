@@ -12,23 +12,20 @@ import OurRecentWork from "../../components/OurRecentWork";
 class EcommerceDevelopment extends Component {
 	render() {	
 		const data = this.props.data;
-		const acf = data.wpPage.acf.gen_content_modules_page;
-		const tellus = data.wpPage.acf;
-		const banner = acf[0].iwc_layout_details[0];
-		const testimonial = data.allWpCptuiTechnology.edges;
-		const services = acf[1].cs_cards_details;
-		const sertech = data.wpPage
-		const portfolio = data.allWpCptuiPortfolio.edges;
+		const seodata = data.allWpPage.edges[0].node.seo;
+		const acfgenlayout = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules;
+		const services = acfgenlayout[1].genGridBoxesRep;
+		const testimonial = data.allWpCptuiTestimonial.edges;
 		
 		return(
 			<Layout>
-				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
+				<SEO title={seodata.title} description={seodata.metaDesc} />
 				<Header headernavclass="lightheader" />
 				<div id="page" className="ui-ux-development">
 					<ServiceDetailHeader title={'UI/UX'} />
           			<ServiceBasicDetail
-						headerMascot={banner.iwc_image}
-						serviceDeail={banner}
+						headerMascot={acfgenlayout[0].genTwoSecImage.sourceUrl}
+						serviceDeail={acfgenlayout[0].genRightDescription}
 					/>
 					<section>
 						<div className="ecommerce-sercices-wrap">
@@ -40,9 +37,9 @@ class EcommerceDevelopment extends Component {
 											<div className="col-md-6 col-lg-4">
 												<div className="service-box">
 													<div className="ss-title">
-														<h2 dangerouslySetInnerHTML={{__html: node.cs_title}} />
+														<h2 dangerouslySetInnerHTML={{__html: node.genTitleGb}} />
 													</div>
-													<div className="ss-content" dangerouslySetInnerHTML={{__html: node.cs_content}} />													
+													<div className="ss-content" dangerouslySetInnerHTML={{__html: node.genDescriptionGb}} />													
 												</div>
 											</div>
 										))}
@@ -53,18 +50,14 @@ class EcommerceDevelopment extends Component {
 					</section>	
 					{/* Testimonials section */}
 					<Testimonials testimonial={testimonial} />
+
 					<OurRecentWork
-						title={acf[3].css_title}
-						content={acf[3].css_content}
-						portfolio={portfolio}
+						title={acfgenlayout[2].orwTitle}
+						content={acfgenlayout[2].orwSubTitle}
+						portfolio={acfgenlayout[2].orwPortfolioList}
 					/>
-					<AboutProject 
-					apsiwtch={tellus.use_common_contact_section} 
-					apimage={tellus.tuabp_image} 
-					aptitle={tellus.tuabp_title} 
-					apcontent={tellus.tuabp_content} 
-					apbuttontext={tellus.tuabp_button_text} 
-					apbuttonlink={tellus.tuabp_button_link} />
+
+					<AboutProject comcontact={acfgenlayout[3]} />
 				</div>
 	  		</Layout>
 		)
@@ -76,6 +69,19 @@ export default EcommerceDevelopment;
 
 export const query = graphql`
 {
+	allWpCptuiTestimonial {
+        edges {
+          node {
+            title
+            content
+            featuredImage {
+              node {
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
 	allWpPage(filter: {databaseId: {eq: 7275}}) {
 		edges {
 			node {
@@ -104,7 +110,7 @@ export const query = graphql`
 					  ... on WpPage_Acfgenerallayout_GenContentModules_GenGridBoxes {
 						genGridBoxTitle
 						genGridBoxesRep {
-						  genButtonText
+						  genTitleGb
 						  genDescriptionGb
 						}
 					  }
