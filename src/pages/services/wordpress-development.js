@@ -13,25 +13,28 @@ import OurRecentWork from "../../components/OurRecentWork";
 class ReactjsDevelopment extends Component {
 	render() {		
 		const data = this.props.data  
-		const acf = data.allWpPage.edges[0].node.acf
-		const pagedata = acf.gen_content_modules_page
-		const sertech = data.allWpPage.edges[0].node.seo;
-		const testimonial = data.allWpCptuiTechnology.edges;
-		const portfolio = data.allWpCptuiPortfolio.edges;
+		const seodata = data.allWpPage.edges[0].node.seo;
+		const acfgenlayout = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules;
+		console.log(acfgenlayout);
+		// const acf = data.allWpPage.edges[0].node.acf
+		// const pagedata = acf.gen_content_modules_page
+		// const sertech = data.allWpPage.edges[0].node.seo;
+		// const testimonial = data.allWpCptuiTechnology.edges;
+		// const portfolio = data.allWpCptuiPortfolio.edges;
 		
 		// const platform = pagedata[2].iwc_layout_details
 		//console.log(acf);
 		return(
 			<Layout>
-				<SEO title={sertech.title} description={sertech.metaDesc}/>
+				<SEO title={seodata.title} description={seodata.metaDesc}/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="website-development">
-					<ServiceDetailHeader title={pagedata[0].iwc_layout_details[0].iwc_title} />
+					{/* <ServiceDetailHeader title={pagedata[0].iwc_layout_details[0].iwc_title} /> */}
 					<ServiceBasicDetail
-						headerMascot={acf.header_mascot}
-						serviceDeail={pagedata[0].iwc_layout_details[0]}
+						headerMascot={acfgenlayout[0].genTwoSecImage.sourceUrl}
+						serviceDeail={acfgenlayout[0].genRightDescription}
 					/>
-					<section>
+					{/* <section>
 						<div className="ecommerce-sercices-wrap">
 							<div className="container">
 								<h2 className="section-title text-center">{pagedata[1].cs_section_title}</h2>
@@ -51,9 +54,9 @@ class ReactjsDevelopment extends Component {
 								</div>
 							</div>
 						</div>
-					</section>
+					</section> */}
 					{/* Testimonials section */}
-					<Testimonials testimonial={testimonial} />
+					{/* <Testimonials testimonial={testimonial} /> */}
 					{/* <section>
 						<div className="platform-section">
 							<div className="container">
@@ -99,11 +102,11 @@ class ReactjsDevelopment extends Component {
 							</div>
 						</div>
 					</section> */}
-					<OurRecentWork
+					{/* <OurRecentWork
 						title={pagedata[2].css_title}
 						content={pagedata[2].css_content}
 						portfolio={portfolio}
-					/>
+					/> */}
 				</div>
 				{/* <AboutProject 
 					apsiwtch={acf.use_common_contact_section} 
