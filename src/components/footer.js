@@ -83,7 +83,7 @@ const handleClose = (el) => {
             <div className="footer-col-left">
               <div className="f-left-top">
                 <div className="footer-logo">
-                  {acf.acfGeneralThemeSettings.lightSiteLogo !== null &&
+                  {acf.acfGeneralThemeSettings.lightSiteLogo.sourceUrl !== null &&
                     <Link to="/"><img src={acf.acfGeneralThemeSettings.lightSiteLogo.sourceUrl} alt="Light footer logo" /></Link>
                   }                  
                 </div>
@@ -128,7 +128,7 @@ const handleClose = (el) => {
               <div className="f-right-top">
                 <div className="row">
                   {foocusmenu.map((node,index) => (
-                    <div className="col-sm-4 footer-col" >
+                    <div className="col-sm-4 footer-col" key={index}>
                       <div className="footer-col-inner">
                         <h3 className="s-title"><Link to={`/${removePre(node.menuLink)}`}>{node.menuTitle}</Link></h3>
                         <ul className="m-0 p-0 s-list">

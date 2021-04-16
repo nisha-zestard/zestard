@@ -12,26 +12,28 @@ import OurRecentWork from "../../components/OurRecentWork";
 
 class MagentoDevelopment extends Component {
 	render() {		
-		const data = this.props.data  
-		const sertech = data.allWpPage.edges[0].node;
-		const acf = data.allWpPage.edges[0].node.acf
-		const pagedata = acf.gen_content_modules_page
-		// const platform = pagedata[2].iwc_layout_details
-		const testimonial = data.allWpCptuiTechnology.edges;
-		const portfolio = data.allWpCptuiPortfolio.edges;
+		const data = this.props.data;
+		console.log(data);
+		const seodata = data.allWpPage.edges[0].node.seo;
+		// const sertech = data.allWpPage.edges[0].node;
+		// const acf = data.allWpPage.edges[0].node.acf
+		// const pagedata = acf.gen_content_modules_page
+		// // const platform = pagedata[2].iwc_layout_details
+		// const testimonial = data.allWpCptuiTechnology.edges;
+		// const portfolio = data.allWpCptuiPortfolio.edges;
 		
 		//console.log(acf);
 		return(
 			<Layout>
-				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content}/>
+				<SEO title={seodata.title} description={seodata.metaDesc}/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="website-development">
-					<ServiceDetailHeader title={pagedata[0].iwc_layout_details[0].iwc_title} />
-					<ServiceBasicDetail
+					{/* <ServiceDetailHeader title={pagedata[0].iwc_layout_details[0].iwc_title} /> */}
+					{/* <ServiceBasicDetail
 						headerMascot={acf.header_mascot}
 						serviceDeail={pagedata[0].iwc_layout_details[0]}
-					/>
-					<section>
+					/> */}
+					{/* <section>
 						<div className="ecommerce-sercices-wrap">
 							<div className="container">
 								<h2 className="section-title text-center">{pagedata[1].cs_section_title}</h2>
@@ -51,9 +53,9 @@ class MagentoDevelopment extends Component {
 								</div>
 							</div>
 						</div>
-					</section>
+					</section> */}
 					{/* Testimonials section */}
-					<Testimonials testimonial={testimonial} />
+					{/* <Testimonials testimonial={testimonial} /> */}
 					{/* <section>
 						<div className="platform-section">
 							<div className="container">
@@ -99,20 +101,20 @@ class MagentoDevelopment extends Component {
 							</div>
 						</div>
 					</section> */}
-					<OurRecentWork
+					{/* <OurRecentWork
 						title={pagedata[2].css_title}
 						content={pagedata[2].css_content}
 						portfolio={portfolio}
-					/>
+					/> */}
 				</div>
 				
-				<AboutProject 
+				{/* <AboutProject 
 					apsiwtch={acf.use_common_contact_section} 
 					apimage={acf.tuabp_image} 
 					aptitle={acf.tuabp_title} 
 					apcontent={acf.tuabp_content} 
 					apbuttontext={acf.tuabp_button_text} 
-					apbuttonlink={acf.tuabp_button_link} />
+					apbuttonlink={acf.tuabp_button_link} /> */}
 	  </Layout>
 		)
 	}
