@@ -12,6 +12,7 @@ import OurRecentWork from "../../components/OurRecentWork";
 
 class ReactjsDevelopment extends Component {
 	render() {		
+
 		const data = this.props.data; 
 		console.log(data);
 		const seodata = data.allWpPage.edges[0].node.seo;
@@ -20,18 +21,19 @@ class ReactjsDevelopment extends Component {
 		const testimonial = data.allWpCptuiTestimonial.edges;
 		const portfolio = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[2];
 		const contactus = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[3];
-
+    
 		return(
 			<Layout>
 				<SEO title={seodata.title} description={seodata.metaDesc}/>
 				<Header headernavclass="lightheader" />
 				<div id="page" className="website-development">
+
 					<ServiceDetailHeader title={data.allWpPage.edges[0].node.title} />
 					<ServiceBasicDetail
 						headerMascot={bannerdata.genTwoSecImage.sourceUrl}
 						serviceDeail={bannerdata.genRightDescription}
 					/>
-					<section>
+					{/* <section>
 						<div className="ecommerce-sercices-wrap">
 							<div className="container">
 								<h2 className="section-title text-center">{services.genGridBoxTitle}</h2>
@@ -51,6 +53,7 @@ class ReactjsDevelopment extends Component {
 								</div>
 							</div>
 						</div>
+
 					</section>
 
 					{/* Testimonials section */}
@@ -61,6 +64,7 @@ class ReactjsDevelopment extends Component {
 						content={portfolio.orwSubTitle}
 						portfolio={portfolio.orwPortfolioList}
 					/>
+
 				</div>
 
 				<AboutProject comcontact={contactus} />

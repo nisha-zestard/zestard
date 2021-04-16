@@ -197,6 +197,9 @@
         text-align: left;
         margin: 0px 0px 15px 0px;
         font-weight: 600;
+        @media #{$small-screen}{
+            font-size: 26px;
+        }
     }
     b {
         font-size: 16x;
@@ -214,7 +217,9 @@
    
    .col-lg-5{
        text-align: center;
-       margin-bottom: 50px;
+       @media #{$small-screen}{
+           margin-bottom: 50px;
+       }
    }
    @media(max-width: 767px){
     .col-md-7.col-lg-7{

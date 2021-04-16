@@ -1,7 +1,7 @@
 .make-services{
     padding: 100px 0;
     @media #{$medium-screen}{
-        padding: 60px 0;
+        padding: 50px 0;
     }
     @media #{$mobile-screen}{
         padding: 30px 0;
@@ -80,7 +80,7 @@
                     align-items: center;
                     width: calc(100% - 100px);
                     @media #{$medium-screen}{
-                        font-size: 17px;
+                        font-size: 15px;
                     }
                 }
                 .service-icon{
@@ -97,6 +97,18 @@
                 padding: 0;
                 .text{
                     margin-bottom: 10px;
+                    @media screen and (max-width: 1309px){
+                        min-height: 168px;
+                    }
+                    @media #{$medium-screen}{
+                        min-height: 192px;      
+                    }
+                    @media #{$tablet-screen}{
+                        min-height: 96px;
+                    }
+                    @media #{$small-screen}{
+                        min-height: inherit;     
+                    }
                     p{
                         color: $primary-light;
                         font-size: 14px;
@@ -155,6 +167,9 @@
 }
 .technology{ 
     padding-bottom: 100px;
+    @media #{$tablet-screen}{
+        padding-bottom: 50px;
+    }
     .title{
         margin-bottom: 50px;
         h2{
@@ -384,6 +399,7 @@
         }
     }
     .portfolio-list{
+        margin: 0;
         .portfolio-wrap{
             position: relative;
             @media #{$small-screen}{

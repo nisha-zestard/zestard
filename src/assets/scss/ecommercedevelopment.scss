@@ -13,6 +13,9 @@
                 line-height: 30px;
                 margin-bottom: 15px;
                 text-transform: capitalize;
+                @media #{$mobile-screen}{
+                    font-size: 22px;
+                }
             }
         }
         .breadcums-wrap{
@@ -46,7 +49,7 @@
                         line-height: 16px;
                         color: $primary-light;
                         @media screen and (max-width: 362px){
-                            font-size: 12px; 
+                            font-size: 11px; 
                         }
                     }
                 }
@@ -57,9 +60,15 @@
 .ecommerce-sercices-wrap{
     background-color: #fcfcfc;
     padding: 50px 0 40px;
+    @media #{$small-screen}{
+        padding: 30px 0;
+    }
     .section-title{
         @include heading;
         margin-bottom: 50px;
+        @media #{$small-screen}{
+            margin-bottom: 30px;
+        }
     }
     .services-list{
         padding: 0 80px;
@@ -90,6 +99,9 @@
                 @media screen and (max-width: 1309px){
                     min-height: 125px;
                 }
+                @media #{$medium-screen}{
+                    min-height: 108px;
+                }
                 @media #{$small-screen}{
                     min-height: inherit;
                 }
@@ -114,7 +126,7 @@
         }
     }
     .platform-wrap{
-        margin-bottom: 80px;
+        margin-bottom: 100px;
         &:last-child{
             margin: 0;
         }
@@ -122,6 +134,11 @@
             margin-bottom: 60px;
             &:last-child{
                 margin-bottom: 0;
+            }
+        }
+        .platform-image-wrap{
+            @media #{$small-screen}{
+                margin-bottom: 50px;
             }
         }
         .platform-content-wrap{
@@ -149,6 +166,10 @@
                     a{
                         @include theme-btn($bgcolor: $black, $font-size: 16px, $padding: 10px 30px, $border-radius: 7px);
                         font-weight: normal;
+                        @media #{$small-screen}{
+                            padding: 7px 15px;
+                            font-size: 15px;
+                        }
                     }
                 }
             }
