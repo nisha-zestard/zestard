@@ -12,36 +12,40 @@ import OurRecentWork from "../../components/OurRecentWork";
 
 class ReactjsDevelopment extends Component {
 	render() {		
-		const data = this.props.data  
-		const acf = data.allWpPage.edges[0].node.acf
-		const pagedata = acf.gen_content_modules_page
-		const testimonial = data.allWpCptuiTechnology.edges;
-		const sertech = data.allWpPage.edges[0].node;
-		const portfolio = data.allWpCptuiPortfolio.edges;
+		const data = this.props.data;
+		console.log(data) ;
+		const seodata = data.allWpPage.edges[0].node.seo;
+		const pagedata = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules;
+		const testimonial = data.allWpCptuiTestimonial.edges;
+		// const acf = data.allWpPage.edges[0].node.acf
+		// const pagedata = acf.gen_content_modules_page
+		// const testimonial = data.allWpCptuiTechnology.edges;
+		// const sertech = data.allWpPage.edges[0].node;
+		// const portfolio = data.allWpCptuiPortfolio.edges;
 		
 		return(
 			<Layout>
-				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
+				<SEO title={seodata.title} description={seodata.metaDesc} />
 				<Header headernavclass="lightheader" />
 				<div id="page" className="website-development">
-					<ServiceDetailHeader title={pagedata[0].iwc_layout_details[0].iwc_title} />
+					<ServiceDetailHeader title={data.allWpPage.edges[0].node.title} />
 					<ServiceBasicDetail
-						headerMascot={acf.header_mascot}
-						serviceDeail={pagedata[0].iwc_layout_details[0]}
+						headerMascot={pagedata[0].genTwoSecImage.sourceUrl}
+						serviceDeail={pagedata[0].genRightDescription}
 					/>
 					<section>
 						<div className="ecommerce-sercices-wrap">
 							<div className="container">
-								<h2 className="section-title text-center">{pagedata[1].cs_section_title}</h2>
+								<h2 className="section-title text-center">{pagedata[1].genGridBoxTitle}</h2>
 								<div className="services-list">
 									<div className="row">
-									{pagedata[1].cs_cards_details.map((node,index) => (
+									{pagedata[1].genGridBoxesRep.map((node,index) => (
 											<div className="col-md-6 col-lg-4" key={index}>
 												<div className="service-box">
 													<div className="ss-title">
-														<h2 dangerouslySetInnerHTML={{__html: node.cs_title}} />
+														<h2 dangerouslySetInnerHTML={{__html: node.genTitleGb}} />
 													</div>
-													<div className="ss-content" dangerouslySetInnerHTML={{__html: node.cs_content}} />													
+													<div className="ss-content" dangerouslySetInnerHTML={{__html: node.genDescriptionGb}} />													
 												</div>
 											</div>
 										))}
@@ -98,18 +102,13 @@ class ReactjsDevelopment extends Component {
 						</div>
 					</section> */}
 					<OurRecentWork
-						title={pagedata[2].css_title}
-						content={pagedata[2].css_content}
-						portfolio={portfolio}
+						title={pagedata[2].orwTitle}
+						content={pagedata[2].orwSubTitle}
+						portfolio={pagedata[2].orwPortfolioList}
 					/>
 				</div>
-				<AboutProject 
-					apsiwtch={acf.use_common_contact_section} 
-					apimage={acf.tuabp_image} 
-					aptitle={acf.tuabp_title} 
-					apcontent={acf.tuabp_content} 
-					apbuttontext={acf.tuabp_button_text} 
-					apbuttonlink={acf.tuabp_button_link} />
+				
+				<AboutProject comcontact={pagedata[3]} />
 	  </Layout>
 		)
 	}
@@ -120,9 +119,23 @@ export default ReactjsDevelopment
 
 export const query = graphql`
 {	
+	allWpCptuiTestimonial {
+        edges {
+          node {
+            title
+            content
+            featuredImage {
+              node {
+                sourceUrl
+              }
+            }
+          }
+        }
+    }
 	  allWpPage(filter: {databaseId: {eq: 7454}}) {
 		edges {
 			node {
+				title
 				seo {
 					title
 					metaDesc
@@ -148,7 +161,7 @@ export const query = graphql`
 					  ... on WpPage_Acfgenerallayout_GenContentModules_GenGridBoxes {
 						genGridBoxTitle
 						genGridBoxesRep {
-						  genButtonText
+							genTitleGb
 						  genDescriptionGb
 						}
 					  }
