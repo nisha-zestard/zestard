@@ -10,23 +10,23 @@ class Career extends Component {
     render() {
       const data = this.props.data
       const seotd = data.wpPage
-      const acfData = data.wpPage.acf;
+    //   const acfData = data.wpPage.acf;
       //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>
-        <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
+        {/* <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/> */}
         <Header headernavclass="lightheader" />
             <div id="page" className="site career">
                 <div id="content" className="site-content">
                 {/* page header */}
-                    <PageHeader
+                    {/* <PageHeader
                         headerMascot = {acfData.header_mascot}
                         headerSubText = {acfData.header_sub_text}
                         headerSectionTitle={acfData.header_section_title}
                         headerPageTitle={acfData.header_page_title}
-                    />
+                    /> */}
                     {/* career Part */}
-                    <section id="career-container">
+                    {/* <section id="career-container">
                         <div className="open-position">
                             <div className="container">
                                 <div className="row">
@@ -64,7 +64,7 @@ class Career extends Component {
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> */}
                 </div>
             </div>
         </Layout>

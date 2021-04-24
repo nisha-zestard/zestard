@@ -9,27 +9,27 @@ class Partnership extends Component {
   
     render() {
       const data = this.props.data
-      const seotd = data.wpPage
-      const acfData = data.wpPage.acf;
-      const offshore = data.wpPage.acf.gen_content_modules_page[0];
-      const referral = data.wpPage.acf.gen_content_modules_page[2];
-      const reseller = data.wpPage.childWordPressAcfGenLeftImageAndRightDescription;
+      // const seotd = data.wpPage
+      // const acfData = data.wpPage.acf;
+      // const offshore = data.wpPage.acf.gen_content_modules_page[0];
+      // const referral = data.wpPage.acf.gen_content_modules_page[2];
+      // const reseller = data.wpPage.childWordPressAcfGenLeftImageAndRightDescription;
       //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>
-          <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
+          {/* <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/> */}
           <Header headernavclass="lightheader" />
           <div id="page" className="site ">
             <div id="content" className="site-content">
               {/* page header */}
-              <PageHeader
+              {/* <PageHeader
                 headerMascot = {acfData.header_mascot}
                 headerSubText = {acfData.header_sub_text}
                 headerSectionTitle={acfData.header_section_title}
                 headerPageTitle={acfData.header_page_title}
-              />
+              /> */}
               {/* partnership */}
-              <section>
+              {/* <section>
                 <div className="partner-type  offshare">
                   <div className="container">
                     <div className="row">
@@ -47,8 +47,8 @@ class Partnership extends Component {
                     </div>
                   </div>
                 </div>
-              </section>
-              <section>
+              </section> */}
+              {/* <section>
                 <div className="partner-type reseller">
                   <div className="container">
                     <div className="row">
@@ -66,8 +66,8 @@ class Partnership extends Component {
                     </div>
                   </div>
                 </div>
-              </section>
-              <section>
+              </section> */}
+              {/* <section>
                 <div className="partner-type referral">
                   <div className="container">
                     <div className="row">
@@ -85,7 +85,7 @@ class Partnership extends Component {
                     </div>
                   </div>
                 </div>
-              </section>
+              </section> */}
             </div>
           </div>
         </Layout>

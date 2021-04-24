@@ -40,7 +40,7 @@ class Portfolio extends Component {
         //const portcat = data.allWpCptuiPortfolioCategory.edges        
         return(
             <Layout>
-                <SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content}/>
+                {/* <SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content}/> */}
                 <Header headernavclass="lightheader" />
                 <div>
                     <section>
