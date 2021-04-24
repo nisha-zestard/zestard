@@ -4,7 +4,7 @@ import Layout from "../../components/layout";
 import Header from "../../components/header";
 import SEO from "../../components/seo";
 import { removePre } from "../../util/common";
-import AboutProject from "../../components/aboutproject";
+//import AboutProject from "../../components/aboutproject";
 import Credentials from "../../components/Credentails";
 import OurRecentWork from "../../components/OurRecentWork";
 import ServiceHero from "../../components/ServiceHero";

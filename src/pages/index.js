@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import Header from "../components/header";
 import SEO from "../components/seo";
 import Testimonials from '../components/TestiMonials';
-import Credentails from '../components/Credentails';
+//import Credentails from '../components/Credentails';
 import OurClients from "../components/OurClients";
 import ServiceHero from "../components/ServiceHero";
 // import Slider from "react-slick";
@@ -56,13 +56,9 @@ class Home extends Component {
          const expertise = data.allWpPage.edges[0].node.acfHomeLayout.homeContentModules[0];
          const counter = data.allWp.edges[0].node.counterSettings.acfCounterSettings.csCounterDetails;
          const testimonial = data.allWpCptuiTestimonial.edges;
-        // const credential = header.gen_content_modules_page[3].cred_logos_repeater;
          const recentpost = data.allWpPost.edges;
         const portfolio = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[1].orwPortfolioList;
-        // const newbann = header.gen_content_modules_page[4];
-       
         
-          
   return(
   <Layout> 
     <div className="home-new">

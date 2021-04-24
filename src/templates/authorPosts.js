@@ -9,8 +9,8 @@ import SEO from "../components/seo";
 class AuthorPostsTemplate extends Component {
   
   render() {
-    const data = this.props.data
-    const authorName = data.allWpPost.edges[0].node.author.node.name
+    const data = this.props.data;
+    const authorName = data.allWpPost.edges[0].node.author.node.name;
     return (
       <Layout>
       <SEO title={`${authorName}, Author`} />

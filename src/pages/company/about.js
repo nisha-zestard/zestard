@@ -5,9 +5,9 @@ import Header from "../../components/header";
 import Layout from "../../components/layout"
 import SEO from "../../components/seo";
 import PageHeader from './../../components/page-header';
-import Valueicon from "../../assets/images/values-icon.png"
-import Testimonials from "../../components/TestiMonials";
-import AboutProject from "../../components/aboutproject";
+// import Valueicon from "../../assets/images/values-icon.png"
+// import Testimonials from "../../components/TestiMonials";
+// import AboutProject from "../../components/aboutproject";
 
 class About extends Component {
   

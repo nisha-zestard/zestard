@@ -56,7 +56,8 @@ class Header extends React.Component {
           allWpMenuItem(filter: {menu: {node: {name: {eq: "main-menu"}}}, parentDatabaseId: {eq: 0}}) {
             edges {
               node {
-                label                
+                label
+                url                
                 childItems {
                   nodes {
                     label
@@ -82,7 +83,7 @@ class Header extends React.Component {
          const contactmenu = maninmenu[4];
          const { location} = history
          const param = location.pathname;  
-         console.log(servicmenu);
+         console.log(blogmenu);
       
         const handleClicko = (el) => { 
           document.body.classList.toggle("menu-open");
@@ -155,9 +156,9 @@ class Header extends React.Component {
                       </Dropdown>  
                     
                     </li>
-                    <li className="nav-item menu-item"><Link to={`/${removePre(blogmenu.node.url)}`}>{blogmenu.node.label}</Link></li>
-                    <li className="nav-item menu-item"><Nav.Link href={`/${removePre(contactmenu.node.url)}`}>{contactmenu.node.label}</Nav.Link></li>
-                    <li className="nave-item menu-item request-quote-mob"><Link to={`/${removePre(contactmenu.node.url)}`} className="btn-primary">Request a Quote</Link></li>
+                    <li className="nav-item menu-item"><Link to={blogmenu.node.url}>{blogmenu.node.label}</Link></li>
+                    <li className="nav-item menu-item"><Nav.Link href={contactmenu.node.url}>{contactmenu.node.label}</Nav.Link></li>
+                    <li className="nave-item menu-item request-quote-mob"><Link to={contactmenu.node.url} className="btn-primary">Request a Quote</Link></li>
                   </ul>
                   </div>
                 </Navbar>                
