@@ -36,42 +36,42 @@ class Culture extends Component {
 
   render() {
     const data = this.props.data
-    const seotd = data.wpPage
-    const acfData = data.wpPage.acf
-    const culturelist = data.allWpCptuiCulture.edges
-    const culcat = data.allWpCptuiCultureCat.edges
+    // const seotd = data.wpPage
+    // const acfData = data.wpPage.acf
+    // const culturelist = data.allWpCptuiCulture.edges
+    // const culcat = data.allWpCptuiCultureCat.edges
 
-    const getpcid = (el, index) => {
-      const pcategoryid = el.target.getAttribute("culcat-id")
-      this.setActive(index)
-      var setlid
-      for (var i = 0; i < culturelist.length; i++) {
-        if (pcategoryid == culturelist[i].node.culture_cat[0]) {
-          setlid = document.getElementsByClassName("culture-list")[i].style.display = "block"
-        } else {
-          setlid = document.getElementsByClassName("culture-list")[i].style.display = "none"
-        }
-      }
-    }
+    // const getpcid = (el, index) => {
+    //   const pcategoryid = el.target.getAttribute("culcat-id")
+    //   this.setActive(index)
+    //   var setlid
+    //   for (var i = 0; i < culturelist.length; i++) {
+    //     if (pcategoryid == culturelist[i].node.culture_cat[0]) {
+    //       setlid = document.getElementsByClassName("culture-list")[i].style.display = "block"
+    //     } else {
+    //       setlid = document.getElementsByClassName("culture-list")[i].style.display = "none"
+    //     }
+    //   }
+    // }
 
     return (
       <Layout>
-        <SEO
+        {/* <SEO
           title={seotd.yoast_title}
           description={seotd.yoast_meta[0].content}
-        />
+        /> */}
         <Header headernavclass="lightheader" />
         <div id="page" className="">
           <div id="content" className="site-content">
             {/* page header */}
-            <PageHeader
+            {/* <PageHeader
               headerMascot={acfData.header_mascot}
               headerSubText={acfData.header_sub_text}
               headerSectionTitle={acfData.header_section_title}
               headerPageTitle={acfData.header_page_title}
-            />
+            /> */}
             {/* events */}
-            <div className="container">
+            {/* <div className="container">
               <div className="row">
                 <div className="col-sm-12 year-list">
                   <ul>
@@ -116,7 +116,7 @@ class Culture extends Component {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </Layout>
