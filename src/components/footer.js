@@ -205,6 +205,7 @@ const handleClose = (el) => {
               <p className="m-0">{acf.acfFooter.copyrigth}</p>
             </div>
           </div>
+          
           <div className="col-md-4 col-lg-5">
             <div className="bottom-link">
               <ul className="m-0 p-0 d-flex justify-content-end">

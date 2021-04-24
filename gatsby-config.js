@@ -69,7 +69,6 @@ module.exports = {
         //   "/*/*/menus",
         //   "/*/*/portfolio"
         // ],
-        //useACF: true,
         // normalizer: function ({ entities }) {
         //   return entities
         // },
