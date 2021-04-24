@@ -6,37 +6,37 @@ import SEO from "../components/seo";
 
 class Portfolio extends Component {
 
-    getpcid = (el) => {
-        const data = this.props.data;
-        const pcategoryid = parseInt(el.target.getAttribute("data-pcid"));
-        const portfoliolist = data.allWpCptuiPortfolio.edges;
-        var setlid;
-        for(var i=0; i< portfoliolist.length; i++) {    
-            var test = portfoliolist[i].node.portfolio_category;
-            const catindex = test.indexOf(pcategoryid);
-            if(catindex > -1){
-                //console.log(portfoliolist[i].node.portfolio_category[catindex]);
-                if(pcategoryid == portfoliolist[i].node.portfolio_category[catindex]){                                      
-                    setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'block';
-                }                
-            }
-            else {
-                setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'none';
-            }
+    // getpcid = (el) => {
+    //     const data = this.props.data;
+    //     const pcategoryid = parseInt(el.target.getAttribute("data-pcid"));
+    //     const portfoliolist = data.allWpCptuiPortfolio.edges;
+    //     var setlid;
+    //     for(var i=0; i< portfoliolist.length; i++) {    
+    //         var test = portfoliolist[i].node.portfolio_category;
+    //         const catindex = test.indexOf(pcategoryid);
+    //         if(catindex > -1){
+    //             //console.log(portfoliolist[i].node.portfolio_category[catindex]);
+    //             if(pcategoryid == portfoliolist[i].node.portfolio_category[catindex]){                                      
+    //                 setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'block';
+    //             }                
+    //         }
+    //         else {
+    //             setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'none';
+    //         }
             
-        }
-    }
+    //     }
+    // }
 
-    allpid = (el) => {
-        const plist = document.getElementsByClassName('portfoliolist');
-        for(var k=0; k < plist.length; k++) {
-            plist[k].style.display = 'block';                
-        }            
-    }
+    // allpid = (el) => {
+    //     const plist = document.getElementsByClassName('portfoliolist');
+    //     for(var k=0; k < plist.length; k++) {
+    //         plist[k].style.display = 'block';                
+    //     }            
+    // }
 
     render() {
         const data = this.props.data
-        const sertech = data.allWpPage.edges[0].node;
+        // const sertech = data.allWpPage.edges[0].node;
         //const portcat = data.allWpCptuiPortfolioCategory.edges        
         return(
             <Layout>
@@ -72,7 +72,7 @@ class Portfolio extends Component {
                         </div>
                         <div className="portfolio-boxes">
                             <div className="all-portfolio-list">
-                                {data.allWpCptuiPortfolio.edges.map((node,index) => (
+                                {/* {data.allWpCptuiPortfolio.edges.map((node,index) => (
                                     <div className="portfoliolist" key={index} data-id={node.node.portfolio_category} onLoad={ (e) => this.allpid(e) }>                                        
                                         <div className="project">
                                             {node.node.featured_media !== null && node.node.featured_media.source_url !== null && 
@@ -84,7 +84,7 @@ class Portfolio extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                ))}                                
+                                ))}                                 */}
                             </div>
                         </div>
                     </section>
