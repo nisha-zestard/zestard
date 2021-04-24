@@ -37,7 +37,7 @@ class Portfolio extends Component {
     render() {
         const data = this.props.data
         const sertech = data.allWpPage.edges[0].node;
-        const portcat = data.allWpCptuiPortfolioCategory.edges        
+        //const portcat = data.allWpCptuiPortfolioCategory.edges        
         return(
             <Layout>
                 <SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content}/>
@@ -62,12 +62,12 @@ class Portfolio extends Component {
 						</div>
                         <div className="portfolio-list">
                             <div className="container">
-                                <ul>
+                                {/* <ul>
                                     <li onClick={ (e) => this.allpid(e) }>All</li>
                                     {portcat.map((node,index) => (
                                         <li data-pcid={node.node.databaseId} key={index} onClick={ (e) => this.getpcid(e) }>{node.node.name}</li>
                                     ))}
-                                </ul>
+                                </ul> */}
                             </div>
                         </div>
                         <div className="portfolio-boxes">
