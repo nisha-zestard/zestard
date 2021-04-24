@@ -9,24 +9,24 @@ class PrivacyPolicy extends Component {
   
     render() {
       const data = this.props.data
-      const acfData = data.wpPage.acf;
-      const sertech = data.wpPage
+    //   const acfData = data.wpPage.acf;
+    //   const sertech = data.wpPage
     
 
       return (
         <Layout>
-        <SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
+        {/* <SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} /> */}
         <Header headernavclass="lightheader" />
             <div id="page" className="site">
                 <div id="content" className="site-content">
                 {/* page header */}
-                <PageHeader
+                {/* <PageHeader
                     headerMascot = {acfData.header_mascot}
                     headerSubText = {acfData.header_sub_text}
                     headerSectionTitle={acfData.header_section_title}
                     headerPageTitle={acfData.header_page_title}
-                />
-                {data.allWpPage.edges.map(({ node }, index) => (
+                /> */}
+                {/* {data.allWpPage.edges.map(({ node }, index) => (
                     <div className="container" key={index}>
                         <div id="primary" className="content-area">
                             <main id="main" className="site-main">
@@ -37,7 +37,7 @@ class PrivacyPolicy extends Component {
                             </main>
                         </div>
                     </div>
-                ))}
+                ))} */}
                 </div>
             </div>
         </Layout>
