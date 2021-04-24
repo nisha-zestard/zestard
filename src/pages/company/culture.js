@@ -36,23 +36,23 @@ class Culture extends Component {
 
   render() {
     const data = this.props.data
-    const seotd = data.wpPage
-    const acfData = data.wpPage.acf
-    const culturelist = data.allWpCptuiCulture.edges
-    const culcat = data.allWpCptuiCultureCat.edges
+    // const seotd = data.wpPage
+    // const acfData = data.wpPage.acf
+    // const culturelist = data.allWpCptuiCulture.edges
+    // const culcat = data.allWpCptuiCultureCat.edges
 
-    const getpcid = (el, index) => {
-      const pcategoryid = el.target.getAttribute("culcat-id")
-      this.setActive(index)
-      var setlid
-      for (var i = 0; i < culturelist.length; i++) {
-        if (pcategoryid == culturelist[i].node.culture_cat[0]) {
-          setlid = document.getElementsByClassName("culture-list")[i].style.display = "block"
-        } else {
-          setlid = document.getElementsByClassName("culture-list")[i].style.display = "none"
-        }
-      }
-    }
+    // const getpcid = (el, index) => {
+    //   const pcategoryid = el.target.getAttribute("culcat-id")
+    //   this.setActive(index)
+    //   var setlid
+    //   for (var i = 0; i < culturelist.length; i++) {
+    //     if (pcategoryid == culturelist[i].node.culture_cat[0]) {
+    //       setlid = document.getElementsByClassName("culture-list")[i].style.display = "block"
+    //     } else {
+    //       setlid = document.getElementsByClassName("culture-list")[i].style.display = "none"
+    //     }
+    //   }
+    // }
 
     return (
       <Layout>
