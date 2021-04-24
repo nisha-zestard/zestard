@@ -78,10 +78,9 @@ class Culture extends Component {
                     {culcat.map((node, index) => (
                       <li
                         culcat-id={node.node.databaseId}
-                        className="cat-year-list"
                         key={index}
                         onClick={(e) => getpcid(e, index)}
-                        className={index == this.state.active ? "active" : ""}
+                        className={"cat-year-list" + index == this.state.active ? "active" : ""}
                       >
                         {node.node.name}
                       </li>
