@@ -37,9 +37,9 @@ class BlogEventTemplate extends Component {
                   <div className="container">
                     <div className="event-gallery">
                         <div className="grid" style={{position:`relative`}}>
-                          <CultureLightbox
+                          {/* <CultureLightbox
                           EventImages={data.wordpressWpCulture.acf.el_gallery} 
-                          />
+                          /> */}
                         </div>
                     </div>
                   </div>
