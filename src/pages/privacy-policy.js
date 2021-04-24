@@ -9,8 +9,8 @@ class PrivacyPolicy extends Component {
   
     render() {
       const data = this.props.data
-      const acfData = data.wordpressPage.acf;
-      const sertech = data.wordpressPage
+      const acfData = data.wpPage.acf;
+      const sertech = data.wpPage
     
 
       return (
@@ -26,7 +26,7 @@ class PrivacyPolicy extends Component {
                     headerSectionTitle={acfData.header_section_title}
                     headerPageTitle={acfData.header_page_title}
                 />
-                {data.allWordpressPage.edges.map(({ node }, index) => (
+                {data.allWpPage.edges.map(({ node }, index) => (
                     <div className="container" key={index}>
                         <div id="primary" className="content-area">
                             <main id="main" className="site-main">
@@ -48,31 +48,27 @@ class PrivacyPolicy extends Component {
 export default PrivacyPolicy
 
 export const query = graphql`
-    {
-        wordpressPage(slug: {eq: "privacy-policy"}) {
-            title
-            yoast_title
-                    yoast_meta {
-                        content
-                    }
-            acf {
-              header_page_title
-                header_mascot {
-                    source_url
-                }
-            }
-        }
-        allWordpressPage(filter: {slug: {eq: "privacy-policy"}}) {
+    {        
+        allWpPage(filter: {databaseId: {eq: 1664}}) {
             edges {
                 node {
-                    yoast_title
-                    yoast_meta {
-                        content
+                    seo {
+                        title
+                        metaDesc
+                    }
+                    acfHeader {
+                        headerPageTitle
+                        headerSectionTitle
+                        headerSubText
+                        homeMascotClass
+                        headerMascot {
+                            sourceUrl
+                        }
                     }
                     id
                     title
                     content
-                    wordpress_id
+                    databaseId
                 }
             }
           }

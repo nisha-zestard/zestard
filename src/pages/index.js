@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import Header from "../components/header";
 import SEO from "../components/seo";
 import Testimonials from '../components/TestiMonials';
-import Credentails from '../components/Credentails';
+//import Credentails from '../components/Credentails';
 import OurClients from "../components/OurClients";
 import ServiceHero from "../components/ServiceHero";
 // import Slider from "react-slick";
@@ -49,30 +49,29 @@ class Home extends Component {
 
             ]
           }
-        const data = this.props.data  
-        const header = data.allWordpressPage.edges[0].node.acf;
-        const clientlogo = data.allWordpressWpClients.edges;
-        const seotd = data.allWordpressPage.edges[0].node;
-        const expertise = header.home_content_modules_page[0];
-        const counter = data.wordpressAcfOptions.options;
-        const testimonial = data.allWordpressWpTestimonials.edges;
-        const credential = header.gen_content_modules_page[3].cred_logos_repeater;
-        const recentpost = data.allWordpressPost.edges;
-        const portfolio = data.allWordpressWpPortfolio.edges;
-        const newbann = header.gen_content_modules_page[4];
-        console.log(expertise)
-          
+        const data = this.props.data
+         const header = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[0];
+         const clientlogo = data.allWpCptuiClient.edges;
+         const seotd = data.allWpPage.edges[0].node.seo;
+         const expertise = data.allWpPage.edges[0].node.acfHomeLayout.homeContentModules[0];
+         const counter = data.allWp.edges[0].node.counterSettings.acfCounterSettings.csCounterDetails;
+         const testimonial = data.allWpCptuiTestimonial.edges;
+         const recentpost = data.allWpPost.edges;
+        const portfolio = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[1].orwPortfolioList;
+        
   return(
   <Layout> 
     <div className="home-new">
-    <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content} schemaMarkup={schema}/>
+    
+    <SEO title={seotd.title} description={seotd.metaDesc} schemaMarkup={schema}/>
     {/* banner-section  */}
+    
 
     <Header headernavclass="darkheader" />
     <ServiceHero
-      title={newbann.gen_left_description}
-      subText=""
-      image={newbann.gen_two_sec_image.source_url}
+      title=""
+      subText={header.genLeftDescription}
+      image={header.genTwoSecImage.sourceUrl}
       background={"linear-gradient(-47deg, #0784a5, #03168e)"}
     />
 
@@ -89,11 +88,11 @@ class Home extends Component {
                 <div className="portfolio-list">
                     <div className="row">
                         {portfolio.map((node,index) => (
-                            <div className={node.node.title === "Jadeblue" ? 'col-md-12 full-col' : 'col-md-6 half-col'} key={index}>
+                            <div className={node.title === "Jadeblue" ? 'col-md-12 full-col' : 'col-md-6 half-col'} key={index}>
                                 <div className="portfolio-wrap">
                                     <div className="portfolio-image">
-                                        {node.node.acf.pf_image_with_responsive.source_url !== null &&
-                                            <img src={node.node.acf.pf_image_with_responsive.source_url} alt={node.node.title} />
+                                        {node.acfPortfolioLayout.pfImageWithResponsive.sourceUrl !== null &&
+                                            <img src={node.acfPortfolioLayout.pfImageWithResponsive.sourceUrl} alt={node.title} />
                                         }                                    
                                     </div>
                                 </div>
@@ -112,18 +111,18 @@ class Home extends Component {
                 <div className="row">
                     <div className="col-lg-4">
                         <div className="title">
-                            <h2>{expertise.home_oe_section_title}</h2>
-                            <p>{expertise.home_oe_content}</p>
-                            <Link to={`/services/${removePre(expertise.home_oe_read_more_link)}`} className="btn r-more">read more</Link>
+                            <h2>{expertise.homeOeSectionTitle}</h2>
+                            <p>{expertise.homeOeContent}</p>
+                            <Link to={`/services${removePre(expertise.homeOeReadMoreLink)}`} className="btn r-more">read more</Link>
                         </div>
                     </div>
                     <div className="col-lg-8">
                         <div className="experience-wrap">
                             <ul>
-                                {expertise.home_oe_right_icons.map((node,index) => (
+                                {expertise.homeOeRightIcons.map((node,index) => (
                                     <li key={index}>
-                                        {node.home_oe_icons.source_url !== null &&
-                                        <Link to={`/${removePre(node.home_oe_rp_links)}`}><img src={node.home_oe_icons.source_url} alt="f-logo-img" /></Link>
+                                        {node.homeOeIcons.sourceUrl !== null &&
+                                        <Link to={`/${removePre(node.homeOeRpLinks)}`}><img src={node.homeOeIcons.sourceUrl} alt="f-logo-img" /></Link>
                                         }                                        
                                     </li>
                                 ))}                                
@@ -141,10 +140,10 @@ class Home extends Component {
             <div className="container">
                 <div className="counter-wraper">
                     <ul className="row">
-                        {counter.cs_counter_details.map((node,index) => (
+                        {counter.map((node,index) => (
                             <li className="box" key={index}>
-                                <h2>{node.cs_number}<span>+</span></h2>
-                                <p>{node.cs_label}</p>
+                                <h2>{node.csNumber}<span>+</span></h2>
+                                <p>{node.csLabel}</p>
                             </li>
                         ))}                        
                     </ul>
@@ -168,12 +167,12 @@ class Home extends Component {
                 <div className="col-md-4" key={index}>
                   <div className="box">
                     <div className="blog-image">
-                        {(node.node.featured_media !== null && node.node.featured_media.source_url !== null) &&
-                            <img src={node.node.featured_media.source_url} alt="top-img" />
+                        {node.node.featuredImage !== null  &&
+                            <img src={node.node.featuredImage.node.sourceUrl} alt="top-img" />
                         }   
                     </div>                       
                     <ul>
-                        <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.name}</li>
+                        <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.node.name}</li>
                         <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.date}</li>
                     </ul>
                     
@@ -194,151 +193,132 @@ export default Home
 
 export const query = graphql`
 {
-
-    allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 231}}}}) {
-
+      allWpPage(filter: {databaseId: {eq: 2}}) {
         edges {
           node {
-            title
-            excerpt
-            link
-            featured_media {
-              source_url
+            seo {
+              title
+              metaDesc
             }
-            acf {
-              pf_image_with_responsive {
-                source_url
+            acfHeader {
+              headerPageTitle
+              headerSectionTitle
+              headerSubText
+              homeMascotClass
+              headerMascot {
+                sourceUrl
+              }
+            }
+            acfGeneralLayout {
+              genContentModules {
+                ... on WpPage_Acfgenerallayout_GenContentModules_GenRightImageAndLeftDescription {
+                  genTwoSecImage {
+                    sourceUrl
+                  }
+                  genLeftDescription
+                }
+                ... on WpPage_Acfgenerallayout_GenContentModules_OurRecentWork {
+                  orwTitle
+                  orwPortfolioList {
+                    ... on WpCptui_portfolio {
+                      id
+                      title
+                      acfPortfolioLayout {
+                        pfImageWithResponsive {
+                          sourceUrl
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            acfHomeLayout {
+              homeContentModules {
+                ... on WpPage_Acfhomelayout_HomeContentModules_HomeOurExpertise {
+                  homeOeSectionTitle
+                  homeOeContent
+                  homeOeReadMoreLink
+                  homeOeRightIcons {
+                    homeOeIcons {
+                      sourceUrl
+                    }
+                    homeOeRpLinks
+                  }
+                }
               }
             }
           }
         }
       }
-    allWordpressPage(filter: {wordpress_id: {eq: 2}}) {
+      allWpCptuiTestimonial {
         edges {
           node {
-            yoast_meta {
-                content
+            title
+            content
+            featuredImage {
+              node {
+                sourceUrl
               }
-              yoast_title
-            acf {
-                header_section_title
-                header_page_title
-                header_sub_text
-                home_mascot_class
-                header_mascot {
-                    source_url
-                }                
-                gen_content_modules_page {
-                    ... on WordPressAcf_gen_page_intro_section {
-                        id
-                        pis_section_title
-                        pis_content
-                        pis_section_class
-                    }
-                    ... on WordPressAcf_gen_cards_section {
-                        id
-                        cs_cards_details {
-                            cs_icon {
-                            source_url
-                            }
-                            cs_title
-                            cs_content
-                            cs_learn_more_link
-                        }
-                    }  
-                    ... on WordPressAcf_gen_case_study_section {
-                        id
-                        css_title
-                        css_content
-                        css_section_class
-                    }  
-                    ... on WordPressAcf_gen_credential_logos {
-                      id
-                      cred_logos_repeater {
-                        cred_logos_list {
-                          source_url
-                        }
-                      }
-                    }
-                    ... on WordPressAcf_gen_right_image_and_left_description {
-                      id
-                      gen_left_description
-                      gen_two_sec_image {
-                        source_url
-                      }
-                    }                
+            }
+          }
+        }
+      }
+      allWpCptuiTechnology {
+        nodes {
+          title
+          content
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
+        }
+      }
+      allWpCptuiClient {
+        edges {
+          node {
+            featuredImage {
+              node {
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+      allWp {
+        edges {
+          node {
+            counterSettings {
+              acfCounterSettings {
+                csSectionClass
+                csCounterDetails {
+                  csLabel
+                  csNumber
                 }
-                home_content_modules_page {
-                    home_oe_section_title
-                    home_oe_content
-                    home_oe_read_more_link
-                    home_oe_right_icons {
-                        home_oe_rp_links
-                        home_oe_icons {
-                            source_url
-                        }
-                    }
-                }
+              }
             }
           }
         }
       }
-      allWordpressWpClients {
+      allWpPost(limit: 3, sort: {fields: date, order: DESC}) {
         edges {
           node {
-            featured_media {
-              source_url
-            }
             title
-          }
-        }
-      }
-      wordpressAcfOptions {
-        options {
-          cs_section_class
-          cs_counter_details {
-            cs_label
-            cs_number
-          }
-        }
-      }
-      allWordpressWpTestimonials {
-        edges {
-          node {
-            featured_media {
-              source_url
-            }
-            title
-            content
-          }
-        }
-      }
-      allWordpressWpCredentials(sort: {order: ASC, fields: date}, filter: {acf: {hide_on_home_page: {eq: false}}}) {
-        edges {
-          node {
-            acf {
-                hide_on_home_page
-            }
-            featured_media {
-              source_url
-            }
-          }
-        }
-      }
-      allWordpressPost(sort: {order: DESC, fields: date}, limit: 3) {
-        edges {
-          node {
-            content
             slug
+            content
             link
             excerpt
             date(formatString: "MMMM DD, YYYY")
-            featured_media {
-              source_url              
-            }
-            title
             author {
-              name
+              node {
+                name
+              }
+            }
+            featuredImage {
+              node {
+                sourceUrl
+              }
             }
           }
         }

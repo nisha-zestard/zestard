@@ -25,23 +25,25 @@ function TechPortfolio(props) {
     <StaticQuery
       query={graphql`
         query {
-          allWordpressWpPortfolio {
+          allWpCptuiPortfolio {
             edges {
               node {
                 title
-                wordpress_id
+                databaseId
                 slug
-                featured_media {
-                  source_url
+                featuredImage {
+                  node {
+                    sourceUrl
+                  }
                 }
               }
             }
           }
         }
       `}
-      render={({ allWordpressWpPortfolio }) =>
-      renderItems(allWordpressWpPortfolio.edges.filter(
-          node => (node.node.wordpress_id === props.item1 || node.node.wordpress_id === props.item2)
+      render={({ allWpCptuiPortfolio }) =>
+      renderItems(allWpCptuiPortfolio.edges.filter(
+          node => (node.node.databaseId === props.item1 || node.node.databaseId === props.item2)
           ))
       }
     />

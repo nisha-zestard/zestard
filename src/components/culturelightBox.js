@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Masonry from 'react-masonry-css';
-import Lightbox from 'react-image-lightbox';
+// import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import Modal from 'react-bootstrap/Modal'
-import ImageGallery from 'react-image-gallery';
+// import ImageGallery from 'react-image-gallery';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import ReactPlayer from 'react-player';
@@ -79,7 +79,7 @@ export default class CultureLightbox extends Component {
     const { photoIndex, isOpen, showLightbox, selIndex } = this.state;
     
     const images = [];  
-    console.log(EventImages);   
+    //console.log(EventImages);   
     
     
     return (      

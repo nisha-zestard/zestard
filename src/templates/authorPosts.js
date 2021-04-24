@@ -9,8 +9,8 @@ import SEO from "../components/seo";
 class AuthorPostsTemplate extends Component {
   
   render() {
-    const data = this.props.data
-    const authorName = data.allWordpressPost.edges[0].node.author.name
+    const data = this.props.data;
+    const authorName = data.allWpPost.edges[0].node.author.node.name;
     return (
       <Layout>
       <SEO title={`${authorName}, Author`} />
@@ -35,7 +35,7 @@ class AuthorPostsTemplate extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-md-8 blog-posts-wrap">
-                    {data.allWordpressPost.edges.map(node => (
+                    {data.allWpPost.edges.map(node => (
                       <div key={node.node.id}>
                         <article id="post-{node.id}"
                         className="post-{node.id} post type-post status-publish format-standard has-post-thumbnail hentry category-design category-tips-and-tricks card">
@@ -43,8 +43,8 @@ class AuthorPostsTemplate extends Component {
                             <div className="col-md-12 col-sm-12">
                               <div className="card-image">
                                 <Link to={`/blog/${removePre(node.node.link)}`} className="post-thumbnail">
-                                {node.node.featured_media !== null && node.node.featured_media.source_url !== null && node.node.featured_media.source_url !== null &&
-                                  <img src={node.node.featured_media.source_url} alt="" loading="lazy"/>  
+                                {node.node.featuredImage !== null && node.node.featuredImage.node.sourceUrl !== null && node.node.featuredImage.node.sourceUrl !== null &&
+                                  <img src={node.node.featuredImage.node.sourceUrl} alt="" loading="lazy"/>  
                                 }</Link>
                               </div>
                               <div className="section-desc">
@@ -62,15 +62,14 @@ class AuthorPostsTemplate extends Component {
                                     <div className="col-md-6 col-sm-6">
                                       <div className="author">
                                         <div>By 
-                                        <Link to={`/${removePre(node.node.author.link)}`} className="vcard author">
+                                        <Link to={`/${removePre(node.node.author.node.uri)}`} className="vcard author">
                                           <strong className="fn">
                                           {node.node.author !== null &&
-                                          <span>  {node.node.author.name}</span>
+                                          <span>  {node.node.author.node.name}</span>
                                           } 
                                           </strong>
                                         </Link>, 
-                                          <time> {node.node.date}</time>
-                                        
+                                          <time> {node.node.date}</time>                                        
                                         </div>
                                       </div>
                                     </div>
@@ -112,7 +111,7 @@ export default AuthorPostsTemplate
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    allWordpressPost(filter: {author: {slug: {eq: $slug}}}) {
+    allWpPost(filter: {author: {node: {slug: {eq: $slug}}}}) {
       edges {
         node {
           id
@@ -122,15 +121,23 @@ export const pageQuery = graphql`
           excerpt
           link
           author {
-            name
-            slug
-            link
+            node {
+              name
+              slug
+              uri
+            }
           }
-          featured_media {
-            source_url
+          featuredImage {
+            node {
+              sourceUrl
+            }
           }
           categories {
-            name
+            nodes {
+              name
+              link
+              slug
+            }
           }
         }
       }

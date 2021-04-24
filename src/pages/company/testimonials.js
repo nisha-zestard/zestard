@@ -17,9 +17,9 @@ class Testimonials extends Component {
   
     render() {
       const data = this.props.data
-      const seotd = data.wordpressPage
-      const acfData = data.wordpressPage.acf;
-      //const metadata = data.wordpressPage.yoast_meta[0].content;
+      const seotd = data.wpPage
+      const acfData = data.wpPage.acf;
+      //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>
         <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
@@ -40,7 +40,7 @@ class Testimonials extends Component {
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column"
                     >
-                    {data.allWordpressWpTestimonials.edges.map(({ node }) => (
+                    {data.allWpCptuiTechnology.edges.map(({ node }) => (
                     <div className="grid-item" key={node.id}>
                         <div className="testimonial-wrapper card">
                             <div className="speaks">
@@ -70,30 +70,23 @@ export default Testimonials
 
 export const query = graphql`
     {
-        wordpressPage(slug: {eq: "testimonials"}) {
-            yoast_title
-            yoast_meta {
-                content
-            }
+        wpPage(slug: {eq: "testimonials"}) {
             title
-            acf {
-              header_page_title
-              header_sub_text
-              header_section_title
-                header_mascot {
-                    source_url
+            seo {
+                title
+                metaDesc
+              }
+            acfHeader {
+                headerPageTitle
+                headerSectionTitle
+                headerSubText
+                homeMascotClass
+                headerMascot {
+                  sourceUrl
                 }
-                use_common_contact_section
-                tuabp_title
-                tuabp_image {
-                source_url
-                }
-                tuabp_content
-                tuabp_button_text
-                tuabp_button_link
             }
         }
-        allWordpressWpTestimonials {
+        allWpCptuiTechnology {
             edges {
                 node {
                     id

@@ -35,9 +35,9 @@ const Testimonials = (props) => {
                                         <div className={index === 0 ? 'carousel-item' : 'carousel-item active'} key={index}>
                                             <div className="row">
                                                 <div className="col-md-5">
-                                                    <div className="testimonial-img">
-                                                        {(node.node.featured_media !== null && node.node.featured_media.source_url !== null ) &&
-                                                            <img className="d-block w-100" src={node.node.featured_media.source_url} alt={node.node.title} />
+                                                    <div className="testimonial-img">                                                        
+                                                        {node.node.featuredImage !== null && 
+                                                            <img className="d-block w-100" src={node.node.featuredImage.node.sourceUrl} alt={node.node.title} />
                                                         }
                                                     </div>
                                                 </div>

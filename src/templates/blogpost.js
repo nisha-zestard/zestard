@@ -27,9 +27,11 @@ class PostTemplate extends Component {
     }
   render() {
     const data = this.props.data
-    const post = this.props.data.wordpressPost    
+    
+    const post = data.wpPost    
+    console.log(data)
     // console.log(post.yoast_json_ld[0].wordpress__graph[2].description);
-    // const allpostauthor = this.props.data.allWordpressPost
+    // const allpostauthor = this.props.data.allWpPost
     
     return (
       <Layout>
@@ -71,13 +73,9 @@ class PostTemplate extends Component {
                                             <h1 className="hestia-title">{`${removeSpecialSymbols(post.title)}`}</h1>
                                             <div className="authormeta">
                                                 <div className="author_avatar">
-                                                <img alt={post.author.name} src={post.author.name === "Boni Satani" ? BoniImage : post.author.name === "Ritesh Vatwani" ? RiteshImage : post.author.name === "Anuj Dalal" ? AnujImage : post.author.name === "Tiksha Dalal" ? DefaultUserImage : DefaultUserImage} />
-                                                    {/* {allpostauthor.author.avatar_urls.wordpress_24 !== null &&
-                                                    <img src={post.author.avatar_urls.wordpress_24} alt={post.author.name}/>
-                                                    } */}
-                                                </div>
+                                                <img alt={post.author.node.name} src={post.author.node.name === "Boni Satani" ? BoniImage : post.author.node.name === "Ritesh Vatwani" ? RiteshImage : post.author.node.name === "Anuj Dalal" ? AnujImage : post.author.node.name === "Tiksha Dalal" ? DefaultUserImage : DefaultUserImage} />                                                                                                   </div>
                                                 <div className="author-details">
-                                                    <h4 className="author-name">{post.author.name}</h4>
+                                                    <h4 className="author-name">{post.author.node.name}</h4>
                                                     <span className="date">{dateFormate(post.date)}</span>
                                                 </div>
                                             </div>
@@ -97,13 +95,13 @@ class PostTemplate extends Component {
                                                         <div className="authorbio">
                                                             <div className="authorbio-top">
                                                                 <div className="author-image">
-                                                                    <img loading="lazy" alt={post.author.name} src={post.author.name === "Boni Satani" ? BoniImage : post.author.name === "Ritesh Vatwani" ? RiteshImage : post.author.name === "Anuj Dalal" ? AnujImage  : post.author.name === "Tiksha Dalal" ? DefaultUserImage : DefaultUserImage} />                                                                
+                                                                    <img loading="lazy" alt={post.author.node.name} src={post.author.node.name === "Boni Satani" ? BoniImage : post.author.node.name === "Ritesh Vatwani" ? RiteshImage : post.author.node.name === "Anuj Dalal" ? AnujImage  : post.author.node.name === "Tiksha Dalal" ? DefaultUserImage : DefaultUserImage} />                                                                
                                                                 </div>
                                                                 <div className="title">
-                                                                    <h3>About {post.author.name}</h3>
+                                                                    <h3>About {post.author.node.name}</h3>
                                                                 </div>
                                                             </div>
-                                                            <p dangerouslySetInnerHTML={{ __html: post.author.description }} />
+                                                            <p dangerouslySetInnerHTML={{ __html: post.author.node.description }} />
                                                         </div>
                                                     </div>}
                                                 </div>
@@ -113,8 +111,7 @@ class PostTemplate extends Component {
                                 </div>
                             </div>
                             {/* related posts */}
-                            <BlogPostFooter 
-                                allPost = {data.allWordpressPost}/>
+                            <BlogPostFooter allPost = {data.allWpPost}/>
                         </div>
                     </main>
                 </div>
@@ -134,35 +131,38 @@ export default PostTemplate
 
 export const pageQuery = graphql`
   query($id: String!, $cat: String! ) {
-    wordpressPost(id: { eq: $id }) {
+    wpPost(id: {eq: $id}) {
         title
         date(locale: "")
         content
         author {
-          name
-          description
-          avatar_urls {
-            wordpress_24
+          node {
+            name
+            description
           }
         }
         categories {
+          nodes {
             slug
+          }
         }
     }
-    allWordpressPost(limit: 3, filter: {categories: {elemMatch: {slug: {eq: $cat}}}, id: {ne: $id}}) {
+    allWpPost(limit: 3, filter: {categories: {nodes: {elemMatch: {slug: {eq: $cat}, id: {ne: $id}}}}}) {
         edges {
-            node {
-                id
-                title
-                wordpress_id
-                date(formatString: "l")
-                slug
-                excerpt
-                link
-                featured_media {
-                    source_url
-                }
+          node {
+            id
+            title
+            databaseId
+            date(formatString: "1")
+            slug
+            excerpt
+            link
+            featuredImage {
+              node {
+                sourceUrl
+              }
             }
+          }
         }
     }
   }

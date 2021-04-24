@@ -12,36 +12,40 @@ import OurRecentWork from "../../components/OurRecentWork";
 
 class ReactjsDevelopment extends Component {
 	render() {		
-		const data = this.props.data  
-		const acf = data.allWordpressPage.edges[0].node.acf
-		const pagedata = acf.gen_content_modules_page
-		const testimonial = data.allWordpressWpTestimonials.edges;
-		const sertech = data.allWordpressPage.edges[0].node;
-		const portfolio = data.allWordpressWpPortfolio.edges;
+		const data = this.props.data;
+		console.log(data) ;
+		const seodata = data.allWpPage.edges[0].node.seo;
+		const pagedata = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules;
+		const testimonial = data.allWpCptuiTestimonial.edges;
+		// const acf = data.allWpPage.edges[0].node.acf
+		// const pagedata = acf.gen_content_modules_page
+		// const testimonial = data.allWpCptuiTechnology.edges;
+		// const sertech = data.allWpPage.edges[0].node;
+		// const portfolio = data.allWpCptuiPortfolio.edges;
 		
 		return(
 			<Layout>
-				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
+				<SEO title={seodata.title} description={seodata.metaDesc} />
 				<Header headernavclass="lightheader" />
 				<div id="page" className="website-development">
-					<ServiceDetailHeader title={pagedata[0].iwc_layout_details[0].iwc_title} />
+					<ServiceDetailHeader title={data.allWpPage.edges[0].node.title} />
 					<ServiceBasicDetail
-						headerMascot={acf.header_mascot}
-						serviceDeail={pagedata[0].iwc_layout_details[0]}
+						headerMascot={pagedata[0].genTwoSecImage.sourceUrl}
+						serviceDeail={pagedata[0].genRightDescription}
 					/>
 					<section>
 						<div className="ecommerce-sercices-wrap">
 							<div className="container">
-								<h2 className="section-title text-center">{pagedata[1].cs_section_title}</h2>
+								<h2 className="section-title text-center">{pagedata[1].genGridBoxTitle}</h2>
 								<div className="services-list">
 									<div className="row">
-									{pagedata[1].cs_cards_details.map((node,index) => (
+									{pagedata[1].genGridBoxesRep.map((node,index) => (
 											<div className="col-md-6 col-lg-4" key={index}>
 												<div className="service-box">
 													<div className="ss-title">
-														<h2 dangerouslySetInnerHTML={{__html: node.cs_title}} />
+														<h2 dangerouslySetInnerHTML={{__html: node.genTitleGb}} />
 													</div>
-													<div className="ss-content" dangerouslySetInnerHTML={{__html: node.cs_content}} />													
+													<div className="ss-content" dangerouslySetInnerHTML={{__html: node.genDescriptionGb}} />													
 												</div>
 											</div>
 										))}
@@ -98,18 +102,13 @@ class ReactjsDevelopment extends Component {
 						</div>
 					</section> */}
 					<OurRecentWork
-						title={pagedata[2].css_title}
-						content={pagedata[2].css_content}
-						portfolio={portfolio}
+						title={pagedata[2].orwTitle}
+						content={pagedata[2].orwSubTitle}
+						portfolio={pagedata[2].orwPortfolioList}
 					/>
 				</div>
-				<AboutProject 
-					apsiwtch={acf.use_common_contact_section} 
-					apimage={acf.tuabp_image} 
-					aptitle={acf.tuabp_title} 
-					apcontent={acf.tuabp_content} 
-					apbuttontext={acf.tuabp_button_text} 
-					apbuttonlink={acf.tuabp_button_link} />
+				
+				<AboutProject comcontact={pagedata[3]} />
 	  </Layout>
 		)
 	}
@@ -117,96 +116,78 @@ class ReactjsDevelopment extends Component {
 }
 export default ReactjsDevelopment
 
+
 export const query = graphql`
-{
-	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 232}}}}, limit: 2) {
+{	
+	allWpCptuiTestimonial {
         edges {
           node {
-
             title
-            excerpt
-            link
-            featured_media {
-              source_url
-            }
-            acf {
-              pf_image_with_responsive {
-                source_url
+            content
+            featuredImage {
+              node {
+                sourceUrl
               }
             }
           }
         }
     }
-	allWordpressWpTestimonials {
-        edges {
-          node {
-            featured_media {
-              source_url
-            }
-            title
-            content
-          }
-        }
-      }
-	allWordpressPage(filter: {wordpress_id: {eq: 7454}}) {
+	  allWpPage(filter: {databaseId: {eq: 7454}}) {
 		edges {
-		  node {
-			yoast_title
-			yoast_meta {
-				content
-			}
-			acf {
-			  header_sub_text
-			  header_section_title
-			  header_mascot {
-				source_url
-			  }
-			  header_page_title
-              home_mascot_class
-              use_common_contact_section
-			  tuabp_title
-			  tuabp_image {
-				source_url
-			  }
-			  tuabp_content
-			  tuabp_button_text
-			  tuabp_button_link
-			  gen_content_modules_page {
-				... on WordPressAcf_gen_image_with_content {
-				  id
-				  iwc_layout_details {
-					iwc_image {
-					  source_url
-					}
-					iwc_sub_desc
-					iwc_icon {
-					  source_url
-					}
-					iwc_section_class
-					iwc_title
-				  }
+			node {
+				title
+				seo {
+					title
+					metaDesc
 				}
-				... on WordPressAcf_gen_cards_section {
-				  id
-				  cs_section_title
-              	  cs_section_class
-				  cs_cards_details {
-					cs_icon {
-					  source_url
+				acfHeader {
+					headerPageTitle
+					headerSectionTitle
+					headerSubText
+					homeMascotClass
+					headerMascot {
+						sourceUrl
 					}
-					cs_title
-					cs_content
-					cs_learn_more_link
-				  }
 				}
-				... on WordPressAcf_gen_case_study_section {
-				  css_title
-				  css_content
-				  css_section_class
-				}
-			  }
+				acfGeneralLayout {
+					genContentModules {
+					  ... on WpPage_Acfgenerallayout_GenContentModules_GenLeftImageAndRightDescription {
+						genTwoSecImage {
+						  sourceUrl
+						}
+						genRightHeading
+						genRightDescription
+					  }
+					  ... on WpPage_Acfgenerallayout_GenContentModules_GenGridBoxes {
+						genGridBoxTitle
+						genGridBoxesRep {
+							genTitleGb
+						  genDescriptionGb
+						}
+					  }
+					  ... on WpPage_Acfgenerallayout_GenContentModules_OurRecentWork {
+						orwTitle
+						orwSubTitle
+						orwPortfolioList {
+						  ... on WpCptui_portfolio {
+							id
+							acfPortfolioLayout {
+							  pfImageWithResponsive {
+								sourceUrl
+							  }
+							}
+						  }
+						}
+					  }
+					  ... on WpPage_Acfgenerallayout_GenContentModules_ContactUsForProject {
+						ccfpTitle
+						ccfpSubTitle
+						ccfpButtonText
+						ccfpButtonLink
+					  }
+					}
+				  }			  
 			}
 		  }
-		}
 	  }
 }`

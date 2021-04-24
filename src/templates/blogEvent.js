@@ -9,7 +9,7 @@ class BlogEventTemplate extends Component {
   
     render() {
       const data = this.props.data
-      const eventHead = this.props.data.allWordpressWpCulture.edges[0].node.title
+      const eventHead = this.props.data.allWpCptuiCulture.edges[0].node.title
       //const singleablum = data.wordpressWpCultures.acf.el_gallery;
       //console.log(singleablum);
       
@@ -57,21 +57,17 @@ export default BlogEventTemplate
 
 export const pageQuery = graphql`
   query($id: Int!) {
-    wordpressWpCulture(wordpress_id: {eq: $id}) {
-      acf {
-        el_gallery {
-          source_url          
-        }
-      }
-    }          
-    allWordpressWpCulture(filter: {wordpress_id: {eq: $id}}) {
+    allWpCptuiCulture(filter: {databaseId: {eq: $id}}) {
       edges {
         node {
-          id
           title
-          featured_media {
-            source_url
-            wordpress_id
+          slug
+          id
+          databaseId
+          featuredImage {
+            node {
+              sourceUrl
+            }
           }
         }
       }

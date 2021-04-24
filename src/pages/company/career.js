@@ -9,9 +9,9 @@ class Career extends Component {
   
     render() {
       const data = this.props.data
-      const seotd = data.wordpressPage
-      const acfData = data.wordpressPage.acf;
-      //const metadata = data.wordpressPage.yoast_meta[0].content;
+      const seotd = data.wpPage
+      const acfData = data.wpPage.acf;
+      //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>
         <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
@@ -76,41 +76,34 @@ export default Career
 
 export const query = graphql`
     {
-        wordpressPage(slug: {eq: "career"}) {
+        wpPage(slug: {eq: "career"}) {
             title
-            yoast_title
-            yoast_meta {
-                content
-            }
-            acf {
-              header_page_title
-              header_sub_text
-              header_section_title
-              header_mascot {
-                source_url
+            seo {
+                title
+                metaDesc
               }
-                use_common_contact_section
-                tuabp_title
-                tuabp_image {
-                source_url
+              acfHeader {
+                headerPageTitle
+                headerSectionTitle
+                headerSubText
+                homeMascotClass
+                headerMascot {
+                  sourceUrl
                 }
-                tuabp_content
-                tuabp_button_text
-                tuabp_button_link
-            }
+              }
         }
-        allWordpressWpCareer {
+        allWpCptuiCareer {
             edges {
-                node {
-                    title
-                    id
-                    acf {
-                        career_no_of_openings
-                        cr_experience
-                        cr_job_profile
-                      }
+              node {
+                id
+                title
+                acfCareerLayout {
+                  crNoOfVacancies
+                  crExperience
+                  crJobProfile
                 }
+              }
             }
-        }
+          }
     }
 `

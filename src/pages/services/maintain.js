@@ -12,30 +12,30 @@ import ServiceIntro from "../../components/ServiceIntro";
 
 class Maintain extends Component {
 	render() {
-		const data = this.props.data;
-		const page = data.allWordpressPage.edges[0].node.acf;
-		const genmodule = page.gen_content_modules_page;
-		const credent = genmodule[3].cred_logos_repeater;
-		const portfolio = data.allWordpressWpPortfolio.edges;
-		const sertech = data.allWordpressPage.edges[0].node;
+		const data = this.props.data;		
+		const sertech = data.allWpPage.edges[0].node.seo;
+		const bannerdata = data.allWpPage.edges[0].node.acfHeader;
+		const genmodule = data.allWpPage.edges[0].node.acfGeneralLayout;
+		const hiredev = data.allWpPage.edges[0].node.acfMaintainLayout;
+		const credent = genmodule.genContentModules[2].listCredential;
 		
 		return(
 			<Layout>
-				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
+				<SEO title={sertech.title} description={sertech.metaDesc} />
 				<Header headernavclass="darkheader" />
 				<div className="maintain-main">
 				<ServiceHero
-					title={page.header_section_title}
-					subText={page.header_sub_text}
-					image={page.header_mascot.source_url}
+					title={bannerdata.headerSectionTitle}
+					subText={bannerdata.headerSubText}
+					image={bannerdata.headerMascot.sourceUrl}
 					background={"linear-gradient(47deg,#2a0845 1%,#6441a5)"}
 				/>
 				<section>
 					<div className="make-intro-section text-left">
 						<div className="container">
 							<ServiceIntro
-								sectionTitle={genmodule[0].pis_section_title}
-								content={genmodule[0].pis_content}
+								sectionTitle={genmodule.genBoxHeading}
+								content={genmodule.genBoxDescription}
 							/>
 						</div>
 					</div>
@@ -43,37 +43,37 @@ class Maintain extends Component {
 				<section>
 					<div className="maintain-services">
 						<div className="container">
-							{genmodule[1].iwc_layout_details.map((node,index) => (
+							{genmodule.genContentModules[1].iwcRepeater.map((node,index) => (
 								<div className={index % 2 === 0? 'maintain-service-wrap odd' : 'maintain-service-wrap even'} key={index}>
 									<div className="row">
 										{index % 2 === 1 &&
 											<div className="col-md-6 maintain-service-image">
 												<div className="ser-image">
-													{node.iwc_image.source_url !== null &&
-														<img src={node.iwc_image.source_url}  alt="Service icon"/>
+													{node.iwcImage.sourceUrl !== null &&
+														<img src={node.iwcImage.sourceUrl}  alt="Service icon"/>
 													}													
 												</div>
 											</div>
 										}
 										<div className="col-md-6 maintain-service-content">
 											<div className="ser-contain">
-												<h2 className="service-title" dangerouslySetInnerHTML={{__html: node.iwc_title}} />
+												<h2 className="service-title" dangerouslySetInnerHTML={{__html: node.iwcTitle}} />
 												<div className="ser-image">
-													{node.iwc_image.source_url !== null &&
-														<img src={node.iwc_image.source_url}  alt="Service icon"/>
+													{node.iwcImage.sourceUrl !== null &&
+														<img src={node.iwcImage.sourceUrl}  alt="Service icon"/>
 													}													
 												</div>
-												{node.iwc_sub_desc !== null &&
-													<div className="service-text" dangerouslySetInnerHTML={{__html: node.iwc_sub_desc}} />
+												{node.iwcDescription !== null &&
+													<div className="service-text" dangerouslySetInnerHTML={{__html: node.iwcDescription}} />
 												}
-												<Link to={`/${removePre(node.iwc_button_link)}`} className="service-link">{node.iwc_button_text}</Link>
+												<Link to={`/${removePre(node.iwcButtonLink)}`} className="service-link">{node.iwcButtonText}</Link>
 											</div>
 										</div>
 										{index % 2 === 0 &&
 											<div className="col-md-6 maintain-service-image">
 												<div className="ser-image">
-													{node.iwc_image.source_url !== null &&
-														<img src={node.iwc_image.source_url}  alt="Service icon"/>
+													{node.iwcImage.sourceUrl !== null &&
+														<img src={node.iwcImage.sourceUrl}  alt="Service icon"/>
 													}													
 												</div>
 											</div>
@@ -91,29 +91,29 @@ class Maintain extends Component {
 								<div className="row">
 									<div className="col-lg-6">
 										<div className="hire-dev-image">
-											{page.maintain_image.source_url !== null &&
-												<img src={page.maintain_image.source_url} alt="Hire developers"/>
+											{hiredev.maintainImage.sourceUrl !== null &&
+												<img src={hiredev.maintainImage.sourceUrl} alt="Hire developers"/>
 											}											
 										</div>
 									</div>
 									<div className="col-lg-6">
 										<div className="hire-dev-content">
-											<h2 className="hire-dev-title">{page.maintain_title}</h2>
+											<h2 className="hire-dev-title">{hiredev.maintainTitle}</h2>
 											<div className="hire-dev-image">
-												{page.maintain_image.source_url !== null &&
-													<img src={page.maintain_image.source_url} alt="Hire developers"/>
+												{hiredev.maintainImage.sourceUrl !== null &&
+													<img src={hiredev.maintainImage.sourceUrl} alt="Hire developers"/>
 												}											
 											</div>
 											<div className="hire-dev-text">
-												{page.maintain_content !== null &&
-													<p dangerouslySetInnerHTML={{__html: page.maintain_content}} />
+												{hiredev.maintainContent !== null &&
+													<p dangerouslySetInnerHTML={{__html: hiredev.maintainContent}} />
 												}												
 												<ul>
-													{page.maintain_list_repeater.map((node,index) => (
-														<li key={index}>{node.maintain_list}</li>
+													{hiredev.maintainListRepeater.map((node,index) => (
+														<li key={index}>{node.maintainList}</li>
 													))}
 												</ul>
-												<Link to={`/${removePre(page.maintain_button_link)}`}>{page.maintain_button_text}</Link>
+												<Link to={`/${removePre(hiredev.maintainButtonLink)}`}>{hiredev.maintainButtonText}</Link>
 											</div>
 										</div>
 									</div>
@@ -124,12 +124,14 @@ class Maintain extends Component {
 				</section>
 				{/* Credentials section */}
 				<Credentials credentials={credent} slidesToShow={5} />
+
 				<OurRecentWork
-					title={genmodule[2].css_title}
-					content={genmodule[2].css_content}
-					portfolio={portfolio}
+					title={genmodule.genContentModules[3].orwTitle}
+					content={genmodule.genContentModules[3].orwSubTitle}
+					portfolio={genmodule.genContentModules[3].orwPortfolioList}
 				/>
-				<AboutProject apsiwtch={page.use_common_contact_section} />
+
+				<AboutProject comcontact={genmodule.genContentModules[4]} />
 				</div>
 			</Layout>
 		)
@@ -139,115 +141,93 @@ class Maintain extends Component {
 export default Maintain;
 
 export const query = graphql`{
-	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 233}}}}, limit: 2) {
-        edges {
-          node {
-            title
-            excerpt
-            link
-            featured_media {
-              source_url
-            }
-            acf {
-              pf_image_with_responsive {
-                source_url
-              }
-            }
-          }
-        }
-      }
-	allWordpressWpCredentials(filter: {credentials_category: {eq: 219}}) {
+	
+	allWpPage(filter: {databaseId: {eq: 6981}}) {
 		edges {
 		  node {
-			featured_media {
-			  source_url
+			seo {
+				title
+				metaDesc
 			}
-			title
-			slug
-		  }
-		}
-	}
-	allWordpressPage(filter: {wordpress_id: {eq: 6981}}) {
-		edges {
-		  node {
-			yoast_title
-			yoast_meta {
-				content
+			acfHeader {
+				headerPageTitle
+				headerSectionTitle
+				headerSubText
+				homeMascotClass
+				headerMascot {
+					sourceUrl
+				}
 			}
-			acf {
-			  home_mascot_class
-			  header_sub_text
-			  header_section_title
-			  header_mascot {
-				source_url
+			acfMaintainLayout {
+			  maintainImage {
+				sourceUrl
 			  }
-			  use_common_contact_section
-				tuabp_title
-				tuabp_image {
-				source_url
+			  maintainTitle
+			  maintainContent
+			  maintainListRepeater {
+				maintainList
+			  }
+			  maintainButtonText
+			  maintainButtonLink
+			}
+			acfGeneralLayout {
+				genBoxHeading
+          		genBoxDescription
+			  genContentModules {
+				... on WpPage_Acfgenerallayout_GenContentModules_PageBanner {
+				  pbBgImage {
+					sourceUrl
+				  }
+				  pgTitle
+				  pgDescription
 				}
-				tuabp_content
-				tuabp_button_text
-				tuabp_button_link
-			  maintain_image {
-				source_url
-			  }
-			  maintain_title
-			  maintain_content
-			  maintain_list_repeater {
-				maintain_list
-			  }
-			  maintain_button_text
-			  maintain_button_link
-			  gen_content_modules_page {
-				... on WordPressAcf_gen_page_intro_section {
-				  id
-				  pis_section_class
-				  pis_page_title
-				  pis_section_title
-				  pis_content
-				}
-				... on WordPressAcf_gen_image_with_content {
-				  id
-				  iwc_layout_details {
-					iwc_image {
-					  source_url
+				... on WpPage_Acfgenerallayout_GenContentModules_ImageWithContent {
+				  iwcMainTitle
+				  iwcRepeater {
+					iwcImage {
+					  sourceUrl
 					}
-					iwc_title
-					iwc_sub_desc
-					iwc_button_text
-					iwc_button_link
-					iwc_section_class
+					iwcTitle
+					iwcDescription
+					iwcButtonText
+					iwcButtonLink
 				  }
 				}
-				... on WordPressAcf_gen_cards_section {
-				  id
-				  cs_cards_details {
-					cs_icon {
-					  source_url
-					}
-					cs_title
-					cs_content
-					cs_learn_more_link
-				  }
-				}
-				... on WordPressAcf_gen_case_study_section {
-					id
-					css_title
-					css_content
-					css_section_class
-				}
-				... on WordPressAcf_gen_credential_logos {
-					id
-					cred_logos_repeater {
-					  cred_logos_list {
-						source_url
+				... on WpPage_Acfgenerallayout_GenContentModules_CredentialList {
+				  listCredential {
+					... on WpCptui_credential {
+					  id
+					  featuredImage {
+						node {
+						  sourceUrl
+						}
 					  }
 					}
+				  }
+				}
+				... on WpPage_Acfgenerallayout_GenContentModules_OurRecentWork {
+				  orwTitle
+				  orwSubTitle
+				  orwPortfolioList {
+					... on WpCptui_portfolio {
+					  id
+					  acfPortfolioLayout {
+						pfImageWithResponsive {
+						  sourceUrl
+						}
+					  }
+					}
+				  }
+				}
+				... on WpPage_Acfgenerallayout_GenContentModules_ContactUsForProject {
+				  ccfpTitle
+				  ccfpSubTitle
+				  ccfpButtonText
+				  ccfpButtonLink
 				}
 			  }
 			}
 		  }
 		}
-	}
+	  }
 }`

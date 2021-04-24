@@ -12,59 +12,29 @@ import OurRecentWork from "../../components/OurRecentWork";
 class EcommerceDevelopment extends Component {
 	render() {
 		const data = this.props.data;
-		const acf = data.wordpressPage.acf.gen_content_modules_page;
-		const tellus = data.wordpressPage.acf;
-		const banner = acf[0].iwc_layout_details[0];
-		// const services = acf[1].cs_cards_details
-		const platform = acf[1].iwc_layout_details;
-		const sertech = data.wordpressPage
-		const portfolio = data.allWordpressWpPortfolio.edges;
+		const seodata = data.allWpPage.edges[0].node.seo;
+		const acfgenlayout = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules;		
 
 		return (
 			<Layout>
-				<SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} />
+				<SEO title={seodata.title} description={seodata.metaDesc} />
 				<Header headernavclass="lightheader" />
 				<div id="page" className="web-application-development">
 					<ServiceDetailHeader title={'Web Application Development'} />
 					<ServiceBasicDetail
-						headerMascot={banner.iwc_image}
-						serviceDeail={banner}
+						headerMascot={acfgenlayout[0].genTwoSecImage.sourceUrl}
+						serviceDeail={acfgenlayout[0].genRightDescription}
 					/>
-					{/* <section>
-						<div className="ecommerce-sercices-wrap">
-							<div className="container">
-								<h2 className="section-title text-center">Our Ecommerce Services</h2>
-								<div className="services-list">
-									<div className="row">
-										{services.map((node, index) => (
-											<div className="col-md-6 col-lg-4">
-												<div className="service-box">
-													<div className="ss-title">
-														<h2 dangerouslySetInnerHTML={{__html: node.cs_title}} />
-													</div>
-													<div className="ss-content" dangerouslySetInnerHTML={{__html: node.cs_content}} />													
-												</div>
-											</div>
-										))}
-									</div>
-								</div>
-							</div>
-						</div>
-					</section> */}
-					<PlatformWeWork platform={platform} />
-					<OurRecentWork
-						title={acf[3].css_title}
-						content={acf[3].css_content}
-						portfolio={portfolio}
-					/>
-					<AboutProject
-						apsiwtch={tellus.use_common_contact_section}
-						apimage={tellus.tuabp_image}
-						aptitle={tellus.tuabp_title}
-						apcontent={tellus.tuabp_content}
-						apbuttontext={tellus.tuabp_button_text}
-						apbuttonlink={tellus.tuabp_button_link} />
+					
+					<PlatformWeWork platform={acfgenlayout[1]} />
 
+					<OurRecentWork
+						title={acfgenlayout[2].orwTitle}
+						content={acfgenlayout[2].orwSubTitle}
+						portfolio={acfgenlayout[2].orwPortfolioList}
+					/>
+					
+					<AboutProject comcontact={acfgenlayout[3]} />
 				</div>
 			</Layout>
 		)
@@ -76,70 +46,71 @@ export default EcommerceDevelopment;
 
 export const query = graphql`
 {
-	allWordpressWpPortfolio(filter: {tags: {elemMatch: {wordpress_id: {eq: 232}}}}, limit: 2) {
-        edges {
-          node {
-
-            title
-            excerpt
-            link
-            featured_media {
-              source_url
-            }
-            acf {
-              pf_image_with_responsive {
-                source_url
-              }
-            }
-          }
-        }
-    }
-	wordpressPage(wordpress_id: {eq: 7279}) {
-		title
-		yoast_title
-		yoast_meta {
-			content
-		}
-		acf {
-			use_common_contact_section
-			tuabp_title
-			tuabp_image {
-				source_url
-			}
-			tuabp_content
-			tuabp_button_text
-			tuabp_button_link
-		  gen_content_modules_page {
-			... on WordPressAcf_gen_image_with_content {
-			  id
-			  iwc_layout_details {
-				iwc_title
-				iwc_image {
-				  source_url
+	allWpPage(filter: {databaseId: {eq: 7279}}) {
+		edges {
+			node {
+				seo {
+					title
+					metaDesc
 				}
-				iwc_icon {
-					source_url
-				  }
-				iwc_sub_desc
-				iwc_section_class
-				iwc_button_text
-                iwc_button_link
-			  }
-			}
-			... on WordPressAcf_gen_cards_section {
-			  id
-			  cs_cards_details {
-				cs_title
-				cs_content
-			  }
-			}
-			... on WordPressAcf_gen_case_study_section {
-				id
-				css_title
-				css_content
-				css_section_class
+				acfHeader {
+					headerPageTitle
+					headerSectionTitle
+					headerSubText
+					homeMascotClass
+					headerMascot {
+						sourceUrl
+					}
+				}
+				acfGeneralLayout {
+					genContentModules {
+					  ... on WpPage_Acfgenerallayout_GenContentModules_GenLeftImageAndRightDescription {
+						genTwoSecImage {
+						  sourceUrl
+						}
+						genRightHeading
+						genRightDescription
+					  }
+					  ... on WpPage_Acfgenerallayout_GenContentModules_ImageWithContent {
+						iwcMainTitle
+						iwcRepeater {
+						  iwcTitle
+						  iwcImage {
+							sourceUrl
+						  }
+						  iwcIcon {
+							sourceUrl
+						  }
+						  iwcDescription
+						  iwcButtonText
+						  iwcButtonLink
+						  iwcSectionClass
+						}
+					  }
+					  ... on WpPage_Acfgenerallayout_GenContentModules_OurRecentWork {
+						orwTitle
+						orwSubTitle
+						orwPortfolioList {
+						  ... on WpCptui_portfolio {
+							id
+							acfPortfolioLayout {
+							  pfImageWithResponsive {
+								sourceUrl
+							  }
+							}
+						  }
+						}
+					  }
+
+					  ... on WpPage_Acfgenerallayout_GenContentModules_ContactUsForProject {
+						ccfpTitle
+						ccfpSubTitle
+						ccfpButtonText
+						ccfpButtonLink
+					  }
+					}
+				  }			  
 			}
 		  }
-		}
-	  }  
+	  }
 }`

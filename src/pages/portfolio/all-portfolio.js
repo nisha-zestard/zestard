@@ -9,8 +9,8 @@ class Portfolio extends Component {
   
     render() {
       const data = this.props.data
-      const acfData = data.wordpressPage.acf;
-      //const metadata = data.wordpressPage.yoast_meta[0].content;
+      const acfData = data.wpPage.acf;
+      //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>
             <SEO title="Portfolio"/>
@@ -29,7 +29,7 @@ class Portfolio extends Component {
                         <div className="all-portfolio">
                             <div className="container">
                                 <div className="row portfolio-list">
-                                {data.allWordpressWpPortfolio.edges.map(({ node }, index) => (
+                                {data.allWpCptuiPortfolio.edges.map(({ node }, index) => (
                                     <div className="col-md-6" key={index}>
                                         <div className="project">
                                             {/* <a className="project-img" href="#"> */}
@@ -59,27 +59,28 @@ export default Portfolio
 
 export const query = graphql`
 {
-    wordpressPage(slug: {eq: "work"}) {
+    wpPage(slug: {eq: "work"}) {
         title
-        acf {
-            header_page_title
-            header_sub_text
-            header_section_title
-            header_mascot {
-                source_url
+        acfHeader {
+            headerPageTitle
+            headerSectionTitle
+            headerSubText
+            homeMascotClass
+            headerMascot {
+                sourceUrl
             }
         }
     }
-    allWordpressWpPortfolio {
+    allWpCptuiPortfolio {
         edges {
-            node {
-            slug
-            title
-                featured_media {
-                    source_url
-                }
+          node {
+            featuredImage {
+              node {
+                sourceUrl
+              }
             }
+          }
         }
-    }
+      }
 }
 `

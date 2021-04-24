@@ -3,38 +3,40 @@ const slash = require(`slash`)
 
 exports.createPages = async ({ graphql, actions }) => {
 
-  const {createRedirect} = actions
-  
+  /*Creating 301 redirection */
+//   const {createRedirect} = actions  
 
-  let response = await graphql(`
-  query redirects {
-    allWordpressAcfOptions {
-      edges {
-        node {
-          options {
-            wordpress_301_redirects {
-              request_url
-              destination_url
-            }
-          }
-        }
-      }
-    }
-  }`)  
+//   let response = await graphql(`
+//   query redirects {
+//     allWordpressAcfOptions {
+//       edges {
+//         node {
+//           options {
+//             wordpress_301_redirects {
+//               request_url
+//               destination_url
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }`)  
     
 
- let data = response.data.allWordpressAcfOptions.edges[0].node.options.wordpress_301_redirects.forEach(redirect => {
+//  let data = response.data.allWordpressAcfOptions.edges[0].node.options.wordpress_301_redirects.forEach(redirect => {
    
-    createRedirect({ 
-      fromPath: `${redirect.request_url}`, 
-      toPath: `${redirect.destination_url}`, 
-      isPermanent: true 
-    });
-  })
+//     createRedirect({ 
+//       fromPath: `${redirect.request_url}`, 
+//       toPath: `${redirect.destination_url}`, 
+//       isPermanent: true 
+//     });
+//   })
+
+/*Page creation */
   const { createPage } = actions
   const result = await graphql(`
     {
-      allWordpressPost(sort: {order: DESC, fields: date}) {
+      allWpPost(sort: {order: DESC, fields: date}) {
         edges {
           node {
             id
@@ -43,13 +45,15 @@ exports.createPages = async ({ graphql, actions }) => {
             date
             excerpt
             categories {
-              slug
-              name
-            }
+              nodes {
+                slug
+                name
+              }
+            }            
           }
         }
       }
-      allWordpressWpUsers {
+      allWpUser {
         edges {
           node {
             name
@@ -57,35 +61,37 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }  
-      allWordpressWpCulture {
+      allWpCptuiCulture {
         edges {
           node {
             title
             slug
             id
-            wordpress_id
-            featured_media {
-              source_url
+            databaseId
+            featuredImage {
+              node {
+                sourceUrl
+              }
             }
           }
         }
       }
-      allWordpressPage {
+      allWpPage {
         edges {
           node {
             slug
             title
-            path
-            wordpress_id
+            link
+            databaseId
           }
         }
       }
     }
   `)
 
-  const { allWordpressPost,  
-          allWordpressWpUsers, allWordpressWpCulture,
-          allWordpressPage} = result.data
+  const { allWpPost,  
+          allWpUser, allWpCptuiCulture,
+          allWpPage} = result.data
 
   if (result.errors) {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
@@ -99,7 +105,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Creating pages for Services
 
-  allWordpressPage.edges.forEach(edge => {
+  allWpPage.edges.forEach(edge => {
     const removePre = (url) => {
       var path = url.replace (/^[a-z]{5}:\/{2}[a-z]{1,}\.[a-z]{3}.(.*)/, '$1');
       const newUrl = path.substr(path.indexOf('/', 7) + 1)
@@ -109,20 +115,20 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Creating pages for blog posts
 
-  allWordpressPost.edges.forEach(edge => {
+  allWpPost.edges.forEach(edge => {
     createPage({
       path: `/blog/${edge.node.slug}/`,
       component: slash(postTemplate),
       context: {
         id: edge.node.id,
-        cat: edge.node.categories[0].slug
+        cat: edge.node.categories.nodes[0].slug
       },
     })
   })
 
   // Creating pages for Author posts
 
-  allWordpressWpUsers.edges.forEach(edge => {
+  allWpUser.edges.forEach(edge => {
     createPage({
       path: `/author/${edge.node.slug}/`,
       component: slash(AuthorPostsTemplate),
@@ -134,19 +140,19 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // creating pages for blog events
 
-  allWordpressWpCulture.edges.forEach(edge => {
+  allWpCptuiCulture.edges.forEach(edge => {
     createPage({
       path: `/culture/${edge.node.slug}/`,
       component: slash(BlogEventTemplate),
       context: {
-        id: edge.node.wordpress_id,
+        id: edge.node.databaseId,
       },
     })
   })
   
   // Pagination for blog posts page
 
-  const posts = allWordpressPost.edges
+  const posts = allWpPost.edges
   const postsPerPage = 10
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {

@@ -10,8 +10,8 @@ class ServiceTemplate extends Component {
   
     render() {
       const data = this.props.data
-      const acfData = data.allWordpressPage.edges[0].node.acf;
-      const sertech = data.allWordpressPage.edges[0].node;
+      const acfData = data.allWpPage.edges[0].node.acf;
+      const sertech = data.allWpPage.edges[0].node;
       return (
         <>
         <SEO title="Services"/>
@@ -53,49 +53,22 @@ export default ServiceTemplate
 
 export const query = graphql`
 query($id: Int!) {
-  allWordpressPage(filter: {wordpress_id: {eq: $id}}) {
+  allWpPage(filter: {databaseId: {eq: $id}}) {
     edges {
       node {
         slug
         title
-        wordpress_id
-        acf {
-          header_page_title
-          header_sub_text
-          header_section_title
-          header_mascot {
-            source_url
-          }
-          
-          sl_content_module_page {
-            sl_service_name
-            sl_service_sub_text
-            sl_service_image {
-              source_url
-              title
-              wordpress_id
-            }
+        databaseId
+        acfHeader {
+          headerPageTitle
+          headerSectionTitle
+          headerSubText
+          homeMascotClass
+          headerMascot {
+            sourceUrl
           }
         }
-        childWordPressAcfTechAboutTechnology {
-          tech_about_heading
-          tech_about_content
-          tech_about_right_content
-        }
-        childWordPressAcfTechServices {
-          tech_services_heading
-          tech_sub_heading
-          tech_services_list {
-            tech_service_name
-            tech_service_description
-          }
-        }
-        childWordPressAcfTechKeyBenefits {
-          tech_keyb_heading
-          tech_key_features_repeater {
-            tech_key_features
-          }
-        }
+        
       }
     }
   }

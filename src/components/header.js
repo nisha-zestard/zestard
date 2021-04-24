@@ -37,34 +37,33 @@ class Header extends React.Component {
       <StaticQuery
       query={graphql`
         query {       
-          wordpressPage {
-            id
-          }
-          allWordpressAcfOptions {
+          allWp {
             edges {
               node {
-                options {
-                  site_logo {
-                    source_url
-                  }
-                  light_site_logo {
-                    source_url
+                themeGeneralSettings {
+                  acfGeneralThemeSettings {
+                    siteLogo {
+                      sourceUrl
+                    }
+                    lightSiteLogo {
+                      sourceUrl
+                    }
                   }
                 }
               }
             }
           }
-          allWordpressMenusMenusItems(filter: {wordpress_id: {eq: 207}}) {
-            nodes {
-              name
-              items {
-                title
-                url
-                child_items {
-                  title
-                  url
-                  wordpress_id
-                  target
+          allWpMenuItem(filter: {menu: {node: {name: {eq: "main-menu"}}}, parentDatabaseId: {eq: 0}}) {
+            edges {
+              node {
+                label
+                url                
+                childItems {
+                  nodes {
+                    label
+                    url
+                    target
+                  }
                 }
               }
             }
@@ -72,18 +71,20 @@ class Header extends React.Component {
         }
       `}      
       render={(data) => {
-        const acfoptions = data.allWordpressAcfOptions.edges[0].node.options;
-        const maninmenu = data.allWordpressMenusMenusItems.nodes[0].items;
-        const darklogo = acfoptions.site_logo.source_url;
-        const lightlogo = acfoptions.light_site_logo.source_url;
-        const companymenu = maninmenu[0];
-        const servicmenu = maninmenu[1];
-        const workmenu = maninmenu[2];
-        const blogmenu = maninmenu[3];
-        const contactmenu = maninmenu[4];
-        const { location} = history
-        const param = location.pathname;        
-        
+       
+         const acfoptions = data.allWp.edges[0].node.themeGeneralSettings;
+         const maninmenu = data.allWpMenuItem.edges;
+         const darklogo = acfoptions.acfGeneralThemeSettings.siteLogo.sourceUrl;
+         const lightlogo = acfoptions.acfGeneralThemeSettings.lightSiteLogo.sourceUrl;
+         const companymenu = maninmenu[0];
+         const servicmenu = maninmenu[1];
+         const workmenu = maninmenu[2];
+         const blogmenu = maninmenu[3];
+         const contactmenu = maninmenu[4];
+         const { location} = history
+         const param = location.pathname;  
+         console.log(blogmenu);
+      
         const handleClicko = (el) => { 
           document.body.classList.toggle("menu-open");
           const navbarmenu = document.getElementsByClassName('mobile-view')[0];
@@ -105,13 +106,14 @@ class Header extends React.Component {
           <header className="site-header">    
             <div className="container d-flex frex-wrap justify-content-space-between header-inner">
               <div className="site-branding">            
-                {acfoptions.site_logo !== null && acfoptions.light_site_logo !== null &&              
+                {acfoptions.acfGeneralThemeSettings.siteLogo !== null && acfoptions.acfGeneralThemeSettings.lightSiteLogo !== null &&              
                   <Link to="/"><img id="main-logo" src={param === '/services/make/' ? lightlogo : location.pathname === '/services/market/' ? lightlogo : location.pathname === '/services/maintain/' ? lightlogo : location.pathname === '/' ? lightlogo : darklogo} alt="Site Logo" /></Link>                                
                 }  
-                {acfoptions.site_logo !== null &&             
+                {acfoptions.acfGeneralThemeSettings.siteLogo !== null &&             
                   <Link to="/"><img src={darklogo} id="dark-sticky-logo" alt="Site Logo" /></Link>                                
                 } 
               </div>
+
               <div className="menu-wraper d-flex">
                 <Navbar bg="default" expand="lg" id={headernavclass} className="mobile-view site-nav navbar d-flex justify-content-end align-items-center">
                 <button id="mobmenu" className="navbar-toggler" type="button" onClick={handleClicko} data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -123,10 +125,10 @@ class Header extends React.Component {
                   <ul className="nav navbar-nav">
                     <li className="nav-item menu-item">
                     <Dropdown className="nav-item" id="basic-nav-dropdown" onMouseOver={() => this.onMouseEnter('company')} onMouseLeave={() => this.onMouseLeave('company')} isOpen={this.state.company} toggle={this.toggle}>
-                      <DropdownToggle caret>{companymenu.title}</DropdownToggle>
+                      <DropdownToggle caret>{companymenu.node.label}</DropdownToggle>
                       <DropdownMenu>   
-                        {companymenu.child_items.map((node, index) => (
-                          <DropdownItem tag={Link} to={`/${removePre(node.url)}`} key={index}>{node.title}</DropdownItem>
+                        {companymenu.node.childItems.nodes.map((node, index) => (
+                          <DropdownItem tag={Link} to={`/company/${removePre(node.url)}`} key={index}>{node.label}</DropdownItem>
                         ))}   
                       </DropdownMenu>
                     </Dropdown>
@@ -134,34 +136,31 @@ class Header extends React.Component {
                     </li>
                     <li className="nav-item menu-item">
                       <Dropdown className="nav-item" id="basic-nav-dropdown" onMouseOver={() => this.onMouseEnter('service')} onMouseLeave={() => this.onMouseLeave('service')} isOpen={this.state.service} toggle={this.toggle}>
-                        <DropdownToggle caret>{servicmenu.title}</DropdownToggle>
+                        <DropdownToggle caret>{servicmenu.node.label}</DropdownToggle>
                         <DropdownMenu>   
-                          {servicmenu.child_items.map((node, index) => (
-                            <DropdownItem tag={Link} to={`/services/${removePre(node.url)}`} key={index}>{node.title}</DropdownItem>
+                          {servicmenu.node.childItems.nodes.map((node, index) => (
+                            <DropdownItem tag={Link} to={`/services${removePre(node.url)}`} key={index}>{node.label}</DropdownItem>
                           ))}   
                         </DropdownMenu>
                       </Dropdown>                   
                     </li> 
                     <li className="nav-item menu-item">
                     <Dropdown className="nav-item" id="basic-nav-dropdown" onMouseOver={() => this.onMouseEnter('work')} onMouseLeave={() => this.onMouseLeave('work')} isOpen={this.state.work} toggle={this.toggle}>
-                        <DropdownToggle caret>{workmenu.title}</DropdownToggle>
+                        <DropdownToggle caret>{workmenu.node.label}</DropdownToggle>
                         <DropdownMenu>   
-                        <DropdownItem tag={Link} to={`${workmenu.child_items[0].target === "" ? `/${removePre(workmenu.child_items[0].url)}` : workmenu.child_items[0].url}`}>{workmenu.child_items[0].title}</DropdownItem>
-                        <DropdownItem tag={Link} target={workmenu.child_items[1].target} to={workmenu.child_items[1].url}>{workmenu.child_items[1].title}</DropdownItem>
-                        <DropdownItem tag={Link} target={workmenu.child_items[2].target} to={workmenu.child_items[2].url}>{workmenu.child_items[2].title}</DropdownItem>
+                        <DropdownItem tag={Link} to={`${workmenu.node.childItems.nodes[0].target === "" ? `/${removePre(workmenu.node.childItems.nodes[0].url)}` : workmenu.node.childItems.nodes[0].url}`}>{workmenu.node.childItems.nodes[0].label}</DropdownItem>
+                        <DropdownItem tag={Link} target="_blank" to={workmenu.node.childItems.nodes[1].url}>{workmenu.node.childItems.nodes[1].label}</DropdownItem>
+                        <DropdownItem tag={Link} target="_blank" to={workmenu.node.childItems.nodes[2].url}>{workmenu.node.childItems.nodes[2].label}</DropdownItem>
                           
                         </DropdownMenu>
                       </Dropdown>  
                     
                     </li>
-                    <li className="nav-item menu-item"><Link to={`/${removePre(blogmenu.url)}`}>{blogmenu.title}</Link></li>
-                    <li className="nav-item menu-item"><Nav.Link href={`/${removePre(contactmenu.url)}`}>{contactmenu.title}</Nav.Link></li>
-                    <li className="nave-item menu-item request-quote-mob"><Link to={`/${removePre(contactmenu.url)}`} className="btn-primary">Request a Quote</Link></li>
+                    <li className="nav-item menu-item"><Link to={blogmenu.node.url}>{blogmenu.node.label}</Link></li>
+                    <li className="nav-item menu-item"><Nav.Link href={contactmenu.node.url}>{contactmenu.node.label}</Nav.Link></li>
+                    <li className="nave-item menu-item request-quote-mob"><Link to={contactmenu.node.url} className="btn-primary">Request a Quote</Link></li>
                   </ul>
                   </div>
-                  {/* <div className="request-a-quote">
-                    <Link to={`/${removePre(contactmenu.url)}`} className="btn-primary">Request a Quote</Link>
-                  </div> */}
                 </Navbar>                
                 </div>
             </div>  

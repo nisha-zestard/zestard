@@ -24,10 +24,20 @@
                         background: #fff;
                         border-radius: 5px 5px 0 0;
                         padding: 20px;
+                        .coma{
+                            img{
+                                @media #{$small-screen}{
+                                    width: 40px;
+                                }
+                            }
+                        }
                         div{
                             padding: 10px 35px;
                             display: inline-block;
                             width: 100%;
+                            @media #{$small-screen}{
+                                padding: 10px 15px;
+                            }
                             p{
                                 font-weight: 400;
                                 margin: 0;
@@ -44,6 +54,9 @@
                             font-family: $primary-font;
                             color: $primary-color;
                             font-weight: 600;
+                            @media #{$medium-screen}{
+                                font-size: 18px;
+                            }
                         }
                     }
                 }
