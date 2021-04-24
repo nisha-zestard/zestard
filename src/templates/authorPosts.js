@@ -13,7 +13,7 @@ class AuthorPostsTemplate extends Component {
     const authorName = data.allWpPost.edges[0].node.author.node.name;
     return (
       <Layout>
-      <SEO title={`${authorName}, Author`} />
+      <SEO title={authorName+  'Author'} />
       <Header headernavclass="lightheader" />
         <div id="page" className="site">
           <div id="content" className="site-content">
