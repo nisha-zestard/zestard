@@ -18,32 +18,32 @@ class Portfolio extends Component {
             <div id="page" className="site portfolio-page">
                 <div id="content" className="site-content">
                     {/* page header */}
-                    <PageHeader
+                    {/* <PageHeader
                         headerMascot = {acfData.header_mascot}
                         headerSubText = {acfData.header_sub_text}
                         headerSectionTitle={acfData.header_section_title}
                         headerPageTitle={acfData.header_page_title}
-                    />
+                    /> */}
                     {/* all Portfolio */}
                     <section id="portfolio-contaner">
                         <div className="all-portfolio">
                             <div className="container">
                                 <div className="row portfolio-list">
-                                {data.allWpCptuiPortfolio.edges.map(({ node }, index) => (
+                                {/* {data.allWpCptuiPortfolio.edges.map(({ node }, index) => (
                                     <div className="col-md-6" key={index}>
                                         <div className="project">
-                                            {/* <a className="project-img" href="#"> */}
+                                            
                                             {node.featured_media !== null &&
                                                 <img src={node.featured_media.source_url} alt="" loading="lazy" />
                                             }
                                                 <div className="img-hover-color"></div>
-                                            {/* </a> */}
+                                            
                                             <div className="project-title">
                                                 <h5><em>{`${removeSpecialSymbols(node.title)}`}</em></h5>
                                             </div>
                                         </div>
                                     </div>
-                                ))}
+                                ))} */}
                                 </div>
                             </div>
                         </div>
