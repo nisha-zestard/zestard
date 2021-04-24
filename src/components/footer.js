@@ -130,10 +130,10 @@ const handleClose = (el) => {
                   {foocusmenu.map((node,index) => (
                     <div className="col-sm-4 footer-col" key={index}>
                       <div className="footer-col-inner">
-                        <h3 className="s-title"><Link to={`/${removePre(node.menuLink)}`}>{node.menuTitle}</Link></h3>
+                        <h3 className="s-title"><Link to={node.menuLink}>{node.menuTitle}</Link></h3>
                         <ul className="m-0 p-0 s-list">
                           {node.innerLinks.map((node,index) => (
-                            <li key={index}><Link to={`/${removePre(node.innerIndiLink)}`}>{node.innerTitle}</Link></li>
+                            <li key={index}><Link to={node.innerIndiLink}>{node.innerTitle}</Link></li>
                           ))}
                         </ul>
                       </div>
@@ -174,7 +174,7 @@ const handleClose = (el) => {
               <h3 className="s-title">Quick Links</h3>
                 <ul className="f-menu m-0 p-0 d-flex">
                   {foomenu.map((node,index) => (
-                    <li key={index}><Link to={`/${removePre(node.node.url)}`}>{node.node.label}</Link></li>
+                    <li key={index}><Link to={node.node.url}>{node.node.label}</Link></li>
                   ))}
                 </ul>
               </div>
