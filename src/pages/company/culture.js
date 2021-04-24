@@ -56,22 +56,22 @@ class Culture extends Component {
 
     return (
       <Layout>
-        <SEO
+        {/* <SEO
           title={seotd.yoast_title}
           description={seotd.yoast_meta[0].content}
-        />
+        /> */}
         <Header headernavclass="lightheader" />
         <div id="page" className="">
           <div id="content" className="site-content">
             {/* page header */}
-            <PageHeader
+            {/* <PageHeader
               headerMascot={acfData.header_mascot}
               headerSubText={acfData.header_sub_text}
               headerSectionTitle={acfData.header_section_title}
               headerPageTitle={acfData.header_page_title}
-            />
+            /> */}
             {/* events */}
-            <div className="container">
+            {/* <div className="container">
               <div className="row">
                 <div className="col-sm-12 year-list">
                   <ul>
@@ -116,7 +116,7 @@ class Culture extends Component {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </Layout>

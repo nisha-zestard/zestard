@@ -17,25 +17,25 @@ class Testimonials extends Component {
   
     render() {
       const data = this.props.data
-      const seotd = data.wpPage
-      const acfData = data.wpPage.acf;
+    //   const seotd = data.wpPage
+    //   const acfData = data.wpPage.acf;
       //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>
-        <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/>
+        {/* <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/> */}
         <Header headernavclass="lightheader" />
             <div id="page" className="site">
                 <div id="content" className="site-content">
                     {/* Page header */}
-                    <PageHeader
+                    {/* <PageHeader
                         headerMascot = {acfData.header_mascot}
                         headerSubText = {acfData.header_sub_text}
                         headerSectionTitle={acfData.header_section_title}
                         headerPageTitle={acfData.header_page_title}
-                    />
+                    /> */}
                     <div className="testimonial-list">
                     <div className="container">
-                    <Masonry
+                    {/* <Masonry
                     breakpointCols={breakpointColumnsObj}
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column"
@@ -55,7 +55,7 @@ class Testimonials extends Component {
                         </div>
                     </div>
                     ))}
-                    </Masonry>
+                    </Masonry> */}
                     </div>
                     </div>
                     {/* testimonials */}
