@@ -11,15 +11,15 @@ import SEO from "../components/seo";
 class CategoryPostsTemplate extends Component {
   
   render() {
-    const data = this.props.data
-    const path = this.props.location.pathname
-    const parameters = path.split('/');
-    const len = parameters.length
-    const catName = parameters[len-2]
-    const data1 = data.allWpPost;
+    // const data = this.props.data
+    // const path = this.props.location.pathname
+    // const parameters = path.split('/');
+    // const len = parameters.length
+    // const catName = parameters[len-2]
+    // const data1 = data.allWpPost;
     return (
       <Layout>
-      <SEO title={`${catName} Archives`} />
+      {/* <SEO title={`${catName} Archives`} /> */}
         <div id="page" className="site">
           <div id="content" className="site-content">
             {/* blog header */}
@@ -27,7 +27,7 @@ class CategoryPostsTemplate extends Component {
               <div className="blog-header">
                 <div className="container">
                   <div className="row">
-                    {data1 !== null && data1.edges.length > 0 &&
+                    {/* {data1 !== null && data1.edges.length > 0 &&
                       <div className="col-md-12 text-center">
                         {data1.edges[0].node.categories.map((node, index) => (
                           <div key={index}>
@@ -37,7 +37,7 @@ class CategoryPostsTemplate extends Component {
                           </div>
                         ))}
                       </div>
-                    }
+                    } */}
                   </div>
                 </div>
               </div>
@@ -47,7 +47,7 @@ class CategoryPostsTemplate extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-md-8 blog-posts-wrap">
-                    {data.allWpPost.edges.map(node => (
+                    {/* {data.allWpPost.edges.map(node => (
                       <div key={node.node.id}>
                         <article id="post-{node.id}"
                         className="post-{node.id} post type-post status-publish format-standard has-post-thumbnail hentry category-design category-tips-and-tricks card">
@@ -97,12 +97,12 @@ class CategoryPostsTemplate extends Component {
                           </div>
                         </article>
                       </div>
-                    ))}
+                    ))} */}
                     </div>
                     <div className="col-md-4 blog-sidebar-wrapper col-md-offset-0">
                       <div>
                       <aside id="secondary" className="widget-area">
-                        <BlogSidebar />
+                        {/* <BlogSidebar /> */}
                       </aside>
                       </div>
                     </div>
@@ -120,38 +120,38 @@ class CategoryPostsTemplate extends Component {
 
 export default CategoryPostsTemplate
 
-export const pageQuery = graphql`
-  query($slug: String!) {
-    allWpPost(filter: {categories: {nodes: {elemMatch: {slug: {eq: $slug}}}}}) {
-      edges {
-        node {
-          id
-          title
-          slug
-          date(fromNow: true)
-          excerpt
-          link
-          author {
-            node {
-              name
-              slug
-              uri
-            }
-          }
-          featuredImage {
-            node {
-              sourceUrl
-            }
-          }
-          categories {
-            nodes {
-              name
-              link
-              slug
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query($slug: String!) {
+//     allWpPost(filter: {categories: {nodes: {elemMatch: {slug: {eq: $slug}}}}}) {
+//       edges {
+//         node {
+//           id
+//           title
+//           slug
+//           date(fromNow: true)
+//           excerpt
+//           link
+//           author {
+//             node {
+//               name
+//               slug
+//               uri
+//             }
+//           }
+//           featuredImage {
+//             node {
+//               sourceUrl
+//             }
+//           }
+//           categories {
+//             nodes {
+//               name
+//               link
+//               slug
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

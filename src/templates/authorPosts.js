@@ -9,11 +9,11 @@ import SEO from "../components/seo";
 class AuthorPostsTemplate extends Component {
   
   render() {
-    const data = this.props.data;
-    const authorName = data.allWpPost.edges[0].node.author.node.name;
+    // const data = this.props.data;
+    // const authorName = data.allWpPost.edges[0].node.author.node.name;
     return (
       <Layout>
-      <SEO title={authorName} />
+      {/* <SEO title={authorName} /> */}
       <Header headernavclass="lightheader" />
         <div id="page" className="site">
           <div id="content" className="site-content">
@@ -23,14 +23,14 @@ class AuthorPostsTemplate extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-md-12 text-center">
-                      <h1>{authorName}</h1>
+                      {/* <h1>{authorName}</h1> */}
                     </div>
                   </div>
                 </div>
               </div>
             </section>
             {/* author posts */}
-            <div id="primary" className="content-area blog-list">
+            {/* <div id="primary" className="content-area blog-list">
               <main id="main" className="site-main">
                 <div className="container">
                   <div className="row">
@@ -88,7 +88,7 @@ class AuthorPostsTemplate extends Component {
                     </div>
                     <div className="col-md-4 blog-sidebar-wrapper col-md-offset-0">
                       <div>
-                      {/* sidebar */}
+                    
                       <aside id="secondary" className="widget-area">
                         <BlogSidebar />
                       </aside>
@@ -97,7 +97,7 @@ class AuthorPostsTemplate extends Component {
                   </div>
                 </div>
               </main>
-            </div>
+            </div> */}
           </div>
         </div>
       </Layout>
@@ -109,38 +109,38 @@ class AuthorPostsTemplate extends Component {
 
 export default AuthorPostsTemplate
 
-export const pageQuery = graphql`
-  query($slug: String!) {
-    allWpPost(filter: {author: {node: {slug: {eq: $slug}}}}) {
-      edges {
-        node {
-          id
-          title
-          slug
-          date(fromNow: true)
-          excerpt
-          link
-          author {
-            node {
-              name
-              slug
-              uri
-            }
-          }
-          featuredImage {
-            node {
-              sourceUrl
-            }
-          }
-          categories {
-            nodes {
-              name
-              link
-              slug
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query($slug: String!) {
+//     allWpPost(filter: {author: {node: {slug: {eq: $slug}}}}) {
+//       edges {
+//         node {
+//           id
+//           title
+//           slug
+//           date(fromNow: true)
+//           excerpt
+//           link
+//           author {
+//             node {
+//               name
+//               slug
+//               uri
+//             }
+//           }
+//           featuredImage {
+//             node {
+//               sourceUrl
+//             }
+//           }
+//           categories {
+//             nodes {
+//               name
+//               link
+//               slug
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
