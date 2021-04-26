@@ -9,15 +9,15 @@ import SEO from './../components/seo'
 class ServiceTemplate extends Component {
   
     render() {
-      const data = this.props.data
-      const acfData = data.allWpPage.edges[0].node.acf;
-      const sertech = data.allWpPage.edges[0].node;
+      // const data = this.props.data
+      // const acfData = data.allWpPage.edges[0].node.acf;
+      // const sertech = data.allWpPage.edges[0].node;
       return (
         <>
-        <SEO title="Services"/>
+        {/* <SEO title="Services"/> */}
         <Header headernavclass="lightheader" />
             <div id="page" className="site">
-                <div id="content" className="site-content">
+                {/* <div id="content" className="site-content">
                     <PageHeader
                         headerMascot = {acfData.header_mascot}
                         headerSubText = {acfData.header_sub_text}
@@ -42,7 +42,7 @@ class ServiceTemplate extends Component {
                         sections = {sertech}
                       />
                     }
-                </div>
+                </div> */}
             </div>
         </>
         )
@@ -51,26 +51,26 @@ class ServiceTemplate extends Component {
 }
 export default ServiceTemplate
 
-export const query = graphql`
-query($id: Int!) {
-  allWpPage(filter: {databaseId: {eq: $id}}) {
-    edges {
-      node {
-        slug
-        title
-        databaseId
-        acfHeader {
-          headerPageTitle
-          headerSectionTitle
-          headerSubText
-          homeMascotClass
-          headerMascot {
-            sourceUrl
-          }
-        }
+// export const query = graphql`
+// query($id: Int!) {
+//   allWpPage(filter: {databaseId: {eq: $id}}) {
+//     edges {
+//       node {
+//         slug
+//         title
+//         databaseId
+//         acfHeader {
+//           headerPageTitle
+//           headerSectionTitle
+//           headerSubText
+//           homeMascotClass
+//           headerMascot {
+//             sourceUrl
+//           }
+//         }
         
-      }
-    }
-  }
-}
-`
+//       }
+//     }
+//   }
+// }
+// `
