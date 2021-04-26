@@ -57,21 +57,27 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         url: "http://phptasks.com/zestard-mmm/graphql",
-        // hostingWPCOM: false,
-        // schema: {
-        //   requestConcurrency: 50, // currently set to 15
-        //   previewRequestConcurrency: 20, // currently set to 5
-        // },
-        // includedRoutes: [
-        //   "/*/*/posts",
-        //   "/*/*/pages",
-        //   "/*/*/media",
-        //   "/*/*/menus",
-        //   "/*/*/portfolio"
-        // ],
-        // normalizer: function ({ entities }) {
-        //   return entities
-        // },
+        verbose: true,
+        schema: {
+          queryDepth: 15,
+          circularQueryLimit: 5,
+          timeout: 100000,
+          perPage: 100,
+          requestConcurrency: 50,
+          previewRequestConcurrency: 50,
+        },
+        debug: {
+          preview: true,
+          timeBuildSteps: true,
+          disableCompatibilityCheck: true,
+          throwRefetchErrors: true,
+          graphql: {
+            showQueryVarsOnError: true,
+            showQueryOnError: true,
+            copyQueryOnError: true,
+            onlyReportCriticalErrors: true,
+          },
+        },
       }
     },
   ],

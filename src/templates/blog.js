@@ -49,7 +49,7 @@ class BlogList extends Component {
                           <div className="row">
                             <div className="col-md-12 col-sm-12">
                               <div className="card-image">
-                                <Link to={`/blog/${removePre(node.link)}`} className="post-thumbnail">
+                                <Link to={`/blog${removePre(node.link)}`} className="post-thumbnail">
                                 {node.featuredImage !== null &&
                                   <img src={node.featuredImage.node.sourceUrl} alt="" loading="lazy" />
                                 }
@@ -58,7 +58,7 @@ class BlogList extends Component {
                               <div className="section-desc">
                                 <header className="entry-header">
                                   <h2 className="card-title entry-title">                                   
-                                    <Link to={`/blog/${removePre(node.link)}`}>{removeSpecialSymbols(node.title)}</Link>
+                                    <Link to={`/blog${removePre(node.link)}`}>{removeSpecialSymbols(node.title)}</Link>
                                   </h2>
                                 </header>
                                 <div className="card-description"
@@ -69,7 +69,7 @@ class BlogList extends Component {
                                     <div className="col-md-8 col-sm-8">
                                       <div className="author">
                                         <div>By 
-                                        <Link to={`/author/${removePre(node.author.node.uri)}`} className="vcard author">
+                                        <Link to={`${removePre(node.author.node.uri)}`} className="vcard author">
                                           <strong className="fn">
                                             {node.author !== null &&
                                             <span>  {node.author.node.name}</span>
@@ -84,7 +84,7 @@ class BlogList extends Component {
                                     </div>
                                     <div className="col-md-4 col-sm-4">
                                       <div className="read-more-link">
-                                        <Link to={`/blog/${removePre(node.link)}`}>Read More</Link>
+                                        <Link to={`/blog${removePre(node.link)}`}>Read More</Link>
                                       </div>
                                     </div>
                                   </div>

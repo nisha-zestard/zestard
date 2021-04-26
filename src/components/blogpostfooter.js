@@ -23,19 +23,19 @@ const BlogPostFooter = (props) => {
             <div className="col-md-4 rel-bog-wrap" key={node.id}>
               <div className="card card-blog">
                 {node.featuredImage !== null &&
-                  <Link to={`/blog/${removePre(node.link)}`} className="post-thumbnail">
+                  <Link to={`/blog${removePre(node.link)}`} className="post-thumbnail">
                     <img src={node.featuredImage.node.sourceUrl} alt="img" className="card-image" loading="lazy" />
                   </Link>
                 }
                 <div className="content">
                   <h4 className="card-title">
-                    <Link to={`/blog/${removePre(node.link)}`}>{`${removeSpecialSymbols(node.title)}`}</Link>
+                    <Link to={`/blog${removePre(node.link)}`}>{`${removeSpecialSymbols(node.title)}`}</Link>
                   </h4>
                   <div>
                     <span className="card-description" 
                       dangerouslySetInnerHTML={{ __html: node.excerpt }} 
                     />
-                    <Link to={`/blog/${removePre(node.link)}`} className="moretag">Read more...</Link>
+                    <Link to={`/blog${removePre(node.link)}`} className="moretag">Read more...</Link>
                   </div>
                 </div>
                 <div className="footer-blog">

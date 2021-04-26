@@ -83,7 +83,7 @@ class Header extends React.Component {
          const contactmenu = maninmenu[4];
          const { location} = history
          const param = location.pathname;  
-         console.log(blogmenu);
+         
       
         const handleClicko = (el) => { 
           document.body.classList.toggle("menu-open");
@@ -128,7 +128,7 @@ class Header extends React.Component {
                       <DropdownToggle caret>{companymenu.node.label}</DropdownToggle>
                       <DropdownMenu>   
                         {companymenu.node.childItems.nodes.map((node, index) => (
-                          <DropdownItem tag={Link} to={`/company/${removePre(node.url)}`} key={index}>{node.label}</DropdownItem>
+                          <DropdownItem tag={Link} to={`${removePre(node.url)}`} key={index}>{node.label}</DropdownItem>
                         ))}   
                       </DropdownMenu>
                     </Dropdown>

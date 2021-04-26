@@ -42,7 +42,7 @@ class AuthorPostsTemplate extends Component {
                           <div className="row">
                             <div className="col-md-12 col-sm-12">
                               <div className="card-image">
-                                <Link to={`/blog/${removePre(node.node.link)}`} className="post-thumbnail">
+                                <Link to={`/blog${removePre(node.node.link)}`} className="post-thumbnail">
                                 {node.node.featuredImage !== null && node.node.featuredImage.node.sourceUrl !== null && node.node.featuredImage.node.sourceUrl !== null &&
                                   <img src={node.node.featuredImage.node.sourceUrl} alt="" loading="lazy"/>  
                                 }</Link>
@@ -50,7 +50,7 @@ class AuthorPostsTemplate extends Component {
                               <div className="section-desc">
                                 <header className="entry-header">
                                   <h2 className="card-title entry-title">
-                                    <Link to={`/blog/${removePre(node.node.link)}`}>{`${removeSpecialSymbols(node.node.title)}`}</Link>
+                                    <Link to={`/blog${removePre(node.node.link)}`}>{`${removeSpecialSymbols(node.node.title)}`}</Link>
                                   </h2>
                                 </header>
                                 <div className="card-description"
@@ -62,7 +62,7 @@ class AuthorPostsTemplate extends Component {
                                     <div className="col-md-6 col-sm-6">
                                       <div className="author">
                                         <div>By 
-                                        <Link to={`/${removePre(node.node.author.node.uri)}`} className="vcard author">
+                                        <Link to={node.node.author.node.uri} className="vcard author">
                                           <strong className="fn">
                                           {node.node.author !== null &&
                                           <span>  {node.node.author.node.name}</span>
@@ -75,7 +75,7 @@ class AuthorPostsTemplate extends Component {
                                     </div>
                                     <div className="col-md-6 col-sm-6">
                                       <div className="read-more-link">
-                                        <Link to={`/blog/${removePre(node.node.link)}`}>Read More</Link>
+                                        <Link to={`/blog${removePre(node.node.link)}`}>Read More</Link>
                                       </div>
                                     </div>
                                   </div>

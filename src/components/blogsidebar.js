@@ -30,7 +30,7 @@ const BlogSidebar =   () => {
           <ul>
             {data.allWpPost.edges.map(({ node }) => (
               <li key={node.id}>
-              <Link to={`/blog/${removePre(node.link)}`}>{`${removeSpecialSymbols(node.title)}`}</Link>
+              <Link to={`/blog${removePre(node.link)}`}>{`${removeSpecialSymbols(node.title)}`}</Link>
               </li>
             ))}
           </ul>
