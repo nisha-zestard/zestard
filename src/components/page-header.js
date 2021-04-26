@@ -26,7 +26,7 @@ class PageHeader extends Component {
                                 <div className="page-detail">
                                     <h5>{headerSectionTitle}</h5>
                                     <h1 className="title">{headerPageTitle}</h1>
-                                    <h4 className="sub-title">{headerSubText}</h4>
+                                    <h4 className="sub-title" dangerouslySetInnerHTML={{__html: headerSubText}}></h4>
                                 </div>
                             </div>
                         </div>

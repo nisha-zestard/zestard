@@ -14,28 +14,32 @@ class Culture extends Component {
     }
   }
 
-  componentDidMount() {
-    const data = this.props.data
-    const culturelist = data.allWpCptuiCulture.edges
+  // componentDidMount() {
+  //   const data = this.props.data
+  //   const culturelist = data.allWpCptuiCulture.edges
 
-    const pcategoryid = data.allWpCptuiCultureCat.edges[0].node.databaseId
+  //   const pcategoryid = data.allWpCptuiCultureCat.edges[0].node.databaseId
 
-    const plist = document.getElementsByClassName("culture-list")
-    for (var k = 0; k < plist.length; k++) {
-      if (pcategoryid == culturelist[k].node.culture_cat[0]) {
-        plist[k].style.display = 'block';
-      } else {
-        plist[k].style.display = "none"
-      }
-    }
-  }
+  //   const plist = document.getElementsByClassName("culture-list")
+  //   for (var k = 0; k < plist.length; k++) {
+  //     if (pcategoryid == culturelist[k].node.culture_cat[0]) {
+  //       plist[k].style.display = 'block';
+  //     } else {
+  //       plist[k].style.display = "none"
+  //     }
+  //   }
+  // }
 
-  setActive = (activeIndex) => {
-    this.setState({ active: activeIndex })
-  }
+  // setActive = (activeIndex) => {
+  //   this.setState({ active: activeIndex })
+  // }
 
   render() {
-    const data = this.props.data
+    const data = this.props.data;
+    const seodata = data.wpPage.seo;
+    const bannerdata = data.wpPage.acfHeader;
+    const culturelist = data.allWpCptuiCulture.edges;
+    console.log(data);
     // const seotd = data.wpPage
     // const acfData = data.wpPage.acf
     // const culturelist = data.allWpCptuiCulture.edges
@@ -56,25 +60,22 @@ class Culture extends Component {
 
     return (
       <Layout>
-        {/* <SEO
-          title={seotd.yoast_title}
-          description={seotd.yoast_meta[0].content}
-        /> */}
+        <SEO title={seodata.title} description={seodata.metaDesc} />
         <Header headernavclass="lightheader" />
         <div id="page" className="">
           <div id="content" className="site-content">
             {/* page header */}
-            {/* <PageHeader
-              headerMascot={acfData.header_mascot}
-              headerSubText={acfData.header_sub_text}
-              headerSectionTitle={acfData.header_section_title}
-              headerPageTitle={acfData.header_page_title}
-            /> */}
+            <PageHeader
+              headerMascot={bannerdata.headerMascot.sourceUrl}
+              headerSubText={bannerdata.headerSubText}
+              headerSectionTitle=""
+              headerPageTitle={bannerdata.headerPageTitle}
+            />
             {/* events */}
-            {/* <div className="container">
+            <div className="container">
               <div className="row">
                 <div className="col-sm-12 year-list">
-                  <ul>
+                  {/* <ul>
                     {culcat.map((node, index) => (
                       <li
                         culcat-id={node.node.databaseId}
@@ -85,25 +86,25 @@ class Culture extends Component {
                         {node.node.name}
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
                 </div>
                 {culturelist.map(({ node }) => (
                   <div
                     className="col-lg-4 col-md-6 col-sm-6 culture-box-wrap culture-list"
                     key={node.id}
-                    data-id={node.culture_cat}
+                    // data-id={node.culture_cat}
                   >
                     <div className="events-wrapper card shadow-sm rounded">
-                      {node.featured_media !== null &&
-                        node.featured_media.source_url !== null && (
+                      {node.featuredImage !== null &&
+                        node.featuredImage.node.sourceUrl !== null && (
                           <div
                             className="gallery-image"
                             style={{
-                              backgroundImage: `url(${node.featured_media.source_url})`,
+                              backgroundImage: `url(${node.featuredImage.node.sourceUrl})`,
                             }}
                           >
                             <div className="view-more">
-                              <Link to={`/${removePre(node.link)}`}>
+                              <Link to={node.link}>
                                 View All
                               </Link>
                             </div>
@@ -116,7 +117,7 @@ class Culture extends Component {
                   </div>
                 ))}
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </Layout>
