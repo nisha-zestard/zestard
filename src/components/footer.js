@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby";
-import { removePre } from './../util/common';
+// import { removePre } from './../util/common';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 const Footer = () => {
   const data = useStaticQuery(graphql`

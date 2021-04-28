@@ -76,14 +76,15 @@ class Header extends React.Component {
          const maninmenu = data.allWpMenuItem.edges;
          const darklogo = acfoptions.acfGeneralThemeSettings.siteLogo.sourceUrl;
          const lightlogo = acfoptions.acfGeneralThemeSettings.lightSiteLogo.sourceUrl;
-         const companymenu = maninmenu[0];
-         const servicmenu = maninmenu[1];
-         const workmenu = maninmenu[2];
-         const blogmenu = maninmenu[3];
-         const contactmenu = maninmenu[4];
+         const companymenu = maninmenu[5];
+         const servicmenu = maninmenu[4];
+         const workmenu = maninmenu[3];
+         const blogmenu = maninmenu[2];
+         const contactmenu = maninmenu[1];
          const { location} = history
          const param = location.pathname;  
          
+         console.log(maninmenu);
       
         const handleClicko = (el) => { 
           document.body.classList.toggle("menu-open");
@@ -148,7 +149,7 @@ class Header extends React.Component {
                     <Dropdown className="nav-item" id="basic-nav-dropdown" onMouseOver={() => this.onMouseEnter('work')} onMouseLeave={() => this.onMouseLeave('work')} isOpen={this.state.work} toggle={this.toggle}>
                         <DropdownToggle caret>{workmenu.node.label}</DropdownToggle>
                         <DropdownMenu>   
-                        <DropdownItem tag={Link} to={`${workmenu.node.childItems.nodes[0].target === "" ? `/${removePre(workmenu.node.childItems.nodes[0].url)}` : workmenu.node.childItems.nodes[0].url}`}>{workmenu.node.childItems.nodes[0].label}</DropdownItem>
+                        <DropdownItem tag={Link} to={workmenu.node.childItems.nodes[0].url}>{workmenu.node.childItems.nodes[0].label}</DropdownItem>
                         <DropdownItem tag={Link} target="_blank" to={workmenu.node.childItems.nodes[1].url}>{workmenu.node.childItems.nodes[1].label}</DropdownItem>
                         <DropdownItem tag={Link} target="_blank" to={workmenu.node.childItems.nodes[2].url}>{workmenu.node.childItems.nodes[2].label}</DropdownItem>
                           

@@ -18,7 +18,7 @@ class About extends Component {
         
       return (
         <Layout>
-            <SEO title={seodata.title}/>
+            <SEO title={seodata.title} description="" />
             <Header headernavclass="lightheader" />
             <div id="page" className="site-page about-us">
                 <PageHeader
