@@ -50,7 +50,7 @@ class BlogList extends Component {
                             <div className="col-md-12 col-sm-12">
                               <div className="card-image">
                                 <Link to={`/blog${removePre(node.link)}`} className="post-thumbnail">
-                                {node.featuredImage !== null &&
+                                {node.featuredImage.node !== null &&
                                   <img src={node.featuredImage.node.sourceUrl} alt="" loading="lazy" />
                                 }
                                 </Link>

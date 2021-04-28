@@ -8,16 +8,11 @@ import SEO from "../../components/seo";
 class Partnership extends Component {
   
     render() {
-      const data = this.props.data;
-      console.log(data);
+      const data = this.props.data;     
       const seodata = data.wpPage.seo;
       const bannerdata = data.wpPage.acfHeader;
-      // const seotd = data.wpPage
-      // const acfData = data.wpPage.acf;
-      // const offshore = data.wpPage.acf.gen_content_modules_page[0];
-      // const referral = data.wpPage.acf.gen_content_modules_page[2];
-      // const reseller = data.wpPage.childWordPressAcfGenLeftImageAndRightDescription;
-      //const metadata = data.wpPage.yoast_meta[0].content;
+      const pagedata = data.wpPage.acfGeneralLayout.genContentModules;
+      
       return (
         <Layout>
           <SEO title={seodata.title} description={seodata.metaDesc}/>
@@ -32,63 +27,63 @@ class Partnership extends Component {
                 headerPageTitle={bannerdata.headerPageTitle}
               />
               {/* partnership */}
-              {/* <section>
+              <section>
                 <div className="partner-type  offshare">
                   <div className="container">
                     <div className="row">
                       <div className="col-md-7 col-lg-7">
-                        <h2 className="title">{offshore.gen_left_heading}</h2>
+                        <h2 className="title">{pagedata[0].genSectionClassRild}</h2>
                         <div 
-                          dangerouslySetInnerHTML = {{ __html: offshore.gen_left_description }}
+                          dangerouslySetInnerHTML = {{ __html: pagedata[0].genLeftDescription }}
                         />
                       </div>
                       <div className="col-md-5 col-lg-5">
-                        {offshore.gen_two_sec_image !== null &&
-                         <img src={offshore.gen_two_sec_image.source_url} alt="" loading="lazy" />
+                        {pagedata[0].genTwoSecImage !== null &&
+                         <img src={pagedata[0].genTwoSecImage.sourceUrl} alt="" loading="lazy" />
                         }
                       </div>
                     </div>
                   </div>
                 </div>
-              </section> */}
-              {/* <section>
+              </section>
+              <section>
                 <div className="partner-type reseller">
                   <div className="container">
                     <div className="row">
                       <div className="col-md-5 col-lg-5">
-                        {reseller.gen_two_sec_image !== null &&
-                            <img src={reseller.gen_two_sec_image.source_url} alt="" loading="lazy" />
+                        {pagedata[1].genTwoSecImage !== null &&
+                            <img src={pagedata[1].genTwoSecImage.sourceUrl} alt="" loading="lazy" />
                         }
                       </div>
                       <div className="col-md-7 col-lg-7">
-                        <h2 className="title">{reseller.gen_right_heading}</h2>
+                        <h2 className="title">{pagedata[1].genSectionClassRild}</h2>
                         <div 
-                          dangerouslySetInnerHTML = {{ __html: reseller.gen_right_description }}
+                          dangerouslySetInnerHTML = {{ __html: pagedata[1].genLeftDescription }}
                         />
                       </div>
                     </div>
                   </div>
                 </div>
-              </section> */}
-              {/* <section>
+              </section>
+              <section>
                 <div className="partner-type referral">
                   <div className="container">
                     <div className="row">
                       <div className="col-md-7 col-lg-7">
-                        <h2 className="title">{referral.gen_left_heading}</h2>
+                        <h2 className="title">{pagedata[2].genSectionClassRild}</h2>
                         <div 
-                          dangerouslySetInnerHTML = {{ __html: referral.gen_left_description }}
+                          dangerouslySetInnerHTML = {{ __html: pagedata[2].genLeftDescription }}
                         />
                       </div>
                       <div className="col-md-5 col-lg-5">
-                        {referral.gen_two_sec_image !== null &&
-                            <img src={referral.gen_two_sec_image.source_url} alt="" loading="lazy" />
+                        {pagedata[2].genTwoSecImage !== null &&
+                            <img src={pagedata[2].genTwoSecImage.sourceUrl} alt="" loading="lazy" />
                         }
                       </div>
                     </div>
                   </div>
                 </div>
-              </section> */}
+              </section>
             </div>
           </div>
         </Layout>
@@ -121,6 +116,7 @@ export const query = graphql`
           genTwoSecImage {
             sourceUrl
           }
+          genSectionClassRild
           genLeftDescription
         }
       }
