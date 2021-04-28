@@ -95,7 +95,7 @@ class Make extends Component {
 															<div dangerouslySetInnerHTML={{ __html: node.node.excerpt }} />
 
 														}
-														<Link to={`/${removePre(node.node.acfTechnologyCustomLink.technologyCustomLink)}`}>Learn More</Link>
+														<Link to={node.node.acfTechnologyCustomLink.technologyCustomLink}>Learn More</Link>
 													</div>
 												</div>
 											</div>
@@ -124,7 +124,7 @@ class Make extends Component {
 									{acfconmod[4].ccfpSubTitle !== null &&
 									<div style={{marginBottom: '40px'}} dangerouslySetInnerHTML={{__html: acfconmod[4].ccfpSubTitle}} />
 									}                        
-									<Link to={`/${removePre(acfconmod[4].ccfpButtonLink)}`} className="start-pro-btn">{acfconmod[4].ccfpButtonText}</Link>
+									<Link to={acfconmod[4].ccfpButtonLink} className="start-pro-btn">{acfconmod[4].ccfpButtonText}</Link>
 								</div>
 							</div>
 						</div>

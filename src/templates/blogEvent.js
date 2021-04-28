@@ -8,8 +8,10 @@ import SEO from "../components/seo";
 class BlogEventTemplate extends Component {
   
     render() {
-      const data = this.props.data
-      const eventHead = this.props.data.allWpCptuiCulture.edges[0].node.title
+      const data = this.props.data;
+      console.log(data);
+      const eventHead = this.props.data.allWpCptuiCulture.edges[0].node.title;
+      // const eventgallery = data.allWpCptuiCulture
       //const singleablum = data.wordpressWpCultures.acf.el_gallery;
       //console.log(singleablum);
       
@@ -37,9 +39,9 @@ class BlogEventTemplate extends Component {
                   <div className="container">
                     <div className="event-gallery">
                         <div className="grid" style={{position:`relative`}}>
-                          {/* <CultureLightbox
-                          EventImages={data.wordpressWpCulture.acf.el_gallery} 
-                          /> */}
+                          <CultureLightbox
+                          EventImages={data.wpCptuiCulture.acfEventslayout.elGallery} 
+                          />
                         </div>
                     </div>
                   </div>
@@ -69,6 +71,14 @@ export const pageQuery = graphql`
               sourceUrl
             }
           }
+        }
+      }
+    }
+    wpCptuiCulture {
+      acfEventslayout {
+        elGallery {
+          mimeType
+          sourceUrl
         }
       }
     }

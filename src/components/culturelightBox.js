@@ -79,7 +79,7 @@ export default class CultureLightbox extends Component {
     const { photoIndex, isOpen, showLightbox, selIndex } = this.state;
     
     const images = [];  
-    //console.log(EventImages);   
+    console.log(EventImages);   
     
     
     return (      
@@ -91,12 +91,12 @@ export default class CultureLightbox extends Component {
                 <div className="culture-wrapper card">
                   <div className="speaks">                    
                     <div className="previewButton" key={i} type="button" onClick={e => this.handleClick(e, image, i) }>
-                      {image.source_url.match(/\.(jpeg|jpg|png|gif)$/) != null && 
-                        <img className="img-responsive" alt="Culture" loading="lazy" src={image.source_url} onClick={e => this.handleImageClick(i) } />                           
+                      {image.sourceUrl.match(/\.(jpeg|jpg|png|gif)$/) != null && 
+                        <img className="img-responsive" alt="Culture" loading="lazy" src={image.sourceUrl} onClick={e => this.handleImageClick(i) } />                           
                       }
-                      {image.source_url.match(/\.(mp4|mov|mpeg|webm)$/) != null && 
+                      {image.sourceUrl.match(/\.(mp4|mov|mpeg|webm)$/) != null && 
                         <ReactPlayer
-                          url={image.source_url}
+                          url={image.sourceUrl}
                           volume='1'
                           muted
                           width='100%'

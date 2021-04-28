@@ -11,7 +11,7 @@ export const dateFormate = (date) => {
   export const removePre = (url) => {    
     if(url !== undefined){
       var newUrl = url.replace (/^[a-z]{5}:\/{2}[a-z]{1,}\.[a-z]{3}.(.*)/, '$1');
-      const catUrl = newUrl.substr(newUrl.indexOf('/', 7) + 1);
+      // const catUrl = newUrl.substr(newUrl.indexOf('/', 7) + 1);
       //console.log(newUrl);
       return newUrl;
     }

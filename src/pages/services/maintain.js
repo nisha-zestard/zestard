@@ -66,7 +66,7 @@ class Maintain extends Component {
 												{node.iwcDescription !== null &&
 													<div className="service-text" dangerouslySetInnerHTML={{__html: node.iwcDescription}} />
 												}
-												<Link to={`/${removePre(node.iwcButtonLink)}`} className="service-link">{node.iwcButtonText}</Link>
+												<Link to={node.iwcButtonLink} className="service-link">{node.iwcButtonText}</Link>
 											</div>
 										</div>
 										{index % 2 === 0 &&

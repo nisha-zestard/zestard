@@ -18,7 +18,7 @@ const AboutProject = (props) => {
                             {props.comcontact.ccfpSubTitle !== null &&
                               <div style={{marginBottom: '40px'}} dangerouslySetInnerHTML={{__html: props.comcontact.ccfpSubTitle}} />
                             }                        
-                            <Link to={`/${removePre(props.comcontact.ccfpButtonLink)}`} className="start-pro-btn">{props.comcontact.ccfpButtonText}</Link>
+                            <Link to={props.comcontact.ccfpButtonLink} className="start-pro-btn">{props.comcontact.ccfpButtonText}</Link>
                         </div>
                     </div>
                 </div>
