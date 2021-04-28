@@ -49,7 +49,7 @@ const Credentails = (props) => {
                         <Slider {...credentailsSettings}>
                             {props.credentials.map((node,index) => (                            
                                 <li key={index}>                                
-                                        {node.featuredImage.node.sourceUrl !== null &&
+                                        {node.featuredImage.node !== null &&
                                             <div className="box">
                                             <img src={node.featuredImage.node.sourceUrl} alt="cre-img" />
                                             </div>

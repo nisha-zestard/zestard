@@ -85,7 +85,7 @@ class Make extends Component {
 											<div className="col-md-6 technology-outer-wrap" key={index}>
 												<div className="technology-wrap">
 													<div className="icon-wrap">
-														{node.node.featuredImage.node.sourceUrl !== null &&
+														{node.node.featuredImage.node !== null &&
 															<img src={node.node.featuredImage.node.sourceUrl} alt={node.node.title + " Technology Logo"} />
 														}
 													</div>

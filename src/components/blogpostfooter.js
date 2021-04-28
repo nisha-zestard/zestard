@@ -24,7 +24,10 @@ const BlogPostFooter = (props) => {
               <div className="card card-blog">
                 {node.featuredImage !== null &&
                   <Link to={`/blog${removePre(node.link)}`} className="post-thumbnail">
-                    <img src={node.featuredImage.node.sourceUrl} alt="img" className="card-image" loading="lazy" />
+                    {node.featuredImage.node != null &&
+                      <img src={node.featuredImage.node.sourceUrl} alt="img" className="card-image" loading="lazy" />
+                    }
+                    
                   </Link>
                 }
                 <div className="content">

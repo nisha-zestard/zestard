@@ -8,36 +8,39 @@ import SEO from "../components/seo";
 class PrivacyPolicy extends Component {
   
     render() {
-      const data = this.props.data
+      const data = this.props.data;
+      console.log(data);
+      const seodata = data.allWpPage.edges[0].node.seo;
+      const bannerdata = data.allWpPage.edges[0].node.acfHeader;
     //   const acfData = data.wpPage.acf;
     //   const sertech = data.wpPage
     
 
       return (
         <Layout>
-        {/* <SEO title={sertech.yoast_title} description={sertech.yoast_meta[0].content} /> */}
+        <SEO title={seodata.title} description={seodata.metaDesc} />
         <Header headernavclass="lightheader" />
             <div id="page" className="site">
                 <div id="content" className="site-content">
                 {/* page header */}
-                {/* <PageHeader
-                    headerMascot = {acfData.header_mascot}
-                    headerSubText = {acfData.header_sub_text}
-                    headerSectionTitle={acfData.header_section_title}
-                    headerPageTitle={acfData.header_page_title}
-                /> */}
-                {/* {data.allWpPage.edges.map(({ node }, index) => (
-                    <div className="container" key={index}>
+                <PageHeader
+                    headerMascot = {bannerdata.headerMascot.sourceUrl}
+                    headerSubText = ""
+                    headerSectionTitle= ""
+                    headerPageTitle={bannerdata.headerPageTitle}
+                />
+                {/* {data.allWpPage.edges.map(({ node }, index) => ( */}
+                    <div className="container" >
                         <div id="primary" className="content-area">
                             <main id="main" className="site-main">
-                                <article id="post-{node.id}">   
+                                <article id={"post-"+data.allWpPage.edges[0].node.id}>   
                                     <div className="entry-content"
-                                    dangerouslySetInnerHTML={{ __html: node.content }} />
+                                    dangerouslySetInnerHTML={{ __html: data.allWpPage.edges[0].node.content }} />
                                 </article>
                             </main>
                         </div>
                     </div>
-                ))} */}
+                {/* ))} */}
                 </div>
             </div>
         </Layout>

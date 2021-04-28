@@ -96,8 +96,7 @@ class Culture extends Component {
                     data-id={node.cptui_culture_cats.nodes[0].name}
                   >
                     <div className="events-wrapper card shadow-sm rounded">
-                      {node.featuredImage !== null &&
-                        node.featuredImage.node.sourceUrl !== null && (
+                      {node.featuredImage.node !== null && (
                           <div
                             className="gallery-image"
                             style={{

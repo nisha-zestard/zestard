@@ -36,7 +36,7 @@ const Testimonials = (props) => {
                                             <div className="row">
                                                 <div className="col-md-5">
                                                     <div className="testimonial-img">                                                        
-                                                        {node.node.featuredImage !== null && 
+                                                        {node.node.featuredImage.node !== null && 
                                                             <img className="d-block w-100" src={node.node.featuredImage.node.sourceUrl} alt={node.node.title} />
                                                         }
                                                     </div>
