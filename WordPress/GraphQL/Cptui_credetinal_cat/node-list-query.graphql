@@ -1,0 +1,73 @@
+query NODE_LIST_QUERY($first: Int!, $after: String) {
+  cptui_credetinals_cat(first: $first, after: $after) {
+    nodes {
+      contentNodes(first: 100) {
+        nodes {
+          id
+          __typename
+        }
+      }
+      count
+      cptui_credentials(first: 100) {
+        nodes {
+          id
+        }
+      }
+      databaseId
+      description
+      id
+      link
+      name
+      seo {
+        breadcrumbs {
+          text
+          url
+        }
+        canonical
+        cornerstone
+        focuskw
+        metaDesc
+        metaKeywords
+        metaRobotsNofollow
+        metaRobotsNoindex
+        opengraphAuthor
+        opengraphDescription
+        opengraphImage {
+          __typename
+          id
+        }
+        opengraphModifiedTime
+        opengraphPublishedTime
+        opengraphPublisher
+        opengraphSiteName
+        opengraphTitle
+        opengraphType
+        opengraphUrl
+        schema {
+          raw
+        }
+        title
+        twitterDescription
+        twitterImage {
+          __typename
+          id
+        }
+        twitterTitle
+      }
+      slug
+      taxonomy {
+        node {
+          id
+        }
+      }
+      termGroupId
+      termTaxonomyId
+      uri
+      __typename
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}

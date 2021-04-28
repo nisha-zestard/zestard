@@ -58,6 +58,7 @@ class Home extends Component {
          const testimonial = data.allWpCptuiTestimonial.edges;
          const recentpost = data.allWpPost.edges;
         const portfolio = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[1].orwPortfolioList;
+        console.log(recentpost);
         
   return(
   <Layout> 
@@ -167,7 +168,7 @@ class Home extends Component {
                 <div className="col-md-4" key={index}>
                   <div className="box">
                     <div className="blog-image">
-                        {node.node.featuredImage !== null  &&
+                        {node.node.featuredImage.node !== null  &&
                             <img src={node.node.featuredImage.node.sourceUrl} alt="top-img" />
                         }   
                     </div>                       

@@ -1,0 +1,67 @@
+query PREVIEW_QUERY($id: ID!) {
+  cptui_credetinal_cat(id: $id, idType: ID, asPreview: true) {
+    contentNodes(first: 100) {
+      nodes {
+        id
+        __typename
+      }
+    }
+    count
+    cptui_credentials(first: 100) {
+      nodes {
+        id
+      }
+    }
+    databaseId
+    description
+    id
+    link
+    name
+    seo {
+      breadcrumbs {
+        text
+        url
+      }
+      canonical
+      cornerstone
+      focuskw
+      metaDesc
+      metaKeywords
+      metaRobotsNofollow
+      metaRobotsNoindex
+      opengraphAuthor
+      opengraphDescription
+      opengraphImage {
+        __typename
+        id
+      }
+      opengraphModifiedTime
+      opengraphPublishedTime
+      opengraphPublisher
+      opengraphSiteName
+      opengraphTitle
+      opengraphType
+      opengraphUrl
+      schema {
+        raw
+      }
+      title
+      twitterDescription
+      twitterImage {
+        __typename
+        id
+      }
+      twitterTitle
+    }
+    slug
+    taxonomy {
+      node {
+        id
+      }
+    }
+    termGroupId
+    termTaxonomyId
+    uri
+    __typename
+  }
+}

@@ -1,0 +1,431 @@
+query PREVIEW_QUERY($id: ID!) {
+  page(id: $id, idType: ID, asPreview: true) {
+    acfContactFormLayout {
+      contactContentRight
+      contactFormArea
+      fieldGroupName
+    }
+    acfGeneralLayout {
+      fieldGroupName
+      genBoxDescription
+      genBoxHeading
+      genBoxIcon
+      genBoxIconClass
+      genContentModules {
+        __typename
+        ... on Page_Acfgenerallayout_GenContentModules_GenGridBoxWithIcons {
+          fieldGroupName
+          genGridBoxesIcons {
+            fieldGroupName
+          }
+          genSectionHeadingGb
+        }
+        ... on Page_Acfgenerallayout_GenContentModules_GenLeftImageAndRightDescription {
+          fieldGroupName
+          genRightDescription
+          genRightHeading
+          genSectionClassLird
+          genTwoSecImage {
+            __typename
+            id
+          }
+        }
+        ... on Page_Acfgenerallayout_GenContentModules_GenRightImageAndLeftDescription {
+          fieldGroupName
+          genLeftDescription
+          genSectionClassRild
+          genTwoSecImage {
+            __typename
+            id
+          }
+        }
+        ... on Page_Acfgenerallayout_GenContentModules_GenRightVideoAndLeftDescription {
+          fieldGroupName
+          genDescriptionRvld
+          genHeadingRvld
+          genSectionClassRvld
+          genVideoRvld
+        }
+        ... on Page_Acfgenerallayout_GenContentModules_GenGridBoxes {
+          fieldGroupName
+          genGridBoxTitle
+          genGridBoxesRep {
+            fieldGroupName
+            genButtonLink
+            genButtonText
+            genDescriptionGb
+            genHoverIconGb {
+              __typename
+              id
+            }
+            genIconGb {
+              __typename
+              id
+            }
+            genTitleGb
+          }
+          genSectionClassGb
+        }
+        ... on Page_Acfgenerallayout_GenContentModules_GenPartnershipAndTrusted {
+          fieldGroupName
+        }
+        ... on Page_Acfgenerallayout_GenContentModules_CallToActionSection {
+          callToAction
+          fieldGroupName
+        }
+        ... on Page_Acfgenerallayout_GenContentModules_GenLeftIconAndRightDescription {
+          fieldGroupName
+          lirdIconsAndDescription {
+            fieldGroupName
+            lirdDescription
+            lirdIcon {
+              __typename
+              id
+            }
+            lirdTitle
+          }
+        }
+        ... on Page_Acfgenerallayout_GenContentModules_ContactUsForProject {
+          ccfpButtonLink
+          ccfpButtonText
+          ccfpSubTitle
+          ccfpTitle
+          fieldGroupName
+        }
+        ... on Page_Acfgenerallayout_GenContentModules_OurRecentWork {
+          fieldGroupName
+          orwPortfolioList {
+            __typename
+            ... on Cptui_portfolio {
+              id
+            }
+          }
+          orwSubTitle
+          orwTitle
+        }
+        ... on Page_Acfgenerallayout_GenContentModules_ImageWithContent {
+          fieldGroupName
+          iwcMainTitle
+          iwcRepeater {
+            fieldGroupName
+            iwcButtonLink
+            iwcButtonText
+            iwcDescription
+            iwcIcon {
+              __typename
+              id
+            }
+            iwcImage {
+              __typename
+              id
+            }
+            iwcSectionClass
+            iwcTitle
+          }
+        }
+        ... on Page_Acfgenerallayout_GenContentModules_CredentialList {
+          fieldGroupName
+          listCredential {
+            __typename
+            ... on Cptui_credential {
+              id
+            }
+          }
+        }
+        ... on Page_Acfgenerallayout_GenContentModules_PageBanner {
+          fieldGroupName
+          pbBgImage {
+            __typename
+            id
+          }
+          pgDescription
+          pgTitle
+        }
+        ... on Page_Acfgenerallayout_GenContentModules_ClientLogo {
+          clTitle
+          fieldGroupName
+          logoRepeater {
+            clrImgHoverLogo {
+              __typename
+              id
+            }
+            clrImgLogo {
+              __typename
+              id
+            }
+            clrImgTitle
+            fieldGroupName
+          }
+        }
+      }
+    }
+    acfHeader {
+      fieldGroupName
+      headerMascot {
+        __typename
+        id
+      }
+      headerPageTitle
+      headerSectionTitle
+      headerSubText
+      headerType
+      homeMascotClass
+    }
+    acfHomeLayout {
+      fieldGroupName
+      homeContentModules {
+        __typename
+        ... on Page_Acfhomelayout_HomeContentModules_HomeServicesBlock {
+          fieldGroupName
+          homeServiceHeading
+          homeServices {
+            fieldGroupName
+            homeServiceDescription
+            homeServiceIcon {
+              __typename
+              id
+            }
+            homeServiceName
+          }
+        }
+        ... on Page_Acfhomelayout_HomeContentModules_TechnologyTabs {
+          fieldGroupName
+          technologyTabsRepeater {
+            fieldGroupName
+            ttTabDescription
+            ttTabDescriptionHeading
+            ttTabLink
+            ttTabTitle
+            ttTitleIcon {
+              __typename
+              id
+            }
+          }
+        }
+        ... on Page_Acfhomelayout_HomeContentModules_HomePortfolioSection {
+          fieldGroupName
+          homeDescriptionPs
+          homeFeaturedImagePs {
+            __typename
+            id
+          }
+          homeLinkPs
+        }
+        ... on Page_Acfhomelayout_HomeContentModules_HomeTestimonials {
+          fieldGroupName
+          homeSectionTitleTs
+          homeSubTitleTs
+          homeTestiVideoThumbTs {
+            __typename
+            id
+          }
+          homeVideoLinkTs
+        }
+        ... on Page_Acfhomelayout_HomeContentModules_PartnershipTrusted {
+          fieldGroupName
+          ptEnable
+        }
+        ... on Page_Acfhomelayout_HomeContentModules_HomeClients {
+          chClientsLogos {
+            __typename
+            id
+          }
+          chTitle
+          fieldGroupName
+        }
+        ... on Page_Acfhomelayout_HomeContentModules_HomeBlogBlock {
+          fieldGroupName
+          hmBlogHeading
+          homeBlogLayout
+        }
+        ... on Page_Acfhomelayout_HomeContentModules_HomeCta {
+          fieldGroupName
+          homeCtaLayout
+        }
+        ... on Page_Acfhomelayout_HomeContentModules_HomeOurExpertise {
+          fieldGroupName
+          homeOeContent
+          homeOeReadMoreLink
+          homeOeRightIcons {
+            fieldGroupName
+            homeOeIcons {
+              __typename
+              id
+            }
+            homeOeRpLinks
+          }
+          homeOeSectionTitle
+        }
+      }
+    }
+    acfMaintainLayout {
+      fieldGroupName
+      maintainButtonLink
+      maintainButtonText
+      maintainCardsSection {
+        fieldGroupName
+        mcContent
+        mcHoverIcon {
+          __typename
+          id
+        }
+        mcIcon {
+          __typename
+          id
+        }
+        mcLearnMoreLink
+        mcTitle
+      }
+      maintainContent
+      maintainImage {
+        __typename
+        id
+      }
+      maintainListRepeater {
+        fieldGroupName
+        maintainList
+      }
+      maintainTitle
+    }
+    acfPageSettings {
+      fieldGroupName
+      sitePageClass
+    }
+    acfServicesLayout {
+      fieldGroupName
+      slContentModule {
+        __typename
+        ... on Page_Acfserviceslayout_SlContentModule_SlServices {
+          fieldGroupName
+          slServiceDesc
+          slServiceImage {
+            __typename
+            id
+          }
+          slServiceName
+          slServicePageLink {
+            __typename
+            ... on Page {
+              id
+            }
+          }
+          slServiceSubText
+        }
+      }
+    }
+    ancestors(first: 100) {
+      nodes {
+        id
+        __typename
+      }
+    }
+    author {
+      node {
+        id
+      }
+    }
+    authorDatabaseId
+    authorId
+    wpChildren: children(first: 100) {
+      nodes {
+        id
+        __typename
+      }
+    }
+    commentCount
+    commentStatus
+    comments(first: 100) {
+      nodes {
+        id
+      }
+    }
+    content
+    contentType {
+      node {
+        id
+      }
+    }
+    databaseId
+    date
+    dateGmt
+    desiredSlug
+    enclosure
+    featuredImage {
+      node {
+        __typename
+        id
+      }
+    }
+    featuredImageDatabaseId
+    featuredImageId
+    guid
+    id
+    isFrontPage
+    isPostsPage
+    isRevision
+    lastEditedBy {
+      node {
+        id
+      }
+    }
+    link
+    menuOrder
+    modified
+    modifiedGmt
+    wpParent: parent {
+      node {
+        id
+        __typename
+      }
+    }
+    parentDatabaseId
+    parentId
+    seo {
+      breadcrumbs {
+        text
+        url
+      }
+      canonical
+      cornerstone
+      focuskw
+      metaDesc
+      metaKeywords
+      metaRobotsNofollow
+      metaRobotsNoindex
+      opengraphAuthor
+      opengraphDescription
+      opengraphImage {
+        __typename
+        id
+      }
+      opengraphModifiedTime
+      opengraphPublishedTime
+      opengraphPublisher
+      opengraphSiteName
+      opengraphTitle
+      opengraphType
+      opengraphUrl
+      schema {
+        articleType
+        pageType
+        raw
+      }
+      title
+      twitterDescription
+      twitterImage {
+        __typename
+        id
+      }
+      twitterTitle
+    }
+    slug
+    status
+    template {
+      templateName
+      __typename
+    }
+    title
+    uri
+    __typename
+  }
+}
