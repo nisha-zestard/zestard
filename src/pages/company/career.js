@@ -5,28 +5,33 @@ import Header from "../../components/header";
 import PageHeader from './../../components/page-header';
 import SEO from "../../components/seo";
 
+
 class Career extends Component {
   
     render() {
-      const data = this.props.data
-      const seotd = data.wpPage
+      const data = this.props.data;
+      console.log(data);
+      const seodata = data.wpPage.seo;
+      const bannerdata = data.wpPage.acfHeader;
+      const careerlist = data.allWpCptuiCareer.edges;
+    //   const seotd = data.wpPage
     //   const acfData = data.wpPage.acf;
       //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>
-        {/* <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/> */}
+        <SEO title={seodata.title} description={seodata.metaDesc}/>
         <Header headernavclass="lightheader" />
             <div id="page" className="site career">
                 <div id="content" className="site-content">
                 {/* page header */}
-                    {/* <PageHeader
-                        headerMascot = {acfData.header_mascot}
-                        headerSubText = {acfData.header_sub_text}
-                        headerSectionTitle={acfData.header_section_title}
-                        headerPageTitle={acfData.header_page_title}
-                    /> */}
+                    <PageHeader
+                        headerMascot = {bannerdata.headerMascot.sourceUrl}
+                        headerSubText = {bannerdata.headerSubText}
+                        headerSectionTitle=""
+                        headerPageTitle={bannerdata.headerPageTitle}
+                    />
                     {/* career Part */}
-                    {/* <section id="career-container">
+                    <section id="career-container">
                         <div className="open-position">
                             <div className="container">
                                 <div className="row">
@@ -39,15 +44,15 @@ class Career extends Component {
                                 </div>
                                 <div className="job-open">
                                     <div className="row">
-                                    {data.allWordpressWpCareer.edges.map(({ node }) => (
+                                    {careerlist.map(({ node }) => (
                                         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 "
                                         key={node.id}>
                                             <div className="card">
                                                 <h3>{node.title}</h3>
                                                 <div className="row padding-bottom">
                                                     <div className="col-xl-7 col-lg-7 col-sm-12">
-                                                        <h4 dangerouslySetInnerHTML={{ __html: node.acf.cr_job_profile }} />
-                                                        <span>No. of opening: {node.acf.career_no_of_openings}</span>
+                                                        <h4 dangerouslySetInnerHTML={{ __html: node.acfCareerLayout.crJobProfile }} />
+                                                        <span>No. of opening: {node.acfCareerLayout.crNoOfVacancies}</span>
                                                         <br/>
                                                         <span>Full time - Ahmedabad</span>
                                                     </div>
@@ -64,7 +69,7 @@ class Career extends Component {
                                 </div>
                             </div>
                         </div>
-                    </section> */}
+                    </section>
                 </div>
             </div>
         </Layout>

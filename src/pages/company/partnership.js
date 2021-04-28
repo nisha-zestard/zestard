@@ -8,7 +8,10 @@ import SEO from "../../components/seo";
 class Partnership extends Component {
   
     render() {
-      const data = this.props.data
+      const data = this.props.data;
+      console.log(data);
+      const seodata = data.wpPage.seo;
+      const bannerdata = data.wpPage.acfHeader;
       // const seotd = data.wpPage
       // const acfData = data.wpPage.acf;
       // const offshore = data.wpPage.acf.gen_content_modules_page[0];
@@ -17,17 +20,17 @@ class Partnership extends Component {
       //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>
-          {/* <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/> */}
+          <SEO title={seodata.title} description={seodata.metaDesc}/>
           <Header headernavclass="lightheader" />
           <div id="page" className="site ">
             <div id="content" className="site-content">
               {/* page header */}
-              {/* <PageHeader
-                headerMascot = {acfData.header_mascot}
-                headerSubText = {acfData.header_sub_text}
-                headerSectionTitle={acfData.header_section_title}
-                headerPageTitle={acfData.header_page_title}
-              /> */}
+              <PageHeader
+                headerMascot = {bannerdata.headerMascot.sourceUrl}
+                headerSubText = {bannerdata.headerSubText}
+                headerSectionTitle=""
+                headerPageTitle={bannerdata.headerPageTitle}
+              />
               {/* partnership */}
               {/* <section>
                 <div className="partner-type  offshare">

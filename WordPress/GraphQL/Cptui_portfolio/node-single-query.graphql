@@ -1,0 +1,142 @@
+query SINGLE_CONTENT_QUERY($id: ID!) {
+  cptui_portfolio(id: $id) {
+    acfHeader {
+      fieldGroupName
+      headerMascot {
+        __typename
+        id
+      }
+      headerPageTitle
+      headerSectionTitle
+      headerSubText
+      headerType
+      homeMascotClass
+    }
+    acfPortfolioLayout {
+      fieldGroupName
+      pfAboutProject
+      pfFeatures
+      pfImageWithResponsive {
+        __typename
+        id
+      }
+      pfProjectGallery {
+        __typename
+        id
+      }
+      pfProjectLogo {
+        __typename
+        id
+      }
+      pfProjectUrl
+      pfTechnologyUsed
+    }
+    ancestors(first: 100) {
+      nodes {
+        id
+        __typename
+      }
+    }
+    wpChildren: children(first: 100) {
+      nodes {
+        id
+        __typename
+      }
+    }
+    content
+    contentType {
+      node {
+        id
+      }
+    }
+    cptui_portfolios_cat(first: 100) {
+      nodes {
+        id
+      }
+    }
+    databaseId
+    date
+    dateGmt
+    desiredSlug
+    enclosure
+    excerpt
+    featuredImage {
+      node {
+        __typename
+        id
+      }
+    }
+    featuredImageDatabaseId
+    featuredImageId
+    guid
+    id
+    lastEditedBy {
+      node {
+        id
+      }
+    }
+    link
+    modified
+    modifiedGmt
+    wpParent: parent {
+      node {
+        id
+        __typename
+      }
+    }
+    parentDatabaseId
+    parentId
+    seo {
+      breadcrumbs {
+        text
+        url
+      }
+      canonical
+      cornerstone
+      focuskw
+      metaDesc
+      metaKeywords
+      metaRobotsNofollow
+      metaRobotsNoindex
+      opengraphAuthor
+      opengraphDescription
+      opengraphImage {
+        __typename
+        id
+      }
+      opengraphModifiedTime
+      opengraphPublishedTime
+      opengraphPublisher
+      opengraphSiteName
+      opengraphTitle
+      opengraphType
+      opengraphUrl
+      schema {
+        articleType
+        pageType
+        raw
+      }
+      title
+      twitterDescription
+      twitterImage {
+        __typename
+        id
+      }
+      twitterTitle
+    }
+    slug
+    status
+    tags(first: 100) {
+      nodes {
+        id
+      }
+    }
+    template {
+      templateName
+      __typename
+    }
+    title
+    uri
+    __typename
+  }
+}

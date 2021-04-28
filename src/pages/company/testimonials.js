@@ -16,31 +16,34 @@ const breakpointColumnsObj = {
 class Testimonials extends Component {
   
     render() {
-      const data = this.props.data
+      const data = this.props.data;
+      const seodata = data.wpPage.seo;
+      const bannerdata = data.wpPage.acfHeader;
+      const testimonial = data.allWpCptuiTechnology.edges;
     //   const seotd = data.wpPage
     //   const acfData = data.wpPage.acf;
       //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>
-        {/* <SEO title={seotd.yoast_title} description={seotd.yoast_meta[0].content}/> */}
+        <SEO title={seodata.title} description={seodata.metaDesc}/>
         <Header headernavclass="lightheader" />
             <div id="page" className="site">
                 <div id="content" className="site-content">
                     {/* Page header */}
-                    {/* <PageHeader
-                        headerMascot = {acfData.header_mascot}
-                        headerSubText = {acfData.header_sub_text}
-                        headerSectionTitle={acfData.header_section_title}
-                        headerPageTitle={acfData.header_page_title}
-                    /> */}
+                    <PageHeader
+                        headerMascot = {bannerdata.headerMascot.sourceUrl}
+                        headerSubText = {bannerdata.headerSubText}
+                        headerSectionTitle=""
+                        headerPageTitle={bannerdata.headerPageTitle}
+                    />
                     <div className="testimonial-list">
                     <div className="container">
-                    {/* <Masonry
+                    <Masonry
                     breakpointCols={breakpointColumnsObj}
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column"
                     >
-                    {data.allWpCptuiTechnology.edges.map(({ node }) => (
+                    {testimonial.map(({ node }) => (
                     <div className="grid-item" key={node.id}>
                         <div className="testimonial-wrapper card">
                             <div className="speaks">
@@ -55,7 +58,7 @@ class Testimonials extends Component {
                         </div>
                     </div>
                     ))}
-                    </Masonry> */}
+                    </Masonry>
                     </div>
                     </div>
                     {/* testimonials */}

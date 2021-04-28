@@ -1,0 +1,454 @@
+query NON_NODE_QUERY {
+  allSettings {
+    discussionSettingsDefaultCommentStatus
+    discussionSettingsDefaultPingStatus
+    generalSettingsDateFormat
+    generalSettingsDescription
+    generalSettingsEmail
+    generalSettingsLanguage
+    generalSettingsStartOfWeek
+    generalSettingsTimeFormat
+    generalSettingsTimezone
+    generalSettingsTitle
+    generalSettingsUrl
+    readingSettingsPostsPerPage
+    writingSettingsDefaultCategory
+    writingSettingsDefaultPostFormat
+    writingSettingsUseSmilies
+  }
+
+  counterSettings {
+    acfCounterSettings {
+      csCounterDetails {
+        csLabel
+        csNumber
+        fieldGroupName
+      }
+
+      csSectionClass
+      fieldGroupName
+    }
+
+    pageSlug
+    pageTitle
+  }
+
+  ctaSettings {
+    acfCTAModule {
+      ctaModDescription
+      ctaModLink
+      fieldGroupName
+    }
+
+    pageSlug
+    pageTitle
+  }
+
+  discussionSettings {
+    defaultCommentStatus
+    defaultPingStatus
+  }
+
+  generalSettings {
+    dateFormat
+    description
+    email
+    language
+    startOfWeek
+    timeFormat
+    timezone
+    title
+    url
+  }
+
+  partnershipTrusted {
+    acfTestimonialTrustedSection {
+      fieldGroupName
+
+      ptAbtPartnersLogo {
+        fieldGroupName
+
+        ptAbtPartnersLogo {
+          __typename
+          id
+        }
+      }
+
+      ptLeftAbtSecTitle
+      ptLeftSecLink
+      ptLeftSecSubTitle
+
+      ptLeftSecThumbnail {
+        __typename
+        id
+      }
+
+      ptLeftSecTitle
+      ptRightSecDescription
+      ptRightSecSubTitle
+      ptRightSecTitle
+
+      ptRightStats {
+        fieldGroupName
+        ptRightStatsDescription
+        ptRightStatsLabel
+      }
+    }
+
+    pageSlug
+    pageTitle
+  }
+
+  readingSettings {
+    postsPerPage
+  }
+
+  seo {
+    breadcrumbs {
+      archivePrefix
+      boldLast
+      enabled
+      homeText
+      notFoundText
+      prefix
+      searchPrefix
+      separator
+      showBlogPage
+    }
+
+    contentTypes {
+      actionMonitorAction {
+        metaDesc
+        metaRobotsNoindex
+
+        schema {
+          raw
+        }
+
+        schemaType
+        title
+      }
+
+      cptuiCareer {
+        metaDesc
+        metaRobotsNoindex
+
+        schema {
+          raw
+        }
+
+        schemaType
+        title
+      }
+
+      cptuiClient {
+        metaDesc
+        metaRobotsNoindex
+
+        schema {
+          raw
+        }
+
+        schemaType
+        title
+      }
+
+      cptuiCredential {
+        metaDesc
+        metaRobotsNoindex
+
+        schema {
+          raw
+        }
+
+        schemaType
+        title
+      }
+
+      cptuiCulture {
+        metaDesc
+        metaRobotsNoindex
+
+        schema {
+          raw
+        }
+
+        schemaType
+        title
+      }
+
+      cptuiEvent {
+        metaDesc
+        metaRobotsNoindex
+
+        schema {
+          raw
+        }
+
+        schemaType
+        title
+      }
+
+      cptuiPortfolio {
+        metaDesc
+        metaRobotsNoindex
+
+        schema {
+          raw
+        }
+
+        schemaType
+        title
+      }
+
+      cptuiSport {
+        metaDesc
+        metaRobotsNoindex
+
+        schema {
+          raw
+        }
+
+        schemaType
+        title
+      }
+
+      cptuiTechnology {
+        metaDesc
+        metaRobotsNoindex
+
+        schema {
+          raw
+        }
+
+        schemaType
+        title
+      }
+
+      cptuiTestimonial {
+        metaDesc
+        metaRobotsNoindex
+
+        schema {
+          raw
+        }
+
+        schemaType
+        title
+      }
+
+      mediaItem {
+        metaDesc
+        metaRobotsNoindex
+
+        schema {
+          raw
+        }
+
+        schemaType
+        title
+      }
+
+      page {
+        metaDesc
+        metaRobotsNoindex
+
+        schema {
+          raw
+        }
+
+        schemaType
+        title
+      }
+
+      post {
+        metaDesc
+        metaRobotsNoindex
+
+        schema {
+          raw
+        }
+
+        schemaType
+        title
+      }
+    }
+
+    openGraph {
+      defaultImage {
+        __typename
+        id
+      }
+
+      frontPage {
+        description
+
+        image {
+          __typename
+          id
+        }
+
+        title
+      }
+    }
+
+    redirects {
+      format
+      origin
+      target
+      type
+    }
+
+    schema {
+      companyLogo {
+        __typename
+        id
+      }
+
+      companyName
+      companyOrPerson
+      inLanguage
+
+      logo {
+        __typename
+        id
+      }
+
+      personLogo {
+        __typename
+        id
+      }
+
+      personName
+      siteName
+      siteUrl
+      wordpressSiteName
+    }
+
+    social {
+      facebook {
+        defaultImage {
+          __typename
+          id
+        }
+
+        url
+      }
+
+      instagram {
+        url
+      }
+
+      linkedIn {
+        url
+      }
+
+      mySpace {
+        url
+      }
+
+      pinterest {
+        metaTag
+        url
+      }
+
+      twitter {
+        cardType
+        username
+      }
+
+      wikipedia {
+        url
+      }
+
+      youTube {
+        url
+      }
+    }
+
+    webmaster {
+      baiduVerify
+      googleVerify
+      msVerify
+      yandexVerify
+    }
+  }
+
+  themeGeneralSettings {
+    acfFooter {
+      contactNumber
+      copyrigth
+
+      externalLinks {
+        externalImage {
+          __typename
+          id
+        }
+
+        externalLink
+        fieldGroupName
+      }
+
+      fieldGroupName
+
+      menuTitleWithLinks {
+        fieldGroupName
+
+        innerLinks {
+          fieldGroupName
+          innerIndiLink
+          innerTitle
+        }
+
+        menuLink
+        menuTitle
+      }
+
+      starContent
+
+      starImage {
+        __typename
+        id
+      }
+    }
+
+    acfGeneralThemeSettings {
+      contactEmail
+      copyrightText
+      fieldGroupName
+
+      lightSiteLogo {
+        __typename
+        id
+      }
+
+      phoneNumber
+
+      siteLogo {
+        __typename
+        id
+      }
+
+      socialMedia {
+        fieldGroupName
+        socialMediaIcon
+        socialMediaLink
+        socialMediaName
+      }
+    }
+
+    pageSlug
+    pageTitle
+  }
+
+  wpGatsby {
+    arePrettyPermalinksEnabled
+    isPreviewFrontendOnline
+  }
+
+  writingSettings {
+    defaultCategory
+    defaultPostFormat
+    useSmilies
+  }
+}

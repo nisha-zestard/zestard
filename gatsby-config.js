@@ -26,7 +26,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://zestard-mmm.netlify.app`,
+        siteUrl: `https://zestardstage.netlify.app/`,
         stripQueryString: true,
       },
     },
@@ -76,7 +76,11 @@ module.exports = {
             showQueryOnError: true,
             copyQueryOnError: true,
             onlyReportCriticalErrors: true,
+            writeQueriesToDisk: true,
           },
+        },
+        production: {
+          hardCacheMediaFiles: true,
         },
       }
     },
