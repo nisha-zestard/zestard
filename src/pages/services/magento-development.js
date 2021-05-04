@@ -12,7 +12,6 @@ import OurRecentWork from "../../components/OurRecentWork";
 class MagentoDevelopment extends Component {
 	render() {		
 		const data = this.props.data;
-		console.log(data);
 		const seodata = data.allWpPage.edges[0].node.seo;
 		const pagedata = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules;
 		const testimonial = data.allWpCptuiTestimonial.edges;

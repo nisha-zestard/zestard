@@ -58,7 +58,7 @@ class Home extends Component {
          const testimonial = data.allWpCptuiTestimonial.edges;
          const recentpost = data.allWpPost.edges;
         const portfolio = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[1].orwPortfolioList;
-        console.log(data);
+        
         
   return(
   <Layout> 

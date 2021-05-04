@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import { removePre } from "../util/common";
+// import { removePre } from "../util/common";
 
 const PlatformWeWork = (props) => {   
     return (
@@ -30,7 +30,7 @@ const PlatformWeWork = (props) => {
                                         </div>
                                         <div className="p-desc" dangerouslySetInnerHTML={{ __html: node.iwcDescription }} />
                                         <div className="know-more-btn">
-                                            <Link to={`/${removePre(node.iwcButtonLink)}`}>Know More</Link>
+                                            <Link to={node.iwcButtonLink}>Know More</Link>
                                         </div>
                                     </div>
                                 </div>

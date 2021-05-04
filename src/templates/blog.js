@@ -14,8 +14,7 @@ class BlogList extends Component {
     const isLast = currentPage === numPages
     const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/page/${(currentPage - 1).toString()}`
     const nextPage = `/blog/page/${(currentPage + 1).toString()}`
-    const data = this.props.data
-    console.log(data);
+    const data = this.props.data;
     const postdata = data.allWpPost.edges;
     
     return (

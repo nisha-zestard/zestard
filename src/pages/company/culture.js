@@ -40,11 +40,6 @@ class Culture extends Component {
     const bannerdata = data.wpPage.acfHeader;
     const culturelist = data.allWpCptuiCulture.edges;
     const culcat = data.allWpCptuiCultureCat.edges;
-    console.log(data);
-    // const seotd = data.wpPage
-    // const acfData = data.wpPage.acf
-    // const culturelist = data.allWpCptuiCulture.edges
-    // const culcat = data.allWpCptuiCultureCat.edges
 
     const getpcid = (el, index) => {
       const pcategoryid = el.target.getAttribute("culcat-id");

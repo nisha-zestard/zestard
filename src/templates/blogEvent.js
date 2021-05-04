@@ -9,11 +9,7 @@ class BlogEventTemplate extends Component {
   
     render() {
       const data = this.props.data;
-      console.log(data);
       const eventHead = this.props.data.allWpCptuiCulture.edges[0].node.title;
-      // const eventgallery = data.allWpCptuiCulture
-      //const singleablum = data.wordpressWpCultures.acf.el_gallery;
-      //console.log(singleablum);
       
       return (
         <Layout>

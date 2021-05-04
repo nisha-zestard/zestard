@@ -8,12 +8,9 @@ import SEO from "../components/seo";
 class PrivacyPolicy extends Component {
   
     render() {
-      const data = this.props.data;
-      console.log(data);
+      const data = this.props.data;      
       const seodata = data.allWpPage.edges[0].node.seo;
       const bannerdata = data.allWpPage.edges[0].node.acfHeader;
-    //   const acfData = data.wpPage.acf;
-    //   const sertech = data.wpPage
     
 
       return (

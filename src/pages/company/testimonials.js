@@ -19,10 +19,8 @@ class Testimonials extends Component {
       const data = this.props.data;
       const seodata = data.wpPage.seo;
       const bannerdata = data.wpPage.acfHeader;
-      const testimonial = data.allWpCptuiTechnology.edges;
-    //   const seotd = data.wpPage
-    //   const acfData = data.wpPage.acf;
-      //const metadata = data.wpPage.yoast_meta[0].content;
+      const testimonial = data.allWpCptuiTestimonial.edges;
+      
       return (
         <Layout>
         <SEO title={seodata.title} description={seodata.metaDesc}/>
@@ -89,15 +87,15 @@ export const query = graphql`
                 }
             }
         }
-        allWpCptuiTechnology {
+        allWpCptuiTestimonial {
             edges {
-                node {
-                    id
-                    title
-                    content
-                }
+              node {
+                id
+                title
+                content
+              }
             }
-        }
+          }
     }
 `
 

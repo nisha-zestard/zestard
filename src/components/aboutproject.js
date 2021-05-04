@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "gatsby";
-import { removePre } from './../util/common';
+// import { removePre } from './../util/common';
 import MascotImage from '../assets/images/Mascot.png';
 
 const AboutProject = (props) => {
-  console.log(props)
+  
     return (
       
       <div className="footer-contactus text-center">

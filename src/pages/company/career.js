@@ -10,13 +10,10 @@ class Career extends Component {
   
     render() {
       const data = this.props.data;
-      console.log(data);
       const seodata = data.wpPage.seo;
       const bannerdata = data.wpPage.acfHeader;
       const careerlist = data.allWpCptuiCareer.edges;
-    //   const seotd = data.wpPage
-    //   const acfData = data.wpPage.acf;
-      //const metadata = data.wpPage.yoast_meta[0].content;
+
       return (
         <Layout>
         <SEO title={seodata.title} description={seodata.metaDesc}/>
