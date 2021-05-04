@@ -79,7 +79,7 @@ export default class CultureLightbox extends Component {
     const { photoIndex, isOpen, showLightbox, selIndex } = this.state;
     
     const images = [];  
-    console.log(EventImages);   
+    
     
     
     return (      

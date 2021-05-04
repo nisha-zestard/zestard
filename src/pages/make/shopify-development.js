@@ -12,18 +12,10 @@ import OurRecentWork from "../../components/OurRecentWork";
 class EcommerceDevelopment extends Component {
   render() {
     const data = this.props.data;
-	console.log(data);
 	const seodata = data.allWpPage.edges[0].node.seo;
 	const acfgenlayout = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules;
 	const services = acfgenlayout[1].genGridBoxesRep;
 	const testimonial = data.allWpCptuiTestimonial.edges;
-    //const acf = data.wpPage.acf.gen_content_modules_page;
-    // const tellus = data.wpPage.acf;
-    // const banner = acf[0].iwc_layout_details[0];
-     
-    // const testimonial = data.allWpCptuiTechnology.edges;
-    // const sertech = data.wpPage  
-    // const portfolio = data.allWpCptuiPortfolio.edges;
 
     return (
       <Layout>

@@ -10,7 +10,6 @@ class AuthorPostsTemplate extends Component {
   
   render() {
      const data = this.props.data;
-     console.log(data);
     const authorName = data.allWpPost.edges[0].node.author.node.name;
     return (
       <Layout>

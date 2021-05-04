@@ -13,15 +13,9 @@ import OurRecentWork from "../../components/OurRecentWork";
 class ReactjsDevelopment extends Component {
 	render() {		
 		const data = this.props.data;
-		console.log(data) ;
 		const seodata = data.allWpPage.edges[0].node.seo;
 		const pagedata = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules;
 		const testimonial = data.allWpCptuiTestimonial.edges;
-		// const acf = data.allWpPage.edges[0].node.acf
-		// const pagedata = acf.gen_content_modules_page
-		// const testimonial = data.allWpCptuiTechnology.edges;
-		// const sertech = data.allWpPage.edges[0].node;
-		// const portfolio = data.allWpCptuiPortfolio.edges;
 		
 		return(
 			<Layout>

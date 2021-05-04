@@ -84,7 +84,7 @@ class Header extends React.Component {
          const { location} = history
          const param = location.pathname;  
          
-         console.log(maninmenu);
+         
       
         const handleClicko = (el) => { 
           document.body.classList.toggle("menu-open");

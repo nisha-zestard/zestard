@@ -13,7 +13,6 @@ import OurRecentWork from "../../components/OurRecentWork";
 class ReactjsDevelopment extends Component {
 	render() {		
 		const data = this.props.data; 
-		console.log(data); 
 		const seodata = data.allWpPage.edges[0].node.seo;
 		const acfdata =data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules;
 		const banner = acfdata[0];

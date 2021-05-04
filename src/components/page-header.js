@@ -9,6 +9,7 @@ class PageHeader extends Component {
             headerSectionTitle,
             headerPageTitle,
         } = this.props;
+        console.log(headerMascot);
         return (
             <section>
                 <div className="page-header">
@@ -16,7 +17,7 @@ class PageHeader extends Component {
                         <div className="row">
                             <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12 vector">
                                 {headerMascot !== null &&
-                                    <img src={headerMascot.source_url} loading="lazy" alt=""/>
+                                    <img src={headerMascot} loading="lazy" alt=""/>
                                 }
                                 {/* {headerMascot !== null && headerMascot.localFile !== null && headerMascot.localFile.childImageSharp !== null &&
                                     <Img fixed={headerMascot.localFile.childImageSharp.fixed} />

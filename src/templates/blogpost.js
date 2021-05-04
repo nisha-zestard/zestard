@@ -28,10 +28,7 @@ class PostTemplate extends Component {
   render() {
     const data = this.props.data
     
-    const post = data.wpPost    
-    console.log(data)
-    // console.log(post.yoast_json_ld[0].wordpress__graph[2].description);
-    // const allpostauthor = this.props.data.allWpPost
+    const post = data.wpPost;
     
     return (
       <Layout>
