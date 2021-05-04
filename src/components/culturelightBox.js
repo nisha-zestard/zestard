@@ -91,10 +91,11 @@ export default class CultureLightbox extends Component {
                 <div className="culture-wrapper card">
                   <div className="speaks">                    
                     <div className="previewButton" key={i} type="button" onClick={e => this.handleClick(e, image, i) }>
-                      {image.sourceUrl.match(/\.(jpeg|jpg|png|gif)$/) != null && 
+                    <img className="img-responsive" alt="Culture" loading="lazy" src={image.sourceUrl} onClick={e => this.handleImageClick(i) } />
+                      {/* {image.sourceUrl.match(/\.(jpeg|jpg|png|gif)$/) != null && 
                         <img className="img-responsive" alt="Culture" loading="lazy" src={image.sourceUrl} onClick={e => this.handleImageClick(i) } />                           
-                      }
-                      {image.sourceUrl.match(/\.(mp4|mov|mpeg|webm)$/) != null && 
+                      } */}
+                      {/* {image.sourceUrl.match(/\.(mp4|mov|mpeg|webm)$/) != null && 
                         <ReactPlayer
                           url={image.sourceUrl}
                           volume='1'
@@ -102,7 +103,7 @@ export default class CultureLightbox extends Component {
                           width='100%'
                           playing={true}
                         />
-                        }
+                        } */}
                       
                     </div>                              
                   </div>
@@ -141,8 +142,8 @@ export default class CultureLightbox extends Component {
                   <Carousel>
                     {EventImages.map((image, i) => (                     
                       <div>
-                        
-                        {image.source_url.match(/\.(jpeg|jpg|png|gif)$/) != null && 
+                        <img src={image.sourceUrl} alt="img" loading="lazy" className="slbImage"/>
+                        {/* {image.source_url.match(/\.(jpeg|jpg|png|gif)$/) != null && 
                         <img src={image.source_url} alt="img" loading="lazy" className="slbImage"/>
                         } 
                         {image.source_url.match(/\.(mp4|mov|mpeg|webm)$/) != null && 
@@ -153,7 +154,7 @@ export default class CultureLightbox extends Component {
                           width='100%'
                           playing={true}
                         />
-                        }
+                        } */}
                       {/* <img src={image.source_url} alt="img" loading="lazy" className="slbImage"/> */}
                       </div>                    
                     ))}
