@@ -76,11 +76,11 @@ class Header extends React.Component {
          const maninmenu = data.allWpMenuItem.edges;
          const darklogo = acfoptions.acfGeneralThemeSettings.siteLogo.sourceUrl;
          const lightlogo = acfoptions.acfGeneralThemeSettings.lightSiteLogo.sourceUrl;
-         const companymenu = maninmenu[5];
-         const servicmenu = maninmenu[4];
-         const workmenu = maninmenu[3];
-         const blogmenu = maninmenu[2];
-         const contactmenu = maninmenu[1];
+         const companymenu = maninmenu[0];
+         const servicmenu = maninmenu[1];
+         const workmenu = maninmenu[2];
+         const blogmenu = maninmenu[3];
+         const contactmenu = maninmenu[4];
          const { location} = history
          const param = location.pathname;  
          
