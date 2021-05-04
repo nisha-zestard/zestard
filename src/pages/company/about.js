@@ -37,7 +37,7 @@ class About extends Component {
                                 </div>
                                 <div className="col-lg-6 about-image">
                                     <div className="about-image">
-                                        <img src={pagedata[1].genTwoSecImage.sourceUrl} />
+                                        <img src={pagedata[1].genTwoSecImage.sourceUrl} alt="banner"/>
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@ class About extends Component {
                                         <div className="col-md-6 our-values-box-wrapper" key={index}>
                                         <div className="our-values-box">
                                             <div className="icon">
-                                                <img src={Valueicon} />
+                                                <img src={Valueicon} alt="value icon"/>
                                             </div>
                                             <div className="descriptions">
                                                 <h3>{node.genTitleGb}</h3>
@@ -115,7 +115,7 @@ class About extends Component {
                                             <div className="our-credentials-box text-center">
                                                 <div className="image">
                                                     {node.clrImgLogo.sourceUrl !== null &&
-                                                        <img src={node.clrImgLogo.sourceUrl} />
+                                                        <img src={node.clrImgLogo.sourceUrl} alt="logos"/>
                                                     }                                                    
                                                 </div>
                                                 <h3 className="c-title">{node.clrImgTitle}</h3>

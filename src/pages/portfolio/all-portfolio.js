@@ -2,14 +2,14 @@ import React, { Component } from "react"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 import Header from "../../components/header";
-import PageHeader from './../../components/page-header';
-import { removeSpecialSymbols } from './../../util/common'
+// import PageHeader from './../../components/page-header';
+// import { removeSpecialSymbols } from './../../util/common'
 import SEO from "../../components/seo";
 class Portfolio extends Component {
   
     render() {
       const data = this.props.data
-      const acfData = data.wpPage.acf;
+    //   const acfData = data.wpPage.acf;
       //const metadata = data.wpPage.yoast_meta[0].content;
       return (
         <Layout>

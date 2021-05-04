@@ -17,7 +17,7 @@ class ReactjsDevelopment extends Component {
 		console.log(data);
 		const seodata = data.allWpPage.edges[0].node.seo;
 		const bannerdata = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[0];
-		const services = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[1];
+		// const services = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[1];
 		const testimonial = data.allWpCptuiTestimonial.edges;
 		const portfolio = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[2];
 		const contactus = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[3];
