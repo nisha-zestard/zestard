@@ -33,6 +33,10 @@
                 font-size: 30px;
                 line-height: 38px;
             }
+            @media #{$mobile-screen}{
+                font-size: 26px;
+                line-height: 32px;
+            }
             span{
                 color: #96d21f;
             }
@@ -47,6 +51,9 @@
             @media #{$tablet-screen}{
                 font-size: 20px;
                 line-height: 22px;
+            }
+            @media #{$mobile-screen}{
+                font-size: 18px;
             }
         }
         a{
