@@ -11,6 +11,7 @@ import ServiceHero from "../components/ServiceHero";
 import Counterbg from "../images/counter-bg.png"
 import { removePre } from './../util/common'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Slider from "react-slick";
 
 class Home extends Component {
     constructor(props) {
@@ -58,6 +59,39 @@ class Home extends Component {
          const testimonial = data.allWpCptuiTestimonial.edges;
          const recentpost = data.allWpPost.edges;
         const portfolio = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[1].orwPortfolioList;
+        // const slides = useRef(null);
+
+        // const next = () => {
+        //   slides.current.slickNext();
+        // }
+        // const previous = () => {
+        //   slides.current.slickPrev();
+        // }
+        var cmobprotlist = {
+          dots: true,
+          infinite: true,
+          autoplay: true,
+          speed: 500,
+          slidesToShow: 1,
+          arrow: false,
+          slidesToScroll: 1,
+          responsive: [
+              {
+                  breakpoint: 500,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1, 
+                  }
+                },
+              {
+                breakpoint: 420,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1, 
+                }
+              }
+          ]
+      };
         
         
   return(
@@ -86,7 +120,7 @@ class Home extends Component {
                 <div className="title text-center">
                     <h2>Our Portfolio</h2>
                 </div>
-                <div className="portfolio-list">
+                <div className="portfolio-list desk-prot-list d-md-block d-none">
                     <div className="row">
                         {portfolio.map((node,index) => (
                             <div className={node.title === "Jadeblue" ? 'col-md-12 full-col' : 'col-md-6 half-col'} key={index}>
@@ -100,6 +134,17 @@ class Home extends Component {
                             </div>
                         ))}                   
                     </div>
+                </div>
+                <div className="portfolio-list mob-pro-list d-md-none d-sm-block">                 
+                    <Slider {...cmobprotlist}>
+                        {portfolio.map((node,index) => (
+                            <div key={index}>
+                                {node.acfPortfolioLayout.pfImageWithResponsive.sourceUrl !== null && 
+                                <img src={node.acfPortfolioLayout.pfImageWithResponsive.sourceUrl} alt="prot-list-img" />
+                            }
+                            </div>
+                        ))}
+                    </Slider>                    
                 </div>
             </div>
         </div>
