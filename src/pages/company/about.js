@@ -7,6 +7,7 @@ import PageHeader from './../../components/page-header';
 import Valueicon from "../../assets/images/values-icon.png"
 import Testimonials from "../../components/TestiMonials";
 import AboutProject from "../../components/aboutproject";
+import Slider from "react-slick";
 
 class About extends Component {
   
@@ -15,6 +16,31 @@ class About extends Component {
         const seodata = data.allWpPage.edges[0].node.seo;
         const pagedata = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules;
         const testimonial = data.allWpCptuiTestimonial.edges;
+        var mobclientlogos = {
+          dots: true,
+          infinite: true,
+          autoplay: true,
+          speed: 500,
+          slidesToShow: 1,
+          arrow: false,
+          slidesToScroll: 1,
+          responsive: [
+              {
+                  breakpoint: 500,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1, 
+                  }
+                },
+              {
+                breakpoint: 420,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1, 
+                }
+              }
+          ]
+      };
         
       return (
         <Layout>
@@ -108,7 +134,7 @@ class About extends Component {
                     <div className="our-credentials">
                         <div className="container">
                             <h2 className="title text-center">Our Credentials</h2>
-                            <div className="our-credentials-wraper">
+                            <div className="our-credentials-wraper desk-client-logo d-md-block d-none">
                                 <div className="row">
                                     {pagedata[3].logoRepeater.map((node,index)=>(
                                         <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
@@ -124,6 +150,17 @@ class About extends Component {
                                     ))}                                    
                                 </div>
                             </div>
+                            <div className="our-credentials-wraper mob-client-logo d-md-none d-sm-block">                 
+                              <Slider {...mobclientlogos}>
+                                  {pagedata[3].logoRepeater.map((node,index) => (
+                                      <div key={index}>
+                                          {node.clrImgLogo.sourceUrl !== null && 
+                                          <img src={node.clrImgLogo.sourceUrl} alt="prot-list-img" />
+                                      }
+                                      </div>
+                                  ))}
+                              </Slider>                    
+                          </div>
                         </div>
                     </div>
                 </section>
