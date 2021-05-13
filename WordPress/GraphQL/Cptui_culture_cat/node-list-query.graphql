@@ -1,5 +1,5 @@
 query NODE_LIST_QUERY($first: Int!, $after: String) {
-  cptui_culture_cats(first: $first, after: $after) {
+  cptuiCultureCats(first: $first, after: $after) {
     nodes {
       contentNodes(first: 100) {
         nodes {
@@ -8,7 +8,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         }
       }
       count
-      cptui_cultures(first: 100) {
+      cptuiCultures(first: 100) {
         nodes {
           id
         }
@@ -26,6 +26,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         canonical
         cornerstone
         focuskw
+        fullHead
         metaDesc
         metaKeywords
         metaRobotsNofollow

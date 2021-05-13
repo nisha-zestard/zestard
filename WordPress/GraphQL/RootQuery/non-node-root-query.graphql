@@ -118,6 +118,16 @@ query NON_NODE_QUERY {
 
     contentTypes {
       actionMonitorAction {
+        archive {
+          archiveLink
+          breadcrumbTitle
+          fullHead
+          hasArchive
+          metaDesc
+          metaRobotsNoindex
+          title
+        }
+
         metaDesc
         metaRobotsNoindex
 
@@ -130,6 +140,16 @@ query NON_NODE_QUERY {
       }
 
       cptuiCareer {
+        archive {
+          archiveLink
+          breadcrumbTitle
+          fullHead
+          hasArchive
+          metaDesc
+          metaRobotsNoindex
+          title
+        }
+
         metaDesc
         metaRobotsNoindex
 
@@ -142,6 +162,16 @@ query NON_NODE_QUERY {
       }
 
       cptuiClient {
+        archive {
+          archiveLink
+          breadcrumbTitle
+          fullHead
+          hasArchive
+          metaDesc
+          metaRobotsNoindex
+          title
+        }
+
         metaDesc
         metaRobotsNoindex
 
@@ -154,6 +184,16 @@ query NON_NODE_QUERY {
       }
 
       cptuiCredential {
+        archive {
+          archiveLink
+          breadcrumbTitle
+          fullHead
+          hasArchive
+          metaDesc
+          metaRobotsNoindex
+          title
+        }
+
         metaDesc
         metaRobotsNoindex
 
@@ -166,6 +206,16 @@ query NON_NODE_QUERY {
       }
 
       cptuiCulture {
+        archive {
+          archiveLink
+          breadcrumbTitle
+          fullHead
+          hasArchive
+          metaDesc
+          metaRobotsNoindex
+          title
+        }
+
         metaDesc
         metaRobotsNoindex
 
@@ -178,6 +228,16 @@ query NON_NODE_QUERY {
       }
 
       cptuiEvent {
+        archive {
+          archiveLink
+          breadcrumbTitle
+          fullHead
+          hasArchive
+          metaDesc
+          metaRobotsNoindex
+          title
+        }
+
         metaDesc
         metaRobotsNoindex
 
@@ -190,6 +250,16 @@ query NON_NODE_QUERY {
       }
 
       cptuiPortfolio {
+        archive {
+          archiveLink
+          breadcrumbTitle
+          fullHead
+          hasArchive
+          metaDesc
+          metaRobotsNoindex
+          title
+        }
+
         metaDesc
         metaRobotsNoindex
 
@@ -202,6 +272,16 @@ query NON_NODE_QUERY {
       }
 
       cptuiSport {
+        archive {
+          archiveLink
+          breadcrumbTitle
+          fullHead
+          hasArchive
+          metaDesc
+          metaRobotsNoindex
+          title
+        }
+
         metaDesc
         metaRobotsNoindex
 
@@ -214,6 +294,16 @@ query NON_NODE_QUERY {
       }
 
       cptuiTechnology {
+        archive {
+          archiveLink
+          breadcrumbTitle
+          fullHead
+          hasArchive
+          metaDesc
+          metaRobotsNoindex
+          title
+        }
+
         metaDesc
         metaRobotsNoindex
 
@@ -226,6 +316,16 @@ query NON_NODE_QUERY {
       }
 
       cptuiTestimonial {
+        archive {
+          archiveLink
+          breadcrumbTitle
+          fullHead
+          hasArchive
+          metaDesc
+          metaRobotsNoindex
+          title
+        }
+
         metaDesc
         metaRobotsNoindex
 
@@ -238,6 +338,16 @@ query NON_NODE_QUERY {
       }
 
       mediaItem {
+        archive {
+          archiveLink
+          breadcrumbTitle
+          fullHead
+          hasArchive
+          metaDesc
+          metaRobotsNoindex
+          title
+        }
+
         metaDesc
         metaRobotsNoindex
 
@@ -250,6 +360,16 @@ query NON_NODE_QUERY {
       }
 
       page {
+        archive {
+          archiveLink
+          breadcrumbTitle
+          fullHead
+          hasArchive
+          metaDesc
+          metaRobotsNoindex
+          title
+        }
+
         metaDesc
         metaRobotsNoindex
 
@@ -262,6 +382,16 @@ query NON_NODE_QUERY {
       }
 
       post {
+        archive {
+          archiveLink
+          breadcrumbTitle
+          fullHead
+          hasArchive
+          metaDesc
+          metaRobotsNoindex
+          title
+        }
+
         metaDesc
         metaRobotsNoindex
 

@@ -15,23 +15,23 @@ class Culture extends Component {
   }
 
   componentDidMount() {
-    const data = this.props.data
-    const culturelist = data.allWpCptuiCulture.edges
+    const data = this.props.data;
+    const culturelist = data.allWpCptuiCulture.edges;
 
-    const pcategoryid = data.allWpCptuiCultureCat.edges[0].node.databaseId
+    const pcategoryid = data.allWpCptuiCultureCat.edges[0].node.databaseId;
 
-    const plist = document.getElementsByClassName("culture-list")
-    // for (var k = 0; k < plist.length; k++) {
-    //   if (pcategoryid == culturelist[k].node.cptui_culture_cats.nodes[0].name) {
-    //     plist[k].style.display = 'block';
-    //   } else {
-    //     plist[k].style.display = "none"
-    //   }
-    // }
+    const plist = document.getElementsByClassName("culture-list");
+    for (var k = 0; k < plist.length; k++) {
+      if (pcategoryid == culturelist[k].node.cptuiCultureCats.nodes[0].databaseId) {
+        plist[k].style.display = 'block';
+      } else {
+        plist[k].style.display = "none";
+      }
+    }
   }
 
   setActive = (activeIndex) => {
-    this.setState({ active: activeIndex })
+    this.setState({ active: activeIndex });
   }
 
   render() {
@@ -40,18 +40,20 @@ class Culture extends Component {
     const bannerdata = data.wpPage.acfHeader;
     const culturelist = data.allWpCptuiCulture.edges;
     const culcat = data.allWpCptuiCultureCat.edges;
+    console.log(culturelist);
 
     const getpcid = (el, index) => {
       const pcategoryid = el.target.getAttribute("culcat-id");
-      this.setActive(index);
+      this.setActive(index)
       var setlid;
-      // for (var i = 0; i < culturelist.length; i++) {
-      //   if (pcategoryid == culturelist[i].node.cptui_culture_cats.nodes[0].name) {
-      //     setlid = document.getElementsByClassName("culture-list")[i].style.display = "block";
-      //   } else {
-      //     setlid = document.getElementsByClassName("culture-list")[i].style.display = "none";
-      //   }
-      // }
+      for (var i = 0; i < culturelist.length; i++) {
+        console.log(pcategoryid);
+        if (pcategoryid == culturelist[i].node.cptuiCultureCats.nodes[0].databaseId) {
+          setlid = document.getElementsByClassName("culture-list")[i].style.display = "block";
+        } else {
+          setlid = document.getElementsByClassName("culture-list")[i].style.display = "none";
+        }
+      }
     }
 
     return (
@@ -77,7 +79,7 @@ class Culture extends Component {
                         culcat-id={node.node.databaseId}
                         key={index}
                         onClick={(e) => getpcid(e, index)}
-                        className={"cat-year-list" + index == this.state.active ? "active" : ""}
+                        className={index == this.state.active ? "cat-year-list active" : "cat-year-list"}
                       >
                         {node.node.name}
                       </li>
@@ -88,7 +90,7 @@ class Culture extends Component {
                   <div
                     className="col-lg-4 col-md-6 col-sm-6 culture-box-wrap culture-list"
                     key={node.id}
-                    data-id={node.cptui_culture_cats.nodes[0].name}
+                    data-id={node.cptuiCultureCats.nodes[0].name}
                   >
                     <div className="events-wrapper card shadow-sm rounded">
                       {node.featuredImage.node !== null && (
@@ -166,7 +168,7 @@ export const query = graphql`
               sourceUrl
             }
           }
-          cptui_culture_cats {
+          cptuiCultureCats {
             nodes {
               name
               databaseId

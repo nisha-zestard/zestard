@@ -1,5 +1,5 @@
 query NODE_LIST_QUERY($first: Int!, $after: String) {
-  cptui_technologies(first: $first, after: $after) {
+  cptuiTechnologies(first: $first, after: $after) {
     nodes {
       acfTechnologyCustomLink {
         fieldGroupName
@@ -43,6 +43,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         canonical
         cornerstone
         focuskw
+        fullHead
         metaDesc
         metaKeywords
         metaRobotsNofollow
@@ -60,6 +61,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         opengraphTitle
         opengraphType
         opengraphUrl
+        readingTime
         schema {
           articleType
           pageType

@@ -47,6 +47,7 @@ query PREVIEW_QUERY($id: ID!) {
       }
     }
     seo {
+      fullHead
       metaDesc
       metaRobotsNofollow
       metaRobotsNoindex

@@ -1,12 +1,12 @@
 query PREVIEW_QUERY($id: ID!) {
-  cptui_credential(id: $id, idType: ID, asPreview: true) {
+  cptuiCredential(id: $id, idType: ID, asPreview: true) {
     content
     contentType {
       node {
         id
       }
     }
-    cptui_credetinals_cat(first: 100) {
+    cptuiCredetinalsCat(first: 100) {
       nodes {
         id
       }
@@ -42,6 +42,7 @@ query PREVIEW_QUERY($id: ID!) {
       canonical
       cornerstone
       focuskw
+      fullHead
       metaDesc
       metaKeywords
       metaRobotsNofollow
@@ -59,6 +60,7 @@ query PREVIEW_QUERY($id: ID!) {
       opengraphTitle
       opengraphType
       opengraphUrl
+      readingTime
       schema {
         articleType
         pageType
@@ -77,6 +79,12 @@ query PREVIEW_QUERY($id: ID!) {
     template {
       templateName
       __typename
+    }
+    terms(first: 100) {
+      nodes {
+        id
+        __typename
+      }
     }
     title
     uri

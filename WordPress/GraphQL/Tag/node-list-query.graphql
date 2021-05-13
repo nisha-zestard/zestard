@@ -8,7 +8,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         }
       }
       count
-      cptui_portfolios(first: 100) {
+      cptuiPortfolios(first: 100) {
         nodes {
           id
         }
@@ -31,6 +31,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         canonical
         cornerstone
         focuskw
+        fullHead
         metaDesc
         metaKeywords
         metaRobotsNofollow

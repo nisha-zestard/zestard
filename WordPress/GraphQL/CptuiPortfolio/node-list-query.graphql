@@ -1,5 +1,5 @@
 query NODE_LIST_QUERY($first: Int!, $after: String) {
-  cptui_portfolios(first: $first, after: $after) {
+  cptuiPortfolios(first: $first, after: $after) {
     nodes {
       acfHeader {
         fieldGroupName
@@ -50,7 +50,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
           id
         }
       }
-      cptui_portfolios_cat(first: 100) {
+      cptuiPortfoliosCat(first: 100) {
         nodes {
           id
         }
@@ -95,6 +95,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         canonical
         cornerstone
         focuskw
+        fullHead
         metaDesc
         metaKeywords
         metaRobotsNofollow
@@ -112,6 +113,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         opengraphTitle
         opengraphType
         opengraphUrl
+        readingTime
         schema {
           articleType
           pageType
@@ -135,6 +137,12 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       template {
         templateName
         __typename
+      }
+      terms(first: 100) {
+        nodes {
+          id
+          __typename
+        }
       }
       title
       uri

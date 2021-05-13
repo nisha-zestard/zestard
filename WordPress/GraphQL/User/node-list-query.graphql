@@ -48,6 +48,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         }
       }
       seo {
+        fullHead
         metaDesc
         metaRobotsNofollow
         metaRobotsNoindex

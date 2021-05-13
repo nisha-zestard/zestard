@@ -1,5 +1,5 @@
 query SINGLE_CONTENT_QUERY($id: ID!) {
-  cptui_culture_cat(id: $id) {
+  cptuiCultureCat(id: $id) {
     contentNodes(first: 100) {
       nodes {
         id
@@ -7,7 +7,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
       }
     }
     count
-    cptui_cultures(first: 100) {
+    cptuiCultures(first: 100) {
       nodes {
         id
       }
@@ -25,6 +25,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
       canonical
       cornerstone
       focuskw
+      fullHead
       metaDesc
       metaKeywords
       metaRobotsNofollow

@@ -1,5 +1,5 @@
 query SINGLE_CONTENT_QUERY($id: ID!) {
-  cptui_technology(id: $id) {
+  cptuiTechnology(id: $id) {
     acfTechnologyCustomLink {
       fieldGroupName
       technologyCustomLink
@@ -42,6 +42,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
       canonical
       cornerstone
       focuskw
+      fullHead
       metaDesc
       metaKeywords
       metaRobotsNofollow
@@ -59,6 +60,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
       opengraphTitle
       opengraphType
       opengraphUrl
+      readingTime
       schema {
         articleType
         pageType

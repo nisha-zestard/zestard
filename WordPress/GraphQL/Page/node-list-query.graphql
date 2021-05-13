@@ -97,7 +97,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
             fieldGroupName
             orwPortfolioList {
               __typename
-              ... on Cptui_portfolio {
+              ... on CptuiPortfolio {
                 id
               }
             }
@@ -363,6 +363,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       id
       isFrontPage
       isPostsPage
+      isPrivacyPage
       isRevision
       lastEditedBy {
         node {
@@ -389,6 +390,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         canonical
         cornerstone
         focuskw
+        fullHead
         metaDesc
         metaKeywords
         metaRobotsNofollow
@@ -406,6 +408,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         opengraphTitle
         opengraphType
         opengraphUrl
+        readingTime
         schema {
           articleType
           pageType

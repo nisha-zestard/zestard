@@ -107,7 +107,7 @@ export const query = graphql`
 						orwTitle
 						orwSubTitle
 						orwPortfolioList {
-						  ... on WpCptui_portfolio {
+						  ... on WpCptuiPortfolio {
 							id
 							acfPortfolioLayout {
 							  pfImageWithResponsive {

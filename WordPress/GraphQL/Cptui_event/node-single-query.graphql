@@ -1,5 +1,5 @@
 query SINGLE_CONTENT_QUERY($id: ID!) {
-  cptui_event(id: $id) {
+  cptuiEvent(id: $id) {
     acfEventslayout {
       elGallery {
         __typename
@@ -44,6 +44,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
       canonical
       cornerstone
       focuskw
+      fullHead
       metaDesc
       metaKeywords
       metaRobotsNofollow
@@ -61,6 +62,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
       opengraphTitle
       opengraphType
       opengraphUrl
+      readingTime
       schema {
         articleType
         pageType
