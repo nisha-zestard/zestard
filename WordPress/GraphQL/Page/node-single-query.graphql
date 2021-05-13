@@ -96,7 +96,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
           fieldGroupName
           orwPortfolioList {
             __typename
-            ... on Cptui_portfolio {
+            ... on CptuiPortfolio {
               id
             }
           }
@@ -362,6 +362,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
     id
     isFrontPage
     isPostsPage
+    isPrivacyPage
     isRevision
     lastEditedBy {
       node {
@@ -388,6 +389,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
       canonical
       cornerstone
       focuskw
+      fullHead
       metaDesc
       metaKeywords
       metaRobotsNofollow
@@ -405,6 +407,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
       opengraphTitle
       opengraphType
       opengraphUrl
+      readingTime
       schema {
         articleType
         pageType

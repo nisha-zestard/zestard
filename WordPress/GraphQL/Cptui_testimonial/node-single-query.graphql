@@ -1,5 +1,5 @@
 query SINGLE_CONTENT_QUERY($id: ID!) {
-  cptui_testimonial(id: $id) {
+  cptuiTestimonial(id: $id) {
     acfTestimonialsLayout {
       fieldGroupName
       testimonialDetails {
@@ -46,6 +46,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
       canonical
       cornerstone
       focuskw
+      fullHead
       metaDesc
       metaKeywords
       metaRobotsNofollow
@@ -63,6 +64,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
       opengraphTitle
       opengraphType
       opengraphUrl
+      readingTime
       schema {
         articleType
         pageType

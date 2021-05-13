@@ -47,6 +47,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
       }
     }
     seo {
+      fullHead
       metaDesc
       metaRobotsNofollow
       metaRobotsNoindex

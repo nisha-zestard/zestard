@@ -1,5 +1,5 @@
 query PREVIEW_QUERY($id: ID!) {
-  cptui_event(id: $id, idType: ID, asPreview: true) {
+  cptuiEvent(id: $id, idType: ID, asPreview: true) {
     acfEventslayout {
       elGallery {
         __typename
@@ -44,6 +44,7 @@ query PREVIEW_QUERY($id: ID!) {
       canonical
       cornerstone
       focuskw
+      fullHead
       metaDesc
       metaKeywords
       metaRobotsNofollow
@@ -61,6 +62,7 @@ query PREVIEW_QUERY($id: ID!) {
       opengraphTitle
       opengraphType
       opengraphUrl
+      readingTime
       schema {
         articleType
         pageType

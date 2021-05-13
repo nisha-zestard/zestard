@@ -46,6 +46,7 @@ query PREVIEW_QUERY($id: ID!) {
       canonical
       cornerstone
       focuskw
+      fullHead
       metaDesc
       metaKeywords
       metaRobotsNofollow

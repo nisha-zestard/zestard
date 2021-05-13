@@ -1,5 +1,5 @@
 query NODE_LIST_QUERY($first: Int!, $after: String) {
-  cptui_events(first: $first, after: $after) {
+  cptuiEvents(first: $first, after: $after) {
     nodes {
       acfEventslayout {
         elGallery {
@@ -45,6 +45,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         canonical
         cornerstone
         focuskw
+        fullHead
         metaDesc
         metaKeywords
         metaRobotsNofollow
@@ -62,6 +63,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         opengraphTitle
         opengraphType
         opengraphUrl
+        readingTime
         schema {
           articleType
           pageType

@@ -1,5 +1,5 @@
 query NODE_LIST_QUERY($first: Int!, $after: String) {
-  cptui_clients(first: $first, after: $after) {
+  cptuiClients(first: $first, after: $after) {
     nodes {
       content
       contentType {
@@ -38,6 +38,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         canonical
         cornerstone
         focuskw
+        fullHead
         metaDesc
         metaKeywords
         metaRobotsNofollow
@@ -55,6 +56,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         opengraphTitle
         opengraphType
         opengraphUrl
+        readingTime
         schema {
           articleType
           pageType

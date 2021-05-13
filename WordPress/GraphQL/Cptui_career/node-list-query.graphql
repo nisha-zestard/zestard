@@ -1,5 +1,5 @@
 query NODE_LIST_QUERY($first: Int!, $after: String) {
-  cptui_careers(first: $first, after: $after) {
+  cptuiCareers(first: $first, after: $after) {
     nodes {
       acfCareerLayout {
         crExperience
@@ -45,6 +45,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         canonical
         cornerstone
         focuskw
+        fullHead
         metaDesc
         metaKeywords
         metaRobotsNofollow
@@ -62,6 +63,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         opengraphTitle
         opengraphType
         opengraphUrl
+        readingTime
         schema {
           articleType
           pageType
@@ -80,6 +82,12 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       template {
         templateName
         __typename
+      }
+      terms(first: 100) {
+        nodes {
+          id
+          __typename
+        }
       }
       title
       uri

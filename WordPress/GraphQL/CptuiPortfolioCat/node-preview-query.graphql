@@ -1,5 +1,5 @@
-query SINGLE_CONTENT_QUERY($id: ID!) {
-  cptui_portfolio_cat(id: $id) {
+query PREVIEW_QUERY($id: ID!) {
+  cptuiPortfolioCat(id: $id, idType: ID, asPreview: true) {
     ancestors(first: 100) {
       nodes {
         id
@@ -17,7 +17,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
       }
     }
     count
-    cptui_portfolios(first: 100) {
+    cptuiPortfolios(first: 100) {
       nodes {
         id
       }
@@ -42,6 +42,7 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
       canonical
       cornerstone
       focuskw
+      fullHead
       metaDesc
       metaKeywords
       metaRobotsNofollow

@@ -1,5 +1,5 @@
 query NODE_LIST_QUERY($first: Int!, $after: String) {
-  cptui_credetinals_cat(first: $first, after: $after) {
+  cptuiCredetinalsCat(first: $first, after: $after) {
     nodes {
       contentNodes(first: 100) {
         nodes {
@@ -8,7 +8,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         }
       }
       count
-      cptui_credentials(first: 100) {
+      cptuiCredentials(first: 100) {
         nodes {
           id
         }
@@ -26,6 +26,7 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
         canonical
         cornerstone
         focuskw
+        fullHead
         metaDesc
         metaKeywords
         metaRobotsNofollow

@@ -12,12 +12,25 @@ import Counterbg from "../images/counter-bg.png"
 import { removePre } from './../util/common'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Slider from "react-slick";
+import AOS from 'aos'; 
+import Typed from 'react-typed';
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.next = this.next.bind(this);
         this.previous = this.previous.bind(this);
+      }
+      componentDidMount() {
+        const isBrowser = typeof document !== "undefined";
+        const AOS = isBrowser ? require("aos") : undefined;
+    
+        this.aos = AOS;
+        this.aos.init();
+        
+    }
+      componentWillReceiveProps (){ 
+        AOS.refresh(); 
       }
       next() {
         this.slider.slickNext();
@@ -59,14 +72,8 @@ class Home extends Component {
          const testimonial = data.allWpCptuiTestimonial.edges;
          const recentpost = data.allWpPost.edges;
         const portfolio = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[1].orwPortfolioList;
-        // const slides = useRef(null);
-
-        // const next = () => {
-        //   slides.current.slickNext();
-        // }
-        // const previous = () => {
-        //   slides.current.slickPrev();
-        // }
+        var oldString = 'Make, Market, Maintain';
+        var mynewarray=oldString.split(',')
         var cmobprotlist = {
           dots: true,
           infinite: true,
@@ -103,12 +110,41 @@ class Home extends Component {
     
 
     <Header headernavclass="darkheader" />
-    <ServiceHero
+    {/* <ServiceHero
       title=""
       subText={header.genLeftDescription}
       image={header.genTwoSecImage.sourceUrl}
       background={"linear-gradient(-47deg, #0784a5, #03168e)"}
-    />
+    /> */}
+
+        <section>
+            <div className="page-banner" style={{ background: "linear-gradient(-47deg, #0784a5, #03168e)" }}>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-6 banner-content-wrap d-flex align-items-center">
+                            <div className="banner-content">
+                                <h1>We<br/>
+                                <Typed strings={mynewarray} 
+                          typeSpeed={120} 
+                          backSpeed={50}  
+                          cursorChar= {'_'} 
+                          loop /> 
+                          <br/>Websites
+                                </h1>
+                                <p dangerouslySetInnerHTML={{__html : header.genLeftDescription }} />
+                            </div>
+                        </div>
+                        <div className="col-md-6 banner-image-wrap">
+                            <div className="banner-image">
+                                {header.genTwoSecImage.sourceUrl !== null &&
+                                    <img src={header.genTwoSecImage.sourceUrl}  alt="Make Banner"/>
+                                }										
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     {/* Clients-section */}
     <OurClients clients={clientlogo} />
@@ -266,7 +302,7 @@ export const query = graphql`
                 ... on WpPage_Acfgenerallayout_GenContentModules_OurRecentWork {
                   orwTitle
                   orwPortfolioList {
-                    ... on WpCptui_portfolio {
+                    ... on WpCptuiPortfolio {
                       id
                       title
                       acfPortfolioLayout {

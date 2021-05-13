@@ -11,20 +11,17 @@ class Portfolio extends Component {
         const pcategoryid = parseInt(el.target.getAttribute("data-pcid"));
         const portfoliolist = data.allWpCptuiPortfolio.edges;
         var setlid;
-        // for(var i=0; i< portfoliolist.length; i++) {    
-        //     var test = portfoliolist[i].node.portfolio_category;
-        //     const catindex = test.indexOf(pcategoryid);
-        //     if(catindex > -1){
-        //         //console.log(portfoliolist[i].node.portfolio_category[catindex]);
-        //         if(pcategoryid == portfoliolist[i].node.portfolio_category[catindex]){                                      
-        //             setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'block';
-        //         }                
-        //     }
-        //     else {
-        //         setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'none';
-        //     }
+        for(var i=0; i< portfoliolist.length; i++) {    
+            const catindex = portfoliolist[i].node.cptuiPortfoliosCat.nodes[0].databaseId;
+            //const catindex = test.indexOf(pcategoryid);
+            if(pcategoryid == catindex){                                      
+                setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'block';
+            } 
+            else {
+                setlid = document.getElementsByClassName('portfoliolist')[i].style.display = 'none';
+            }
             
-        // }
+        }
     }
 
     allpid = (el) => {
@@ -39,9 +36,8 @@ class Portfolio extends Component {
         const seodata = data.allWpPage.edges[0].node.seo;
         const portfoliolist = data.allWpCptuiPortfolio.edges;
         const portcat = data.allWpCptuiPortfolioCat.edges ;
-        
-        // const sertech = data.allWpPage.edges[0].node;
-        //const portcat = data.allWpCptuiPortfolioCategory.edges        
+        //console.log(portfoliolist);
+             
         return(
             <Layout>
                 <SEO title={seodata.title} description={seodata.metaDesc}/>
@@ -78,7 +74,7 @@ class Portfolio extends Component {
                             <div className="all-portfolio-list">
                                 {portfoliolist.map((node,index) => (
                                     <div className="portfoliolist" key={index} 
-                                    // data-id={node.node.portfolio_category} onLoad={ (e) => this.allpid(e) }
+                                     data-id={node.node.cptuiPortfoliosCat.nodes[0].databaseId} onLoad={ (e) => this.allpid(e) }
                                     >                                        
                                         <div className="project">
                                             {node.node.featuredImage.node !== null && 
@@ -86,7 +82,8 @@ class Portfolio extends Component {
                                             }
                                             <div className="project-detail">
                                                 <h5 className="project-title">{node.node.title}</h5>
-                                                {/* <p className="category">{node.node.cptui_portfolios_cat.nodes[0].name}</p> */}
+                                                <p className="category">{node.node.cptuiPortfoliosCat.nodes[0].name}</p>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -126,9 +123,10 @@ export const query = graphql`
         edges {
           node {
             title
-            cptui_portfolios_cat {
+            cptuiPortfoliosCat {
                 nodes {
                   name
+                  databaseId
                 }
               }
             featuredImage {
@@ -136,6 +134,7 @@ export const query = graphql`
                 sourceUrl
               }
             }
+            
           }
         }
       }
