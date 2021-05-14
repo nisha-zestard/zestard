@@ -6,7 +6,7 @@ import SEO from "../components/seo";
 import Testimonials from '../components/TestiMonials';
 //import Credentails from '../components/Credentails';
 import OurClients from "../components/OurClients";
-import ServiceHero from "../components/ServiceHero";
+// import ServiceHero from "../components/ServiceHero";
 // import Slider from "react-slick";
 import Counterbg from "../images/counter-bg.png"
 import { removePre } from './../util/common'
@@ -131,7 +131,10 @@ class Home extends Component {
                           loop /> 
                           <br/>Websites
                                 </h1>
-                                <p dangerouslySetInnerHTML={{__html : header.genLeftDescription }} />
+                                {header.genLeftDescription !== null &&
+                                  <p dangerouslySetInnerHTML={{__html : header.genLeftDescription }} />
+                                }
+                                
                             </div>
                         </div>
                         <div className="col-md-6 banner-image-wrap">
@@ -204,7 +207,7 @@ class Home extends Component {
                                 {expertise.homeOeRightIcons.map((node,index) => (
                                     <li key={index}>
                                         {node.homeOeIcons.sourceUrl !== null &&
-                                        <Link to={`/${removePre(node.homeOeRpLinks)}`}><img src={node.homeOeIcons.sourceUrl} alt="f-logo-img" /></Link>
+                                        <Link to={node.homeOeRpLinks}><img src={node.homeOeIcons.sourceUrl} alt="f-logo-img" /></Link>
                                         }                                        
                                     </li>
                                 ))}                                
