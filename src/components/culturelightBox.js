@@ -15,6 +15,7 @@ const breakpointColumnsObj = {
   768: 2,
   500: 1
 };
+
 export default class CultureLightbox extends Component {
   static propTypes = {
     EventImages: PropTypes.array.isRequired, 
@@ -22,7 +23,7 @@ export default class CultureLightbox extends Component {
 
   constructor(props) {
     super(props);
-
+    console.log(props);
     this.state = {
       showLightbox: false,
       selectedImage: null,
@@ -31,56 +32,53 @@ export default class CultureLightbox extends Component {
       isOpen: false,
     };
   }
-    componentDidMount = () => {
-        window.addEventListener('keyup', this.handleKeyUp, false)
-    }
-    componentWillUnmount = () => {
-        window.removeEventListener('keyup', this.handleKeyUp, false)
-    }
-    handleClick = (e, image, index) => {
-        e.preventDefault()
-        this.setState({ showLightbox: true, selectedImage: image, selIndex: index })
-    }
-    
-    handleImageClick(i){
-      this.setState({ photoIndex: i, isOpen: true })
-    }
-    closeModal = () => {
-        this.setState({ showLightbox: false })
-    }    
-    goBack = () => {
-      this.setState({ selIndex: this.state.selIndex - 1 })
-    }    
-    goForward = () => {
-      this.setState({ selIndex: this.state.selIndex + 1 })
-    }    
-    handleKeyUp = e => {
-      e.preventDefault()
-      const { keyCode } = e
-      if (this.state.showLightbox) {
-        if (keyCode === 37) {
-          if (this.state.selIndex > 0) {
-              this.setState({ selIndex: this.state.selIndex - 1 })
-          }
-        }
-        if (keyCode === 39) {
-          if (this.state.selIndex < this.props.EventImages.length - 1) {
-              this.setState({ selIndex: this.state.selIndex + 1 })
-          }
-        }
-        if (keyCode === 27) {
-          this.setState({ showLightbox: false })
+  componentDidMount = () => {
+      window.addEventListener('keyup', this.handleKeyUp, false);
+  }
+  componentWillUnmount = () => {
+      window.removeEventListener('keyup', this.handleKeyUp, false);
+  }
+  handleClick = (e, image, index) => {
+      e.preventDefault();
+      this.setState({ showLightbox: true, selectedImage: image, selIndex: index });
+  }
+  
+  handleImageClick(i){
+    this.setState({ photoIndex: i, isOpen: true });
+  }
+  closeModal = () => {
+      this.setState({ showLightbox: false });
+  }    
+  goBack = () => {
+    this.setState({ selIndex: this.state.selIndex - 1 });
+  }    
+  goForward = () => {
+    this.setState({ selIndex: this.state.selIndex + 1 });
+  }    
+  handleKeyUp = e => {
+    e.preventDefault();
+    const { keyCode } = e;
+    if (this.state.showLightbox) {
+      if (keyCode === 37) {
+        if (this.state.selIndex > 0) {
+            this.setState({ selIndex: this.state.selIndex - 1 });
         }
       }
+      if (keyCode === 39) {
+        if (this.state.selIndex < this.props.EventImages.length - 1) {
+            this.setState({ selIndex: this.state.selIndex + 1 });
+        }
+      }
+      if (keyCode === 27) {
+        this.setState({ showLightbox: false });
+      }
     }
+  }
 
   render() {
     const { EventImages } = this.props;
-    const { photoIndex, isOpen, showLightbox, selIndex } = this.state;
-    
+    const { photoIndex, isOpen, showLightbox, selIndex } = this.state;    
     const images = [];  
-    
-    
     
     return (      
       <Fragment>
@@ -91,20 +89,7 @@ export default class CultureLightbox extends Component {
                 <div className="culture-wrapper card">
                   <div className="speaks">                    
                     <div className="previewButton" key={i} type="button" onClick={e => this.handleClick(e, image, i) }>
-                    <img className="img-responsive" alt="Culture" loading="lazy" src={image.sourceUrl} onClick={e => this.handleImageClick(i) } />
-                      {/* {image.sourceUrl.match(/\.(jpeg|jpg|png|gif)$/) != null && 
-                        <img className="img-responsive" alt="Culture" loading="lazy" src={image.sourceUrl} onClick={e => this.handleImageClick(i) } />                           
-                      } */}
-                      {/* {image.sourceUrl.match(/\.(mp4|mov|mpeg|webm)$/) != null && 
-                        <ReactPlayer
-                          url={image.sourceUrl}
-                          volume='1'
-                          muted
-                          width='100%'
-                          playing={true}
-                        />
-                        } */}
-                      
+                      <img className="img-responsive" alt="Culture" loading="lazy" src={image.sourceUrl} onClick={e => this.handleImageClick(i) } />                     
                     </div>                              
                   </div>
                 </div>
@@ -143,35 +128,19 @@ export default class CultureLightbox extends Component {
                     {EventImages.map((image, i) => (                     
                       <div>
                         <img src={image.sourceUrl} alt="img" loading="lazy" className="slbImage"/>
-                        {/* {image.source_url.match(/\.(jpeg|jpg|png|gif)$/) != null && 
-                        <img src={image.source_url} alt="img" loading="lazy" className="slbImage"/>
-                        } 
-                        {image.source_url.match(/\.(mp4|mov|mpeg|webm)$/) != null && 
-                        <ReactPlayer
-                          url={image.source_url}
-                          volume='1'
-                          muted
-                          width='100%'
-                          playing={true}
-                        />
-                        } */}
-                      {/* <img src={image.source_url} alt="img" loading="lazy" className="slbImage"/> */}
                       </div>                    
                     ))}
-                    </Carousel>
+                  </Carousel>
                   </div>
                 </div>
-                <button type="button" title="Close" className="slbCloseBtn "
-                  onClick={this.closeModal}>×</button>
+                <button type="button" title="Close" className="slbCloseBtn " onClick={this.closeModal}>×</button>
                 <div className="slbArrows">
-                  <button type="button" title="Previous" className="prev slbArrow"
-                   onClick={this.goBack} disabled={selIndex === 0}>
-                      <i className='fas fa-caret-left'></i>
-                   </button>
-                  <button type="button" title="Next" className="next slbArrow"
-                   onClick={this.goForward} disabled={selIndex === EventImages.length - 1}>
-                     <i className='fas fa-caret-right'></i>
-                   </button>
+                  <button type="button" title="Previous" className="prev slbArrow" onClick={this.goBack} disabled={selIndex === 0}>
+                    <i className='fas fa-caret-left'></i>
+                  </button>
+                  <button type="button" title="Next" className="next slbArrow" onClick={this.goForward} disabled={selIndex === EventImages.length - 1}>
+                    <i className='fas fa-caret-right'></i>
+                  </button>
                 </div>
               </div>
             </div>

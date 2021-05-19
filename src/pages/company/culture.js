@@ -8,7 +8,8 @@ import SEO from "../../components/seo"
 
 class Culture extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+    // console.log(props);
     this.state = {
       active: 0,
     }
@@ -28,6 +29,7 @@ class Culture extends Component {
         plist[k].style.display = "none";
       }
     }
+    console.log(culturelist);
   }
 
   setActive = (activeIndex) => {
@@ -75,12 +77,8 @@ class Culture extends Component {
                 <div className="col-sm-12 year-list">
                   <ul>
                     {culcat.map((node, index) => (
-                      <li
-                        culcat-id={node.node.databaseId}
-                        key={index}
-                        onClick={(e) => getpcid(e, index)}
-                        className={index == this.state.active ? "cat-year-list active" : "cat-year-list"}
-                      >
+                      <li culcat-id={node.node.databaseId} key={index} onClick={(e) => getpcid(e, index)}
+                        className={index == this.state.active ? "cat-year-list active" : "cat-year-list"} >
                         {node.node.name}
                       </li>
                     ))}
@@ -89,17 +87,11 @@ class Culture extends Component {
                 {culturelist.map(({ node }) => (
                   <div
                     className="col-lg-4 col-md-6 col-sm-6 culture-box-wrap culture-list"
-                    key={node.id}
-                    data-id={node.cptuiCultureCats.nodes[0].name}
-                  >
+                    key={node.id} data-id={node.cptuiCultureCats.nodes[0].name} >
                     <div className="events-wrapper card shadow-sm rounded">
                       {node.featuredImage.node !== null && (
-                          <div
-                            className="gallery-image"
-                            style={{
-                              backgroundImage: `url(${node.featuredImage.node.sourceUrl})`,
-                            }}
-                          >
+                          <div className="gallery-image"
+                            style={{ backgroundImage: `url(${node.featuredImage.node.sourceUrl})`, }} >
                             <div className="view-more">
                               <Link to={node.link}>
                                 View All
