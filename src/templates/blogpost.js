@@ -26,8 +26,7 @@ class PostTemplate extends Component {
           }
     }
   render() {
-    const data = this.props.data
-    
+    const data = this.props.data;    
     const post = data.wpPost;
     
     return (

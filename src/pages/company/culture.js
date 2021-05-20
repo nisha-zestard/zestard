@@ -8,8 +8,7 @@ import SEO from "../../components/seo"
 
 class Culture extends Component {
   constructor(props) {
-    super(props);
-    // console.log(props);
+    super(props);    
     this.state = {
       active: 0,
     }
@@ -18,7 +17,7 @@ class Culture extends Component {
   componentDidMount() {
     const data = this.props.data;
     const culturelist = data.allWpCptuiCulture.edges;
-
+    console.log(culturelist);
     const pcategoryid = data.allWpCptuiCultureCat.edges[0].node.databaseId;
 
     const plist = document.getElementsByClassName("culture-list");
@@ -29,7 +28,6 @@ class Culture extends Component {
         plist[k].style.display = "none";
       }
     }
-    console.log(culturelist);
   }
 
   setActive = (activeIndex) => {
@@ -42,14 +40,12 @@ class Culture extends Component {
     const bannerdata = data.wpPage.acfHeader;
     const culturelist = data.allWpCptuiCulture.edges;
     const culcat = data.allWpCptuiCultureCat.edges;
-    console.log(culturelist);
 
-    const getpcid = (el, index) => {
+    var getpcid = (el, index) => {
       const pcategoryid = el.target.getAttribute("culcat-id");
       this.setActive(index)
       var setlid;
       for (var i = 0; i < culturelist.length; i++) {
-        console.log(pcategoryid);
         if (pcategoryid == culturelist[i].node.cptuiCultureCats.nodes[0].databaseId) {
           setlid = document.getElementsByClassName("culture-list")[i].style.display = "block";
         } else {

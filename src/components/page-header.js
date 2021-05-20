@@ -9,7 +9,7 @@ class PageHeader extends Component {
             headerSectionTitle,
             headerPageTitle,
         } = this.props;
-        console.log(headerMascot);
+        
         return (
             <section>
                 <div className="page-header">
