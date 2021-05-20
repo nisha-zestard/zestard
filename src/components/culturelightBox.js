@@ -7,7 +7,7 @@ import Modal from 'react-bootstrap/Modal'
 // import ImageGallery from 'react-image-gallery';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import ReactPlayer from 'react-player';
+// import ReactPlayer from 'react-player';
 
 const breakpointColumnsObj = {
   default: 3,
@@ -17,13 +17,13 @@ const breakpointColumnsObj = {
 };
 
 export default class CultureLightbox extends Component {
-  static propTypes = {
-    EventImages: PropTypes.array.isRequired, 
-  }
+  
+  // static propTypes = {
+  //   EventImages: PropTypes.array.isRequired, 
+  // }
 
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       showLightbox: false,
       selectedImage: null,

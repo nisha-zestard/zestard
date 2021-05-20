@@ -36,7 +36,6 @@ class Portfolio extends Component {
         const seodata = data.allWpPage.edges[0].node.seo;
         const portfoliolist = data.allWpCptuiPortfolio.edges;
         const portcat = data.allWpCptuiPortfolioCat.edges ;
-        //console.log(portfoliolist);
              
         return(
             <Layout>
