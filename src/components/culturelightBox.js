@@ -18,9 +18,9 @@ const breakpointColumnsObj = {
 
 export default class CultureLightbox extends Component {
   
-  // static propTypes = {
-  //   EventImages: PropTypes.array.isRequired, 
-  // }
+  static propTypes = {
+    EventImages: PropTypes.array.isRequired, 
+  }
 
   constructor(props) {
     super(props);

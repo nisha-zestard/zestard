@@ -58,13 +58,11 @@ class Contact extends Component {
     this.setState({ errors });
     return Object.keys(errors).length === 0;
   }
-
   handleChange = (event) => {
       event.preventDefault();
       const { name, value } = event.target;
       this.setState({[name]: value});
   }
-
   handleSubmit = (event) => {
     event.preventDefault();
     if(this.allFieldsValid()) {
