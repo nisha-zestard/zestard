@@ -110,7 +110,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const removePre = (url) => {
       var path = url.replace (/^[a-z]{5}:\/{2}[a-z]{1,}\.[a-z]{3}.(.*)/, '$1');
       const newUrl = path.substr(path.indexOf('/', 7) + 1);
-      console.log("new url---"+newUrl);
+      // console.log("new url---"+newUrl);
       return newUrl;
     }
     
@@ -123,7 +123,7 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       })
 
-      console.log(edge.node.path);
+      // console.log(edge.node.path);
     //  }
 
   })
