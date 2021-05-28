@@ -102,25 +102,28 @@ exports.createPages = async ({ graphql, actions }) => {
   const BlogEventTemplate = path.resolve(`./src/templates/blogEvent.js`)
   const postTemplate = path.resolve(`./src/templates/blogpost.js`)
   const BlogPosts = path.resolve(`./src/templates/blog.js`)
-  // const ServiceTemplate = path.resolve(`./src/templates/services.js`)
+  const ServiceTemplate = path.resolve(`./src/templates/services.js`)
 
   // Creating pages for Services
 
   allWpPage.edges.forEach(edge => {
     const removePre = (url) => {
       var path = url.replace (/^[a-z]{5}:\/{2}[a-z]{1,}\.[a-z]{3}.(.*)/, '$1');
-      const newUrl = path.substr(path.indexOf('/', 7) + 1)
+      const newUrl = path.substr(path.indexOf('/', 7) + 1);
+      console.log("new url---"+newUrl);
       return newUrl;
     }
-
+    
     // if(edge.node.path.indexOf('services') > -1) {
-    //   createPage({
-    //     path: `${edge.node.path}`,
-    //     component: slash(ServiceTemplate),
-    //     context: {
-    //       id: edge.node.wordpress_id,
-    //     },
-    //   })
+      createPage({
+        path: `${edge.node.path}`,
+        component: slash(ServiceTemplate),
+        context: {
+          id: edge.node.wordpress_id,
+        },
+      })
+
+      console.log(edge.node.path);
     //  }
 
   })
