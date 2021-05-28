@@ -7,34 +7,32 @@ import { removePre } from "./../../util/common"
 import SEO from "../../components/seo"
 
 class Culture extends Component {
-  constructor(props) {
-    super(props);
-    // console.log(props);
-    this.state = {
-      active: 0,
-    }
-  }
+  // constructor(props) {
+  //   super(props);    
+  //   this.state = {
+  //     active: 0,
+  //   }
+  // }
 
-  componentDidMount() {
-    const data = this.props.data;
-    const culturelist = data.allWpCptuiCulture.edges;
+  // componentDidMount() {
+  //   const data = this.props.data;
+  //   const culturelist = data.allWpCptuiCulture.edges;
+  //   console.log(culturelist);
+  //   const pcategoryid = data.allWpCptuiCultureCat.edges[0].node.databaseId;
 
-    const pcategoryid = data.allWpCptuiCultureCat.edges[0].node.databaseId;
+  //   const plist = document.getElementsByClassName("culture-list");
+  //   for (var k = 0; k < plist.length; k++) {
+  //     if (pcategoryid == culturelist[k].node.cptuiCultureCats.nodes[0].databaseId) {
+  //       plist[k].style.display = 'block';
+  //     } else {
+  //       plist[k].style.display = "none";
+  //     }
+  //   }
+  // }
 
-    const plist = document.getElementsByClassName("culture-list");
-    for (var k = 0; k < plist.length; k++) {
-      if (pcategoryid == culturelist[k].node.cptuiCultureCats.nodes[0].databaseId) {
-        plist[k].style.display = 'block';
-      } else {
-        plist[k].style.display = "none";
-      }
-    }
-    console.log(culturelist);
-  }
-
-  setActive = (activeIndex) => {
-    this.setState({ active: activeIndex });
-  }
+  // setActive = (activeIndex) => {
+  //   this.setState({ active: activeIndex });
+  // }
 
   render() {
     const data = this.props.data;
@@ -42,21 +40,19 @@ class Culture extends Component {
     const bannerdata = data.wpPage.acfHeader;
     const culturelist = data.allWpCptuiCulture.edges;
     const culcat = data.allWpCptuiCultureCat.edges;
-    console.log(culturelist);
 
-    const getpcid = (el, index) => {
-      const pcategoryid = el.target.getAttribute("culcat-id");
-      this.setActive(index)
-      var setlid;
-      for (var i = 0; i < culturelist.length; i++) {
-        console.log(pcategoryid);
-        if (pcategoryid == culturelist[i].node.cptuiCultureCats.nodes[0].databaseId) {
-          setlid = document.getElementsByClassName("culture-list")[i].style.display = "block";
-        } else {
-          setlid = document.getElementsByClassName("culture-list")[i].style.display = "none";
-        }
-      }
-    }
+    // var getpcid = (el, index) => {
+    //   const pcategoryid = el.target.getAttribute("culcat-id");
+    //   this.setActive(index)
+    //   var setlid;
+    //   for (var i = 0; i < culturelist.length; i++) {
+    //     if (pcategoryid == culturelist[i].node.cptuiCultureCats.nodes[0].databaseId) {
+    //       setlid = document.getElementsByClassName("culture-list")[i].style.display = "block";
+    //     } else {
+    //       setlid = document.getElementsByClassName("culture-list")[i].style.display = "none";
+    //     }
+    //   }
+    // }
 
     return (
       <Layout>
@@ -75,14 +71,14 @@ class Culture extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-sm-12 year-list">
-                  <ul>
+                  {/* <ul>
                     {culcat.map((node, index) => (
                       <li culcat-id={node.node.databaseId} key={index} onClick={(e) => getpcid(e, index)}
                         className={index == this.state.active ? "cat-year-list active" : "cat-year-list"} >
                         {node.node.name}
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
                 </div>
                 {culturelist.map(({ node }) => (
                   <div

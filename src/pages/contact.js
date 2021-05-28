@@ -58,24 +58,21 @@ class Contact extends Component {
     this.setState({ errors });
     return Object.keys(errors).length === 0;
   }
-
   handleChange = (event) => {
       event.preventDefault();
       const { name, value } = event.target;
-      console.log(value);
       this.setState({[name]: value});
   }
-
   handleSubmit = (event) => {
     event.preventDefault();
     if(this.allFieldsValid()) {
-      const { fullname, email, phone, subject,message } = this.state;
+      const { fullname, email, phone, subject, message } = this.state;
       axios.post('https://phptasks.com/zestard-mmm/wp-json/zestard/v1/contact', {
         'fullname': fullname,
         'email': email,
         'phone': phone,
         'subject': subject,
-        'message': message  
+        'message': message,  
       })
       .then((response) => {            
         this.setState({
@@ -84,7 +81,7 @@ class Contact extends Component {
         });
       })
       .catch((error) => {
-        console.log("error---"+error);
+        console.log(error);
       });
     } else {
       this.setState({
@@ -96,7 +93,7 @@ class Contact extends Component {
 
 
   render() {
-    const data = this.props.data
+    const data = this.props.data;
     const seodata = data.allWpPage.edges[0].node.seo;
     const bannerdata = data.allWpPage.edges[0].node.acfHeader;
     const testimonial = data.allWpCptuiTestimonial.edges;

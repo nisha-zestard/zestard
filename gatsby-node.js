@@ -113,8 +113,10 @@ exports.createPages = async ({ graphql, actions }) => {
       console.log("new url---"+newUrl);
       return newUrl;
     }
+
     
     // if(edge.node.path.indexOf('services') > -1) {
+
       createPage({
         path: `${edge.node.path}`,
         component: slash(ServiceTemplate),
@@ -123,8 +125,10 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       })
 
+
       console.log(edge.node.path);
     //  }
+
 
   })
 

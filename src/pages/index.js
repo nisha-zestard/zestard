@@ -63,42 +63,42 @@ class Home extends Component {
 
             ]
           }
-        const data = this.props.data
-         const header = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[0];
-         const clientlogo = data.allWpCptuiClient.edges;
-         const seotd = data.allWpPage.edges[0].node.seo;
-         const expertise = data.allWpPage.edges[0].node.acfHomeLayout.homeContentModules[0];
-         const counter = data.allWp.edges[0].node.counterSettings.acfCounterSettings.csCounterDetails;
-         const testimonial = data.allWpCptuiTestimonial.edges;
-         const recentpost = data.allWpPost.edges;
-        const portfolio = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[1].orwPortfolioList;
-        var oldString = 'Make, Market, Maintain';
-        var mynewarray=oldString.split(',')
-        var cmobprotlist = {
-          dots: true,
-          infinite: true,
-          autoplay: true,
-          speed: 500,
-          slidesToShow: 1,
-          arrow: false,
-          slidesToScroll: 1,
-          responsive: [
-              {
-                  breakpoint: 500,
+          const data = this.props.data
+          const header = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[0];
+          const clientlogo = data.allWpCptuiClient.edges;
+          const seotd = data.allWpPage.edges[0].node.seo;
+          const expertise = data.allWpPage.edges[0].node.acfHomeLayout.homeContentModules[0];
+          const counter = data.allWp.edges[0].node.counterSettings.acfCounterSettings.csCounterDetails;
+          const testimonial = data.allWpCptuiTestimonial.edges;
+          const recentpost = data.allWpPost.edges;
+          const portfolio = data.allWpPage.edges[0].node.acfGeneralLayout.genContentModules[1].orwPortfolioList;
+          var oldString = 'Make, Market, Maintain';
+          var mynewarray=oldString.split(',');
+          var cmobprotlist = {
+            dots: true,
+            infinite: true,
+            autoplay: true,
+            speed: 500,
+            slidesToShow: 1,
+            arrow: false,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 500,
+                    settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1, 
+                    }
+                  },
+                {
+                  breakpoint: 420,
                   settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1, 
                   }
-                },
-              {
-                breakpoint: 420,
-                settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1, 
                 }
-              }
-          ]
-      };
+            ]
+          };
         
         
   return(
@@ -245,28 +245,27 @@ class Home extends Component {
       <div className="news-Blog-section">
         <div className="container">
           <div className="title text-center">
-              <h2>Read Our Latest News & Blog</h2>
+            <h2>Read Our Latest News & Blog</h2>
           </div>
           <div className="row">
-              {recentpost.map((node,index)=>(
-                <div className="col-md-4" key={index}>
-                  <div className="box">
-                    <div className="blog-image">
-                        {node.node.featuredImage.node !== null  &&
-                            <img src={node.node.featuredImage.node.sourceUrl} alt="top-img" />
-                        }   
-                    </div>                       
-                    <ul>
-                        <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.node.name}</li>
-                        <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.date}</li>
-                    </ul>
-                    
-                    <div className="blog-title">
-                        <h2><Link to={`/blog/${removePre(node.node.link)}`} className="read-more">{node.node.title}</Link></h2>
-                    </div>                                
-                  </div>
+            {recentpost.map((node,index)=>(
+              <div className="col-md-4" key={index}>
+                <div className="box">
+                  <div className="blog-image">
+                    {node.node.featuredImage.node !== null  &&
+                      <img src={node.node.featuredImage.node.sourceUrl} alt="top-img" />
+                    }   
+                  </div>                       
+                  <ul>
+                    <li><span><i className="fa fa-user" aria-hidden="true"></i></span>{node.node.author.node.name}</li>
+                    <li><span><i className="fa fa-calendar" aria-hidden="true"></i></span>{node.node.date}</li>
+                  </ul>                    
+                  <div className="blog-title">
+                    <h2><Link to={`/blog/${removePre(node.node.link)}`} className="read-more">{node.node.title}</Link></h2>
+                  </div>                                
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>
