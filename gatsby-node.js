@@ -102,7 +102,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const BlogEventTemplate = path.resolve(`./src/templates/blogEvent.js`)
   const postTemplate = path.resolve(`./src/templates/blogpost.js`)
   const BlogPosts = path.resolve(`./src/templates/blog.js`)
-  const ServiceTemplate = path.resolve(`./src/templates/services.js`)
+  // const ServiceTemplate = path.resolve(`./src/templates/services.js`)
 
   // Creating pages for Services
 
@@ -117,13 +117,13 @@ exports.createPages = async ({ graphql, actions }) => {
     
     // if(edge.node.path.indexOf('services') > -1) {
 
-      createPage({
-        path: `${edge.node.path}`,
-        component: slash(ServiceTemplate),
-        context: {
-          id: edge.node.wordpress_id,
-        },
-      })
+      // createPage({
+      //   path: `${edge.node.path}`,
+      //   component: slash(ServiceTemplate),
+      //   context: {
+      //     id: edge.node.wordpress_id,
+      //   },
+      // })
 
 
       // console.log(edge.node.path);
