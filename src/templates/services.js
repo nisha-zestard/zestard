@@ -9,22 +9,29 @@ import SEO from '../components/seo'
 class ServiceTemplate extends Component {
   
     render() {
-      const data = this.props.data
+
+      const data = this.props.data;
+      console.log(data);
+
     //   const acfData = data.allWpPage.edges[0].node.acf;
     //   const sertech = data.allWpPage.edges[0].node;
       return (
         <>
         <SEO title="Services"/>
-        {/* <Header headernavclass="lightheader" />
+
+        <Header headernavclass="lightheader" />
             <div id="page" className="site">
                 <div id="content" className="site-content">
-                    <PageHeader
+                    {/* <PageHeader
+
                         headerMascot = {acfData.header_mascot}
                         headerSubText = {acfData.header_sub_text}
                         headerSectionTitle={acfData.header_section_title}
                         headerPageTitle={acfData.header_page_title}
-                    />
-                    {acfData.sl_content_module_page !== null &&
+
+                    /> */}
+                    {/* {acfData.sl_content_module_page !== null &&
+
                     <div className="technology-page">
                     {acfData.sl_content_module_page.map(( node, index ) => (
                        <Technology 
@@ -36,14 +43,16 @@ class ServiceTemplate extends Component {
                         key = {index}
                        />
                     ))}
-                    </div>}
-                    {sertech !== null &&
+
+                    </div>} */}
+                    {/* {sertech !== null &&
                       <ServiceTech 
                         sections = {sertech}
                       />
-                    }
+                    } */}
                 </div>
-            </div> */}
+            </div>
+
         </>
         )
   }

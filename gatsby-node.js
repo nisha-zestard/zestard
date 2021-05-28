@@ -109,11 +109,14 @@ exports.createPages = async ({ graphql, actions }) => {
   allWpPage.edges.forEach(edge => {
     const removePre = (url) => {
       var path = url.replace (/^[a-z]{5}:\/{2}[a-z]{1,}\.[a-z]{3}.(.*)/, '$1');
-      const newUrl = path.substr(path.indexOf('/', 7) + 1)
+      const newUrl = path.substr(path.indexOf('/', 7) + 1);
+      console.log("new url---"+newUrl);
       return newUrl;
     }
-    console.log(edge.node.path);
-    if(edge.node.path.indexOf('services') > -1) {
+
+    
+    // if(edge.node.path.indexOf('services') > -1) {
+
       createPage({
         path: `${edge.node.path}`,
         component: slash(ServiceTemplate),
@@ -121,7 +124,11 @@ exports.createPages = async ({ graphql, actions }) => {
           id: edge.node.wordpress_id,
         },
       })
-     }
+
+
+      console.log(edge.node.path);
+    //  }
+
 
   })
 

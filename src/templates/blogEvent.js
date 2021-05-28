@@ -70,7 +70,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    wpCptuiCulture {
+    wpCptuiCulture(databaseId: {eq: $id}) {
       acfEventslayout {
         elGallery {
           mimeType

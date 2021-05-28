@@ -113,7 +113,7 @@ export default Culture
 
 export const query = graphql`
   {
-    allWpCptuiCultureCat {
+    allWpCptuiCultureCat(sort: {order: DESC, fields: databaseId}) {
       edges {
         node {
           name

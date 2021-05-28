@@ -79,6 +79,7 @@ export default class CultureLightbox extends Component {
     const { EventImages } = this.props;
     const { photoIndex, isOpen, showLightbox, selIndex } = this.state;    
     const images = [];  
+    console.log(EventImages);
     
     return (      
       <Fragment>
@@ -124,7 +125,10 @@ export default class CultureLightbox extends Component {
               <div className="slbContentOuter">
                 <div className="slbContent">
                   <div className="slbImageWrap">                    
-                  <Carousel>
+                  <Carousel selectedItem={photoIndex}>
+                    {/* <div>
+                      <img src={EventImages[photoIndex].sourceUrl} alt="img" loading="lazy" className="slbImage"/>
+                    </div>   */}
                     {EventImages.map((image, i) => (                     
                       <div>
                         <img src={image.sourceUrl} alt="img" loading="lazy" className="slbImage"/>
