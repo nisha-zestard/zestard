@@ -523,6 +523,11 @@
                     margin: 0;
                 }
             }
+            &.mob-client-logo {
+                img {
+                    margin: 0 auto;
+                }
+            }
         }
     }
 }

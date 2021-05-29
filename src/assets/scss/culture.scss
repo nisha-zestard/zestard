@@ -144,6 +144,10 @@
                         left: 15vw;
                         height: 70vh;
                         top: 10vh;
+                        @media screen and (max-width: 767px) {
+                            width: 90vw;
+                            left: 5vw;
+                        }
                         .slbArrows{ 
                             display: none;
                         }
@@ -175,11 +179,19 @@
                                         }
                                     }
                                     .carousel{
+                                        .thumbs {
+                                            margin-bottom: 0;
+                                        }
                                         .thumb{
                                             width: 100px !important;
                                             padding-bottom: 5%;
                                             overflow: hidden;
                                             position: relative;
+                                            margin-bottom: 0;
+
+                                            @media screen and (max-width: 991px) {
+                                                padding-bottom: 10%;
+                                            }
                                             img{
                                                 border: 0;
                                                 position: absolute;
@@ -187,6 +199,9 @@
                                                 left: 0;
                                                 object-fit: cover;
                                             }
+                                        }
+                                        .thumbs-wrapper {
+                                            margin-bottom: 0;
                                         }
                                     }
                                 }
