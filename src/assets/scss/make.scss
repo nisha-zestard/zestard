@@ -403,6 +403,11 @@
     }
     .portfolio-list{
         margin: 0;
+
+        .slick-arrow {
+            display: none;
+        }
+
         .portfolio-wrap{
             position: relative;
             @media #{$small-screen}{

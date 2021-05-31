@@ -39,6 +39,10 @@
                     margin-bottom: 15px;
                 }
             }
+            div {
+                max-width: 500px;
+                margin: 0 auto;
+            }
             .start-pro-btn{
                 display: inline-block;
                 background-color: $dark-gray;

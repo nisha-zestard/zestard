@@ -295,6 +295,12 @@
         list-style: none;
         display: flex;
         justify-content: flex-end;
+
+        @media screen and (max-width: 767px) {
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-left: 0;
+        }
         li{
             margin: 0 15px;
             cursor: pointer; 
@@ -302,6 +308,10 @@
                 margin-right: 0;
             }
         }
+    }
+
+    .slick-dots {
+        justify-content: center;
     }
 }
 .portfolio-boxes{
